@@ -129,9 +129,7 @@ const NewFooter = () => {
                     eden@eden-digital.co.il
                   </a>
                 </li>
-                <li className=" rounded-lg py-2 px-2 hover:bg-white hover:text-black">
-                  <a href="tel:0545899899">054-589-9899</a>
-                </li>
+
                 <li className=" rounded-lg py-2 px-2  hover:bg-white hover:text-black">
                   <p>תל אביב</p>
                 </li>

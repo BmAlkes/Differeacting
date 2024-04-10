@@ -1,5 +1,4 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
-import postPic from "../../assets/post.mp4";
 import { Link } from "react-router-dom";
 
 const Posts = () => {
@@ -7,13 +6,10 @@ const Posts = () => {
   console.log(document);
   return (
     <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-0  lg:mt-0 ">
-      <video
-        src={postPic}
-        autoPlay
-        muted
-        playsInline
-        loop
-        className=" w-full z-10"
+      <img
+        src="https://res.cloudinary.com/landingpage2/image/upload/v1712766602/social2_jytfzf.jpg"
+        alt=" services banner"
+        className="h-[350px] object-cover md:h-auto"
       />
       <h2 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
         פוסטים

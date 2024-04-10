@@ -62,6 +62,11 @@ const Header = () => {
                 מי אנחנו
               </Link>
             </li>
+            <li className="nav relative">
+              <Link to="/service" aria-label="about page">
+                שירותים שלנו
+              </Link>
+            </li>
 
             <li className="nav relative">
               <Link to="/services" aria-label="services page">
@@ -147,6 +152,16 @@ const Header = () => {
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>מי אנחנו</li>
+                      </Link>
+                      <Link
+                        aria-label="about website"
+                        onClick={handleClose}
+                        to="/services"
+                        className={`text-white ${
+                          direction === "rtl" ? "text-right" : "text-left"
+                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                      >
+                        <li>שרותים שלנו</li>
                       </Link>
                       <Link
                         aria-label="services website"

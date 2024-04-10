@@ -25,12 +25,9 @@ const Home = () => {
       }}
     >
       <Hero />
-
       <About />
-
       <Projects />
       <Reccomend />
-
       <ScrollUp />
       <WhatsApp />
     </motion.div>

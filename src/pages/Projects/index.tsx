@@ -3,7 +3,7 @@ import OpenCards from "../../components/openCards";
 import ScrollUp from "../../components/scrollup";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import projects from "../../assets/seo.mp4";
+
 import WhatsApp from "../../components/whatsappscroll";
 
 const Projects = () => {
@@ -22,20 +22,14 @@ const Projects = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
-      <section className=" bg-[#030B0F]   mt-[96px] rel relative">
-        <video
-          src={projects}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h"
-        ></video>
-      </section>
-      <section className="bg-[#030B0F] h-full pt-8 ">
-        <div className="container ">
-          <OpenCards />
-        </div>
+      <section className=" bg-[#000000]   mt-[96px] rel relative">
+        <img
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1712766598/projectss_udibmm.jpg"
+          alt=" services banner"
+          className="h-[350px] object-cover md:h-auto"
+        />
+
+        <OpenCards />
       </section>
       <ScrollUp />
       <WhatsApp />

@@ -17,6 +17,7 @@ import DevelopmentPage from "./pages/DevelopmentPage";
 import ServerPage from "./pages/ServerPage";
 import Posts from "./pages/Posts";
 import Post from "./pages/Posts/post";
+import Service from "./pages/Service";
 
 AOS.init();
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/service" element={<Service />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<Post />} />
