@@ -19,9 +19,9 @@ const Hero = () => {
 
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
-      <div className="flex flex-col lg:flex-row h-full container w-full mx-auto">
+      <div className="flex flex-col lg:flex-row lg:gap-40  h-full container w-full mx-auto">
         <div
-          className="w-full h-full flex flex-col justify-center z-20 mt-8 md:mt-5"
+          className="w-full h-full flex flex-col justify-center z-50 mt-8 md:mt-5"
           data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="3000"
@@ -61,9 +61,9 @@ const Hero = () => {
           data-aos-duration="1500"
         >
           <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1710178428/Graphic_for_header_1_1_zry1wr.png"
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
             alt="background hero"
-            className="lg:h-full lg:object-center object-cover object-left   overflow-visible w-full h-[300px] md:h-[900px]"
+            className="lg:h-full  object-cover   overflow-visible  h-[300px] md:h-[900px] z-10"
           />
         </div>
       </div>
