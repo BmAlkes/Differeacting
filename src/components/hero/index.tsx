@@ -55,17 +55,12 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
-            alt="background hero"
-            className="lg:h-full  object-cover   overflow-visible  h-[300px] md:h-[900px] z-10"
-          />
-        </div>
+
+        <img
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
+          alt="background hero"
+          className="lg:h-full  object-cover   overflow-visible  h-[300px] md:h-[900px] z-10"
+        />
       </div>
     </section>
   );
