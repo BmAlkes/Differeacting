@@ -60,7 +60,7 @@ const About = () => {
         <img
           src={vetor}
           alt="backgroun"
-          className="absolute right-0  rotate-180  overflow-visible z-10 bottom-[-200px]"
+          className="absolute right-0  rotate-180  overflow-visible z-10 bottom-[-400px]"
         />
 
         <div
