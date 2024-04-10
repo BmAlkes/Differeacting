@@ -60,44 +60,30 @@ const Contact = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
-      <section className=" lg:pt-5  lg:h-screen h-full bg-[#030B0F] relative py-16 lg:py-0 mt-[96px] lg:mt-0  ">
-        <div className="container h-full  mx-auto flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
-          <div
-            className="flex items-center justify-center w-full"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="3000"
-          >
-            <img
-              src={Secimg}
-              alt=""
-              className="w-full max-w-[500px] lg:h-[500px] object-cover  rounded-3xl "
-            />
-          </div>
-          <div
-            className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="2500"
-          >
-            <h2 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-center lg:text-right">
-              Differeacting
-            </h2>
-            <p className="text-base   my-5  text-justify ">
-              אנו ב- <span className="text-[#6FCFED] ">Differeacting</span>{" "}
-              מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. אנו כאן כדי לענות על כל
-              שאלה, לספק מידע נוסף על השירותים והמוצרים שלנו, או לקבל ממך משוב
-              כדי לשפר את השירות שלנו.
-            </p>
-            <p className="text-base   my-5  text-justify ">
-              אתה מוזמן ליצור קשר באחת מהדרכים הבאות, ונחזור אליך בהקדם: טלפון.
-              דוא"ל. וואטסאפ. שעות פעילות שלנו הן:
-              <br /> ימים א'-ה': 09:00 - 18:00 תוכלו גם למלא את טופס צור קשר
-              שלהלן, ואנו נחזור בהקדם האפשרי: אנו מחויבים לספק לך שירות מצוין
-              ולהיות זמינים לכל שאלה או בקשה. תודה שבחרת ב-
-              <span className="text-[#6FCFED] ">Differeacting.</span>
-            </p>
-          </div>
+      <section className=" lg:pt-5  lg:full h-full bg-[#030B0F] relative  lg:py-0 mt-[96px] lg:mt-0  ">
+        <img
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1712767695/blog-text-notebook-with-keybard-coffee-table_jbzw5m.jpg"
+          alt=" services banner"
+          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
+        />
+        <div className="container h-full py-16  mx-auto flex flex-col   items-center  justify-center z-10">
+          <h2 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-center lg:text-right">
+            Differeacting
+          </h2>
+          <p className="text-base  text-center  my-5   text-white ">
+            אנו ב- <span className="text-[#6FCFED] ">Differeacting</span>{" "}
+            מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. אנו כאן כדי לענות על כל
+            שאלה, לספק מידע נוסף על השירותים והמוצרים שלנו, או לקבל ממך משוב כדי
+            לשפר את השירות שלנו.
+          </p>
+          <p className="text-base   my-5  text-center text-white ">
+            אתה מוזמן ליצור קשר באחת מהדרכים הבאות, ונחזור אליך בהקדם: טלפון.
+            דוא"ל. וואטסאפ. שעות פעילות שלנו הן:
+            <br /> ימים א'-ה': 09:00 - 18:00 תוכלו גם למלא את טופס צור קשר
+            שלהלן, ואנו נחזור בהקדם האפשרי: אנו מחויבים לספק לך שירות מצוין
+            ולהיות זמינים לכל שאלה או בקשה. תודה שבחרת ב-
+            <span className="text-[#6FCFED] ">Differeacting.</span>
+          </p>
         </div>
       </section>
       <section>
