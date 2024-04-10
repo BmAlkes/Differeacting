@@ -3,9 +3,15 @@ import web from "../../assets/svg/web.svg";
 import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Service = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
       <section className=" bg-[#030B0F] full-h ">
