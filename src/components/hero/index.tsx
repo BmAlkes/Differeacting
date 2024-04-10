@@ -19,7 +19,7 @@ const Hero = () => {
 
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
-      <div className="flex flex-col lg:flex-row lg:gap-40  h-full container w-full mx-auto">
+      <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
         <div
           className="w-full h-full flex flex-col justify-center z-50 mt-8 md:mt-5"
           data-aos="fade-down"
