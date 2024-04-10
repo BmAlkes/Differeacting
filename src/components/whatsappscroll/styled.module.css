@@ -1,0 +1,43 @@
+.btn {
+  position: relative;
+}
+.btnWhatapp {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 50;
+  background-color: rgb(33, 154, 33);
+  border-radius: 50%;
+  padding: 1rem;
+  transition: transform 0.5s;
+}
+
+.btnWhatapp:hover {
+  transform: scale(1.1);
+}
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  width: 100px;
+  top: 20px;
+  left: -90px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffff;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.btnWhatapp:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .btnWhatapp {
+    padding: 0.5rem;
+    bottom: 50px;
+    right: 20px;
+  }
+}
