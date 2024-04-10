@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from "react";
-import Secimg from "../../assets/about2.jpg";
 
 import emailjs from "@emailjs/browser";
 import { useLocation } from "react-router-dom";
