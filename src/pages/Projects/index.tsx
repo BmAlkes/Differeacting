@@ -26,7 +26,7 @@ const Projects = () => {
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1712766598/projectss_udibmm.jpg"
           alt=" services banner"
-          className="h-[350px] object-cover md:h-auto"
+          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
 
         <OpenCards />

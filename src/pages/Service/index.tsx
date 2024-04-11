@@ -18,7 +18,7 @@ const Service = () => {
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1712765808/services_mfbrj7.jpg"
           alt=" services banner"
-          className="h-[350px] object-cover md:h-auto"
+          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
         <div
           className="container flex flex-col lg:flex-col gap-[138px] justify-center  h-full lg:pt-56 pt-28"
