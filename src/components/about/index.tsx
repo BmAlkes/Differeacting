@@ -121,7 +121,7 @@ const About = () => {
           <div className=" flex flex-col min-w-[315px]   justify-between py-6 px-4 rounded-lg show ">
             <img src={digital} alt="web icon" className="w-[60px]" />
             <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-              שיווק דיגיטל
+              שיווק דיגיטלי
             </h3>
             <p className="text-lg font-normel text-[#888888] my-5">
               הגבירו את הנוכחות הדיגיטלית שלכם עם שיווק דיגיטלי יעיל - באמצעות

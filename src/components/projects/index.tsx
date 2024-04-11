@@ -61,7 +61,7 @@ const Projects = () => {
                   />
                   <h3 className="text-2xl font-normal mt-2">Web Car</h3>
                   <p className="text-base font-light">
-                    פלטפורמה חמכירת מכוניות ופרסום
+                    פלטפורמה למכירת מכוניות ופרסום
                   </p>
                 </div>
               </Link>
@@ -100,7 +100,7 @@ const Projects = () => {
                   />
                   <h3 className="text-2xl font-normal mt-2">Safe Garden</h3>
                   <p className="text-base font-light">
-                    פלטפורמה לנהול גן ילדים פרטי
+                    פלטפורמה לניהול גן ילדים פרטי
                   </p>
                 </div>
               </Link>

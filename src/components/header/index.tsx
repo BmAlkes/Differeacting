@@ -156,7 +156,7 @@ const Header = () => {
                       <Link
                         aria-label="about website"
                         onClick={handleClose}
-                        to="/services"
+                        to="/service"
                         className={`text-white ${
                           direction === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
