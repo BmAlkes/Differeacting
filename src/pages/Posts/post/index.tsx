@@ -11,7 +11,7 @@ const Post = () => {
       <img
         src={document?.data.cover.url}
         alt="post image"
-        className="w-full h-[500px] object-cover"
+        className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
       />
       <div className="container flex flex-col items-center justify-center ">
         <h2 className="text-white text-5xl py-9">

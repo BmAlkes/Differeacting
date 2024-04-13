@@ -9,7 +9,7 @@ const Posts = () => {
       <img
         src="https://res.cloudinary.com/landingpage2/image/upload/v1712766602/social2_jytfzf.jpg"
         alt=" services banner"
-        className="h-[350px] object-cover md:h-auto"
+        className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
       />
       <h2 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
         פוסטים
