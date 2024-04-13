@@ -65,17 +65,17 @@ const Contact = () => {
           alt=" services banner"
           className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
-        <div className="container h-full py-16  mx-auto flex flex-col   items-center  justify-center z-10">
-          <h2 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-center lg:text-right">
+        <div className="container h-full md:py-48 py-28 shadow-white  mx-auto flex flex-col   items-center  justify-center z-10 max-w-[600px]">
+          <h2 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-justify lg:text-right">
             Differeacting
           </h2>
-          <p className="text-base  text-center  my-5   text-white ">
+          <p className="text-base  text-justify  my-5   text-white ">
             אנו ב- <span className="text-[#6FCFED] ">Differeacting</span>{" "}
             מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. אנו כאן כדי לענות על כל
             שאלה, לספק מידע נוסף על השירותים והמוצרים שלנו, או לקבל ממך משוב כדי
             לשפר את השירות שלנו.
           </p>
-          <p className="text-base   my-5  text-center text-white ">
+          <p className="text-base   my-5  text-justify text-white ">
             אתה מוזמן ליצור קשר באחת מהדרכים הבאות, ונחזור אליך בהקדם: טלפון.
             דוא"ל. וואטסאפ. שעות פעילות שלנו הן:
             <br /> ימים א'-ה': 09:00 - 18:00 תוכלו גם למלא את טופס צור קשר
@@ -101,7 +101,7 @@ const Contact = () => {
                 יש לכם רעיון או מותג גדול לפתח ואתם צריכים עזרה?
               </p>
             </div>
-            <div className="grid lg:grid-cols-3 items-center gap-4 shadow-md shadow-[#6fcfed] rounded-lg ">
+            <div className="grid lg:grid-cols-3 items-center gap-4 shadow-2xl shadow-[#6fcfed] rounded-lg ">
               <div className="bg-[#030b0f] rounded-lg p-6 max-lg:text-center">
                 <h2 className="text-xl font-bold text-white">פרטי התקשרות</h2>
                 <p className="text-sm text-white mt-3">
@@ -121,7 +121,10 @@ const Contact = () => {
                         data-original="#000000"
                       />
                     </svg>
-                    <a href="" className="text-white text-sm ml-3">
+                    <a
+                      href="mailto:eden@eden-digital.co.il"
+                      className="text-white text-sm ml-3"
+                    >
                       <strong>eden@eden-digital.co.il</strong>
                     </a>
                   </li>
@@ -162,10 +165,7 @@ const Contact = () => {
                         data-original="#000000"
                       ></path>
                     </svg>
-                    <a
-                      href="javascript:void(0)"
-                      className="text-white text-sm ml-3"
-                    >
+                    <a href="" className="text-white text-sm ml-3">
                       <strong>Tel Aviv</strong>
                     </a>
                   </li>

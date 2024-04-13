@@ -39,8 +39,8 @@ const AboutPage = () => {
         </div>
       </section>
       <section className="bg-[#030B0F] h-full py-6 ">
-        <div className="text-[#f4f4f4] container flex flex-col md:flex-row justify-between items-end  md:mt-20 lg:gap-[281px] gap-8 my-10">
-          <div className="max-w-[700px] mx-auto">
+        <div className="text-[#f4f4f4] container flex flex-col md:flex-row justify-between items-end  md:mt-20 lg:gap-[281px] gap-8 py-36">
+          <div className="max-w-[700px] mx-auto ">
             <h3 className="lg:text-6xl md:text-4xl text-2xl font-semibold text-center ">
               אנחנו פה בשביל לעזור לעסק שלך לצמוח
             </h3>
