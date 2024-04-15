@@ -5,6 +5,7 @@ import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import WhatsApp from "../../components/whatsappscroll";
 
 const Service = () => {
   const { pathname } = useLocation();
@@ -139,6 +140,7 @@ const Service = () => {
         stepNames=" שלב שיווק "
         key="3"
       />
+      <WhatsApp />
     </>
   );
 };

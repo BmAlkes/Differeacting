@@ -4,7 +4,7 @@ import bg from "../../assets/heroAbout.png";
 
 import picTwo from "../../assets/aboutnew.jpg";
 import picThree from "../../assets/2151003782.jpg";
-import picFour from "../../assets/4931.jpg";
+import picFour from "../../assets/7666.jpg";
 
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
