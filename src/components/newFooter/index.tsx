@@ -19,14 +19,20 @@ const NewFooter = () => {
             />
           </Link>
           <div className="flex mt-11 md:items-center justify-center">
-            <button className="flex items-center flex-row-reverse text-lg gap-2">
+            <a
+              href="https://www.facebook.com/profile.php?id=61558644790775"
+              className="flex items-center flex-row-reverse text-lg gap-2"
+            >
               <ChevronLeft size={18} />
               facebook
-            </button>
-            <button className="flex items-center flex-row-reverse text-lg gap-2">
+            </a>
+            <a
+              href="https://www.instagram.com/differeacting/"
+              className="flex items-center flex-row-reverse text-lg gap-2"
+            >
               <ChevronLeft size={18} />
               Instagram
-            </button>
+            </a>
           </div>
         </div>
         <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left ">
