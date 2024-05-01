@@ -172,7 +172,7 @@ const Contact = () => {
                 </ul>
                 <ul className="flex max-lg:justify-center gap-5 mt-16 space-x-4">
                   <li className="bg-white hover:bg-[#70cfed] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                    <a href="">
+                    <a href="https://www.facebook.com/profile.php?id=61558644790775">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="18px"
@@ -204,7 +204,7 @@ const Contact = () => {
                     </a>
                   </li>
                   <li className="bg-white hover:bg-[#70cfed] h-10 w-10 rounded-full flex items-center justify-center shrink-0 cursor-pointer">
-                    <a href="">
+                    <a href="https://www.instagram.com/differeacting/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="18px"
