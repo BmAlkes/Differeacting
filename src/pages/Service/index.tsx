@@ -1,4 +1,3 @@
-import Steps from "../../components/steps";
 import web from "../../assets/svg/web.svg";
 import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
