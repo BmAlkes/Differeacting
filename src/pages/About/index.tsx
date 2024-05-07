@@ -100,12 +100,7 @@ const AboutPage = () => {
             <img src={picTwo} alt="" className=" rounded-[30px] ml-auto" />
           </div>
         </div>
-        <div
-          className="text-[#f4f4f4] container flex lg:flex-row flex-col justify-between items-center   gap-8 my-10"
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="3000"
-        >
+        <div className="text-[#f4f4f4] container flex lg:flex-row flex-col justify-between items-center   gap-8 my-10">
           <div className="">
             <p className="text-justify lg:text-2xl md:text-xl mt-4 max-w-[570px] ">
               הצטרפו אלינו למסע דיגיטלי שישנה את האופן בו אתם חושבים על הפרסום

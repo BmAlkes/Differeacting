@@ -25,12 +25,7 @@ const About = () => {
               className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
             />
           </div>
-          <div
-            className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            data-aos-easing="linear"
-          >
+          <div className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start">
             <h3 className="text-[#6FCFED] lg:text-2xl md:text-lg text-sm">
               Differeacting
             </h3>
@@ -63,11 +58,7 @@ const About = () => {
           className="absolute right-0  rotate-180  overflow-visible z-10 bottom-[-400px]"
         />
 
-        <div
-          className="container flex flex-col justify-center items-center"
-          data-aos="fade-up"
-          data-aos-duration="3000"
-        >
+        <div className="container flex flex-col justify-center items-center">
           <h2 className="text-6xl font-semibold">השירותים שלנו</h2>
           <p className="max-w-[869px] text-center py-7">
             ברוכים הבאים למחלקות העיצוב, הפיתוח, השיווק והשרתים שלנו. המקום שבו
