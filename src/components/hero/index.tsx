@@ -20,12 +20,7 @@ const Hero = () => {
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
       <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
-        <div
-          className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 "
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="3000"
-        >
+        <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
           <p className="text-[#6FCFED] lg:text-2xl text-lg">
             אנחנו פה בשביל לעזור לעסק שלך לצמוח
           </p>
