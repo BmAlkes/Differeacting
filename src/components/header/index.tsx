@@ -69,19 +69,13 @@ const Header = () => {
             </li>
 
             <li className="nav relative">
-              <Link to="/services" aria-label="services page">
-                מסלולים
-              </Link>
-            </li>
-
-            <li className="nav relative">
               <Link to="/projects" aria-label="projects page">
                 פרויקטים
               </Link>
             </li>
             <li className="nav relative">
               <Link to="/posts" aria-label="posts page">
-                מאמרים
+                מגזין
               </Link>
             </li>
 
@@ -163,16 +157,7 @@ const Header = () => {
                       >
                         <li>שרותים שלנו</li>
                       </Link>
-                      <Link
-                        aria-label="services website"
-                        onClick={handleClose}
-                        to="/services"
-                        className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
-                      >
-                        <li>מסלולים</li>
-                      </Link>
+
                       <Link
                         aria-label="project website"
                         onClick={handleClose}
@@ -191,7 +176,7 @@ const Header = () => {
                           direction === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>מאמרים</li>
+                        <li>מגזין</li>
                       </Link>
                       <Link
                         aria-label="contact website"

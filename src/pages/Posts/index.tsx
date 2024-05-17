@@ -14,12 +14,12 @@ const Posts = () => {
           className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
         <h2 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
-          פוסטים
+          מגזין שלנו
         </h2>
         <div className="flex flex-wrap justify-center container gap-5 ">
           {document?.length === 0 && (
             <h3 className="text-white text-center py-11 text-xl">
-              אין פוסטים כרגע
+              אין תוכן כרגע
             </h3>
           )}
           {document?.map((post) => (

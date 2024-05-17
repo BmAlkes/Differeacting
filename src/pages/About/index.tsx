@@ -1,6 +1,6 @@
 import Reccomend from "../../components/footer";
 import ScrollUp from "../../components/scrollup";
-import bg from "../../assets/heroAbout.png";
+import bg from "../../assets/internet2.png";
 
 import picTwo from "../../assets/aboutnew.jpg";
 import picThree from "../../assets/2151003782.jpg";
@@ -28,7 +28,7 @@ const AboutPage = () => {
     >
       <section className=" bg-[#030B0F] lg:h-screen h-[600px] mt-[96px]">
         <div className="flex items-center justify-center h-full relative">
-          <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-center font-bold z-10 ">
+          <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-center font-bold z-10 [text-shadow:_0_3px_0_rgb(0_0_0_/_90%)]">
             עושים את זה מדהים
           </h2>
           <img
