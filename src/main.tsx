@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App.tsx";
 import "./index.css";
 import "./i18n/index.tsx";
@@ -9,14 +10,21 @@ import { PrismicProvider } from "@prismicio/react";
 import { Analytics } from "@vercel/analytics/react";
 
 import { client } from "./utils/prismic.ts";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <PrismicProvider client={client}>
-      <BrowserRouter>
-        <App />
-        <Analytics />
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <App />
+          <ToastContainer />
+          <Analytics />
+        </BrowserRouter>
+      </QueryClientProvider>
     </PrismicProvider>
   </React.StrictMode>
 );

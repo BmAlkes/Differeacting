@@ -18,6 +18,11 @@ import Posts from "./pages/Posts";
 import Post from "./pages/Posts/post";
 import Service from "./pages/Service";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import { DashboardLayout } from "./layout/dashboardLayout";
+import CreateProjectView from "./pages/ProjectsView/CreateProjectView";
+import Clients from "./pages/ProjectsView";
+import EditProjectView from "./pages/ProjectsView/EditProjectView";
 
 AOS.init();
 
@@ -44,6 +49,19 @@ function App() {
             <Route path="/server" element={<ServerPage />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/dashboard/projects/create"
+              element={<CreateProjectView />}
+            />
+            <Route
+              path="/dashboard/projects/:projectId/edit"
+              element={<EditProjectView />}
+            />
+            <Route path="/dashboard/clients" element={<Clients />} />
+            <Route path="/dashboard/profile" element={<Clients />} />
+          </Route>
         </Routes>
       </AnimatePresence>
     </>
