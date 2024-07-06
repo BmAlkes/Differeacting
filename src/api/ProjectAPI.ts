@@ -28,3 +28,25 @@ export async function getProjectsById(id: Project["_id"]) {
     console.log(error);
   }
 }
+
+type ProjectApiType ={
+  formData:ProjectFormData
+  projectId:Project['_id']
+}
+export async function updateProjects({formData,projectId}:ProjectApiType) {
+  try {
+    const { data } = await api.put(`/projects/${projectId}`, formData);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function deleteProjects(id: Project["_id"]) {
+  try {
+    const { data } = await api.delete<string>(`/projects/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}

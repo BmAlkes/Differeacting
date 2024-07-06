@@ -7,9 +7,13 @@ import Reccomend from "../../components/footer";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import Cursor from "../../components/cursoFollower";
+
+
 
 const Home = () => {
   const { pathname } = useLocation();
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,6 +34,7 @@ const Home = () => {
       <Reccomend />
       <ScrollUp />
       <WhatsApp />
+      <Cursor/>
     </motion.div>
   );
 };

@@ -19,7 +19,7 @@ const FAQ = () => {
               >
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    האם יש ניסיון חינם?
+                    מה השירותים העיקריים שאתם מציעים?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -51,17 +51,14 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-[#454545] text-base">
-                    לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית להאמית
-                    קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורךגולר מונפרר סוברט
-                    לורם שבצק יהול, לכנוץ בעריר גק ליץ, ושבעגט. לורם איפסום
-                    דולור סיט אמט, קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח.
-                    עמחליף קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים.
+                  <div className="pb-4 text-[#454545]  text-xl">
+                    אני מציעים בננית אתרים, פיתוח אפלקציות מותאמות אישיות
+                    ושירותים אחסון ענן מתקדמים
                   </div>
                 </details>
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    האם אוכל לשנות את התוכנית שלי מאוחר יותר?
+                    איך ניתן ליצור קשר עם החברה שלכם?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -93,13 +90,14 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-secondary-500 ">
-                    This is the second item's accordion body.
+                  <div className="pb-4 text-secondary-500 text-xl">
+                    ניתן ליצור קשר איתנו דרך טופס צור קשר באתר שלנו או באמצעות
+                    פרטי ההתקשרות המופיעים באתר.
                   </div>
                 </details>
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    מהי מדיניות הביטולים שלך?
+                    האם יש לכם ניסיון בבניית אתרים עבור תחומים ספציפיים?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -131,13 +129,14 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-secondary-500">
-                    This is the third item's accordion body.
+                  <div className="pb-4 text-secondary-500 text-xl">
+                    כן, אנו מתמקדין בבניית אתרים ואפלקציות עבור חברות בנייה,
+                    מסחר אלטרוני ועסקים קטנים ובנינוניים.
                   </div>
                 </details>
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    איך עובד החיוב?
+                    מהם השלבים העיקריים בתהליך בננית אתר או אפלקציה אינטרנטית?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -169,13 +168,54 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-secondary-500">
-                    איך אני משנה את כתובת האימייל של החשבון שלי?
+                  <div className="pb-4 text-secondary-500 text-xl">
+                    השלבים כללים איסוף דרישות, תכנון ועיצוב, פיתוח , בדיקות
+                    והשקה. כל שלב נעשה בשיתוף פעולה עם הלקוח.
+                  </div>
+                </details>
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500 ">
+                    איך ניתן לנהל את התחזוקה והעדכונים של האתר או אפליקציה לאחק
+                    שהם הושלמו?
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="block h-5 w-5 group-open:hidden border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="hidden h-5 w-5 group-open:block border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12h-15"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                  <div className="pb-4 text-secondary-500 text-xl">
+                    אני מספקים שירותים תחזוקה ותמיכה רציניים כללים עדכונים
+                    רגילים, תיקוני באגים והתאמות פונקציונליות.
                   </div>
                 </details>
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    האם ניתן להוסיף מידע נוסף לחשבונית?
+                    איך ניתן למדוד את הביצועי האתר או האפליקציה?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -207,13 +247,53 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-secondary-500">
-                    This is the third item's accordion body.
+                  <div className="pb-4 text-secondary-500 text-xl">
+                    אנו משתמשים בכלים כמו Google Analytics לניתוח ביצועים, מבנה
+                    נתונים וכלים נוסםים למדידות שיעורי ההמרה והשימוש.
+                  </div>
+                </details>
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500 ">
+                    מהם היתרונות האחסון בענן הבשוואה לאחסון פיזי?
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="block h-5 w-5 group-open:hidden border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="hidden h-5 w-5 group-open:block border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12h-15"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                  <div className="pb-4 text-secondary-500 text-lg">
+                    אחסון בענן מציע גמישות גבוהה, ביצועיפ משופרים , אבטח מתקדמת
+                    ויכולת גיבויים אוטומטיים, לעומת אחסון פיזי.
                   </div>
                 </details>
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                    מהי מדיניות הביטולים שלך?
+                    מהם תקני האבטחה שאתם מציעים לאתרים ולאפליקציות שאתם מפתחים?
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -245,8 +325,48 @@ const FAQ = () => {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-4 text-secondary-500">
-                    This is the third item's accordion body.
+                  <div className="pb-4 text-secondary-500 text-lg">
+                    אנו מיישמים HTTPS, ניהול גישה מתקדמת, ספריות תוכנה עדכוניות
+                    ובדיקות אבטחה תקופתיות להבטחת רמת אבטחה גבוהה.
+                  </div>
+                </details>
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
+                    מהם העלויות הפיתוח והתחזוקה של אפליקציה או בניית אתר?
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="block h-5 w-5 group-open:hidden border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#6FCFED"
+                        className="hidden h-5 w-5 group-open:block border-2 rounded-full border-[#6FCFED]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12h-15"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                  <div className="pb-4 text-secondary-500 text-lg">
+                    עלות הפיתוח והתחזוקה תלויה במידת הפרטנות והמורכבוצ של
+                    הפרוייקטץ אנו מספקים הערכות בהתאם לדרישות הלקוח.
                   </div>
                 </details>
               </div>

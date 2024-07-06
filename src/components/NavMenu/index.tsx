@@ -22,14 +22,29 @@ export default function NavMenu() {
         <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen lg:max-w-min -translate-x-1/2 lg:-translate-x-48">
           <div className="w-full lg:w-56 shadow-2xl shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900  ring-1 ring-gray-900/5">
             <p className="text-center">Hello: Usuario</p>
-            <Link to="/dashboard/profile" className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded">
-            Profile
+            <Link
+              to="/dashboard/profile"
+              className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded"
+            >
+              Profile
             </Link>
-            <Link to="/dashboard" className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded">
-            Project
+            <Link
+              to="/dashboard/projects"
+              className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded"
+            >
+              Project
             </Link>
-            <Link to="/dashboard/clients" className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded">
-            Clients
+            <Link
+              to="/dashboard/clients"
+              className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded"
+            >
+              Clients
+            </Link>
+            <Link
+              to="/dashboard/register"
+              className="block p-2 hover:bg-[#6fcfed] hover:text-white rounded"
+            >
+              Register new user
             </Link>
             <button
               className="block  p-2 hover:bg-[#6fcfed] hover:text-white rounded"

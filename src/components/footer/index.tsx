@@ -11,12 +11,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import { useToast } from "../ui/use-toast";
 
 const Reccomend = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const { toast } = useToast()
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,7 @@ const Reccomend = () => {
       )
       .then((response) => {
         console.log("Email send", response.status, response.text);
+        
         setName("");
         setEmail("");
         setMessage("");
@@ -190,6 +193,7 @@ const Reccomend = () => {
               <button
                 type="submit"
                 className=" lg:w-[40%] bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded-[10px] p-[1px] text-center "
+              
               >
                 <span className="flex w-full bg-transparent  text-white rounded-[10px] py-[10px] px-[14px] hover:bg-gradient-to-r from-[#41b1d3] to-[#a30f91] hover: items-center justify-center">
                   שליחת הפרטים

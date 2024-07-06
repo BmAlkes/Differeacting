@@ -7,7 +7,7 @@ export const DashboardLayout = () => {
 
 
         <HeaderApp />
-        <section className="w-full mx-auto  p-5 bg-gray-200 min-h-screen">
+        <section className="w-full mx-auto p-5 bg-gray-200 min-h-screen">
           <Outlet />
         </section>
       

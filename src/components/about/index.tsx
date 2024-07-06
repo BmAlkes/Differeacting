@@ -11,7 +11,7 @@ import vetor from "../../assets/svg/Vector 18.svg";
 const About = () => {
   return (
     <>
-      <section className=" lg:pt-5 lglg:h-screen h-full bg-[#030B0F] relative py-24 lg:py-0  z-40">
+      <section className=" lg:pt-5 lglg:h-screen h-full bg-[#030B0F] relative py-24 lg:py-0  ">
         <div className="container h-full mx-auto py-14 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
           <div>
             <img

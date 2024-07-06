@@ -54,7 +54,7 @@ const Hero = () => {
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
           alt="background hero"
-          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] z-10 "
+          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
         />
       </div>
     </section>

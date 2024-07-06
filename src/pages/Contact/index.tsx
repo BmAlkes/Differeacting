@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import ScrollUp from "../../components/scrollup";
 import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
+import Cursor from "../../components/cursoFollower";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -407,6 +408,7 @@ const Contact = () => {
       </section>
       <ScrollUp />
       <WhatsApp />
+      <Cursor/>
     </motion.div>
   );
 };

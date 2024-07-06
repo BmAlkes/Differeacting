@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import WhatsApp from "../../components/whatsappscroll";
 import CardPrice from "../../components/priceCard";
 import FAQ from "../../components/FAQ";
+import Cursor from "../../components/cursoFollower";
 
 const Service = () => {
   const { pathname } = useLocation();
@@ -319,6 +320,7 @@ const Service = () => {
         key="3"
       /> */}
       <WhatsApp />
+      <Cursor/>
     </>
   );
 };

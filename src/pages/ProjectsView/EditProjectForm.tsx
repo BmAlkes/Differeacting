@@ -1,26 +1,54 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ProjectForm from "../../components/dashboardProjects/ProjectForm";
 import { useForm } from "react-hook-form";
 import { ProjectFormData } from "../../@types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateProjects } from "../../api/ProjectAPI";
+import { toast } from "react-toastify";
 
-type EditProjectFormProps ={
-    data:ProjectFormData
-}
+type EditProjectFormProps = {
+  data: ProjectFormData;
+};
 
-const EditProjectForm = ({ data }:EditProjectFormProps) => {
+const EditProjectForm = ({ data }: EditProjectFormProps) => {
+  const params = useParams();
+  const projectId = params.projectId!;
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ defaultValues: {
-    projectName: data.projectName,
-    clientName: data.clientName,
-    description: data.description,
-  }});
+  } = useForm({
+    defaultValues: {
+      projectName: data.projectName,
+      clientName: data.clientName,
+      description: data.description,
+    },
+  });
+const   QueryClient = useQueryClient()
+  const { mutate } = useMutation({
+    mutationFn: updateProjects,
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    onSuccess: () => {
+      QueryClient.invalidateQueries({queryKey:['projects']})
+      QueryClient.invalidateQueries( { queryKey: ["editProject"]})
+      reset()
+      toast.success('data updated successfully')
+      navigate('/dashboard')
+      
 
-  const handleForm = async (data: ProjectFormData) => {
-    console.log(data)
+    },
+  });
+
+  const handleForm = async (formData: ProjectFormData) => {
+    const data = {
+      formData,
+      projectId,
+    };
+    mutate(data);
   };
 
   return (

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import WhatsApp from "../../components/whatsappscroll";
+import Cursor from "../../components/cursoFollower";
 
 const Projects = () => {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ const Projects = () => {
       </section>
       <ScrollUp />
       <WhatsApp />
+      <Cursor/>
     </motion.div>
   );
 };

@@ -103,6 +103,15 @@ export const projectsData = [
     link: "https://safe-garden.vercel.app/",
     category: "React",
   },
+  {
+    id: 12,
+    image:
+      "https://res.cloudinary.com/landingpage2/image/upload/v1719987411/Screenshot_47_kaioqi.png",
+    title: "Wesense",
+    description: "A landing page made for the WESENSE Startup project. ",
+    link: "https://wesense.vercel.app/",
+    category: "Javascript",
+  },
 ];
 
 export const projectsNav = [
