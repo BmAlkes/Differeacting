@@ -11,14 +11,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-import { useToast } from "../ui/use-toast";
+
 
 const Reccomend = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const { toast } = useToast()
+
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();

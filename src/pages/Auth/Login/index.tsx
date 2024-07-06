@@ -11,7 +11,9 @@ const Login = () => {
   }
   const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues })
 
-  const handleLogin = (formData: UserLoginForm) => { }
+  const handleLogin = (formData: UserLoginForm) => { 
+    console.log(formData)
+  }
   return (
     <div className=" w-full h-screen min-h-screen  ">
       <div className="bg-[#030b0e] w-full h-full flex flex-col gap-10 items-center justify-center">

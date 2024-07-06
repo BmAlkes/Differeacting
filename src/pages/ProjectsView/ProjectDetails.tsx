@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getProjectsById } from "../../api/ProjectAPI";
 import AddTaskModal from "../../components/TASKS/taskModal/addTaskModal";
