@@ -11,6 +11,7 @@ import Cursor from "../../components/cursoFollower";
 
 
 
+
 const Home = () => {
   const { pathname } = useLocation();
 

@@ -5,6 +5,8 @@ import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg";
 import vetor from "../../assets/svg/Vector 18.svg";
+import { Tilt } from 'react-tilt'
+
 
 // npm run dev
 
@@ -13,13 +15,15 @@ const About = () => {
     <>
       <section className=" lg:pt-5 lglg:h-screen h-full bg-[#030B0F] relative py-24 lg:py-0  ">
         <div className="container h-full mx-auto py-14 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
-          <div>
+       <Tilt>
+
             <img
               src={Secimg}
               alt="image with pc and clouds for tecnologie"
               className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
-            />
-          </div>
+              />
+              </Tilt>
+     
           <div className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start">
             <h3 className="text-[#6FCFED] lg:text-2xl md:text-lg text-sm">
               Differeacting

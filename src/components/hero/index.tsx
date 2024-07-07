@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+import { Tilt } from 'react-tilt'
 
 const Hero = () => {
   const [direction, setDirection] = useState(document.body.dir);
@@ -15,7 +15,9 @@ const Hero = () => {
     });
     return () => observer.disconnect();
   }, []);
-  console.log(direction);
+
+
+
 
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
@@ -50,13 +52,15 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-
+        <Tilt>
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
           alt="background hero"
-          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
-        />
-      </div>
+          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] " data-tilt 
+          />
+          </Tilt>
+          </div>
+      
     </section>
   );
 };
