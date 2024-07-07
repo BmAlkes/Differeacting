@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Tilt } from 'react-tilt'
 
 const Hero = () => {
-  const [direction, setDirection] = useState(document.body.dir);
-  useEffect(() => {
-    const observer = new MutationObserver((mutationsList) => {
-      if (mutationsList.some((mutation) => mutation.attributeName === "dir")) {
-        setDirection(document.body.dir);
-      }
-    });
-    observer.observe(document.body, {
-      attributes: true,
-    });
-    return () => observer.disconnect();
-  }, []);
+  // const [direction, setDirection] = useState(document.body.dir);
+  // useEffect(() => {
+  //   const observer = new MutationObserver((mutationsList) => {
+  //     if (mutationsList.some((mutation) => mutation.attributeName === "dir")) {
+  //       setDirection(document.body.dir);
+  //     }
+  //   });
+  //   observer.observe(document.body, {
+  //     attributes: true,
+  //   });
+  //   return () => observer.disconnect();
+  // }, []);
 
 
 
