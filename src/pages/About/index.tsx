@@ -1,16 +1,17 @@
 import Reccomend from "../../components/footer";
 import ScrollUp from "../../components/scrollup";
-import bg from "../../assets/internet2.png";
+import bg from "../../assets/creative.png";
 
 import picTwo from "../../assets/aboutnew.jpg";
 import picThree from "../../assets/2151003782.jpg";
 import picFour from "../../assets/7666.jpg";
 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
+import { Tilt } from "react-tilt";
 
 const AboutPage = () => {
   const { pathname } = useLocation();
@@ -27,18 +28,36 @@ const AboutPage = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
-      <section className=" bg-[#030B0F] lg:h-screen h-[600px] mt-[96px]">
-        <div className="flex items-center justify-center h-full relative">
-          <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-center font-bold z-10 [text-shadow:_0_3px_0_rgb(0_0_0_/_90%)]">
-            עושים את זה מדהים
-          </h2>
-          <img
-            src={bg}
-            alt="hero background"
-            className="absolute inset-0 w-full lg:h-[1800px] md:h-[900px] h-[1000px] object-contain  my-auto"
-          />
+    <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
+    <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
+      <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
+      <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
+        עושים את זה מדהים
+      </h2>
+        <p className="text-[#6FCFED] lg:text-2xl text-lg">
+          אנחנו פה בשביל לעזור לעסק שלך לצמוח
+        </p>
+
+      
+
+        {/* <p className="text-white lg:text-2xl font-normal lg:mt-[10px] mt-5 text-xl">
+          המותג שלך צריך פיתוח בהתאמה אישית ובטכנולוגיות מתקדמות
+          כגון:Wordpress, React, Google Analytics
+        </p> */}
+        <div className="flex gap-7 mt-[30px]">
+         
         </div>
-      </section>
+      </div>
+      <Tilt>
+      <img
+        src={bg}
+        alt="background hero"
+        className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] " data-tilt 
+        />
+        </Tilt>
+        </div>
+    
+  </section>
       <section className="bg-[#030B0F] h-full py-6 ">
         <div className="text-[#f4f4f4] container flex flex-col md:flex-row justify-between items-end  md:mt-20 lg:gap-[281px] gap-8 py-36">
           <div className="max-w-[700px] mx-auto ">
@@ -68,9 +87,7 @@ const AboutPage = () => {
           </div>
           <div
             className="container my-8 flex-1"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="3000"
+    
           >
             <img
               src={picThree}
@@ -94,9 +111,7 @@ const AboutPage = () => {
           </div>
           <div
             className="container my-8 flex-1"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="3000"
+    
           >
             <img src={picTwo} alt="" className=" rounded-[30px] ml-auto" />
           </div>
@@ -111,9 +126,7 @@ const AboutPage = () => {
           </div>
           <div
             className="container my-8 flex-1"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="3000"
+         
           >
             <img
               src={picFour}
