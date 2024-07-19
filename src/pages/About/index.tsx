@@ -6,7 +6,7 @@ import picTwo from "../../assets/aboutnew.jpg";
 import picThree from "../../assets/2151003782.jpg";
 import picFour from "../../assets/7666.jpg";
 
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
