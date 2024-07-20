@@ -1,6 +1,6 @@
 import Reccomend from "../../components/footer";
 import ScrollUp from "../../components/scrollup";
-import bg from "../../assets/creative.png";
+
 
 import picTwo from "../../assets/aboutnew.jpg";
 import picThree from "../../assets/2151003782.jpg";
@@ -50,7 +50,7 @@ const AboutPage = () => {
                "https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405515178_ggbi3j.png"
               }
               alt="background hero"
-              className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
+              className="lg:h-full  object-cover  md:max-w-[600px]   mx-auto  overflow-visible  h-[400px] md:h-[900px] "
               data-tilt
             />
           </Tilt>

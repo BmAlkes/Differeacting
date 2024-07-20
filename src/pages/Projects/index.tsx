@@ -47,7 +47,7 @@ const Projects = () => {
                "https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405473183_wtmvo4.png"
               }
               alt="background hero"
-              className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
+              className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[400px] md:h-[900px] "
               data-tilt
             />
           </Tilt>
