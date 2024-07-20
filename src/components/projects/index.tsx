@@ -109,46 +109,46 @@ const Projects = () => {
             </div>
             <div>
               <Link
-                to="https://webcar-umber.vercel.app/"
+                to="https://wesense.vercel.app/"
                 target="_blank"
                 data-aos="fade-down"
-                data-aos-duration="3000"
+                data-aos-duration="1000"
                 data-aos-easing="linear"
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_27_a6sppc.png"
-                    alt="Project we made about eccomerce"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1719987411/Screenshot_47_kaioqi.png"
+                    alt="Project for startup"
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">Eccomerce </h3>
-                  <p className="text-base font-light">אתר סחר</p>
+                  <h3 className="text-2xl font-normal mt-2">Wesense </h3>
+                  <p className="text-base font-light">מיזם לסטארט אפ</p>
                 </div>
               </Link>
 
               <Link
-                to="https://safe-garden.vercel.app/"
+                to="https://skylum.co.il/"
                 target="_blank"
                 data-aos="fade-down"
-                data-aos-duration="4000"
+                data-aos-duration="2000"
                 data-aos-easing="linear"
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png"
-                    alt="Plataform web for managment do kindgarden"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490072/skylum_te3duo.png"
+                    alt="Skylum "
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">Safe Garden</h3>
+                  <h3 className="text-2xl font-normal mt-2">SkyLum</h3>
                   <p className="text-base font-light">
-                    פלטפורמה לניהול גן ילדים פרטי
+                    אתר חברה 
                   </p>
                 </div>
               </Link>
             </div>
             <div>
               <Link
-                to="https://webcar-umber.vercel.app/"
+                to=""
                 target="_blank"
                 data-aos="fade-down"
                 data-aos-duration="3000"
@@ -156,17 +156,17 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_27_a6sppc.png"
-                    alt="Project we made about eccomerce"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_6_nsjxxb.png"
+                    alt="Eccomerce for a cosmetic store"
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">Eccomerce </h3>
-                  <p className="text-base font-light">אתר סחר</p>
+                  <h3 className="text-2xl font-normal mt-2">HairPort</h3>
+                  <p className="text-base font-light">אתר חנות לחברה קוסמטיק</p>
                 </div>
               </Link>
 
               <Link
-                to="https://safe-garden.vercel.app/"
+                to="https://maithaitravelandtour.com/"
                 target="_blank"
                 data-aos="fade-down"
                 data-aos-duration="4000"
@@ -174,13 +174,13 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png"
-                    alt="Plataform web for managment do kindgarden"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_5_wb0iyk.png"
+                    alt="Mai Thai travel agency"
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">Safe Garden</h3>
+                  <h3 className="text-2xl font-normal mt-2">Mai Thai travel agency</h3>
                   <p className="text-base font-light">
-                    פלטפורמה לניהול גן ילדים פרטי
+                    אתר לסוכנות נסיעות לטיולים בתאילנד
                   </p>
                 </div>
               </Link>
