@@ -8,6 +8,7 @@ import WhatsApp from "../../components/whatsappscroll";
 import CardPrice from "../../components/priceCard";
 import FAQ from "../../components/FAQ";
 import Cursor from "../../components/cursoFollower";
+import { Tilt } from "react-tilt";
 
 const Service = () => {
   const { pathname } = useLocation();
@@ -149,24 +150,32 @@ const Service = () => {
   ];
   return (
     <>
-      <section className=" bg-[#030B0F] full-h ">
-        <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1712765808/services_mfbrj7.jpg"
-          alt=" services banner"
-          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
-        />
-        <div
-          className="container flex flex-col lg:flex-col gap-[138px] justify-center  h-full lg:pt-56 pt-28"
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="3000"
-        >
-          <div className="lg:max-w-[411px]">
-            <h3 className="lg:text-6xl text-4xl text-center text-[#f4f4f4] lg:text-right font-bold">
-              שירותים שאנחנו יכולים לעזור בהם
-            </h3>
+      <section className="  bg-[#030B0F] md:h-screen h:full  mt-[96px]" >
+      <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
+          <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
+            <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
+            שירותים שאנחנו יכולים לעזור בהם
+
+            </h2>
+          
+
+          
+            <div className="flex gap-7 mt-[30px]"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-[50px]">
+          <Tilt>
+            <img
+              src={
+               "https://res.cloudinary.com/landingpage2/image/upload/v1721406340/Remove-bg.ai_1721406330634_oair2d.png"
+              }
+              alt="background hero"
+              className="lg:h-full  object-cover  md:max-w-[600px]   mx-auto  overflow-visible  h-[400px] md:h-[900px] "
+              data-tilt
+            />
+          </Tilt>
+        </div>
+        </section>
+        <section className="  bg-[#030B0F] md:h-screen h:full ">
+          <div className="grid md:grid-cols-2 gap-[50px] container">
             <div className="flex flex-col  justify-between py-6 px-4 rounded-lg show">
               <img src={web} alt="web icon" className="w-[60px]" />
               <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
@@ -248,7 +257,7 @@ const Service = () => {
               </div>
             </div>
           </div>
-        </div>
+    
       </section>
       <section className=" bg-[#030B0F]  md:h-[900px] h-[960px] ">
         <div className="flex flex-col  pt-[250px] items-center gap-[28px] h-full">
