@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../../../components/ErrorMessage";
 import { RequestConfirmationCodeForm } from "../../../@types";
-// import { useMutation } from "@tanstack/react-query";
-// import { requestConfirmation } from "../../../api/AuthApi";
-// import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import { requestConfirmation } from "../../../api/AuthApi";
+import { toast } from "react-toastify";
 
 const RequestNewCodeView = () => {
   const initialValues: RequestConfirmationCodeForm = {
@@ -13,24 +13,24 @@ const RequestNewCodeView = () => {
 
   const {
     register,
-    // handleSubmit,
-    // reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ defaultValues: initialValues });
 
-  // const { mutate } = useMutation({
-  //   mutationFn: requestConfirmation,
-  //   onError: (error) => {
-  //     toast.error(error.message);
-  //   },
-  //   onSuccess: (data) => {
-  //     toast.success(data);
-  //   },
-  // });
+  const { mutate } = useMutation({
+    mutationFn: requestConfirmation,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: (data) => {
+      toast.success(data);
+    },
+  });
 
-  // const handleRequestCode = (formData: RequestConfirmationCodeForm) => {
-  //   mutate(formData);
-  // };
+  const handleRequestCode = (formData: RequestConfirmationCodeForm) => {
+    mutate(formData);
+  };
 
   return (
     <div className=" w-full h-screen min-h-screen  ">
@@ -49,7 +49,7 @@ const RequestNewCodeView = () => {
         </p>
 
         <form
-          // onSubmit={handleSubmit(handleRequestCode)}
+          onSubmit={handleSubmit(handleRequestCode)}
           className="space-y-8 p-10 rounded-lg bg-white mt-10"
           noValidate
         >
