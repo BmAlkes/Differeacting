@@ -4,6 +4,7 @@ import ErrorMessage from "../../../components/ErrorMessage";
 import { useMutation } from "@tanstack/react-query";
 import { autheticateUser } from "../../../api/AuthApi";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const initialValues: UserLoginForm = {
@@ -21,17 +22,18 @@ const Login = () => {
     onError: (error) => {
       toast.error(error.message);
     },
-    onSuccess: (data) => {
-      toast.success(data);
+    onSuccess: () => {
+      toast.success('Stat Session');
     },
   });
 
   const handleLogin = (formData: UserLoginForm) => {
+    console.log(formData)
     mutate(formData);
   };
   return (
     <div className=" w-full h-screen min-h-screen  ">
-      <div className="bg-[#030b0e] w-full h-full flex flex-col gap-10 items-center justify-center">
+      <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
@@ -85,6 +87,11 @@ const Login = () => {
             className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 rounded   text-white font-black  text-xl cursor-pointer"
           />
         </form>
+        <nav className="mt-10 flex flex-col space-y-4">
+          <Link to={"/auth/forgot-password"} className="text-center text-gray-300 font-normal">
+          ?Forgot your password
+          </Link>
+        </nav>
       </div>
     </div>
   );

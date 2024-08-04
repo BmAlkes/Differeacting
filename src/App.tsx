@@ -28,6 +28,8 @@ import ProjectView from "./pages/ProjectsView/ProjectsView";
 import Register from "./pages/Auth/Register";
 import ConfirmAccountView from "./pages/Auth/ConfirmAccount";
 import RequestNewCodeView from "./pages/Auth/RequestNewCodeView.tsx";
+import ForgotPasswordView from "./pages/Auth/ForgotPassword/index.tsx";
+import NewPasswordView from "./pages/Auth/NewPasswordView/index.tsx";
 
 AOS.init();
 
@@ -53,8 +55,19 @@ function App() {
             <Route path="/design" element={<GraphicPage />} />
             <Route path="/server" element={<ServerPage />} />
           </Route>
-          <Route path="/auth/confirm-account/" element={<ConfirmAccountView />} />
+          <Route
+            path="/auth/confirm-account/"
+            element={<ConfirmAccountView />}
+          />
           <Route path="/auth/request-code" element={<RequestNewCodeView />} />
+          <Route
+            path="/auth/forgot-password"
+            element={<ForgotPasswordView />}
+          />
+          <Route
+            path="/auth/new-password"
+            element={<NewPasswordView />}
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />

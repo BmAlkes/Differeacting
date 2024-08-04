@@ -1,67 +1,72 @@
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+
 import ErrorMessage from "../../../components/ErrorMessage";
-import { RequestConfirmationCodeForm } from "../../../@types";
+import { ForgotPasswordForm } from "../../../@types";
 import { useMutation } from "@tanstack/react-query";
-import { requestConfirmation } from "../../../api/AuthApi";
+import { forgotPassword } from "../../../api/AuthApi";
 import { toast } from "react-toastify";
 
-const RequestNewCodeView = () => {
-  const initialValues: RequestConfirmationCodeForm = {
+export default function ForgotPasswordView() {
+  const initialValues: ForgotPasswordForm = {
     email: "",
   };
-
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm({ defaultValues: initialValues });
 
   const { mutate } = useMutation({
-    mutationFn: requestConfirmation,
-    onError: (error) => {
-      toast.error(error.message);
-    },
+    mutationFn: forgotPassword,
     onSuccess: (data) => {
       toast.success(data);
+      reset();
+    },
+    onError: (data) => {
+      toast.error(data.message);
     },
   });
 
-  const handleRequestCode = (formData: RequestConfirmationCodeForm) => {
+  const handleForgotPassword = (formData: ForgotPasswordForm) => {
     mutate(formData);
   };
 
   return (
-    <div className=" w-full h-svh  ">
+    <div className=" w-full h-screen min-h-screen  ">
       <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
           className="w-[600px] mb-11"
         />
-        <h1 className="md:text-5xl text-2xl font-black text-white">
-          Request Confirmation Code
-        </h1>
-        <p className="md:text-2xl font-light text-white mt-5">
-          Insert email to receive
-          <span className=" text-fuchsia-500 font-bold"> a new code</span>
+
+        <p className="text-2xl font-light text-white mt-5">
+          Forgot your password
+          <span
+            className="text-fuchsia-500 font-bold
+          "
+          >
+            {" "}
+            ? type your email for reset a password
+          </span>
         </p>
 
         <form
-          onSubmit={handleSubmit(handleRequestCode)}
-          className="space-y-8 p-10 rounded-lg bg-white mt-10"
+          onSubmit={handleSubmit(handleForgotPassword)}
+          className="space-y-8 p-10  bg-white md:w-[500px] rounded-xl shadow-[#6fcfed] shadow-2xl"
           noValidate
         >
           <div className="flex flex-col gap-5">
-            <label className="font-normal text-2xl text-left" htmlFor="email">
+            <label className="font-normal text-2xl" htmlFor="email">
               Email
             </label>
             <input
               id="email"
               type="email"
-              placeholder="Register email"
-              className="w-full p-3 rounded-lg border-gray-300 border text-left "
+              placeholder="Type your email"
+              className="w-full p-3  border-gray-300 border rounded-md"
               {...register("email", {
                 required: "El Email de registro es obligatorio",
                 pattern: {
@@ -77,25 +82,17 @@ const RequestNewCodeView = () => {
 
           <input
             type="submit"
-            value="Send Code"
-            className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer"
+            value="Send Instructions"
+            className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer rounded-md"
           />
         </form>
 
-        <nav className="mt-10 flex  flex-col space-y-4">
+        <nav className="mt-10 flex flex-col space-y-4">
           <Link to="/login" className="text-center text-gray-300 font-normal">
-            Already have a account ? Start Session
-          </Link>
-          <Link
-            to="/auth/forgot-password"
-            className="text-center text-gray-300 font-normal"
-          >
-            Forgot your password
+            Do you already have an account? Log in
           </Link>
         </nav>
       </div>
     </div>
   );
-};
-
-export default RequestNewCodeView;
+}

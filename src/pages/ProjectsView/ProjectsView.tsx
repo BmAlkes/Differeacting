@@ -25,9 +25,9 @@ const ProjectView = () => {
   });
 
   if (isLoading) return "Loadding...";
-    console.log(data)
+
   return (
-    <div className="flex flex-col items-end max-w-screen-2xl mx-auto">
+    <div className="flex flex-col items-end max-w-screen-2xl mx-auto mt-4 p-2">
       <h1 className="text-5xl font-black">Projects</h1>
       <p className="text-2xl text-gray-500 mt-5">
         Organize and Managment your Projects

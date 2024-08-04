@@ -28,7 +28,7 @@ const ConfirmAccountView = () => {
   };
   return (
     <div className=" w-full h-screen min-h-screen  ">
-      <div className="bg-[#030b0e] w-full h-full flex flex-col gap-10 items-center justify-center">
+      <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
@@ -39,7 +39,7 @@ const ConfirmAccountView = () => {
           Enter the code you received{""}
           <span className=" text-fuchsia-500 font-bold"> by e-mail</span>
         </p>
-        <form className="space-y-8 p-10 bg-white mt-10">
+        <form className="space-y-8 p-10 bg-white mt-10 w-[370px] md:w-[450px]">
           <label className="font-normal text-2xl text-center block">
             Code of 6 digits
           </label>
