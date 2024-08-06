@@ -23,7 +23,7 @@ const ProjectDetails = () => {
   if (isError) return <Navigate to="/404" />;
   if (data)
     return (
-      <div className="flex flex-col items-end max-w-screen-2xl mx-auto">
+      <div className="flex flex-col mt-6 pl-4 items-end max-w-screen-2xl mx-auto">
         <h1 className="text-end text-3xl font-black">{data.projectName}</h1>
         <p className="text-xl font-light text-end text-gray-500 mt-5">
           {data.description}
@@ -32,7 +32,7 @@ const ProjectDetails = () => {
           <button
             type="button"
             onClick={() => navigate("?newTask=true")}
-            className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white cursor-pointer transition-colors rounded"
+            className="bg-purple-400 z-0 hover:bg-purple-500 px-10 py-3 text-white cursor-pointer transition-colors rounded"
           >
             Add task
           </button>

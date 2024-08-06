@@ -41,7 +41,7 @@ const ProjectView = () => {
         </Link>
       </nav>
       {data?.length ? (
-        <ul role="list" className=" mt-10 w-full grid-cols-2 grid  gap-4   ">
+        <ul role="list" className=" mt-10 w-full lg:grid-cols-2 grid-cols-1 grid  gap-4   ">
           {data.map((project) => (
             <li
               key={project._id}
@@ -61,6 +61,7 @@ const ProjectView = () => {
                   <p className="text-sm text-gray-400">
                     Description: {project.description}
                   </p>
+                
                 </div>
               </div>
               <div className="flex shrink-0 items-center gap-x-6">
@@ -115,6 +116,7 @@ const ProjectView = () => {
               </div>
             </li>
           ))}
+  
         </ul>
       ) : (
         <p className="text-center py-20">

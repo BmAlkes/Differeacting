@@ -10,6 +10,7 @@ export async function createProject(formData: ProjectFormData) {
   }
 }
 export async function getProjects() {
+
   try {
     const { data } = await api("/projects");
     const response = dashboardProjectSchema.safeParse(data);
@@ -29,11 +30,11 @@ export async function getProjectsById(id: Project["_id"]) {
   }
 }
 
-type ProjectApiType ={
-  formData:ProjectFormData
-  projectId:Project['_id']
-}
-export async function updateProjects({formData,projectId}:ProjectApiType) {
+type ProjectApiType = {
+  formData: ProjectFormData;
+  projectId: Project["_id"];
+};
+export async function updateProjects({ formData, projectId }: ProjectApiType) {
   try {
     const { data } = await api.put(`/projects/${projectId}`, formData);
     return data;

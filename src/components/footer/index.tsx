@@ -96,7 +96,7 @@ const Reccomend = () => {
                   <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
                     Ofir Zeitoun
                   </h2>
-                  <p className="text-gray-500">Senior Product Designer</p>
+                  <p className="text-gray-500">Software Mentor & Freelance</p>
                 </div>
               </div>
 

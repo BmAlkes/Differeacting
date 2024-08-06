@@ -1,10 +1,18 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { Grid, Home, LogOut, Newspaper, PieChart } from "lucide-react";
 import { AiOutlineProfile } from "react-icons/ai";
 import { FaAppStore, FaUserCog } from "react-icons/fa";
 import { IoNotifications, IoPeople } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+	const navigate = useNavigate()
+	const queryClient = useQueryClient()
+	const logout = () => {
+		localStorage.removeItem('Auth_Token')
+		queryClient.invalidateQueries({queryKey:['user']})
+		navigate('/login')
+	}
 	const navLinks = [
 		{
 			title: "Dashboard",
@@ -139,7 +147,7 @@ const Sidebar = () => {
                         </Link>
 					);
 				})}
-				<div className="flex absolute bottom-4 items-center md:justify-start justify-center gap-2 md:w-[90%] w-[70%] rounded-lg hover:bg-[] px-2 py-3 cursor-pointer bg-gray-200">
+				<div className="flex absolute bottom-4 items-center md:justify-start justify-center gap-2 md:w-[90%] w-[70%] rounded-lg hover:bg-[] px-2 py-3 cursor-pointer bg-gray-200" onClick={logout}>
 					<LogOut/>
 					<span className="font-medium text-[15px] md:block hidden">Log Out</span>
 				</div>

@@ -4,7 +4,7 @@ import ErrorMessage from "../../../components/ErrorMessage";
 import { useMutation } from "@tanstack/react-query";
 import { autheticateUser } from "../../../api/AuthApi";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const initialValues: UserLoginForm = {
@@ -16,14 +16,16 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ defaultValues: initialValues });
-
+  
+  const navigate = useNavigate()
   const { mutate } = useMutation({
     mutationFn: autheticateUser,
     onError: (error) => {
       toast.error(error.message);
     },
     onSuccess: () => {
-      toast.success('Stat Session');
+      navigate('/dashboard')
+
     },
   });
 
@@ -33,15 +35,15 @@ const Login = () => {
   };
   return (
     <div className=" w-full h-screen min-h-screen  ">
-      <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
+      <div className="bg-[#030b0e] w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
-          className="w-[600px] mb-11"
+          className="lg:w-[600px] w-[400px] mb-11"
         />
         <form
           onSubmit={handleSubmit(handleLogin)}
-          className="space-y-8 p-10 shadow-[#6fcfed] shadow-2xl bg-white lg:w-[500px] h-[500px] rounded-md"
+          className="space-y-8 p-10 shadow-[#6fcfed] shadow-2xl bg-white lg:w-[500px] w-[400px] h-[500px] rounded-md"
           noValidate
         >
           <div className="flex flex-col gap-5">
@@ -53,7 +55,7 @@ const Login = () => {
               placeholder="Email"
               className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
               {...register("email", {
-                required: "El Email es obligatorio",
+                required: "Email is required",
                 pattern: {
                   value: /\S+@\S+\.\S+/,
                   message: "E-mail no válido",
@@ -73,7 +75,7 @@ const Login = () => {
               placeholder="Password "
               className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
               {...register("password", {
-                required: "El Password es obligatorio",
+                required: "Password is required",
               })}
             />
             {errors.password && (

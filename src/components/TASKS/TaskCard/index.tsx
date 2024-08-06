@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTask } from "../../../api/TaskApi";
 import { toast } from "react-toastify";
+import AddModal from "../../addModal";
+import AddTaskModal from "../taskModal/addTaskModal";
 
 type TaskCardProps ={
     task:Task
@@ -32,10 +34,11 @@ const queryClient = useQueryClient()
 
 
   return (
-    <li className="p-5 bg-white border border-slate-300  flex flex-row-reverse justify-between gap-3">
+    <li className="p-5 bg-white border min-w-[290px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
         <div className="w-full flex items-end flex-col gap-y-4">
-            <button type="button" className="text-xl font-bold text-blue-300 text-left">{task.taskName}</button>
+            <button type="button" className="text-xl font-bold text-blue-300 z-0 text-left">{task.taskName}</button>
             <p className="text-left">{task.description}</p>
+            
         </div>
         <div className="flex shrink-0  gap-x-6">
     <Menu as="div" className="relative flex-none">
@@ -67,6 +70,7 @@ const queryClient = useQueryClient()
             </Menu.Items>
         </Transition>
     </Menu>
+
 </div>
     </li>
   );

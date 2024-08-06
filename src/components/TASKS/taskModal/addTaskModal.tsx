@@ -72,10 +72,10 @@ export default function AddTaskModal() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black/60" />
+            <div className="fixed inset-0 bg-black/60 " />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto ">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -86,7 +86,7 @@ export default function AddTaskModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
+                <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16 z-[1000]">
                   <Dialog.Title as="h3" className="font-black text-4xl  my-5">
                     New Task
                   </Dialog.Title>
@@ -95,6 +95,7 @@ export default function AddTaskModal() {
                     Fill in the form and create {""}
                     <span className="text-purple-600">a task</span>
                   </p>
+                  
                   <form
                     className="mt-10 space-y-3"
                     onSubmit={handleSubmit(handleCreateTask)}

@@ -13,7 +13,7 @@ export async function createAccount(formData: UserRegistrationForm) {
   try {
     const url = "/auth/create-account";
     const { data } = await api.post<string>(url, formData);
-   
+
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.message) {
@@ -51,11 +51,11 @@ export async function autheticateUser(formData: UserLoginForm) {
   try {
     const url = "/auth/login";
     const { data } = await api.post<string>(url, formData);
-    localStorage.setItem("Auth_Token",data)
+    localStorage.setItem("Auth_Token", data);
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.message) {
- throw new Error(error.response?.data.error);
+      throw new Error(error.response?.data.error);
     }
   }
 }
@@ -93,6 +93,19 @@ export async function updatePasswordWithToken({
     const url = `/auth/update-password/${token}`;
     const { data } = await api.post<string>(url, formData);
     return data;
+  } catch (error) {
+    if (isAxiosError(error) && error.message) {
+      throw new Error(error.response?.data.error);
+    }
+  }
+}
+
+export async function getUser() {
+  try {
+    const { data } = await api("/auth/user");
+    if(data){
+      return data
+    }
   } catch (error) {
     if (isAxiosError(error) && error.message) {
       throw new Error(error.response?.data.error);
