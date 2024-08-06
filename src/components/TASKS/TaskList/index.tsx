@@ -32,7 +32,7 @@ const TaskList = ({ tasks }: TaskListProps) => {
     underReview: 'border-t-amber-500',
     completed:'border-t-emerald-500'
   }
-  const navigate = useNavigate()
+ 
 
   return (
     <>
