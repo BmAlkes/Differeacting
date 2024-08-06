@@ -6,8 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTask } from "../../../api/TaskApi";
 import { toast } from "react-toastify";
-import AddModal from "../../addModal";
-import AddTaskModal from "../taskModal/addTaskModal";
+
 
 type TaskCardProps ={
     task:Task
