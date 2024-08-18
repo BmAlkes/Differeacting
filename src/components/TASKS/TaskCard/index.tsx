@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTask } from "../../../api/TaskApi";
 import { toast } from "react-toastify";
 import { IoTimeOutline } from "react-icons/io5";
+import {useDraggable} from '@dnd-kit/core'
 
 
 type TaskCardProps ={
@@ -14,6 +15,9 @@ type TaskCardProps ={
 }
 
 const TaskCard = ({ task }:TaskCardProps) => {
+    const {attributes,listeners,setNodeRef, transform}= useDraggable({
+        id:task._id
+    })
     const navigate =useNavigate()
     const params = useParams()
     const projectId = params.projectId!
@@ -33,10 +37,10 @@ const queryClient = useQueryClient()
     const { taskName, description, priority, deadline, image , alt } = task;
 
 
-
+const style = transform ? {transform:`translate3d(${transform.x}px, ${transform.y}px,)`} :undefined;
   return (
     <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
-        <div className="w-full flex items-end flex-col gap-y-4">
+        <div className="w-full flex items-end flex-col gap-y-4" {...listeners}{...attributes} ref={setNodeRef} style={style}>
         {image && (
 				<img
 					src={image}

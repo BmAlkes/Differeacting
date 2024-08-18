@@ -61,7 +61,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="fixed left-0 top-0 md:w-[230px] w-[60px] overflow-hidden h-full flex flex-col ">
+    <div className="fixed left-0 top-0 md:w-[230px] w-[60px] overflow-hidden h-full flex flex-col z-50 ">
       <div className="w-full flex items-center md:justify-start justify-center md:pl-5 h-[70px] bg-[#fff]">
         <Link to="/dashboard">
           <img
