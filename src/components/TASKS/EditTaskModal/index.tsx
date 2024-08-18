@@ -22,7 +22,11 @@ export default function EditTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
-  };
+    alt:"",
+  deadline:"",
+image:"",
+priority:""
+};
 
   const {
     register,
