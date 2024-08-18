@@ -143,8 +143,8 @@ const ProjectView = () => {
           </ul>
           {projects.data && (
             <div className="flex justify-center items-center w-full my-3 gap-3">
-            <button onClick={() =>setPage(page + 1)} className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#73b6e9] hover:text-black disabled:cursor-not-allowed" disabled={page === Math.min(projects.totalPage)}>Next Page</button>
-            <button onClick={() =>setPage(page - 1)} disabled={page === 0} className={` z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#73b6e9] hover:text-black disabled:cursor-not-allowed `}>Previous Page</button>
+            <button onClick={() =>setPage(page + 1)} className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed" disabled={page === Math.min(projects.totalPage)}>Next Page</button>
+            <button onClick={() =>setPage(page - 1)} disabled={page === 0} className={` z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed `}>Previous Page</button>
             </div>
           )}
         </>
