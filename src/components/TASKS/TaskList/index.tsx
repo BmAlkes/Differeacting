@@ -1,5 +1,6 @@
 
 import { Task } from "../../../@types";
+import DropTask from "../DropTask";
 import TaskCard from "../TaskCard";
 
 
@@ -41,6 +42,7 @@ const TaskList = ({ tasks }: TaskListProps) => {
         {Object.entries(groupedTasks).map(([status, tasks]) => (
           <div key={status} className="min-w-[350px] 2xl:min-w-[350px] 2xl:w-1/5 ">
             <h3 className={`text-center capitalize text-xl font-light border border-slate-300 rounded-t-lg bg-white p-3 border-t-8 ${statusColor[status]}`}>{status}</h3>
+            <DropTask/>
             <ul className="mt-5 space-y-5 flex justify-center items-center flex-col">
               {tasks.length === 0 ? (
                 <li className="text-gray-500 text-center pt-3">
