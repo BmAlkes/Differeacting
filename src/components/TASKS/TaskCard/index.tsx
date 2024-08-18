@@ -39,8 +39,8 @@ const queryClient = useQueryClient()
 
 const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`} :undefined;
   return (
-    <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3"{...listeners}{...attributes} ref={setNodeRef} style={style}>
-        <div className="w-full flex items-end flex-col gap-y-4" >
+    <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
+        <div className="w-full flex items-end flex-col gap-y-4" {...listeners}{...attributes} ref={setNodeRef} style={style}>
         {image && (
 				<img
 					src={image}
