@@ -1,7 +1,11 @@
-import { Task } from "../../../@types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Task, TaskStatus } from "../../../@types";
 import DropTask from "../DropTask";
 import TaskCard from "../TaskCard";
-import { DndContext } from "@dnd-kit/core";
+import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { updatedStatus } from "../../../api/TaskApi";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 type TaskListProps = {
   tasks: Task[];
@@ -18,12 +22,28 @@ const initialStatusGroup: GroupTask = {
 };
 
 const TaskList = ({ tasks }: TaskListProps) => {
+  const params = useParams();
+  const projectId = params.projectId!;
+
   const groupedTasks = tasks.reduce((acc, task) => {
     let currentGroup = acc[task.status] ? [...acc[task.status]] : [];
     currentGroup = [...currentGroup, task];
     return { ...acc, [task.status]: currentGroup };
   }, initialStatusGroup);
 
+  const queryClient = useQueryClient()
+  const {mutate} = useMutation({
+    mutationFn:updatedStatus,
+    onError:(error) => {
+        toast.error(error.message)
+    },
+    onSuccess:(data) => {
+        toast.success(data)
+        queryClient.invalidateQueries({queryKey:['project',projectId]})
+        // queryClient.invalidateQueries({queryKey:['task',projectId]})
+    },
+    },
+  )
   const statusColor: { [key: string]: string } = {
     pending: "border-t-slate-500",
     onHold: "border-t-red-500",
@@ -32,12 +52,22 @@ const TaskList = ({ tasks }: TaskListProps) => {
     completed: "border-t-emerald-500",
   };
 
+  const handleDragEnd = (e: DragEndEvent) => {
+    const { over, active } = e;
+    if (over && over.id) {
+    const taskId = active.id.toString()
+    const status  =over.id as TaskStatus
+
+    mutate({projectId,taskId,status})
+    }
+  };
+
   return (
     <>
       <h2 className="text-5xl font-black my-10 text-left">Tasks</h2>
 
       <div className="flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32 w-full flex-row-reverse">
-        <DndContext>
+        <DndContext onDragEnd={handleDragEnd}>
           {Object.entries(groupedTasks).map(([status, tasks]) => (
             <div
               key={status}
@@ -48,7 +78,7 @@ const TaskList = ({ tasks }: TaskListProps) => {
               >
                 {status}
               </h3>
-              <DropTask />
+              <DropTask status={status} />
               <ul className="mt-5 space-y-5 flex justify-center items-center flex-col">
                 {tasks.length === 0 ? (
                   <li className="text-gray-500 text-center pt-3">
