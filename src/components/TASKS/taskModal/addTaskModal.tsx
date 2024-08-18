@@ -15,10 +15,12 @@ export default function AddTaskModal() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const modalTask = queryParams.get("newTask");
+  const show = modalTask ? true : false
 
   // Get ProjectId
   const params = useParams();
   const projectId = params.projectId!;
+
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
@@ -61,7 +63,7 @@ export default function AddTaskModal() {
 
   return (
     <>
-      <Transition appear show={modalTask ? true : false} as={Fragment}>
+      <Transition appear show={show} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10"

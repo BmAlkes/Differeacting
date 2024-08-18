@@ -20,6 +20,7 @@ export default function EditNewTaskModal({
   const navigate = useNavigate();
   const params = useParams();
   const projectId = params.projectId!;
+
   const {
     register,
     handleSubmit,
@@ -31,6 +32,7 @@ export default function EditNewTaskModal({
       description: data.description,
     },
   });
+
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: updateTask,
@@ -38,7 +40,8 @@ export default function EditNewTaskModal({
       toast.error(error.message);
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["editProject", projectId] });
+      queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+      queryClient.invalidateQueries({ queryKey: ["task", taskId] });
       toast.success(data);
       reset();
       navigate(location.pathname, { replace: true });
