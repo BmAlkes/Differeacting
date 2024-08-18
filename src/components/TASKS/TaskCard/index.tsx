@@ -37,7 +37,7 @@ const queryClient = useQueryClient()
     const { taskName, description, priority, deadline, image , alt } = task;
 
 
-const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`} :undefined;
+const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`, padding:"1.25rem", backgroundColor:'#fff', width:'350px', display:"flex", borderWidth:'1px', borderColor:'#rgb(203 213 225 /var(--tw-border-opacity)'}  :undefined;
   return (
     <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
         <div className="w-full flex items-end flex-col gap-y-4" {...listeners}{...attributes} ref={setNodeRef} style={style}>
