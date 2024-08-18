@@ -34,7 +34,7 @@ const queryClient = useQueryClient()
         },
     })
 
-    const { taskName, description, priority, deadline, image , alt } = task;
+    const { taskName, description, priority, deadline, image , alt,assignedTask } = task;
 
 
 const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`, padding:"1.25rem", backgroundColor:'#fff', width:'350px', display:"flex", borderWidth:'1px', borderColor:'#rgb(203 213 225 /var(--tw-border-opacity)'}  :undefined;
@@ -53,6 +53,8 @@ const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y
 				<span className="text-lg uppercase text-left font-medium text-[#2f6597]">{taskName}</span>
 				<p className="text-[13.5px] text-left text-gray-700">{description}</p>
 			</div>
+            <div className="w-full border border-dashed"></div>
+            <h2>Assigned Task: {assignedTask} </h2>
             <div className="w-full border border-dashed"></div>
                 <h2>DeadLine </h2>
 			<div className="w-full flex flex-row-reverse items-center justify-between">
