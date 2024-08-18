@@ -25,7 +25,8 @@ export default function EditTaskModal() {
     alt:"",
   deadline:"",
 image:"",
-priority:""
+priority:"",
+assignedTask:""
 };
 
   const {
