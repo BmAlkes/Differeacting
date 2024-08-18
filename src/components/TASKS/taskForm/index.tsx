@@ -45,6 +45,21 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
          
+        <label className="font-normal text-lg" htmlFor="description">
+        Assigned task
+        </label>
+        <textarea
+          id="assigned task"
+          placeholder="assigned task"
+          className="w-full h-32 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
+          {...register("assignedTask", {
+            required: " Assigned Task is required",
+          })}
+        />
+        {errors.description && (
+          <ErrorMessage>{errors.assignedTask?.message}</ErrorMessage>
+        )}
+         
          <label className="font-normal text-lg " htmlFor="description">
           Priority
         </label>

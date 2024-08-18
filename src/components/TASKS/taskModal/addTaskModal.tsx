@@ -22,11 +22,11 @@ export default function AddTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
-    alt:"",
-    deadline:"",
-    image:"",
-    priority:"",
- 
+    alt: "",
+    deadline: "",
+    image: "",
+    priority: "",
+    assignedTask: "",
   };
 
   const {
@@ -51,7 +51,6 @@ export default function AddTaskModal() {
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
-
     const data = {
       formData,
       projectId,
@@ -101,7 +100,7 @@ export default function AddTaskModal() {
                     Fill in the form and create {""}
                     <span className="text-purple-600">a task</span>
                   </p>
-                  
+
                   <form
                     className="mt-10 space-y-3"
                     onSubmit={handleSubmit(handleCreateTask)}
