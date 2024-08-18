@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
-import { Tilt } from 'react-tilt'
+import { Tilt } from "react-tilt";
 
 const Hero = () => {
   // const [direction, setDirection] = useState(document.body.dir);
@@ -16,13 +16,14 @@ const Hero = () => {
   //   return () => observer.disconnect();
   // }, []);
 
-
-
-
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
       <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
-        <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
+        <div
+          className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 "
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        >
           <p className="text-[#6FCFED] lg:text-2xl text-lg">
             אנחנו פה בשביל לעזור לעסק שלך לצמוח
           </p>
@@ -53,14 +54,17 @@ const Hero = () => {
           </div>
         </div>
         <Tilt>
-        <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
-          alt="background hero"
-          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] " data-tilt 
+          <img
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
+            alt="background hero"
+            className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
+            data-tilt
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-sine"
           />
-          </Tilt>
-          </div>
-      
+        </Tilt>
+      </div>
     </section>
   );
 };
