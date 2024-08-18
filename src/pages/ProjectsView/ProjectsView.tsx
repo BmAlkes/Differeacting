@@ -79,7 +79,7 @@ const ProjectView = () => {
                     >
                       {project.projectName}
                     </Link>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-lg text-gray-600">
                       Cliente: {project.clientName}
                     </p>
                     <p className="text-sm text-gray-400">
