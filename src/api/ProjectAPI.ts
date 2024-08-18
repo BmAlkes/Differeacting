@@ -1,4 +1,4 @@
-import { Project, ProjectFormData, dashboardProjectSchema } from "../@types";
+import { Project, ProjectFormData } from "../@types";
 import api from "../lib/axios";
 
 export async function createProject(formData: ProjectFormData) {
@@ -9,14 +9,12 @@ export async function createProject(formData: ProjectFormData) {
     console.log(error);
   }
 }
-export async function getProjects() {
-
+export async function getProjects(page: number) {
   try {
-    const { data } = await api("/projects");
-    const response = dashboardProjectSchema.safeParse(data);
-    if (response.success) {
-      return response.data;
-    }
+    const { data } = await api(`/projects?page=${page}`);
+    console.log(data);
+    return data;
+
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,5 @@
 import {
+  CheckPasswordForm,
   ConfirmToken,
   ForgotPasswordForm,
   NewPasswordForm,
@@ -55,7 +56,7 @@ export async function autheticateUser(formData: UserLoginForm) {
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.message) {
-      throw new Error(error.response?.data.error);
+      throw new Error(error.response?.data.error.message);
     }
   }
 }
@@ -112,3 +113,16 @@ export async function getUser() {
     }
   }
 }
+  export async function checkPassword (formData:CheckPasswordForm){
+    try {
+      const url = '/auth/check-password'
+      const {data} = await api.post<string>(url, formData)
+      return data
+    } 
+      catch (error) {
+        if (isAxiosError(error) && error.message) {
+          throw new Error(error.response?.data.error);
+        }
+    }
+  }
+

@@ -24,7 +24,7 @@ const CreateProjectView = () => {
     mutationFn: createProject,
     onError: () => {},
     onSuccess: () => {
-      navigate("/dashboard");
+      navigate("/dashboard/projects");
       toast.success("Project created successfully"), reset();
     },
   });

@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTask } from "../../../api/TaskApi";
 import { toast } from "react-toastify";
+import { IoTimeOutline } from "react-icons/io5";
 
 
 type TaskCardProps ={
@@ -29,14 +30,47 @@ const queryClient = useQueryClient()
         },
     })
 
-    
+    const { taskName, description, priority, deadline, image , alt } = task;
+
 
 
   return (
-    <li className="p-5 bg-white border min-w-[290px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
+    <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
         <div className="w-full flex items-end flex-col gap-y-4">
-            <button type="button" className="text-xl font-bold text-blue-300 z-0 text-left">{task.taskName}</button>
-            <p className="text-left">{task.description}</p>
+        {image && (
+				<img
+					src={image}
+					alt={alt}
+					className="w-full h-[150px] rounded-lg object-contain"
+				/>
+			)}
+           
+            <div className="w-full flex  flex-col gap-2">
+				<span className="text-lg uppercase text-left font-medium text-[#2f6597]">{taskName}</span>
+				<p className="text-[13.5px] text-left text-gray-700">{description}</p>
+			</div>
+            <div className="w-full border border-dashed"></div>
+                <h2>DeadLine </h2>
+			<div className="w-full flex flex-row-reverse items-center justify-between">
+				<div className="flex items-center gap-1">
+					<IoTimeOutline
+						color={"#666"}
+						width="19px"
+						height="19px"
+					/>
+					<span className="text-[16px] text-gray-700">{deadline} mins</span>
+				</div>
+            
+				<div
+					className={`w-[60px] rounded-full uppercase flex items-center text-xs p-3 justify-center text-white px-4 ${
+						priority === "high"
+							? "bg-red-500"
+							: priority === "medium"
+							? "bg-orange-500"
+							: "bg-blue-500"
+					}`}
+				>{priority}</div>
+			</div>
             
         </div>
         <div className="flex shrink-0  gap-x-6">

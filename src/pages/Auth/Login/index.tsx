@@ -30,7 +30,6 @@ const Login = () => {
   });
 
   const handleLogin = (formData: UserLoginForm) => {
-    console.log(formData)
     mutate(formData);
   };
   return (

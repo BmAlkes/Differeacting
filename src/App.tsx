@@ -21,7 +21,7 @@ import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/Dashboard";
 import { DashboardLayout } from "./layout/dashboardLayout";
 import CreateProjectView from "./pages/ProjectsView/CreateProjectView";
-import Clients from "./pages/ProjectsView";
+import Clients from "./pages/Clients/index.tsx";
 import EditProjectView from "./pages/ProjectsView/EditProjectView";
 import ProjectDetails from "./pages/ProjectsView/ProjectDetails";
 import ProjectView from "./pages/ProjectsView/ProjectsView";
@@ -30,6 +30,9 @@ import ConfirmAccountView from "./pages/Auth/ConfirmAccount";
 import RequestNewCodeView from "./pages/Auth/RequestNewCodeView.tsx";
 import ForgotPasswordView from "./pages/Auth/ForgotPassword/index.tsx";
 import NewPasswordView from "./pages/Auth/NewPasswordView/index.tsx";
+import ProfileView from "./pages/Profile/ProfileView.tsx";
+import ProfileLayout from "./layout/ProfileLayout.tsx";
+import ChangePassword from "./pages/Profile/ChangePassword.tsx";
 
 AOS.init();
 
@@ -64,10 +67,7 @@ function App() {
             path="/auth/forgot-password"
             element={<ForgotPasswordView />}
           />
-          <Route
-            path="/auth/new-password"
-            element={<NewPasswordView />}
-          />
+          <Route path="/auth/new-password" element={<NewPasswordView />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -85,8 +85,14 @@ function App() {
               element={<EditProjectView />}
             />
             <Route path="/dashboard/clients" element={<Clients />} />
-            <Route path="/dashboard/profile" element={<Clients />} />
             <Route path="/dashboard/register" element={<Register />} />
+            <Route element={<ProfileLayout />}>
+              <Route path="/dashboard/profile" element={<ProfileView />} />
+              <Route
+                path="/dashboard/profile/password"
+                element={<ChangePassword />}
+              />
+            </Route>
           </Route>
         </Routes>
       </AnimatePresence>

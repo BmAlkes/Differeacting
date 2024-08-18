@@ -366,3 +366,25 @@
 button{
   z-index: 100;
 }
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+
+ ;
+}
+
+.content {
+  position: relative;
+  bottom: 0;
+  top:0;
+  width: 100%;
+  padding: 20px;
+}
+
+
+.rotateClass {
+  animation:spin 30s linear infinite;
+}

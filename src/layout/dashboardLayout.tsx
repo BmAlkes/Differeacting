@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import HeaderApp from "../components/headerApp";
 import Sidebar from "../components/Sidebar";
 import { useAuth } from "../hooks/useAuth";
@@ -6,8 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 
 
 export const DashboardLayout = () => {
-  const {data,isError, isLoading} = useAuth()
-  console.log(isError)
+  const {data, isLoading} = useAuth()
 
 
   if(isLoading) return 'Loading...'

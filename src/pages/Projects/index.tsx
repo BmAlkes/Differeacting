@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
-import { Tilt } from "react-tilt";
 
 const Projects = () => {
   const { pathname } = useLocation();
@@ -25,40 +24,122 @@ const Projects = () => {
       }}
     >
       <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
-        <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
-          <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
-            <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
+        <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full items-center  ">
+          <div className="w-full h-full  flex flex-col justify-center max-w-[600px] z-50 mt-8 md:mt-5 ">
+            <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
               פרויקטים מומלצים
             </h2>
-            <p className="text-[#6FCFED] lg:text-2xl text-lg">
+            <p className="text-[#6FCFED] lg:text-2xl text-center lg:text-right text-xl">
               בדוק את העבודות האחרונות שלנו.
             </p>
 
-            {/* <p className="text-white lg:text-2xl font-normal lg:mt-[10px] mt-5 text-xl">
-          המותג שלך צריך פיתוח בהתאמה אישית ובטכנולוגיות מתקדמות
-          כגון:Wordpress, React, Google Analytics
-        </p> */}
-            <div className="flex gap-7 mt-[30px]"></div>
+          
           </div>
-          <Tilt>
-            <img
-              src={
-                "https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405473183_wtmvo4.png"
-              }
-              alt="background hero"
-              className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[400px] md:h-[900px] "
-              data-tilt
-            />
-          </Tilt>
+
+          <img
+            src={
+              "https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405473183_wtmvo4.png"
+            }
+            alt="background hero"
+            className="lg:h-[100%]   object-cover  md:max-w-[400px]  overflow-visible  h-[400px] md:h-[1590px] rotateClass "
+          />
         </div>
       </section>
       <section className=" bg-[#030B0F]">
         <OpenCards />
       </section>
-      <section className=" bg-[#030B0F] ">
+
+      {/* <section className=" bg-[#030B0F] content ">
+        <div className="mx-auto max-w-7xl ">
+          <div className="grid grid-cols-1 items-center justify-center">
+           
+
+            <div className="p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl z-50 relative">
+              <div className="flex flex-col items-center">
+
+              <h2 className="text-[#6FCFED]  max-w-[700px] text-[70px]  text-center font-semibold leading-10 mb-11">
+                מוכן להפוך <br/>לפרוייקט הבא שלנו?? 
+              </h2>
+              <h3>השאר פרטים!</h3>
+              </div>
+              <input
+                type="text"
+                className="w-full h-12 text-gray-600 placeholder-gray-400  shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                placeholder="Name"
+              />
+              <input
+                type="text"
+                className="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                placeholder="Email"
+              />
+              <input
+                type="text"
+                className="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                placeholder="Phone"
+              />
+              <div className="mb-10">
+                <h4 className="text-gray-500 text-lg font-normal leading-7 mb-4">
+                  Preferred method of communication
+                </h4>
+                <div className="flex">
+                  <div className="flex items-center mr-11">
+                    <input
+                      id="radio-group-1"
+                      type="radio"
+                      name="radio-group"
+                      className="hidden checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
+                    />
+                    <label
+                      htmlFor="radio-group-1"
+                      className="flex items-center cursor-pointer text-gray-500 text-base font-normal leading-6"
+                    >
+                      <span className="border border-gray-300 rounded-full mr-2 w-4 h-4  ml-2 "></span>{" "}
+                      Email
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      id="radio-group-2"
+                      type="radio"
+                      name="radio-group"
+                      className="hidden checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
+                    />
+                    <label
+                      htmlFor="radio-group-2"
+                      className="flex items-center cursor-pointer text-gray-500 text-base font-normal leading-6"
+                    >
+                      <span className="border border-gray-300  rounded-full mr-2 w-4 h-4  ml-2 "></span>{" "}
+                      Phone
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <input
+                type="text"
+                className="w-full h-12 text-gray-600 placeholder-gray-400 bg-transparent text-lg shadow-sm font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                placeholder="Message"
+              />
+              <button className="w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-indigo-600 shadow-sm">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+  
+
+        <video muted autoPlay loop id="myVideo" >
+          <source
+            src="https://res.cloudinary.com/landingpage2/video/upload/v1723803860/603591_Abstract_Animation_1920x1080_jfe98x.mp4"
+            type="video/mp4"
+            />
+        </video>
+      
+      </section> */}
+     
+      <section className=" bg-[#030B0F]  ">
         <div className="container">
-          <h2 className="lg:text-4xl md:text-3xl text-xl font-semibold text-center mx-auto lg:text-right text-white py-6">
-            Templates Wordpress By Differeacting
+          <h2 className="lg:text-4xl md:text-3xl text-xl font-semibold text-center mx-auto  text-white py-6">
+            טמפלט וורדפרס על יד Differeacting
           </h2>
 
           <div className=" project__container grid">

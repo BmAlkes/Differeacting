@@ -22,6 +22,11 @@ export default function AddTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
+    alt:"",
+    deadline:"",
+    image:"",
+    priority:"",
+ 
   };
 
   const {
@@ -46,6 +51,7 @@ export default function AddTaskModal() {
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
+
     const data = {
       formData,
       projectId,
