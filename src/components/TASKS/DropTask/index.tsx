@@ -6,7 +6,7 @@ type DropTaskProps ={
 
 const DropTask = ({status}:DropTaskProps) => {
 
-    const {isOver, setNodeRef} = useDroppable({
+    const { setNodeRef} = useDroppable({
         id:status
     })
 
