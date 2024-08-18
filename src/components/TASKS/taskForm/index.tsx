@@ -52,12 +52,12 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           id="assigned task"
           placeholder="assigned task"
           className="w-full h-32 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
-          {...register("assignedTask", {
+          {...register("assignedtask", {
             required: " Assigned Task is required",
           })}
         />
         {errors.description && (
-          <ErrorMessage>{errors.assignedTask?.message}</ErrorMessage>
+          <ErrorMessage>{errors.assignedtask?.message}</ErrorMessage>
         )}
          
          <label className="font-normal text-lg " htmlFor="description">

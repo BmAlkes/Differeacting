@@ -52,12 +52,12 @@ export const taskSchema = z.object({
 	deadline: z.string(),
 	image: z.string(),
 	alt: z.string(),
-  assignedTask:z.string()
+  assignedtask:z.string()
 
 });
 
 export type Task = z.infer<typeof taskSchema>;
-export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"image" | "alt" |"assignedTask" >;
+export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"image" | "alt" |"assignedtask" >;
 
 /**Projects */
 

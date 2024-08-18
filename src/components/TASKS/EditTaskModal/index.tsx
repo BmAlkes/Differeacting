@@ -26,7 +26,7 @@ export default function EditTaskModal() {
   deadline:"",
 image:"",
 priority:"",
-assignedTask:""
+assignedtask:""
 };
 
   const {
@@ -51,6 +51,7 @@ assignedTask:""
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
+
     const data = {
       formData,
       projectId,

@@ -34,7 +34,8 @@ const queryClient = useQueryClient()
         },
     })
 
-    const { taskName, description, priority, deadline, image , alt,assignedTask } = task;
+    const { taskName, description, priority, deadline, image , alt,assignedtask } = task;
+    console.log(task)
 
 
 const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`, padding:"1.25rem", backgroundColor:'#fff', width:'350px', display:"flex", borderWidth:'1px', borderColor:'#rgb(203 213 225 /var(--tw-border-opacity)'}  :undefined;
@@ -54,7 +55,7 @@ const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y
 				<p className="text-[13.5px] text-left text-gray-700">{description}</p>
 			</div>
             <div className="w-full border border-dashed"></div>
-            <h2>Assigned Task: {assignedTask} </h2>
+            <h2>Assigned Task: {assignedtask} </h2>
             <div className="w-full border border-dashed"></div>
                 <h2>DeadLine </h2>
 			<div className="w-full flex flex-row-reverse items-center justify-between">
@@ -91,7 +92,7 @@ const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y
             <Menu.Items
                 className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                 <Menu.Item>
-                    <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900 ' onClick={()=>navigate(location.pathname + `?viewTask=${task._id}`)}>
+                    <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900 ' onClick={()=>navigate(location.pathname +`?viewTask=${task._id}`)}>
                      See Task
                     </button>
                 </Menu.Item>
