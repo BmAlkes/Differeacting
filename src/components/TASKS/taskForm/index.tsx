@@ -45,21 +45,7 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
          
-        <label className="font-normal text-lg" htmlFor="assignedtask">
-        Assigned task
-        </label>
-        <input
-          id="assignedtask"
-          type="text"
-          placeholder="Assigned Task ex:Leo"
-          className="w-full h-11 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
-          {...register("assignedTask", {
-            required: " Assigned Task is required",
-          })}
-        />
-        {errors.assignedTask && (
-          <ErrorMessage>{errors.assignedTask?.message}</ErrorMessage>
-        )}
+       
          
          <label className="font-normal text-lg " htmlFor="description">
           Priority

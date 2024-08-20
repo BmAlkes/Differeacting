@@ -24,7 +24,7 @@ export default function AddTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
-    assignedTask: "",
+
     alt: "",
     deadline: "",
     image: "",
