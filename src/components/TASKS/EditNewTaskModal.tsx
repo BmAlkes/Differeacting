@@ -30,7 +30,6 @@ export default function EditNewTaskModal({
     defaultValues: {
       taskName: data.taskName,
       description: data.description,
-      assignedtask:data.assignedtask,
       deadline:data.deadline,
       priority:data.priority,
     },

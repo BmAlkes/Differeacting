@@ -15,7 +15,7 @@ export default function AddTaskModal() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const modalTask = queryParams.get("newTask");
-  const show = modalTask ? true : false
+  const show = modalTask ? true : false;
 
   // Get ProjectId
   const params = useParams();
@@ -24,11 +24,11 @@ export default function AddTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
+    assignedTask: "",
     alt: "",
     deadline: "",
     image: "",
     priority: "",
- assignedtask: "",
   };
 
   const {
@@ -53,7 +53,7 @@ export default function AddTaskModal() {
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
-
+    console.log(formData);
     const data = {
       formData,
       projectId,

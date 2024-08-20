@@ -16,6 +16,7 @@ export async function createTask({
   try {
     const url = `/projects/${projectId}/tasks`;
     const { data } = await api.post<string>(url, formData);
+  console.log(data);
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {

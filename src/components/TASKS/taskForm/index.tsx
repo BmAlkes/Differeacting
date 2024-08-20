@@ -45,19 +45,20 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
          
-        <label className="font-normal text-lg" htmlFor="description">
+        <label className="font-normal text-lg" htmlFor="assignedtask">
         Assigned task
         </label>
         <input
-          id="assigned task"
-          placeholder="assigned task"
+          id="assignedtask"
+          type="text"
+          placeholder="Assigned Task ex:Leo"
           className="w-full h-11 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
-          {...register("assignedtask", {
+          {...register("assignedTask", {
             required: " Assigned Task is required",
           })}
         />
-        {errors.assignedtask && (
-          <ErrorMessage>{errors.assignedtask?.message}</ErrorMessage>
+        {errors.assignedTask && (
+          <ErrorMessage>{errors.assignedTask?.message}</ErrorMessage>
         )}
          
          <label className="font-normal text-lg " htmlFor="description">
@@ -91,7 +92,7 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
             required: "Deadline is required",
           })}
         />
-         {errors.taskName && (
+         {errors.deadline && (
           <ErrorMessage>{errors.deadline?.message}</ErrorMessage>
         )}
       </div>

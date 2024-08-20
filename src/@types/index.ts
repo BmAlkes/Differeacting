@@ -45,7 +45,6 @@ export const taskSchema = z.object({
   taskName: z.string(),
   description: z.string(),
   project: z.string(),
-assignedtask:z.string(),
   status: taskStatusSchema,
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -57,7 +56,7 @@ assignedtask:z.string(),
 });
 
 export type Task = z.infer<typeof taskSchema>;
-export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"image" | "alt"|"assignedtask" >;
+export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"image" |"alt" >;
 
 /**Projects */
 
