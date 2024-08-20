@@ -12,7 +12,7 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
 
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading} = useQuery({
     queryKey: ["project", projectId],
     queryFn: () => getProjectsById(projectId),
     retry: 2,
@@ -20,7 +20,6 @@ const ProjectDetails = () => {
 
   if (isLoading)
     return <p className="text-center text-6xl text-purple-400">Loading...</p>;
-  if (isError) return <Navigate to="/404" />;
   if (data)
     return (
       <div className="flex flex-col mt-6 pl-4 items-end  mx-auto">

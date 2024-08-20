@@ -30,6 +30,9 @@ export default function EditNewTaskModal({
     defaultValues: {
       taskName: data.taskName,
       description: data.description,
+      assignedtask:data.assignedtask,
+      deadline:data.deadline,
+      priority:data.priority,
     },
   });
 
@@ -57,7 +60,7 @@ export default function EditNewTaskModal({
     mutate(data);
   };
   return (
-    <Transition appear show={true} as={Fragment}>
+    <Transition appear show={true}  as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"

@@ -57,7 +57,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
         </label>
         <textarea
           id="description"
-          className="w-full p-3  border border-gray-200 resize-none placeholder:text-end text-end"
+          className="w-full p-3 h-[300px]  border border-gray-200 resize-none placeholder:text-end text-end"
           placeholder="Project Description"
           {...register("description", {
             required: "A brief description is mandatory",

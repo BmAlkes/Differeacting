@@ -48,15 +48,15 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
         <label className="font-normal text-lg" htmlFor="description">
         Assigned task
         </label>
-        <textarea
+        <input
           id="assigned task"
           placeholder="assigned task"
-          className="w-full h-32 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
+          className="w-full h-11 px-3 outline-none text-left rounded-md bg-slate-100 border border-slate-300 text-sm"
           {...register("assignedtask", {
             required: " Assigned Task is required",
           })}
         />
-        {errors.description && (
+        {errors.assignedtask && (
           <ErrorMessage>{errors.assignedtask?.message}</ErrorMessage>
         )}
          
@@ -76,7 +76,7 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           <option value="medium" className="bg-orange-500">Medium</option>
           <option value="high" className="bg-red-500">High</option>
         </select>
-        {errors.taskName && (
+        {errors.priority && (
           <ErrorMessage>{errors.priority?.message}</ErrorMessage>
         )}
           <label className="font-normal text-lg" htmlFor="name">

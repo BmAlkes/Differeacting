@@ -28,7 +28,7 @@ export default function AddTaskModal() {
     deadline: "",
     image: "",
     priority: "",
-    assignedtask: "",
+ assignedtask: "",
   };
 
   const {
