@@ -12,7 +12,6 @@ export async function createProject(formData: ProjectFormData) {
 export async function getProjects(page: number) {
   try {
     const { data } = await api(`/projects?page=${page}`);
-    console.log(data);
     return data;
 
   } catch (error) {
