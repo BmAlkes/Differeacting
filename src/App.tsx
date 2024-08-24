@@ -33,6 +33,7 @@ import NewPasswordView from "./pages/Auth/NewPasswordView/index.tsx";
 import ProfileView from "./pages/Profile/ProfileView.tsx";
 import ProfileLayout from "./layout/ProfileLayout.tsx";
 import ChangePassword from "./pages/Profile/ChangePassword.tsx";
+import ProjectTeamView from "./pages/ProjectsView/ProjectTeam.tsx";
 
 AOS.init();
 
@@ -79,6 +80,10 @@ function App() {
             <Route
               path="/dashboard/projects/:projectId"
               element={<ProjectDetails />}
+            />
+            <Route
+              path="/dashboard/projects/:projectId/team"
+              element={<ProjectTeamView />}
             />
             <Route
               path="/dashboard/projects/:projectId/edit"

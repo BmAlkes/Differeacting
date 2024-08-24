@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {  useNavigate, useParams } from "react-router-dom";
+import {  Link, useNavigate, useParams } from "react-router-dom";
 import { getProjectsById } from "../../api/ProjectAPI";
 import AddTaskModal from "../../components/TASKS/taskModal/addTaskModal";
 import TaskList from "../../components/TASKS/TaskList";
@@ -27,7 +27,7 @@ const ProjectDetails = () => {
         <p className="text-xl font-light text-end text-gray-500 mt-5">
           {data.description}
         </p>
-        <nav className="my-5 flex gap-3 justify-end">
+        <nav className="my-5 flex flex-row-reverse gap-3 justify-end">
           <button
             type="button"
             onClick={() => navigate("?newTask=true")}
@@ -35,6 +35,8 @@ const ProjectDetails = () => {
           >
             Add task
           </button>
+          <Link to={'team' }     className="bg-fuchsia-700 z-0 hover:bg-fuchsia-800 px-10 py-3 text-white cursor-pointer transition-colors rounded">
+          Team</Link>
         </nav>
         <TaskList tasks={data.tasks} />
         <AddTaskModal />

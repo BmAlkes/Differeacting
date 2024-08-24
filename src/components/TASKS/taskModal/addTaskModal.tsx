@@ -24,7 +24,6 @@ export default function AddTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
-
     alt: "",
     deadline: "",
     image: "",
@@ -45,15 +44,13 @@ export default function AddTaskModal() {
       toast.error(error.message);
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["editProject", projectId] });
+      queryClient.invalidateQueries({ queryKey: ["project", projectId] });
       toast.success(data);
       reset();
-
       navigate(location.pathname, { replace: true });
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
-    console.log(formData);
     const data = {
       formData,
       projectId,

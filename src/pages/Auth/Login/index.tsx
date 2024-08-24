@@ -16,16 +16,16 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ defaultValues: initialValues });
-  
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: autheticateUser,
     onError: (error) => {
       toast.error(error.message);
     },
     onSuccess: () => {
-      navigate('/dashboard')
-
+      toast.success("Login success");
+      navigate("/dashboard");
     },
   });
 
@@ -89,8 +89,11 @@ const Login = () => {
           />
         </form>
         <nav className="mt-10 flex flex-col space-y-4">
-          <Link to={"/auth/forgot-password"} className="text-center text-gray-300 font-normal">
-          ?Forgot your password
+          <Link
+            to={"/auth/forgot-password"}
+            className="text-center text-gray-300 font-normal"
+          >
+            ?Forgot your password
           </Link>
         </nav>
       </div>
