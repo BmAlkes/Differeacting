@@ -12,7 +12,7 @@ export default function AddMemberForm() {
     const params = useParams()
     const projectId = params.projectId!
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: initialValues })
+    const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues })
 
     const mutation = useMutation({
         mutationFn:findUserByEmail
