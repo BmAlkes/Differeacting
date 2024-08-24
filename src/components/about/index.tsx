@@ -61,7 +61,7 @@ const About = () => {
           className="absolute right-0  rotate-180  overflow-visible z-10 bottom-[-400px]"
         />
 
-        <div className="container flex flex-col justify-center items-center">
+        <div className="container flex flex-col justify-center items-center lg:mt-36">
           <h2 className="text-6xl font-semibold">השירותים שלנו</h2>
           <p className="max-w-[869px] text-center py-7">
             ברוכים הבאים למחלקות העיצוב, הפיתוח, השיווק והשרתים שלנו. המקום שבו
