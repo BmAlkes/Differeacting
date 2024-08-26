@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Projects = () => {
   return (
-    <section className="w-full h-full   bg-[#030B0F]  text-[#D1D1D1] flex flex-col justify-center relative ">
+    <section className="w-full h-full pt-16 bg-[#030B0F]  text-[#D1D1D1] flex flex-col justify-center relative ">
       <img src={vetor} alt="" className="absolute left-0 top-[-300px]" />
       <div className="container">
         <div className="flex lg:flex-row flex-col gap-5 justify-between items-center container px-11">

@@ -1,14 +1,19 @@
-import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { FieldErrors, UseFormRegister} from "react-hook-form";
 
 import ErrorMessage from "../../ErrorMessage";
 import { TaskFormData } from "../../../@types";
 
+
+
 type TaskFormProps = {
   errors: FieldErrors<TaskFormData>;
   register: UseFormRegister<TaskFormData>;
+
 };
 
-export default function TaskForm({ errors, register }: TaskFormProps) {
+export default function TaskForm({ errors, register, }: TaskFormProps) {
+
+
   return (
     <>
       <div className="flex flex-col gap-5">
@@ -94,7 +99,8 @@ export default function TaskForm({ errors, register }: TaskFormProps) {
           className="w-full h-12 px-3 outline-none rounded-md bg-slate-100 border border-slate-300 text-sm"
           {...register("alt")}
         />
-        <input type="file" name="image" className="w-full" />
+        <input type="file"  className="w-full"  {...register('image')}/>
+        
       </div>
     </>
   );

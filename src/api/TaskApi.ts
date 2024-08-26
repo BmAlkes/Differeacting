@@ -15,9 +15,12 @@ export async function createTask({
 }: Pick<TaskApi, "formData" | "projectId">) {
   try {
     const url = `/projects/${projectId}/tasks`;
-    const { data } = await api.post<string>(url, formData);
-  console.log(data);
-    return data;
+    const { data } = await api.post<string>(url, formData, {headers: {
+      "Content-Type": "multipart/form-data",
+    }});
+
+    console.log(data)
+    return data
   } catch (error) {
     if (isAxiosError(error) && error.response) {
       throw new Error(error.response.data.error);

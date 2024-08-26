@@ -12,8 +12,8 @@ import { Tilt } from "react-tilt";
 const About = () => {
   return (
     <>
-      <section className=" lg:pt-5 lglg:h-screen h-full bg-[#030B0F] relative py-24 lg:py-0  ">
-        <div className="container h-full mx-auto py-14 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
+      <section className=" lg:pt-5  h-full bg-[#030B0F] relative py-24 lg:py-0  ">
+        <div className="container h-full mx-auto py-20 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
           <Tilt>
             <img
               src={Secimg}
@@ -54,14 +54,14 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="w-full lg:h-screen h-full bg-[#030B0F] text-[#D1D1D1] flex flex-col justify-center items-center relative">
+      <section className="w-full py- h-full bg-[#030B0F] text-[#D1D1D1] flex flex-col justify-center items-center relative">
         <img
           src={vetor}
           alt="backgroun"
-          className="absolute right-0  rotate-180  overflow-visible z-10 bottom-[-400px]"
+          className="absolute right-0  rotate-180  overflow-visible z-10 "
         />
 
-        <div className="container flex flex-col justify-center items-center lg:mt-36">
+        <div className="container flex flex-col justify-center items-center lg:mt-">
           <h2 className="text-6xl font-semibold">השירותים שלנו</h2>
           <p className="max-w-[869px] text-center py-7">
             ברוכים הבאים למחלקות העיצוב, הפיתוח, השיווק והשרתים שלנו. המקום שבו

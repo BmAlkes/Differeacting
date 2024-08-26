@@ -26,7 +26,7 @@ export default function AddTaskModal() {
     description: "",
     alt: "",
     deadline: "",
-    image: "",
+    image: {name:"",size:"",filePath:"",type:""},
     priority: "",
   };
 
@@ -34,6 +34,7 @@ export default function AddTaskModal() {
     register,
     handleSubmit,
     reset,
+  
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
@@ -56,6 +57,9 @@ export default function AddTaskModal() {
       projectId,
     };
     mutate(data);
+
+    console.log(formData);
+
   };
 
   return (

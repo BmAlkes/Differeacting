@@ -40,6 +40,7 @@ export const taskStatusSchema = z.enum([
 ]);
 export type TaskStatus = z.infer<typeof taskStatusSchema>;
 
+
 export const taskSchema = z.object({
   _id: z.string(),
   taskName: z.string(),
@@ -50,13 +51,18 @@ export const taskSchema = z.object({
   updatedAt: z.string(),
   priority: z.string(),
 	deadline: z.string(),
-	image: z.string(),
-	alt: z.string()
+	alt: z.string(),
+  image:z.object({
+    name: z.string(),
+    filePath:z.string(),
+    size:z.string(),
+    type:z.string(),
+  })
 
 });
 
 export type Task = z.infer<typeof taskSchema>;
-export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"image" |"alt" >;
+export type TaskFormData = Pick<Task, "taskName" | "description" | "priority" | "deadline" |"alt"|"image" >;
 
 /**Projects */
 
@@ -85,5 +91,6 @@ export const dashboardProjectSchema = z.array(
 // Team
 const teamMemberSchema = userSchema.pick({name:true, email:true,_id:true})
 
+export const teamMembersSchema=z.array(teamMemberSchema)
 export type TeamMember = z.infer<typeof teamMemberSchema>
 export type TeamMemberForm = Pick<TeamMember, 'email'>

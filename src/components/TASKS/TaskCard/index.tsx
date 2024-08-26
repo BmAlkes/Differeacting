@@ -40,19 +40,20 @@ const queryClient = useQueryClient()
 
 const style = transform ? {transform:`translate3d(${transform.x}px,${transform.y}px, 0)`, padding:"1.25rem", backgroundColor:'#fff', width:'350px', display:"flex", borderWidth:'1px', borderColor:'#rgb(203 213 225 /var(--tw-border-opacity)'}  :undefined;
   return (
-    <li className="p-5 bg-white shadow-lg shadow-black min-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
+    <li className="p-5 bg-white shadow-lg shadow-black max-w-[350px] rounded-md border-slate-300  flex flex-row-reverse justify-between gap-3">
         <div className="w-full flex items-end flex-col gap-y-4" {...listeners}{...attributes} ref={setNodeRef} style={style}>
         {image && (
+            
 				<img
-					src={image}
+					src={image?.filePath}
 					alt={alt}
-					className="w-full h-[150px] rounded-lg object-contain"
+					className=" w-full h-[200px] object-fill"
 				/>
 			)}
            
-            <div className="w-full flex  flex-col gap-2">
+            <div className="w-full flex  flex-col gap-2 max-w-[290px] ">
 				<span className="text-lg uppercase text-left font-medium text-[#2f6597]">{taskName}</span>
-				<p className="text-[13.5px] text-left text-gray-700">{description}</p>
+				<p className="text-[13.5px] text-left text-gray-700 text-wrap break-words" >{description}</p>
 			</div>
             <div className="w-full border border-dashed"></div>
          
