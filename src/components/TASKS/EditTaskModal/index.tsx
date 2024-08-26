@@ -22,12 +22,11 @@ export default function EditTaskModal() {
   const initialValue: TaskFormData = {
     taskName: "",
     description: "",
-    alt:"",
-  deadline:"",
-image:"",
-priority:"",
-
-};
+    alt: "",
+    deadline: "",
+    image: { filePath: "", name: "", size: "", type: "" },
+    priority: "",
+  };
 
   const {
     register,
@@ -51,7 +50,6 @@ priority:"",
     },
   });
   const handleCreateTask = (formData: TaskFormData) => {
-
     const data = {
       formData,
       projectId,
