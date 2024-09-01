@@ -6,7 +6,7 @@ type TaskApi = {
   formData: TaskFormData;
   projectId: Project["_id"];
   taskId: Task["_id"];
-  status :Task['status']
+  status: Task["status"];
 };
 
 export async function createTask({
@@ -15,12 +15,12 @@ export async function createTask({
 }: Pick<TaskApi, "formData" | "projectId">) {
   try {
     const url = `/projects/${projectId}/tasks`;
-    const { data } = await api.post<string>(url, formData, {headers: {
-      "Content-Type": "multipart/form-data",
-    }});
-
-    console.log(data)
-    return data
+    const { data } = await api.post<string>(url, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {
       throw new Error(error.response.data.error);
@@ -35,10 +35,10 @@ export async function getTaskByID({
   try {
     const url = `/projects/${projectId}/tasks/${taskId}`;
     const { data } = await api(url);
-    const response = taskSchema.safeParse(data)
-   if(response.success){
-    return response.data
-   }
+    const response = taskSchema.safeParse(data);
+    if (response.success) {
+      return response.data;
+    }
   } catch (error) {
     if (isAxiosError(error) && error.response) {
       throw new Error(error.response.data.error);
@@ -62,7 +62,6 @@ export async function updateTask({
   }
 }
 
-
 export async function deleteTask({
   projectId,
   taskId,
@@ -80,11 +79,11 @@ export async function deleteTask({
 export async function updatedStatus({
   projectId,
   taskId,
-  status
+  status,
 }: Pick<TaskApi, "projectId" | "taskId" | "status">) {
   try {
     const url = `/projects/${projectId}/tasks/${taskId}/status`;
-    const { data } = await api.post<string>(url,{status});
+    const { data } = await api.post<string>(url, { status });
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {

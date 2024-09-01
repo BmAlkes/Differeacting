@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { ChangeEvent, Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import TaskForm from "../taskForm";
@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 
 export default function AddTaskModal() {
   const navigate = useNavigate();
+  const [imageAvatar, setImageAvatar] = useState<TaskFormData["image"]>();
+  const [avatarUrl, setAvatarUrl] = useState<TaskFormData["image"]>();
 
   //   see if modal exists
   const location = useLocation();
@@ -26,7 +28,7 @@ export default function AddTaskModal() {
     description: "",
     alt: "",
     deadline: "",
-    image: {name:"",size:"",filePath:"",type:""},
+    image: undefined,
     priority: "",
   };
 
@@ -34,7 +36,6 @@ export default function AddTaskModal() {
     register,
     handleSubmit,
     reset,
-  
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
@@ -48,19 +49,37 @@ export default function AddTaskModal() {
       queryClient.invalidateQueries({ queryKey: ["project", projectId] });
       toast.success(data);
       reset();
+
       navigate(location.pathname, { replace: true });
     },
   });
-  const handleCreateTask = (formData: TaskFormData) => {
-    const data = {
-      formData,
-      projectId,
+  const handleCreateTask = (data: TaskFormData) => {
+    const formData = {
+      ...data,
+      image: imageAvatar,
     };
-    mutate(data);
-
+    mutate({formData, projectId});
     console.log(formData);
-
+    setImageAvatar(undefined);
+    setImageAvatar(undefined);
   };
+
+  function handleFile(e: ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) {
+      return;
+    }
+
+    const image = e.target.files[0];
+
+    if (!image) {
+      return;
+    }
+
+    if (image.type === "image/jpeg" || image.type === "image/png") {
+      setImageAvatar(image);
+      setAvatarUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  }
 
   return (
     <>
@@ -111,12 +130,26 @@ export default function AddTaskModal() {
                     noValidate
                   >
                     <TaskForm register={register} errors={errors} />
+                    <label
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      htmlFor="file_input"
+                    >
+                      Upload file
+                    </label>
+                    <input
+                      className="w-full h-12 px-3 text-left outline-none rounded-md bg-slate-100 border border-slate-300 text-sm"
+                      id="file_input"
+                      type="file"
+                      onChange={(e) => handleFile(e)}
+                    />
                     <input
                       type="submit"
                       value="Save Task"
                       className="bg-purple-400 hover:bg-purple-500 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded"
                     />
                   </form>
+
+                  {avatarUrl && <img src={avatarUrl} />}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
