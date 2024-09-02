@@ -59,6 +59,7 @@ export const taskSchema = z.object({
   priority: z.string(),
   deadline: z.string(),
   alt: z.string(),
+  completedBy:userSchema.or(z.null()),
   image: z
     .any()
     .refine((file) => file instanceof File || file === undefined || file === null,  {

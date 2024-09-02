@@ -35,6 +35,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
 
   const { taskName, description, priority, deadline, image, alt } = task;
 
+
   const style = transform
     ? {
         transform: `translate3d(${transform.x}px,${transform.y}px, 0)`,
