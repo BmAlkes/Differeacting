@@ -73,6 +73,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/analytics" element={<Dashboard />} />
+            <Route path="/dashboard/workflows" element={<Dashboard />} />
+            <Route path="/dashboard/blog" element={<Dashboard />} />
+            <Route path="/dashboard/notifications" element={<Dashboard />} />
             <Route path="/dashboard/projects" element={<ProjectView />} />
             <Route
               path="/dashboard/projects/create"
