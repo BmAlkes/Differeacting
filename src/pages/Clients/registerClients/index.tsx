@@ -1,16 +1,15 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { Client, ClientForm } from "../../../@types";
+import { Client} from "../../../@types";
 import ErrorMessage from "../../../components/ErrorMessage";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useMutation } from "@tanstack/react-query";
 import { CreateClient } from "../../../api/ClientApi";
 import { toast } from "react-toastify";
 
 const RegisterClients = () => {
-    const [description, setDescription] =useState<Client['description']>()
   const initialValue: Client = {
     clientName: "",
     phone: "",
