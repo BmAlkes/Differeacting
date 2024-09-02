@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useQuery, useQueryClient, useMutation  } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { getTaskByID, updatedStatus } from "../../../api/TaskApi";
 import { formatDate } from "../../../utils/utils";
 import { toast } from "react-toastify";
@@ -23,31 +23,29 @@ export default function TaskModalDetails() {
     enabled: !!taskId,
   });
 
-  const queryClient = useQueryClient()
-  const {mutate} = useMutation({
-    mutationFn:updatedStatus,
-    onError:(error) => {
-        toast.error(error.message)
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: updatedStatus,
+    onError: (error) => {
+      toast.error(error.message);
     },
-    onSuccess:(data) => {
-        toast.success(data)
-        queryClient.invalidateQueries({queryKey:['project',projectId]})
-        queryClient.invalidateQueries({queryKey:['task',projectId]})
+    onSuccess: (data) => {
+      toast.success(data);
+      queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+      queryClient.invalidateQueries({ queryKey: ["task", projectId] });
     },
-    },
+  });
 
-  )
-
-const handleChanges = (e:React.ChangeEvent<HTMLSelectElement>)=>{
-    const status = e.target.value as TaskStatus
-    const data ={
-        projectId,
-        taskId,
-        status
-    }
-    mutate(data)
-    navigate(location.pathname, { replace: true })
-}
+  const handleChanges = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const status = e.target.value as TaskStatus;
+    const data = {
+      projectId,
+      taskId,
+      status,
+    };
+    mutate(data);
+    navigate(location.pathname, { replace: true });
+  };
 
   const statusList = [
     "pending",
@@ -98,7 +96,7 @@ const handleChanges = (e:React.ChangeEvent<HTMLSelectElement>)=>{
                     </p>
                     <Dialog.Title
                       as="h3"
-                      className="font-black text-4xl text-slate-600 my-5"
+                      className="font-black text-4xl text-blue-500 my-5"
                     >
                       {data.taskName}
                     </Dialog.Title>
@@ -107,14 +105,31 @@ const handleChanges = (e:React.ChangeEvent<HTMLSelectElement>)=>{
                       <br />
                       {data?.description}
                     </p>
-                    {data.completedBy && (<p>
-                      <span className="font-bold text-slate-600">Updated State by:</span>{" "}{data?.completedBy.name}
-                    </p>)}
+                    <p className="text-lg text-red-500 mb-2">
+                      {" "}
+                      Change Historic
+                    </p>
+                    <ul className="list-decimal">
+                      {data.completedBy.map((activilog: any) => (
+                        <li key={activilog._id} >
+                          <span className="font-bold text-slate-600">
+                            {activilog.status}:
+                          </span>{" "}
+                          {activilog.user.name}
+                        </li>
+                      ))}
+                    </ul>
                     <div className="my-5 space-y-3">
                       <label className="font-bold">Actual state </label>
-                      <select className="w-full p-3 bg-white border border-gray-300" defaultValue={data.status} onChange={handleChanges}>
+                      <select
+                        className="w-full p-3 bg-white border border-gray-300"
+                        defaultValue={data.status}
+                        onChange={handleChanges}
+                      >
                         {statusList.map((status) => (
-                          <option value={status}>{status}</option>
+                          <option value={status} className="text-left">
+                            {status}
+                          </option>
                         ))}
                       </select>
                     </div>

@@ -59,12 +59,21 @@ export const taskSchema = z.object({
   priority: z.string(),
   deadline: z.string(),
   alt: z.string(),
-  completedBy:userSchema.or(z.null()),
+  completedBy: z.array(
+    z.object({
+      user: userSchema,
+      status: taskStatusSchema,
+      _id:z.string()
+    })
+  ),
   image: z
     .any()
-    .refine((file) => file instanceof File || file === undefined || file === null,  {
-      message: "Você precisa enviar um arquivo válido",
-    })
+    .refine(
+      (file) => file instanceof File || file === undefined || file === null,
+      {
+        message: "Você precisa enviar um arquivo válido",
+      }
+    )
     .refine((file) => file?.size <= 5000000, {
       // 5MB
       message: "O arquivo deve ter no máximo 5MB",
@@ -84,7 +93,7 @@ export const projectSchema = z.object({
   projectName: z.string(),
   clientName: z.string(),
   description: z.string(),
-  manager:z.string(userSchema.pick({_id:true})),
+  manager: z.string(userSchema.pick({ _id: true })),
 });
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectFormData = Pick<
@@ -97,7 +106,7 @@ export const dashboardProjectSchema = z.array(
     projectName: true,
     clientName: true,
     description: true,
-    manager:true
+    manager: true,
   })
 );
 
