@@ -120,3 +120,17 @@ const teamMemberSchema = userSchema.pick({
 export const teamMembersSchema = z.array(teamMemberSchema);
 export type TeamMember = z.infer<typeof teamMemberSchema>;
 export type TeamMemberForm = Pick<TeamMember, "email">;
+
+// Clients Types
+
+export const clientShema=z.object({
+  clientName: z.string(),
+  phone: z.string(),
+  email: z.string().email(),
+  bankHours: z.string(),
+  description:z.string() ,
+  active: z.boolean(),
+})
+
+export type Client = z.infer<typeof clientShema>
+export type ClientForm = Pick<Client,'active'|'bankHours'|'clientName'|'email'|'phone'>

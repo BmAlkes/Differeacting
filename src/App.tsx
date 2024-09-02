@@ -34,6 +34,7 @@ import ProfileView from "./pages/Profile/ProfileView.tsx";
 import ProfileLayout from "./layout/ProfileLayout.tsx";
 import ChangePassword from "./pages/Profile/ChangePassword.tsx";
 import ProjectTeamView from "./pages/ProjectsView/ProjectTeam.tsx";
+import RegisterClients from "./pages/Clients/registerClients/index.tsx";
 
 AOS.init();
 
@@ -90,6 +91,7 @@ function App() {
               element={<EditProjectView />}
             />
             <Route path="/dashboard/clients" element={<Clients />} />
+            <Route path="/dashboard/clients/register" element={<RegisterClients />} />
             <Route path="/dashboard/register" element={<Register />} />
             <Route element={<ProfileLayout />}>
               <Route path="/dashboard/profile" element={<ProfileView />} />
