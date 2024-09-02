@@ -1,15 +1,16 @@
-import { keepPreviousData,  useQuery,  } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
-import {  getProjects } from "../../api/ProjectAPI";
+import { getProjects } from "../../api/ProjectAPI";
 import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
-
+import { useAuth } from "../../hooks/useAuth";
+import { isManager } from "../../utils/policies";
 
 export interface ProjectsResponse {
   totalPage: number;
-   data: Project[];
+  data: Project[];
 }
 
 export interface Project {
@@ -24,27 +25,34 @@ export interface Project {
   manager?: string;
 }
 
-
 const ProjectView = () => {
-  const [page, setPage] =useState(0)
-  const navigate = useNavigate()
+  const [page, setPage] = useState(0);
+  const { data: user, isLoading: authLoading } = useAuth();
+  const navigate = useNavigate();
   const { data: projects, isLoading } = useQuery<ProjectsResponse>({
-    queryKey: ["projects",page],
-    queryFn:()=> getProjects(page),
+    queryKey: ["projects", page],
+    queryFn: () => getProjects(page),
     placeholderData: keepPreviousData,
   });
 
- 
+  console.log(projects);
 
-  if (isLoading) return (
-    <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
-    <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
-      <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em" className="animate-ping">
-        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"></path>
-      </svg>
-    </div>
-  </div>  
-  );
+  if (isLoading && authLoading)
+    return (
+      <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
+        <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            height="1em"
+            width="1em"
+            className="animate-ping"
+          >
+            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"></path>
+          </svg>
+        </div>
+      </div>
+    );
 
   return (
     <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
@@ -73,6 +81,18 @@ const ProjectView = () => {
               >
                 <div className="flex text-left min-w-0 gap-x-4">
                   <div className="min-w-0 flex-auto space-y-2">
+                    <div>
+                      {isManager(project.manager!, user._id)?(
+
+                        <p className="font-bold text-sm uppercase bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-lg inline-block py-1 px-5 mb-2">
+                          Mananger
+                        </p>
+                      ) : (
+                        <p className="font-bold text-sm uppercase bg-green-50 text-green-500 border-2 border-green-500 rounded-lg inline-block py-1 px-5 mb-2">
+                          Project Collaborator
+                        </p>
+                      )}
+                    </div>
                     <Link
                       to={`/dashboard/projects/${project._id}`}
                       className="text-black cursor-pointer hover:underline lg:text-2xl text-lg font-bold"
@@ -123,17 +143,23 @@ const ProjectView = () => {
                             Edit Project
                           </Link>
                         </Menu.Item>
-                        <Menu.Item>
-                          <button
-                            type="button"
-                            className="block px-3 py-1 text-sm leading-6 text-red-500"
-                            onClick={() => {
-                          navigate(location.pathname + `?deleteProject=${project._id}`);
-                            }}
-                          >
-                            Delete Project
-                          </button>
-                        </Menu.Item>
+
+                        {project.manager === user._id && (
+                          <Menu.Item>
+                            <button
+                              type="button"
+                              className="block px-3 py-1 text-sm leading-6 text-red-500"
+                              onClick={() => {
+                                navigate(
+                                  location.pathname +
+                                    `?deleteProject=${project._id}`
+                                );
+                              }}
+                            >
+                              Delete Project
+                            </button>
+                          </Menu.Item>
+                        )}
                       </Menu.Items>
                     </Transition>
                   </Menu>
@@ -143,8 +169,20 @@ const ProjectView = () => {
           </ul>
           {projects.data && (
             <div className="flex justify-center items-center w-full my-3 gap-3">
-            <button onClick={() =>setPage(page + 1)} className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed" disabled={page === Math.min(projects.totalPage)}>Next Page</button>
-            <button onClick={() =>setPage(page - 1)} disabled={page === 0} className={` z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed `}>Previous Page</button>
+              <button
+                onClick={() => setPage(page + 1)}
+                className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed"
+                disabled={page === Math.min(projects.totalPage)}
+              >
+                Next Page
+              </button>
+              <button
+                onClick={() => setPage(page - 1)}
+                disabled={page === 0}
+                className={` z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed `}
+              >
+                Previous Page
+              </button>
             </div>
           )}
         </>
@@ -159,7 +197,7 @@ const ProjectView = () => {
           </Link>
         </p>
       )}
-      <DeleteProjectModal/>
+      <DeleteProjectModal />
     </div>
   );
 };

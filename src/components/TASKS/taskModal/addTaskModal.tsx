@@ -114,7 +114,7 @@ export default function AddTaskModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16 z-[1000]">
+                <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16 z-[1000]">
                   <Dialog.Title as="h3" className="font-black text-4xl  my-5">
                     New Task
                   </Dialog.Title>
@@ -123,17 +123,20 @@ export default function AddTaskModal() {
                     Fill in the form and create {""}
                     <span className="text-purple-600">a task</span>
                   </p>
+                  
+                  
+
 
                   <form
-                    className="mt-10 space-y-3"
+                    className="mt-10 space-y-3 "
                     onSubmit={handleSubmit(handleCreateTask)}
                     noValidate
-                  >
+                    >
                     <TaskForm register={register} errors={errors} />
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       htmlFor="file_input"
-                    >
+                      >
                       Upload file
                     </label>
                     <input
@@ -141,15 +144,16 @@ export default function AddTaskModal() {
                       id="file_input"
                       type="file"
                       onChange={(e) => handleFile(e)}
-                    />
+                      />
                     <input
                       type="submit"
                       value="Save Task"
                       className="bg-purple-400 hover:bg-purple-500 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded"
-                    />
+                      />
                   </form>
 
-                  {avatarUrl && <img src={avatarUrl} />}
+                  {avatarUrl && <img src={avatarUrl} className=" object-contain" />}
+                  
                 </Dialog.Panel>
               </Transition.Child>
             </div>

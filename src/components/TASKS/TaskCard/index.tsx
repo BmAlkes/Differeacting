@@ -70,6 +70,9 @@ const TaskCard = ({ task }: TaskCardProps) => {
           <p className="text-[13.5px] text-left text-gray-700 text-wrap break-words">
             {description}
           </p>
+          {image &&
+          <a href={image?.filePath} target="_blank" className="text-left  text-sm text-red-500">Open Image</a>
+           }
         </div>
         <div className="w-full border border-dashed"></div>
 
