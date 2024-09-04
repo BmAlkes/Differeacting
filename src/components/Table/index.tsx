@@ -44,7 +44,7 @@ const TableContent = ({ data }: ClientResponse) => {
                   <td data-label="phone">{item.phone}</td>
                   <td data-label="email" className="text-blue-400"> <a href={`mailto:${item.email}`}>{item.email}</a></td>
                   <td data-label="bankhours">{item.bankHours}</td>
-                  <td data-label="active">
+                  <td data-label="active" className="flex justify-center">
                     <div className="checkbox-apple">
                       <input
                         className="yep"
