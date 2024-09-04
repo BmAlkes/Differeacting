@@ -49,7 +49,7 @@ export default function AddTaskModal() {
       queryClient.invalidateQueries({ queryKey: ["project", projectId] });
       toast.success(data);
       reset();
-
+      setImageAvatar(undefined);
       navigate(location.pathname, { replace: true });
     },
   });
@@ -59,9 +59,7 @@ export default function AddTaskModal() {
       image: imageAvatar,
     };
     mutate({formData, projectId});
-    console.log(formData);
-    setImageAvatar(undefined);
-    setImageAvatar(undefined);
+
   };
 
   function handleFile(e: ChangeEvent<HTMLInputElement>) {

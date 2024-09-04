@@ -2,20 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getClients } from "../../api/ClientApi";
 import { Client } from "../../@types";
-// import { DataTableDemo } from "../../components/Table";
-
+import { Table } from "../../components/ui/table";
 
 export interface ClientResponse {
   data: Client[];
 }
 
 const Clients = () => {
-  const { data,isLoading } = useQuery<ClientResponse>({
+  const { data, isLoading } = useQuery<ClientResponse>({
     queryKey: ["clients"],
     queryFn: () => getClients(),
- 
   });
-  console.log(data)
+  console.log(data);
 
   if (isLoading)
     return (
@@ -34,24 +32,23 @@ const Clients = () => {
       </div>
     );
 
-
-  return ( <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
-    <h1 className="text-5xl font-black">Clients</h1>
-    <p className="text-2xl text-gray-500 mt-5">
-      Organize and Managment your Clients
-    </p>
-    <nav className="my-5">
-      <Link
-        className="bg-purple-400 hover:bg-purple-500 text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
-        to="/dashboard/clients/register"
-      >
-       Register Client
-      </Link>
-    </nav>
-{/* 
-    <DataTableDemo/> */}
+  return (
+    <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
+      <h1 className="text-5xl font-black">Clients</h1>
+      <p className="text-2xl text-gray-500 mt-5">
+        Organize and Managment your Clients
+      </p>
+      <nav className="my-5">
+        <Link
+          className="bg-purple-400 hover:bg-purple-500 text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
+          to="/dashboard/clients/register"
+        >
+          Register Client
+        </Link>
+      </nav>
+      <Table />
     </div>
-    );
+  );
 };
 
 export default Clients;

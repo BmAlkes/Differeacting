@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PhoneCallIcon } from "lucide-react";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
@@ -25,22 +25,22 @@ const Header = () => {
   const handleClose = () => {
     setOpen(!open);
   };
-  const [direction, setDirection] = useState(document.body.dir);
-  useEffect(() => {
-    const observer = new MutationObserver((mutationsList) => {
-      if (mutationsList.some((mutation) => mutation.attributeName === "dir")) {
-        setDirection(document.body.dir);
-      }
-    });
-    observer.observe(document.body, {
-      attributes: true,
-    });
-    return () => observer.disconnect();
-  }, []);
+  const [direction] = useState(document.body.dir);
+  // useEffect(() => {
+  //   const observer = new MutationObserver((mutationsList) => {
+  //     if (mutationsList.some((mutation) => mutation.attributeName === "dir")) {
+  //       setDirection(document.body.dir);
+  //     }
+  //   });
+  //   observer.observe(document.body, {
+  //     attributes: true,
+  //   });
+  //   return () => observer.disconnect();
+  // }, []);
 
   // const languageOptions = [
-  //   { name: "English", value: "en", flag: eua },
-  //   { name: "Hebrew", value: "he", flag: israel },
+  //   { name: "English", value: "en", flag: 'https://res.cloudinary.com/landingpage2/image/upload/v1725380826/download_2_anzyjl.png' },
+  //   { name: "Hebrew", value: "he", flag: 'https://res.cloudinary.com/landingpage2/image/upload/v1725380826/download_1_sxeclb.png' },
   // ];
   return (
     <header className="bg-[#030B0F]  fixed top-0 w-full z-[60]">
@@ -86,8 +86,8 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/* <div className="flex gap-5 cursor-pointer">
-          {languageOptions.map((language) => (
+        <div className="flex gap-5 cursor-pointer">
+          {/* {languageOptions.map((language) => (
             <button
               key={language.value}
               className=""
@@ -97,8 +97,8 @@ const Header = () => {
             >
               <img src={language.flag} alt={language.name} className="w-10" />
             </button>
-          ))}
-        </div> */}
+          ))} */}
+        </div>
         <a
           href="tel:0545899899"
           className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded p-[1px] hidden md:block "
