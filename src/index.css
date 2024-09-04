@@ -353,17 +353,17 @@
 }
 
 .cursor {
-  background-color:rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   height: 15px;
   width: 15px;
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0px 0 1px 10px rgba(109, 207, 244, 0.3),0px 0 8px 20px rgba(109, 207, 244, 0.3);
-
+  box-shadow: 0px 0 1px 10px rgba(109, 207, 244, 0.3),
+    0px 0 8px 20px rgba(109, 207, 244, 0.3);
 }
-button{
+button {
   z-index: 100;
 }
 
@@ -372,19 +372,150 @@ button{
   right: 0;
   bottom: 0;
   width: 100%;
-
- ;
 }
 
 .content {
   position: relative;
   bottom: 0;
-  top:0;
+  top: 0;
   width: 100%;
   padding: 20px;
 }
 
-
 .rotateClass {
-  animation:spin 30s linear infinite;
+  animation: spin 30s linear infinite;
+}
+
+/* From Uiverse.io by guilhermeyohan */
+.checkbox-apple {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  margin: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-apple label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 25px;
+  border-radius: 50px;
+  background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkbox-apple label:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.checkbox-apple input[type="checkbox"]:checked + label {
+  background: linear-gradient(to bottom, #4cd964, #5de24e);
+}
+
+.checkbox-apple input[type="checkbox"]:checked + label:after {
+  transform: translateX(25px);
+}
+
+.checkbox-apple label:hover {
+  background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+}
+
+.checkbox-apple label:hover:after {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.yep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 25px;
+}
+
+table {
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table caption {
+  font-size: 1.5rem;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+ table tr:nth-child(even) {
+  background:#aee8f9;
+}
+
+table th,
+table td {
+  padding: 0.62em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  table{
+    border:0px!important;
+  }
+  table caption{
+    font-size: 1.3em;
+  }
+
+  table thead{
+    border:none;
+    height: 1px;
+    margin:-1px;
+    overflow: hidden;
+    padding:0;
+    position: absolute;
+  }
+
+  table tr{
+    border-bottom: 3px solid #DDD;
+    display: block;
+    margin-bottom:0.60em
+  }
+
+  table td{
+    border-bottom:1px solid #DDD;
+    display: block;
+    font-size:0.8em;
+    text-align: right;
+  }
+
+  table td::before{
+    content: attr(data-label);
+    float:left;
+    font-weight: bold;
+    text-transform:uppercase
+  }
 }

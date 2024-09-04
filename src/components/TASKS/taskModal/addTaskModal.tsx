@@ -50,6 +50,7 @@ export default function AddTaskModal() {
       toast.success(data);
       reset();
       setImageAvatar(undefined);
+      setAvatarUrl(undefined);
       navigate(location.pathname, { replace: true });
     },
   });

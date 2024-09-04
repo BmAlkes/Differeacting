@@ -16,7 +16,8 @@ const RegisterClients = () => {
     description:"",
     email: "",
     bankHours: "",
-    active: false,
+    active:"",
+    id:""
   };
   const navigate = useNavigate()
   const {
@@ -154,7 +155,7 @@ useEffect(() => {
       
         <input
           type="submit"
-          value="Create Project"
+          value="Register"
           className="bg-purple-400 w-full p-3 text-white uppercase font-bold hover:bg-purple-600 transition-colors cursor-pointer"
         />
       </form>

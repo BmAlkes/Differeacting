@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getClients } from "../../api/ClientApi";
 import { Client } from "../../@types";
-import { Table } from "../../components/ui/table";
+import TableContent from "../../components/Table";
 
 export interface ClientResponse {
-  data: Client[];
+  data: Client[] 
 }
 
 const Clients = () => {
-  const { data, isLoading } = useQuery<ClientResponse>({
+  const { data, isLoading } = useQuery({
     queryKey: ["clients"],
     queryFn: () => getClients(),
   });
@@ -46,7 +46,7 @@ const Clients = () => {
           Register Client
         </Link>
       </nav>
-      <Table />
+      <TableContent data={data} />
     </div>
   );
 };

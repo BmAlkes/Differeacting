@@ -129,7 +129,8 @@ export const clientShema=z.object({
   email: z.string().email(),
   bankHours: z.string(),
   description:z.string() ,
-  active: z.boolean(),
+  active: z.string(),
+  id: z.string(),
 })
 
 export type Client = z.infer<typeof clientShema>
