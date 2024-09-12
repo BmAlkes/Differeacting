@@ -30,23 +30,65 @@ const Projects = () => {
           <div className="flex flex-col flex-wrap lg:flex-row justify-between items-center gap-6 z-50">
             <div>
               <Link
-                to="https://new-club-clothes.vercel.app/"
+                to="https://gold-opossum-534584.hostingersite.com/"
                 target="_blank"
                 data-aos="fade-down"
-                data-aos-duration="1000"
+                data-aos-duration="3000"
                 data-aos-easing="linear"
               >
-                <div className="py-3 md:w-[600px]  w-[340px] ">
+                <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_23_deonbw.png"
-                    alt="Project we made eccomerce for clother"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_6_nsjxxb.png"
+                    alt="Eccomerce for a cosmetic store"
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">Club Clothers</h3>
-                  <p className="text-base font-light">אתר סחר</p>
+                  <h3 className="text-2xl font-normal mt-2">HairPort</h3>
+                  <p className="text-base font-light">אתר חנות לחברה קוסמטיק</p>
                 </div>
               </Link>
-
+              <Link
+                to="https://skylum.co.il/"
+                target="_blank"
+                data-aos="fade-down"
+                data-aos-duration="2000"
+                data-aos-easing="linear"
+              >
+                <div className="py-3 md:w-[600px] w-[340px]">
+                  <img
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490072/skylum_te3duo.png"
+                    alt="Skylum "
+                    className="w-full rounded h-[342px] object-cover"
+                  />
+                  <h3 className="text-2xl font-normal mt-2">SkyLum</h3>
+                  <p className="text-base font-light">אתר חברה</p>
+                </div>
+              </Link>
+          
+             
+            </div>
+            <div>
+            <Link
+                to="https://maithaitravelandtour.com/"
+                target="_blank"
+                data-aos="fade-down"
+                data-aos-duration="4000"
+                data-aos-easing="linear"
+              >
+                <div className="py-3 md:w-[600px] w-[340px]">
+                  <img
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_5_wb0iyk.png"
+                    alt="Mai Thai travel agency"
+                    className="w-full rounded h-[342px] object-cover"
+                  />
+                  <h3 className="text-2xl font-normal mt-2">
+                    Mai Thai travel agency
+                  </h3>
+                  <p className="text-base font-light">
+                    אתר לסוכנות נסיעות לטיולים בתאילנד
+                  </p>
+                </div>
+              </Link>
+            
               <Link
                 to="https://ecommerce-xhdu.vercel.app/"
                 target="_blank"
@@ -125,65 +167,26 @@ const Projects = () => {
                   <p className="text-base font-light">מיזם לסטארט אפ</p>
                 </div>
               </Link>
-
               <Link
-                to="https://skylum.co.il/"
+                to="https://new-club-clothes.vercel.app/"
                 target="_blank"
                 data-aos="fade-down"
-                data-aos-duration="2000"
+                data-aos-duration="1000"
                 data-aos-easing="linear"
               >
-                <div className="py-3 md:w-[600px] w-[340px]">
+                <div className="py-3 md:w-[600px]  w-[340px] ">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490072/skylum_te3duo.png"
-                    alt="Skylum "
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_23_deonbw.png"
+                    alt="Project we made eccomerce for clother"
                     className="w-full rounded h-[342px] object-cover"
                   />
-                  <h3 className="text-2xl font-normal mt-2">SkyLum</h3>
-                  <p className="text-base font-light">
-                    אתר חברה 
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div>
-              <Link
-                to=""
-                target="_blank"
-                data-aos="fade-down"
-                data-aos-duration="3000"
-                data-aos-easing="linear"
-              >
-                <div className="py-3 md:w-[600px] w-[340px]">
-                  <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_6_nsjxxb.png"
-                    alt="Eccomerce for a cosmetic store"
-                    className="w-full rounded h-[342px] object-cover"
-                  />
-                  <h3 className="text-2xl font-normal mt-2">HairPort</h3>
-                  <p className="text-base font-light">אתר חנות לחברה קוסמטיק</p>
+                  <h3 className="text-2xl font-normal mt-2">Club Clothers</h3>
+                  <p className="text-base font-light">אתר סחר</p>
                 </div>
               </Link>
 
-              <Link
-                to="https://maithaitravelandtour.com/"
-                target="_blank"
-                data-aos="fade-down"
-                data-aos-duration="4000"
-                data-aos-easing="linear"
-              >
-                <div className="py-3 md:w-[600px] w-[340px]">
-                  <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_5_wb0iyk.png"
-                    alt="Mai Thai travel agency"
-                    className="w-full rounded h-[342px] object-cover"
-                  />
-                  <h3 className="text-2xl font-normal mt-2">Mai Thai travel agency</h3>
-                  <p className="text-base font-light">
-                    אתר לסוכנות נסיעות לטיולים בתאילנד
-                  </p>
-                </div>
-              </Link>
+
+             
             </div>
           </div>
         </div>
