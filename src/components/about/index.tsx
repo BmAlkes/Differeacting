@@ -13,19 +13,17 @@ const About = () => {
     <>
       <section className=" lg:pt-5  h-full bg-[#030B0F] relative py-24 lg:py-0  ">
         <div className="container h-full mx-auto py-20 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
- 
-            <img
-              src={Secimg}
-              alt="image with pc and clouds for tecnologie"
-              className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            />
-         
+          <img
+            src={Secimg}
+            alt="image with pc and clouds for tecnologie"
+            className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
+            data-aos="zoom-out-down"
+            data-aos-duration="2000"
+          />
 
           <div
             className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start"
-          data-aos="fade-up"
+            data-aos="fade-up"
             data-aos-duration="2000"
           >
             <h3 className="text-[#6FCFED] lg:text-2xl md:text-lg text-sm">
@@ -70,8 +68,14 @@ const About = () => {
               עיצוב גרפי
             </h3>
             <p className="text-lg font-normel text-[#888888] my-5 text-justify">
-          
-מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות המותאמות לזהות המותג שלך ולקהל היעד. אנו משלבים עקרונות עיצוב מודרניים עם מחקר משתמשים מעמיק כדי ליצור ממשקים אינטואיטיביים ומושכים. שימוש בכלים מתקדמים כמו Adobe Creative Suite ו-Figma מאפשר לנו לפתח עיצובים רספונסיביים המבטיחים חוויה עקבית בכל המכשירים. העיצוב המדויק והמקצועי שלנו לא רק משפר את האסתטיקה של האתר, אלא גם מגדיל את זמן השהייה של המשתמשים, מעלה את שיעורי ההמרה ומחזק את הנוכחות הדיגיטלית של העסק שלך.
+              מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות
+              המותאמות לזהות המותג שלך ולקהל היעד. אנו משלבים עקרונות עיצוב
+              מודרניים עם מחקר משתמשים מעמיק כדי ליצור ממשקים אינטואיטיביים
+              ומושכים. שימוש בכלים מתקדמים כמו Adobe Creative Suite ו-Figma
+              מאפשר לנו לפתח עיצובים רספונסיביים המבטיחים חוויה עקבית בכל
+              המכשירים. העיצוב המדויק והמקצועי שלנו לא רק משפר את האסתטיקה של
+              האתר, אלא גם מגדיל את זמן השהייה של המשתמשים, מעלה את שיעורי ההמרה
+              ומחזק את הנוכחות הדיגיטלית של העסק שלך.
             </p>
             <div className="hiddenShow">
               <Link to="/design">
@@ -86,10 +90,17 @@ const About = () => {
           <div className="flex flex-col min-w-[315px]  justify-between py-6 px-4 rounded-lg show">
             <img src={web} alt="web icon" className="w-[60px]" />
             <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-            פיתוח ותכנות
+              פיתוח ותכנות
             </h3>
             <p className="text-lg font-normel text-[#888888] my-5 text-justify">
-            מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים אישית לצרכי העסק שלך, תוך שימוש בטכנולוגיות החדישות ביותר. אנו מיישמים פתרונות מבוססי React, Next.js ו-JavaScript, המאפשרים יצירת ממשקי משתמש דינמיים וביצועים מהירים. התמחותנו בפיתוח Full-stack מבטיחה אינטגרציה חלקה בין צד הלקוח לשרת, מה שמוביל לחווית משתמש אופטימלית ולהגדלת שיעורי ההמרה. עם הפתרונות שלנו, תוכל להאיץ את צמיחת העסק שלך ולהגדיל את המכירות באמצעות פלטפורמה דיגיטלית חזקה ויעילה.
+              מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים
+              אישית לצרכי העסק שלך, תוך שימוש בטכנולוגיות החדישות ביותר. אנו
+              מיישמים פתרונות מבוססי React, Next.js ו-JavaScript, המאפשרים יצירת
+              ממשקי משתמש דינמיים וביצועים מהירים. התמחותנו בפיתוח Full-stack
+              מבטיחה אינטגרציה חלקה בין צד הלקוח לשרת, מה שמוביל לחווית משתמש
+              אופטימלית ולהגדלת שיעורי ההמרה. עם הפתרונות שלנו, תוכל להאיץ את
+              צמיחת העסק שלך ולהגדיל את המכירות באמצעות פלטפורמה דיגיטלית חזקה
+              ויעילה.
             </p>
             <div className="hiddenShow">
               <Link to="/development">
@@ -103,13 +114,16 @@ const About = () => {
           </div>
           <div className=" flex flex-col min-w-[315px]   justify-between py-6 px-4 rounded-lg show ">
             <img src={digital} alt="web icon" className="w-[60px]" />
-            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-              שיווק דיגיטלי
-            </h3>
+            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">SEO</h3>
             <p className="text-lg font-normel text-[#888888] my-5  text-justify">
-              הגבירו את הנוכחות הדיגיטלית שלכם עם שיווק דיגיטלי יעיל - באמצעות
-              SEO לשיפור מיקום במנועי חיפוש, קמפיינים ממוקדים בפייסבוק
-              ואינסטגרם, ופרסום ממומן ב-Google Ads להגדלת המרות.
+              מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות
+              את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית. אנו
+              משתמשים בכלי ניתוח מתקדמים כמו Google Analytics ו-SEMrush לביצוע
+              מחקרי מילות מפתח מעמיקים ולמעקב אחר ביצועי האתר. התמחותנו כוללת
+              אופטימיזציה טכנית, בניית קישורים איכותיים ויצירת תוכן ממוקד-ערך.
+              אנו מתמקדים בשיפור מדדים חיוניים כמו דירוג בעמוד התוצאות, זמן
+              טעינה וחווית משתמש, מה שמוביל להגדלת התנועה האורגנית, שיפור באחוזי
+              ההמרה והעלאת הסמכות של האתר בתחומו
             </p>
             <div className="hiddenShow">
               <Link to="/digital">
