@@ -5,7 +5,6 @@ import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg";
 import vetor from "../../assets/svg/Vector 18.svg";
-import { Tilt } from "react-tilt";
 
 // npm run dev
 
@@ -14,7 +13,7 @@ const About = () => {
     <>
       <section className=" lg:pt-5  h-full bg-[#030B0F] relative py-24 lg:py-0  ">
         <div className="container h-full mx-auto py-20 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
-          <Tilt>
+ 
             <img
               src={Secimg}
               alt="image with pc and clouds for tecnologie"
@@ -22,7 +21,7 @@ const About = () => {
               data-aos="zoom-out-down"
               data-aos-duration="2000"
             />
-          </Tilt>
+         
 
           <div
             className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start"
@@ -44,13 +43,6 @@ const About = () => {
               אנחנו עוברים לשלב הפיתוח, שבו מופעלות הטכנולוגיות המתקדמות ביותר
               כדי להבטיח שאתרכם יהיה לא רק יפה, אלא גם חזק ובעל ביצועים גבוהים.
             </p>
-            <Link to="/about">
-              <button className="button bg-gradient-to-r from-[#6FCFED] w-36 py-[2px] px-[2px] to-[#C96CBE] text-white font-semibold rounded-xl p-[1px]   ">
-                <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] items-center justify-center">
-                  אודות
-                </span>
-              </button>
-            </Link>
           </div>
         </div>
       </section>

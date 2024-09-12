@@ -47,10 +47,10 @@ const Hero = () => {
                 </span>
               </button>
             </Link>
-            <Link to="/services">
+            <Link to="/about">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
-                <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
-                  למסלולים שלנו
+                <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[30px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+               אודות
                 </span>
               </button>
             </Link>

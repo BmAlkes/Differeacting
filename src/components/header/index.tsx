@@ -62,11 +62,11 @@ const Header = () => {
                 מי אנחנו
               </Link>
             </li>
-            <li className="nav relative">
+            {/* <li className="nav relative">
               <Link to="/service" aria-label="about page">
                 שירותים שלנו
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav relative">
               <Link to="/projects" aria-label="projects page">
