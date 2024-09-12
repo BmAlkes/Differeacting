@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import avatar from "../../assets/Avatar.png";
+// import { Link } from "react-router-dom";
+// import avatar from "../../assets/Avatar.png";
 const FAQ = () => {
   return (
     <>
       <section className="h-full pb-16  bg-[#F4F4F4]">
-        <div className="container flex items-center gap-5 flex-col">
+        <div className="container flex items-center gap-5 flex-col p-8">
           <h3 className="font-bold text-6xl">שאלות נפוצות</h3>
           <p className="text-2xl font-normal">
             כל מה שאתה צריך לדעת על המוצר והחיוב
@@ -374,7 +374,7 @@ const FAQ = () => {
           </div>
         </div>
       </section>
-      <section className="bg-[#F4F4F4] h-full py-16">
+      {/* <section className="bg-[#F4F4F4] h-full py-16">
         <div className="bg-white lg:w-[1280px] h-[300px] container flex-col flex items-center justify-center">
           <img
             src={avatar}
@@ -396,7 +396,7 @@ const FAQ = () => {
             </button>
           </Link>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
