@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import bg from "../../assets/svg/vetor1.svg";
-import digital from "../../assets/marketing.jpg";
 import html from "../../assets/html.png";
 import css from "../../assets/css (2).png";
 import elementor from "../../assets/elementor.png";
 import wordPress from "../../assets/wordpress.png";
 import shopp from "../../assets/shoppy.png";
 import js from "../../assets/javascript.png";
-
-import { Link, useLocation } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 import FAQ from "../../components/FAQ";
 import { FormEvent, useEffect, useState } from "react";
 import ScrollUp from "../../components/scrollup";

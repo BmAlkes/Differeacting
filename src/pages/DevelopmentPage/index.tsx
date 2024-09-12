@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
-import digital from "../../assets/web.jpg";
 import bg from "../../assets/svg/vetor1.svg";
 import html from "../../assets/html.png";
 import css from "../../assets/css (2).png";
 import elementor from "../../assets/elementor.png";
 import wordPress from "../../assets/wordpress.png";
 import shopp from "../../assets/shoppy.png";
-import js from "../../assets/javascript.png";
-
+import js from "../../assets/javascript.png"
 import { useLocation } from "react-router-dom";
 import graphic from "../../assets/Line Chart.png";
 import FAQ from "../../components/FAQ";
