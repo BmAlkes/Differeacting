@@ -17,8 +17,6 @@ const About = () => {
             src={Secimg}
             alt="image with pc and clouds for tecnologie"
             className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
-            data-aos="zoom-out-down"
-            data-aos-duration="2000"
           />
 
           <div

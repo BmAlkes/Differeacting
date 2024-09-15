@@ -17,7 +17,7 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
-  console.log(direction)
+  console.log(direction);
 
   return (
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="flex gap-7 mt-[30px]">
             <Link to="/projects" className="p-0 m-0">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
-                <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] md:px-[14px] px-[4px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+                <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] md:px-[14px] px-[20px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
                   פרויקטים
                 </span>
               </button>
@@ -50,23 +50,22 @@ const Hero = () => {
             <Link to="/about">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
                 <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[30px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
-               אודות
+                  אודות
                 </span>
               </button>
             </Link>
           </div>
         </div>
-        <Tilt>
-          <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
-            alt="background hero"
-            className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
-            data-tilt
-            data-aos="fade-right"
-            data-aos-duration="2000"
-            data-aos-easing="ease-in-sine"
-          />
-        </Tilt>
+
+        <img
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1712756985/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062.png"
+          alt="background hero"
+          className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
+          data-tilt
+          data-aos="fade-right"
+          data-aos-duration="2000"
+          data-aos-easing="ease-in-sine"
+        />
       </div>
     </section>
   );
