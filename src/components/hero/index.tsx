@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-import { Tilt } from "react-tilt";
 
 const Hero = () => {
   const [direction, setDirection] = useState(document.body.dir);
