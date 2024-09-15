@@ -60,7 +60,7 @@ const About = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 container gap-8 mt-20 mb-14 lg:mb-0  z-50">
-          <div className="flex flex-col min-w-[505px]   justify-between py-6  px-4 rounded-lg show ">
+          <div className="flex flex-col min-w-[315px]   justify-between py-6  px-4 rounded-lg show ">
             <img src={graphic} alt="web icon" className="w-[60px]" />
             <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
               עיצוב גרפי
