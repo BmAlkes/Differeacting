@@ -49,8 +49,12 @@ useEffect(() => {
   }, [register]);
 
   const handleForm = (data:Client) => {
+    const newdata ={
+      ...data,
+      active:"false"
+    }
   
-  mutate(data)
+  mutate(newdata)
  
   };
   const editorContent = watch("description");
