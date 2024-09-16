@@ -8,6 +8,7 @@ import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
 
+
 export interface ProjectsResponse {
   totalPage: number;
   data: Project[];
@@ -23,6 +24,7 @@ export interface Project {
   updatedAt: string;
   __v: number;
   manager?: string;
+  active: boolean;
 }
 
 const ProjectView = () => {
@@ -77,22 +79,33 @@ const ProjectView = () => {
             {projects?.data.map((project) => (
               <li
                 key={project._id}
-                className="flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl "
+                className={`flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"}`}
               >
                 <div className="flex text-left min-w-0 gap-x-4">
-                  <div className="min-w-0 flex-auto space-y-2">
-                    <div>
-                      {isManager(project.manager!, user._id)?(
+                  <div className="min-w-0 flex-auto space-y-2 ">
+                    <div  className="flex justify-between flex-row-reverse">
 
+                    <div>
+                      {isManager(project.manager!, user._id) ? (
                         <p className="font-bold text-sm uppercase bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-lg inline-block py-1 px-5 mb-2">
-                          Mananger
+                      Mananger
                         </p>
                       ) : (
                         <p className="font-bold text-sm uppercase bg-green-50 text-green-500 border-2 border-green-500 rounded-lg inline-block py-1 px-5 mb-2">
-                          Project Collaborator
+                        Project Collaborator
                         </p>
                       )}
                     </div>
+                    <div>
+                      {project?.active ? (
+                       null
+                      ) : (
+                        <p className="font-bold text-sm uppercase bg-green-50 text-red-500 border-2 border-red-500 rounded-lg inline-block py-1 px-5 mb-2">
+                          Inactive client
+                        </p>
+                      )}
+                    </div>
+                      </div>
                     <Link
                       to={`/dashboard/projects/${project._id}`}
                       className="text-black cursor-pointer hover:underline lg:text-2xl text-lg font-bold"

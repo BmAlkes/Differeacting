@@ -63,7 +63,7 @@ export const taskSchema = z.object({
     z.object({
       user: userSchema,
       status: taskStatusSchema,
-      _id:z.string()
+      _id: z.string(),
     })
   ),
   image: z
@@ -94,11 +94,12 @@ export const projectSchema = z.object({
   clientName: z.string(),
   description: z.string(),
   manager: z.string(userSchema.pick({ _id: true })),
+  active: z.boolean(),
 });
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectFormData = Pick<
   Project,
-  "clientName" | "description" | "projectName"
+  "clientName" | "description" | "projectName"|'active'
 >;
 export const dashboardProjectSchema = z.array(
   projectSchema.pick({
@@ -123,15 +124,18 @@ export type TeamMemberForm = Pick<TeamMember, "email">;
 
 // Clients Types
 
-export const clientShema=z.object({
+export const clientShema = z.object({
   clientName: z.string(),
   phone: z.string(),
   email: z.string().email(),
   bankHours: z.string(),
-  description:z.string() ,
+  description: z.string(),
   active: z.string(),
   id: z.string(),
-})
+});
 
-export type Client = z.infer<typeof clientShema>
-export type ClientForm = Pick<Client,'active'|'bankHours'|'clientName'|'email'|'phone'>
+export type Client = z.infer<typeof clientShema>;
+export type ClientForm = Pick<
+  Client,
+  "active" | "bankHours" | "clientName" | "email" | "phone"
+>;
