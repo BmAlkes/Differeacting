@@ -68,7 +68,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
       </div>
-          <div className="mb-5 mr-auto">
+          {/* <div className="mb-5 mr-auto">
             <label
               htmlFor="description"
               className="text-sm uppercase font-bold mx-auto "
@@ -82,7 +82,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
               {...register("active", {
               })}
             />
-          </div>
+          </div> */}
     </>
   );
 }
