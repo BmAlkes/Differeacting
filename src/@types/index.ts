@@ -99,7 +99,7 @@ export const projectSchema = z.object({
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectFormData = Pick<
   Project,
-  "clientName" | "description" | "projectName"
+  "clientName" | "description" | "projectName" | 'active'
 >;
 export const dashboardProjectSchema = z.array(
   projectSchema.pick({

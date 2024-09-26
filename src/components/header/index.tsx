@@ -43,7 +43,7 @@ const Header = () => {
   //   { name: "Hebrew", value: "he", flag: 'https://res.cloudinary.com/landingpage2/image/upload/v1725380826/download_1_sxeclb.png' },
   // ];
   return (
-    <header className="bg-[#030B0F]  fixed top-0 w-full z-[60]">
+    <header className="bg-[#030B0F]  fixed top-0 w-full z-[100]">
       <nav className=" nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
         <div className="">
           <Link to="/" aria-label="logo website">

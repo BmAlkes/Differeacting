@@ -25,18 +25,15 @@ const Hero = () => {
           data-aos="fade-left"
           data-aos-duration="2000"
         >
-          <p className="text-[#6FCFED] lg:text-2xl text-lg">
-            אנחנו פה בשביל לעזור לעסק שלך לצמוח
-          </p>
+          <h1 className="text-[#6FCFED] lg:text-2xl text-lg">
+          סטודיו Differeacting 
+          </h1>
 
           <h2 className="text-white font-bold lg:text-[80px] text-[35px]">
             הופכים חלומות ליצירה באינטרנט
           </h2>
 
-          {/* <p className="text-white lg:text-2xl font-normal lg:mt-[10px] mt-5 text-xl">
-            המותג שלך צריך פיתוח בהתאמה אישית ובטכנולוגיות מתקדמות
-            כגון:Wordpress, React, Google Analytics
-          </p> */}
+        
           <div className="flex gap-7 mt-[30px]">
             <Link to="/projects" className="p-0 m-0">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">

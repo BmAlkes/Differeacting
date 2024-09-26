@@ -26,12 +26,10 @@ const Projects = () => {
       <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-x-56  h-full container w-full items-center  ">
           <div className="w-full h-full  flex flex-col justify-center max-w-[600px] z-50 mt-8 md:mt-5 ">
-            <h2 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
-              פרויקטים מומלצים
+            <h2 className="text-[#6FCFED] lg:text-[70px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10">
+            בדוק את העבודות האחרונות שלנו.
             </h2>
-            <p className="text-[#6FCFED] lg:text-2xl text-center lg:text-right text-xl">
-              בדוק את העבודות האחרונות שלנו.
-            </p>
+           
 
           
           </div>
