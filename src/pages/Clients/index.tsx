@@ -3,17 +3,24 @@ import { Link } from "react-router-dom";
 import { getClients } from "../../api/ClientApi";
 import { Client } from "../../@types";
 import TableContent from "../../components/Table";
+import { Plus } from "lucide-react";
+import { useState } from "react";
+
 
 export interface ClientResponse {
   data: Client[] 
 }
 
 const Clients = () => {
+  const [filter, setFilter] = useState('')
   const { data, isLoading } = useQuery({
     queryKey: ["clients"],
     queryFn: () => getClients(),
   });
-  console.log(data);
+
+ const filteredData = data.filter((item:any)=> filter.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(filter))
+
+ console.log(filteredData)
 
   if (isLoading)
     return (
@@ -32,22 +39,56 @@ const Clients = () => {
       </div>
     );
 
-  return (
+    return (
+      
     <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
-      <h1 className="text-5xl font-black">Clients</h1>
+      
+<div className="flex flex-row-reverse w-full justify-between">
+  <div className="flex flex-col items-end">
+ <h1 className="text-5xl font-black">Clients</h1>
       <p className="text-2xl text-gray-500 mt-5">
         Organize and Managment your Clients
       </p>
-      <nav className="my-5">
+  </div>
+  <div>
+<nav className="my-5">
         <Link
-          className="bg-purple-400 hover:bg-purple-500 text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
+          className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
           to="/dashboard/clients/register"
-        >
-          Register Client
+          >
+         Add Client
+         <Plus/>
         </Link>
       </nav>
-      <TableContent data={data} />
+  </div>
+</div>
+<form className="form relative my-7">
+  <input
+    className="input rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md text-left"
+    placeholder="Search Client Name"
+    
+    type="text"
+    onChange={(e)=>setFilter(e.currentTarget.value)}
+  />
+  <button type="reset" className="absolute right-3 -translate-y-1/2 top-1/2 p-1" onClick={()=>setFilter('')}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 text-gray-700"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
+  </button>
+</form>    
+      <TableContent data={filteredData} />
     </div>
+           
   );
 };
 

@@ -59,7 +59,7 @@ useEffect(() => {
   };
   const editorContent = watch("description");
   return (
-    <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto">
+    <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto p-3">
       <h1 className="text-5xl font-black">Register Clients</h1>
       <p className="text-2xl text-gray-500 mt-5">
         .Fill the next form to register clients
