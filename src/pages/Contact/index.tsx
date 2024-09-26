@@ -67,9 +67,9 @@ const Contact = () => {
           className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
         <div className="container h-full md:py-48 py-28 shadow-white  mx-auto flex flex-col   items-center  justify-center z-10 max-w-[600px]">
-          <h2 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-justify lg:text-right">
+          <h1 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-justify lg:text-right">
             Differeacting
-          </h2>
+          </h1>
           <p className="text-base  text-justify  my-5   text-white ">
             אנו ב- <span className="text-[#6FCFED] ">Differeacting</span>{" "}
             מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. אנו כאן כדי לענות על כל

@@ -1,4 +1,4 @@
-import logo from "../../assets/svg/Logo3.svg";
+import logo from "../../assets/svg/Logo2.svg";
 // import israel from "../../assets/israel.png";
 // import eua from "../../assets/united-states.png";
 import { Link } from "react-router-dom";

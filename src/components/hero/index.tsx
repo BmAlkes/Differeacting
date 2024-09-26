@@ -25,13 +25,13 @@ const Hero = () => {
           data-aos="fade-left"
           data-aos-duration="2000"
         >
-          <h1 className="text-[#6FCFED] lg:text-2xl text-lg">
-          סטודיו Differeacting 
+          <h1 className="text-white font-bold lg:text-[80px] text-[35px] max-w-56">
+         Differeacting 
           </h1>
-
-          <h2 className="text-white font-bold lg:text-[80px] text-[35px]">
-            הופכים חלומות ליצירה באינטרנט
+          <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
+             הופכים חלומות ליצירה באינטרנט
           </h2>
+
 
         
           <div className="flex gap-7 mt-[30px]">

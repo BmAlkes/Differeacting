@@ -13,9 +13,9 @@ const Posts = () => {
           alt=" services banner"
           className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
         />
-        <h2 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
+        <h1 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
           מגזין שלנו
-        </h2>
+        </h1>
         <div className="flex flex-wrap justify-center container gap-5 ">
           {document?.length === 0 && (
             <h3 className="text-white text-center py-11 text-xl">

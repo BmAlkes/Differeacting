@@ -38,12 +38,10 @@ const OpenCards = () => {
   return (
     <section className="lg:py-9 border-b pb-5 container">
       <div className=" px-4 flex flex-col items-center">
-        <h2 className="lg:text-6xl md:text-3xl text-xl font-semibold text-center lg:text-right text-white">
-          פרויקטים מומלצים
+        <h2 className="lg:text-4xl md:text-3xl text-xl font-semibold text-center lg:text-right text-white">
+        בדוק את העבודות האחרונות שלנו.
         </h2>
-        <p className="text-base  my-5  text-justify text-white">
-          בדוק את העבודות האחרונות שלנו.
-        </p>
+        
       </div>
       <div className="mt-12 flex flex-col justify-center  items-center gap-5 text-white container">
         <div className="flex lg:gap-4 gap-[6px] flex-wrap justify-center">
