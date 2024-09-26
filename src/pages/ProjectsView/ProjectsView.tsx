@@ -7,6 +7,7 @@ import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
+import { useGlobalSearchStore } from "../../store/store";
 
 
 export interface ProjectsResponse {
@@ -28,6 +29,7 @@ export interface Project {
 }
 
 const ProjectView = () => {
+  const{value}= useGlobalSearchStore()
   const [page, setPage] = useState(0);
   const { data: user, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
@@ -38,6 +40,9 @@ const ProjectView = () => {
   });
 
   console.log(projects);
+  console.log(value)
+
+   const filteredData = projects?.data?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
 
   if (isLoading && authLoading)
     return (
@@ -76,7 +81,7 @@ const ProjectView = () => {
             role="list"
             className=" mt-10 w-full lg:grid-cols-2 grid-cols-1 grid  gap-4   "
           >
-            {projects?.data.map((project) => (
+            {filteredData?.map((project) => (
               <li
                 key={project._id}
                 className={`flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"}`}

@@ -131,7 +131,7 @@ export const clientShema = z.object({
   bankHours: z.string(),
   description: z.string(),
   active: z.string(),
-  id: z.string(),
+  _id: z.string(),
 });
 
 export type Client = z.infer<typeof clientShema>;

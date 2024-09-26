@@ -1,11 +1,12 @@
 
 import { IoNotifications,  IoSearchOutline } from "react-icons/io5";
 import {  Menu, Settings2Icon } from "lucide-react";
-import { useOpenStore } from "../../store/store";
+import { useGlobalSearchStore, useOpenStore } from "../../store/store";
 ;
 
 const HeaderApp = ({name}:{name:string}) => {
 	const{open,changeState} = useOpenStore()
+	const {changeValue} = useGlobalSearchStore()
 
   return (
     <div className={`${open ?"w-[calc(100%-230px)] left-[230px]" :"w-[calc(100%-60px)] left-[60px]"}  fixed flex flex-row-reverse items-center justify-between pl-2 pr-6 h-[70px] top-0   border-b border-slate-300 bg-[#fff]`}>
@@ -28,6 +29,7 @@ const HeaderApp = ({name}:{name:string}) => {
 					type="text"
 					placeholder="Search"
 					className="w-full bg-gray-100 outline-none text-[15px]"
+					onChange={e=>{changeValue(e.currentTarget.value)}}
 				/>
 			</div>
 			<div className="md:flex hidden items-center gap-4">

@@ -10,6 +10,10 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import ToggleSwitch from "../toogleForm";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteClient } from "../../api/ClientApi";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const TableContent = ({ data }: ClientResponse) => {
   function createMarkup(data: string) {
@@ -17,6 +21,25 @@ const TableContent = ({ data }: ClientResponse) => {
       __html: data,
     };
   }
+
+ const queryClient = useQueryClient()
+ const {mutate} = useMutation({
+  mutationFn:deleteClient,
+  onError:(error)=>{
+    toast.error(error.message)
+  },
+  onSuccess:(data) => {
+    toast.success(data)
+    queryClient.invalidateQueries({queryKey:['clients']})
+  }
+ })
+
+
+ const handleDeleteClient =(clientId:string)=>{
+  mutate(clientId)
+ }
+ console.log(data)
+
   return (
     
       <div>
@@ -52,7 +75,7 @@ const TableContent = ({ data }: ClientResponse) => {
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger>
-                          <Button className="bg-red-400">
+                          <Button className="bg-red-400" onClick={()=>handleDeleteClient(item._id)}>
                             <Trash2 size={18} />
                           </Button>
                         </TooltipTrigger>
@@ -64,9 +87,11 @@ const TableContent = ({ data }: ClientResponse) => {
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger>
+                          <Link to={`/dashboard/clients/${item._id}`}>
                           <Button className="bg-blue-400">
                             <IoMdMore size={18} />
                           </Button>
+                          </Link>
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Show more</p>
@@ -83,7 +108,7 @@ const TableContent = ({ data }: ClientResponse) => {
 
                   </td>
                   <td data-label="bankhours">{item.bankHours}</td>
-                  <td data-label="email" className="text-blue-400"> <a href={`mailto:${item.email}`}>{item.email}</a></td>
+                  <td data-label="email" className="text-blue-400  break-words"> <a href={`mailto:${item.email}`}>{item.email}</a></td>
                   <td data-label="phone">{item.phone}</td>
                   <td data-label="Client">{item.clientName}</td>
                 </tr>

@@ -17,7 +17,7 @@ const RegisterClients = () => {
     email: "",
     bankHours: "",
     active:"",
-    id:""
+    _id:""
   };
   const navigate = useNavigate()
   const {
