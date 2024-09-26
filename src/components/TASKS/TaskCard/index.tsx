@@ -44,6 +44,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
         width: "350px",
         display: "flex",
         borderWidth: "1px",
+        borderRadius:"10px",
         borderColor: "#rgb(203 213 225 /var(--tw-border-opacity)",
       }
     : undefined;

@@ -1,24 +1,25 @@
 
 import { IoNotifications,  IoSearchOutline } from "react-icons/io5";
-import { ChevronDown, Settings2Icon } from "lucide-react";
-import { FaUser } from "react-icons/fa";
+import {  Menu, Settings2Icon } from "lucide-react";
+import { useOpenStore } from "../../store/store";
+;
 
 const HeaderApp = ({name}:{name:string}) => {
+	const{open,changeState} = useOpenStore()
+
   return (
-    <div className="md:w-[calc(100%-230px)] w-[calc(100%-60px)] fixed flex flex-row-reverse items-center justify-between pl-2 pr-6 h-[70px] top-0 md:left-[230px] left-[60px] border-b border-slate-300 bg-[#fff]">
+    <div className={`${open ?"w-[calc(100%-230px)] left-[230px]" :"w-[calc(100%-60px)] left-[60px]"}  fixed flex flex-row-reverse items-center justify-between pl-2 pr-6 h-[70px] top-0   border-b border-slate-300 bg-[#fff]`}>
       <div className="flex items-center gap-3 cursor-pointer ">
-				<FaUser
-					color="#6ecfef"
-					width={"28px"}
-					height={"28px"}
-				/>
-				<span className="text-[#6ecfef] font-semibold md:text-lg text-sm whitespace-nowrap">
+				
+				<span className="text-[#6ecfef] font-semibold md:text-lg text-sm whitespace-nowrap mx-3">
 					{name}
 				</span>
-				<ChevronDown
-					color="#6ecfef"
-					width={"16px"}
-					height={"16px"}
+				<Menu
+					color="#000000"
+					width={"20px"}
+					height={"20px"}
+					onClick={changeState}
+					
 				/>
 			</div>
 			<div className="md:w-[800px] w-[130px] bg-gray-100 rounded-lg px-3 py-[10px] flex items-center gap-2">
