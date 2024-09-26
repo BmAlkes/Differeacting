@@ -17,8 +17,9 @@ const Clients = () => {
     queryKey: ["clients"],
     queryFn: () => getClients(),
   });
+  
 
- const filteredData = data?.filter((item:any)=> filter.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(filter))
+ const filteredData = data?.filter((item:any)=> filter.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(filter) || item.email.toLowerCase().includes(filter))
 
  console.log(filteredData)
 
