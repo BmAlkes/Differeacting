@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import OpenCards from "../../components/openCards";
 import ScrollUp from "../../components/scrollup";
 import { useEffect } from "react";
