@@ -8,7 +8,7 @@ import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
 import { useGlobalSearchStore } from "../../store/store";
-import { projectSchema } from "../../@types";
+
 
 
 export interface ProjectsResponse {
