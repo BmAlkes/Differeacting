@@ -12,6 +12,7 @@ const CreateProjectView = () => {
     projectName: "",
     clientName: "",
     description: "",
+ active:false,
   };
   const {
     register,

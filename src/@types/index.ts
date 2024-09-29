@@ -94,13 +94,14 @@ export const projectSchema = z.object({
   clientName: z.string(),
   description: z.string(),
   manager: z.string(userSchema.pick({ _id: true })),
-  active: z.boolean(),
+  active: z.boolean().optional(),
 });
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectFormData = Pick<
   Project,
-  "clientName" | "description" | "projectName" 
+  "clientName" | "description" | "projectName" | 'active'
 >;
+
 export const dashboardProjectSchema = z.array(
   projectSchema.pick({
     _id: true,

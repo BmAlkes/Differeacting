@@ -68,21 +68,20 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
       </div>
-          {/* <div className="mb-5 mr-auto">
+          <div className="mb-5 flex flex-row-reverse  items-center  w-full ">
             <label
               htmlFor="description"
-              className="text-sm uppercase font-bold mx-auto "
+              className="text-sm uppercase font-bold  "
             >
               Active project
             </label>
             <input
               id="active"
               type="checkbox"
-              className=" p-3  mx-auto h-5 w-5  border border-gray-200 "
-              {...register("active", {
-              })}
+              className="w-5 h-5 appearance-none cursor-pointer border border-gray-300  rounded-md ml-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100" 
+             {...register('active')}
             />
-          </div> */}
+          </div>
     </>
   );
 }
