@@ -8,6 +8,7 @@ import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
 import { useGlobalSearchStore } from "../../store/store";
+import { projectSchema } from "../../@types";
 
 
 export interface ProjectsResponse {
@@ -40,7 +41,7 @@ const ProjectView = () => {
   });
 
   console.log(projects);
-  console.log(value)
+
 
    const filteredData = projects?.data?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
 
@@ -79,12 +80,12 @@ const ProjectView = () => {
         <>
           <ul
             role="list"
-            className=" mt-10 w-full lg:grid-cols-2 grid-cols-1 grid  gap-4   "
+            className=" mt-10 w-full lg:grid-cols-1 grid-cols-1 grid  gap-4   "
           >
             {filteredData?.map((project) => (
               <li
                 key={project._id}
-                className={`flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"}`}
+                className={`flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"} `}
               >
                 <div className="flex text-left min-w-0 gap-x-4">
                   <div className="min-w-0 flex-auto space-y-2 ">
@@ -186,18 +187,21 @@ const ProjectView = () => {
             ))}
           </ul>
           {projects.data && (
-            <div className="flex justify-center items-center w-full my-3 gap-3">
+            <div className="flex justify-center items-center w-full py-6 gap-3">
               <button
                 onClick={() => setPage(page + 1)}
-                className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed"
-                disabled={page === Math.min(projects.totalPage)}
+                className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-8 text-white text-lg rounded-md hover:bg-[#9cbdd5] hover:text-black disabled:cursor-not-allowed"
+                disabled={page >=projects.totalPage}
               >
                 Next Page
               </button>
+              <ul>
+            
+              </ul>
               <button
                 onClick={() => setPage(page - 1)}
                 disabled={page === 0}
-                className={` z-0 shadow shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#497596] hover:text-black disabled:cursor-not-allowed `}
+                className={` z-0 shadow-sm shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#9cbdd5] hover:text-black disabled:cursor-not-allowed `}
               >
                 Previous Page
               </button>
