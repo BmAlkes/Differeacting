@@ -7,15 +7,29 @@ const Posts = () => {
   console.log(document);
   return (
     <>
+     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
+        <div className="flex flex-col md:flex-row lg:gap-30  h-full md:h-[900px] container w-full mx-auto">
+          <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
+            <h1 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
+             מגזין  Differeacting
+            </h1>
+           
+
+            <div className="flex gap-7 mt-[30px]"></div>
+          </div>
+       
+            <img
+              src={
+               "https://res.cloudinary.com/landingpage2/image/upload/v1727721279/laptop-with-colorful-paint-explosion_d9yzbx.png"
+              }
+              alt="background hero"
+              className="max-w-[700px] md:max-w-[400px] object-cover   overflow-visible  "
+              data-tilt
+            />
+  
+        </div>
+      </section>
       <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-0  lg:mt-0 ">
-        <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1712766602/social2_jytfzf.jpg"
-          alt=" services banner"
-          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
-        />
-        <h1 className="lg:text-6xl text-white w-full md:text-4xl text-xl font-semibold text-center py-10 ">
-          מגזין שלנו
-        </h1>
         <div className="flex flex-wrap justify-center container gap-5 ">
           {document?.length === 0 && (
             <h3 className="text-white text-center py-11 text-xl">

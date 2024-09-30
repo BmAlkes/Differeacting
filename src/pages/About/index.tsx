@@ -80,7 +80,7 @@ const AboutPage = () => {
           </div>
           <div className="container my-8 flex-1">
             <img
-              src="https://res.cloudinary.com/landingpage2/image/upload/v1727720249/3d-workstation-with-computer-peripheral-devices_bdhkb9.png"
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1727720942/elearning-concept-online-education-home_ncsxy6.png"
               alt=""
               className="w-full rounded-[30px] mr-auto"
             />
