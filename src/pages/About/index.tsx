@@ -1,11 +1,6 @@
 import Reccomend from "../../components/footer";
 import ScrollUp from "../../components/scrollup";
 
-
-import picTwo from "../../assets/aboutnew.jpg";
-import picThree from "../../assets/2151003782.jpg";
-import picFour from "../../assets/7666.jpg";
-
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -85,7 +80,7 @@ const AboutPage = () => {
           </div>
           <div className="container my-8 flex-1">
             <img
-              src={picThree}
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1727720249/3d-workstation-with-computer-peripheral-devices_bdhkb9.png"
               alt=""
               className="w-full rounded-[30px] mr-auto"
             />
@@ -105,7 +100,7 @@ const AboutPage = () => {
             </p>
           </div>
           <div className="container my-8 flex-1">
-            <img src={picTwo} alt="" className=" rounded-[30px] ml-auto" />
+            <img src="https://res.cloudinary.com/landingpage2/image/upload/v1727720233/modern-computer-with-colorful-interface-design_uycemm.png" alt="Colorfull computer" className=" rounded-[30px] ml-auto" />
           </div>
         </div>
         <div className="text-[#f4f4f4] container flex lg:flex-row flex-col justify-between items-center   gap-8 my-10">
@@ -118,8 +113,8 @@ const AboutPage = () => {
           </div>
           <div className="container my-8 flex-1">
             <img
-              src={picFour}
-              alt=""
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1727720415/programming-background-collage_nbzcve.png"
+              alt=" hand touch screen"
               className="w-full rounded-[30px] max-h-[488px] object-cover"
             />
           </div>
