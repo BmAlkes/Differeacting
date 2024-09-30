@@ -60,23 +60,19 @@ const Contact = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
-      <section className=" lg:pt-5  lg:full h-full bg-[#030B0F] relative  lg:py-0 mt-[96px] lg:mt-0  ">
-        <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1712767695/blog-text-notebook-with-keybard-coffee-table_jbzw5m.jpg"
-          alt=" services banner"
-          className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
-        />
-        <div className="container h-full md:py-48 py-28 shadow-white  mx-auto flex flex-col   items-center  justify-center z-10 max-w-[600px]">
-          <h1 className="lg:text-6xl text-[#6FCFED] md:text-3xl text-xl font-semibold text-justify lg:text-right">
+       <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
+        <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
+          <div className="w-full h-full  flex flex-col justify-center max-w-[500px] z-50 mt-8 md:mt-5 ">
+            <h1 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
             Differeacting
-          </h1>
-          <p className="text-base  text-justify  my-5   text-white ">
+            </h1>
+            <p className="text-lg  text-justify  my-5   text-white ">
             אנו ב- <span className="text-[#6FCFED] ">Differeacting</span>{" "}
             מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. אנו כאן כדי לענות על כל
             שאלה, לספק מידע נוסף על השירותים והמוצרים שלנו, או לקבל ממך משוב כדי
             לשפר את השירות שלנו.
           </p>
-          <p className="text-base   my-5  text-justify text-white ">
+          <p className="text-lg   my-5  text-justify text-white ">
             אתה מוזמן ליצור קשר באחת מהדרכים הבאות, ונחזור אליך בהקדם: טלפון.
             דוא"ל. וואטסאפ. שעות פעילות שלנו הן:
             <br /> ימים א'-ה': 09:00 - 18:00 תוכלו גם למלא את טופס צור קשר
@@ -84,6 +80,20 @@ const Contact = () => {
             ולהיות זמינים לכל שאלה או בקשה. תודה שבחרת ב-
             <span className="text-[#6FCFED] ">Differeacting.</span>
           </p>
+
+          
+            <div className="flex gap-7 mt-[30px]"></div>
+          </div>
+         
+            <img
+              src={
+               "https://res.cloudinary.com/landingpage2/image/upload/v1727720950/graphic-designer-crafts-vibrant-logo-digital-tablet-flat-illustration_u1iure.png"
+              }
+              alt="background hero"
+              className="lg:h-full  object-cover  md:max-w-[600px]   mx-auto  overflow-visible  h-[400px] md:h-[900px] "
+              data-tilt
+            />
+         
         </div>
       </section>
       <section>
@@ -94,7 +104,7 @@ const Contact = () => {
             data-aos-easing="linear"
             data-aos-duration="3000"
           >
-            <div className="text-center px-6">
+            <div className="text-center px-6 ">
               <h2 className="lg:text-6xl md:text-3xl text-xl text-[#6FCFED] font-semibold text-center lg:text-center">
                 צרו קשר
               </h2>
