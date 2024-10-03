@@ -1,5 +1,4 @@
 import { ChevronLeft } from "lucide-react";
-import logoFooter from "../../assets/svg/Logo3.svg";
 import { Link } from "react-router-dom";
 
 const NewFooter = () => {
@@ -13,7 +12,7 @@ const NewFooter = () => {
             aria-label="home page"
           >
             <img
-              src={logoFooter}
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
               alt="logo web site"
               className="md:max-w-[425px] w-[250px] mx-auto h-full"
             />
