@@ -35,7 +35,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_6_nsjxxb.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969473/Screenshot_6_nsjxxb_yjopgs.png"
                     alt="Eccomerce for a cosmetic store"
                     className="w-full rounded h-[342px] object-cover"
                   />
@@ -52,7 +52,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490072/skylum_te3duo.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png"
                     alt="Skylum "
                     className="w-full rounded h-[342px] object-cover"
                   />
@@ -73,7 +73,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1721490071/Screenshot_5_wb0iyk.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969212/Screenshot_5_wb0iyk_1_pzq3cw.png"
                     alt="Mai Thai travel agency"
                     className="w-full rounded h-[342px] object-cover"
                   />
@@ -87,7 +87,7 @@ const Projects = () => {
               </Link>
             
               <Link
-                to="https://ecommerce-xhdu.vercel.app/"
+                to="https://webcar-umber.vercel.app/"
                 target="_blank"
                 data-aos="fade-down"
                 data-aos-duration="2000"
@@ -109,7 +109,7 @@ const Projects = () => {
 
             <div>
               <Link
-                to="https://webcar-umber.vercel.app/"
+                to="https://ecommerce-xhdu.vercel.app/"
                 target="_blank"
                 data-aos="fade-down"
                 data-aos-duration="3000"
@@ -173,7 +173,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px]  w-[340px] ">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_23_deonbw.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969288/Screenshot_23_deonbw_1_jhf7jt.png"
                     alt="Project we made eccomerce for clother"
                     className="w-full rounded h-[342px] object-cover"
                   />
