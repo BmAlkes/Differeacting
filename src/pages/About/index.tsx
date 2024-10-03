@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
 import { Tilt } from "react-tilt";
+import { Helmet } from "react-helmet-async";
 
 const AboutPage = () => {
   const { pathname } = useLocation();
@@ -23,6 +24,10 @@ const AboutPage = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
+         <Helmet>
+        <title>Differeacting - About  </title>
+        <link rel="canonical" href="https://www.differeacting.com/about" />
+      </Helmet>
       <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
           <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">

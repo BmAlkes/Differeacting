@@ -1,12 +1,17 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { Link } from "react-router-dom";
 import WhatsApp from "../../components/whatsappscroll";
+import { Helmet } from "react-helmet-async";
 
 const Posts = () => {
   const [document] = useAllPrismicDocumentsByType("blog");
   console.log(document);
   return (
     <>
+       <Helmet>
+        <title>Differeacting - magazine</title>
+        <link rel="canonical" href="https://www.differeacting.com/posts" />
+      </Helmet>
      <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col md:flex-row lg:gap-30  h-full md:h-[900px] container w-full mx-auto">
           <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
