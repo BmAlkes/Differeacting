@@ -6,6 +6,7 @@ import ScrollUp from "../../components/scrollup";
 import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -60,6 +61,10 @@ const Contact = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
+         <Helmet>
+        <title>Differeacting - contact</title>
+        <link rel="canonical" href="https://www.differeacting.com/contact" />
+      </Helmet>
        <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
           <div className="w-full h-full  flex flex-col justify-center max-w-[500px] z-50 mt-8 md:mt-5 ">
