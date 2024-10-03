@@ -35,7 +35,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969473/Screenshot_6_nsjxxb_yjopgs.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969708/Screenshot_6_nsjxxb_1_wg8bdh.png"
                     alt="Eccomerce for a cosmetic store"
                     className="w-full rounded h-[342px] object-cover"
                   />
@@ -117,7 +117,7 @@ const Projects = () => {
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
                   <img
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_27_a6sppc.png"
+                    src="https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png"
                     alt="Project we made about eccomerce"
                     className="w-full rounded h-[342px] object-cover"
                   />
