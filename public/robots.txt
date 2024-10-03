@@ -1,2 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
 User-agent: *
-x-robots-tag: noindex
+Allow: /
+
+Sitemap: https://www.differeacting.com/sitemap.xml
