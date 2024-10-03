@@ -8,7 +8,8 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Cursor from "../../components/cursoFollower";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 
 
@@ -31,6 +32,7 @@ const Home = () => {
       }}
     >
        <Helmet>
+        <meta charSet="utf-8"/>
         <title>Differeacting</title>
         <link rel="canonical" href="https://www.differeacting.com/" />
       </Helmet>

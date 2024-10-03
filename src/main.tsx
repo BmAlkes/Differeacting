@@ -13,15 +13,14 @@ import { client } from "./utils/prismic.ts";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import {  HelmetProvider } from 'react-helmet-async';
+
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-     <HelmetProvider>
     <PrismicProvider client={client}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>  
+        <BrowserRouter>
           <App />
           <ReactQueryDevtools />
           <ToastContainer />
@@ -29,6 +28,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </BrowserRouter>
       </QueryClientProvider>
     </PrismicProvider>
-     </HelmetProvider>
   </React.StrictMode>
 );
