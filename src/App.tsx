@@ -36,6 +36,8 @@ import ChangePassword from "./pages/Profile/ChangePassword.tsx";
 import ProjectTeamView from "./pages/ProjectsView/ProjectTeam.tsx";
 import RegisterClients from "./pages/Clients/registerClients/index.tsx";
 import ClientDetails from "./pages/Clients/clientDetails/index.tsx";
+import Blog from "./pages/Blog/index.tsx";
+import CreatePost from "./pages/Blog/createBlog/index.tsx";
 
 AOS.init();
 
@@ -76,7 +78,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/analytics" element={<Dashboard />} />
             <Route path="/dashboard/workflows" element={<Dashboard />} />
-            <Route path="/dashboard/blog" element={<Dashboard />} />
+            <Route path="/dashboard/blog" element={<Blog />} />
+            <Route path="/dashboard/blog/newPost" element={<CreatePost />} />
             <Route path="/dashboard/notifications" element={<Dashboard />} />
             <Route path="/dashboard/projects" element={<ProjectView />} />
             <Route
