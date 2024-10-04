@@ -391,8 +391,8 @@ button {
   font-size: 17px;
   position: relative;
   display: inline-block;
-  width: 62px;
-  height: 35px;
+  width: 57px;
+  height: 25px;
  }
  
  /* Hide default HTML checkbox */
@@ -419,10 +419,10 @@ button {
  .slider:before {
   position: absolute;
   content: "";
-  height: 1.9em;
-  width: 1.9em;
+  height: 1.3em;
+  width: 1.7em;
   border-radius: 16px;
-  left: 1.2px;
+  left: 1.7px;
   top: 0;
   bottom: 0;
   background-color: white;

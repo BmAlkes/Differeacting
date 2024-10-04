@@ -44,10 +44,10 @@ const Clients = () => {
       
     <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
       
-<div className="flex flex-row-reverse w-full justify-between">
+<div className="flex md:flex-row-reverse flex-col w-full md:justify-between  items-center justify-center">
   <div className="flex flex-col items-end">
  <h1 className="text-5xl font-black">Clients</h1>
-      <p className="text-2xl text-gray-500 mt-5">
+      <p className="text-2xl text-gray-500 mt-5 text-center">
         Organize and Managment your Clients
       </p>
   </div>

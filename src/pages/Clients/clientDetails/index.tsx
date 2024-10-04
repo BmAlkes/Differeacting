@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getClientById } from "../../../api/ClientApi";
 
 const ClientDetails = () => {
@@ -48,8 +48,14 @@ const ClientDetails = () => {
             <p dangerouslySetInnerHTML={createMarkup(data.description)} className="w-full min-h-52 tracking-tight leading-10 text-left"></p>
         </div>
       
+        <Link
+          className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md mb-5"
+          to="/dashboard/clients"
+          >
+   Back to Client Pages
+ 
+        </Link>
   </div>
-
   </div>
 };
 

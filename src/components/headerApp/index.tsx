@@ -69,22 +69,20 @@ const HeaderApp = ({ name }: { name: string }) => {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
               </Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer hover:bg-[#6ecfef] hover:text-white">
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer hover:bg-[#6ecfef] hover:text-white">
+
+              <DropdownMenuItem className="cursor-pointer ">
                 Billing
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer hover:bg-[#6ecfef] hover:text-white">
+              <DropdownMenuItem className="cursor-pointer ">
                 Team
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer hover:bg-[#6ecfef] hover:text-white">
+              <DropdownMenuItem className="cursor-pointer">
                 Subscription
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-slate-400 mx-2" />
               <DropdownMenuItem
                 onClick={logout}
-                className="cursor-pointer hover:bg-[#6ecfef] hover:text-white"
+                className="cursor-pointer "
               >
                 Logout
               </DropdownMenuItem>
