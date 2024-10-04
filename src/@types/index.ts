@@ -9,6 +9,7 @@ const authSchema = z.object({
   password_confirmation: z.string(),
   token: z.string(),
   current_password: z.string(),
+ 
 });
 
 type Auth = z.infer<typeof authSchema>;
@@ -31,11 +32,23 @@ export const userSchema = authSchema
   .pick({
     name: true,
     email: true,
+    
   })
-  .extend({ _id: z.string() });
+  .extend({ _id: z.string(),  image: z
+    .any()
+    .refine(
+      (file) => file instanceof File || file === undefined || file === null,
+      {
+        message: "Você precisa enviar um arquivo válido",
+      }
+    )
+    .refine((file) => file?.size <= 5000000, {
+      // 5MB
+      message: "O arquivo deve ter no máximo 5MB",
+    }), });
 
 export type User = z.infer<typeof userSchema>;
-export type UserProfileForm = Pick<User, "email" | "name">;
+export type UserProfileForm = Pick<User, "email" | "name" | "image">;
 
 /* Tasks */
 

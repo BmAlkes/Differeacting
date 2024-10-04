@@ -4,8 +4,12 @@ import { UpdateCurrentPasswordForm, UserProfileForm } from "../@types";
 
 export async function UpdateProfile(formData: UserProfileForm) {
   try {
-    const { data } = await api.put("/auth/profile", formData);
- 
+    const { data } = await api.put("/auth/profile", formData,{
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+ console.log(data);
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {

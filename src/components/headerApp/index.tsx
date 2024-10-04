@@ -13,7 +13,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 
-const HeaderApp = ({ name }: { name: string }) => {
+const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}) => {
   const { open, changeState } = useOpenStore();
   const { changeValue } = useGlobalSearchStore();
   const navigate = useNavigate();
@@ -60,7 +60,8 @@ const HeaderApp = ({ name }: { name: string }) => {
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
+                {profileImage ? <AvatarImage src={profileImage} /> : <AvatarImage src="https://github.com/shadcn.png" /> }
+               
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>

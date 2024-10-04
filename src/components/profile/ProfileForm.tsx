@@ -4,12 +4,15 @@ import { User, UserProfileForm } from "../../@types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { UpdateProfile } from "../../api/ProfileApi";
 import { toast } from "react-toastify";
+import { ChangeEvent, useState } from "react";
 
 type ProfileFormProps = {
   data: User;
 };
 
 export default function ProfileForm({ data }: ProfileFormProps) {
+  const [imageAvatar, setImageAvatar] = useState<UserProfileForm["image"]>();
+  const [avatarUrl, setAvatarUrl] = useState<UserProfileForm["image"]>();
   const {
     register,
     handleSubmit,
@@ -25,9 +28,31 @@ export default function ProfileForm({ data }: ProfileFormProps) {
     },
   });
 
-  const handleEditProfile = (formData: UserProfileForm) => {
+  const handleEditProfile = (data: UserProfileForm) => {
+    const formData ={
+      ...data,
+      image: imageAvatar,
+    }
+    console.log(formData);
     mutate(formData);
   };
+
+  function handleFile(e: ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) {
+      return;
+    }
+
+    const image = e.target.files[0];
+
+    if (!image) {
+      return;
+    }
+
+    if (image.type === "image/jpeg" || image.type === "image/png") {
+      setImageAvatar(image);
+      setAvatarUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  }
 
   return (
     <>
@@ -85,6 +110,22 @@ export default function ProfileForm({ data }: ProfileFormProps) {
               <ErrorMessage>{errors.email.message}</ErrorMessage>
             )}
           </div>
+          <div className="mb-5 space-y-3 flex flex-col">
+            <label
+              className="text-sm uppercase font-bold text-left"
+              htmlFor="email"
+            >
+             Profile Image
+            </label>
+            <input
+                      className="w-full h-12 px-3 text-left outline-none rounded-md bg-slate-100 border border-slate-300 text-sm"
+                      id="file_input"
+                      type="file"
+                      onChange={(e) => handleFile(e)}
+                      />
+          
+          </div>
+          {avatarUrl && <img src={avatarUrl} className=" object-contain" />}
           <input
             type="submit"
             value="Save Changes"
