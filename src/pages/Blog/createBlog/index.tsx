@@ -116,7 +116,13 @@ const CreatePost = () => {
             />
           </div>
           <div className="flex flex-col items-end" >
-
+          <label
+              htmlFor="Title"
+              className="block mb-2 text-lg font-medium text-purple-500 dark:text-white"
+            >
+              {" "}
+             Content
+            </label>
           <ReactQuill modules={modules} formats={formats} className="w-full min-h-44" />
           </div>
           <input
