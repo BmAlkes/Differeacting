@@ -34,15 +34,15 @@ const Login = () => {
   };
   return (
     <div className=" w-full h-screen min-h-screen  ">
-      <div className="bg-[#030b0e] w-full h-full flex flex-col gap-10 items-center justify-center">
+      <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
-          className="lg:w-[600px] w-[400px] mb-11"
+          className="md:w-[600px] w-[350px] mb-5"
         />
         <form
           onSubmit={handleSubmit(handleLogin)}
-          className="space-y-8 p-10 shadow-[#6fcfed] shadow-2xl bg-white lg:w-[500px] w-[400px] h-[500px] rounded-md"
+          className="space-y-8 p-10 shadow-[#6fcfed] shadow-2xl bg-white md:w-[500px] w-[350px] h-[500px] rounded-md"
           noValidate
         >
           <div className="flex flex-col gap-5">
