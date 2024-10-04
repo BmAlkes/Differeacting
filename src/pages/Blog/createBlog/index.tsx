@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import {FiUpload } from "react-icons/fi";
 
 const CreatePost = () => {
-    const [imageAvatar, setImageAvatar] = useState();
-    const [avatarUrl, setAvatarUrl] = useState();
+    const [imageAvatar, setImageAvatar] = useState<any>();
+    const [avatarUrl, setAvatarUrl] = useState<any>();
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     if (!e.target.files) {
         return;
@@ -16,6 +16,7 @@ const CreatePost = () => {
       if (!image) {
         return;
       }
+      console.log(imageAvatar)
   
       if (image.type === "image/jpeg" || image.type === "image/png") {
         setImageAvatar(image);
