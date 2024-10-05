@@ -21,11 +21,11 @@ const Hero = () => {
     <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
       <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
         <div
-          className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 "
+          className="w-full h-full  flex flex-col items-center lg:items-start justify-center max-w-[800px] z-50 mt-8 md:mt-5 "
           data-aos="fade-left"
           data-aos-duration="2000"
         >
-          <h1 className="text-white font-bold lg:text-[100px] text-[35px] max-w-56 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
+          <h1 className="text-white font-bold lg:text-[100px] text-[50px] md:text-[80px] lg:max-w-56 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
          Differeacting 
           </h1>
           <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
