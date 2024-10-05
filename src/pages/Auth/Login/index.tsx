@@ -33,8 +33,8 @@ const Login = () => {
     mutate(formData);
   };
   return (
-    <div className=" w-full h-screen min-h-screen  ">
-      <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
+    <div className=" w-full h-screen min-h-screen bg-[#030b0e] ">
+      <div className=" container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
           src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
           alt=""
