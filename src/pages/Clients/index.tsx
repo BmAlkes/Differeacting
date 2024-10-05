@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getClients } from "../../api/ClientApi";
-import { Client } from "../../@types";
+import {  RegisterClient } from "../../@types";
 import TableContent from "../../components/Table";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 
 
 export interface ClientResponse {
-  data: Client[] 
+  data: RegisterClient[] 
 }
 
 const Clients = () => {

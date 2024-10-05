@@ -34,7 +34,7 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
       }  fixed flex flex-row-reverse items-center justify-between pl-2 pr-6 h-[70px] top-0   border-b border-slate-300 bg-[#fff] z-10`}
     >
       <div className="flex items-center gap-3 cursor-pointer ">
-        <span className="text-[#6ecfef] font-semibold md:text-lg text-sm whitespace-nowrap mx-3">
+        <span className="text-[#6ecfef] font-semibold  md:text-lg text-sm whitespace-nowrap mx-3">
           {name}
         </span>
         <Menu

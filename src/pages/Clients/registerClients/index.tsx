@@ -1,25 +1,53 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { Client} from "../../../@types";
+import {  RegisterClient } from "../../../@types";
 import ErrorMessage from "../../../components/ErrorMessage";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { useEffect} from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { CreateClient } from "../../../api/ClientApi";
 import { toast } from "react-toastify";
 
 const RegisterClients = () => {
-  const initialValue: Client = {
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image"],
+      ["clean"],
+    ],
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+  ];
+  const initialValue: RegisterClient = {
     clientName: "",
     phone: "",
-    description:"",
+    description: "",
     email: "",
     bankHours: "",
-    active:"",
-    _id:""
+
+  
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -29,33 +57,32 @@ const RegisterClients = () => {
     formState: { errors },
   } = useForm({ defaultValues: initialValue });
 
-  const onEditorStateChange = (editorState:any) => {
+  const onEditorStateChange = (editorState: any) => {
     setValue("description", editorState);
   };
 
-const {mutate} = useMutation({
-    mutationFn:CreateClient,
+  const { mutate } = useMutation({
+    mutationFn: CreateClient,
     onError: (error) => {
-        toast.error(error.message)
+      toast.error(error.message);
     },
     onSuccess: () => {
       navigate("/dashboard/clients");
-      toast.success("Client Register successfully")
-       reset();
+      toast.success("Client Register successfully");
+      reset();
     },
-})
-useEffect(() => {
+  });
+  useEffect(() => {
     register("description", { required: true, minLength: 15 });
   }, [register]);
 
-  const handleForm = (data:Client) => {
-    const newdata ={
+  const handleForm = (data: RegisterClient) => {
+    const newdata = {
       ...data,
-      active:"false"
-    }
-  
-  mutate(newdata)
- 
+      active: "false",
+    };
+    console.log(newdata);
+    mutate(newdata);
   };
   const editorContent = watch("description");
   return (
@@ -77,86 +104,87 @@ useEffect(() => {
         onSubmit={handleSubmit(handleForm)}
         noValidate
       >
-         <div className="mb-5 space-y-3 flex flex-col items-end">
-        <label htmlFor="projectName" className="text-sm uppercase font-bold">
-         Client Name
-        </label>
-        <input
-          id="projectName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
-          type="text"
-          placeholder="Client"
-          {...register("clientName", {
-            required: "Client Name is Required",
-          })}
-        />
+        <div className="mb-5 space-y-3 flex flex-col items-end">
+          <label htmlFor="projectName" className="text-sm uppercase font-bold">
+            Client Name
+          </label>
+          <input
+            id="projectName"
+            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            type="text"
+            placeholder="Client"
+            {...register("clientName", {
+              required: "Client Name is Required",
+            })}
+          />
 
-        {errors.clientName && (
-          <ErrorMessage>{errors.clientName.message}</ErrorMessage>
-        )}
-      </div>
-      <div className="mb-5 space-y-3 flex flex-col items-end">
-        <label htmlFor="projectName" className="text-sm uppercase font-bold">
-         Email
-        </label>
-        <input
-          id="projectName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
-          type="text"
-          placeholder="Client email"
-          {...register("email", {
-            required: "Email is Required",
-          })}
-        />
+          {errors.clientName && (
+            <ErrorMessage>{errors.clientName.message}</ErrorMessage>
+          )}
+        </div>
+        <div className="mb-5 space-y-3 flex flex-col items-end">
+          <label htmlFor="projectName" className="text-sm uppercase font-bold">
+            Email
+          </label>
+          <input
+            id="projectName"
+            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            type="text"
+            placeholder="Client email"
+            {...register("email", {
+              required: "Email is Required",
+            })}
+          />
 
-        {errors.email && (
-          <ErrorMessage>{errors.email.message}</ErrorMessage>
-        )}
-      </div>
-         <div className="mb-5 space-y-3 flex flex-col items-end">
-        <label htmlFor="projectName" className="text-sm uppercase font-bold">
-          Phone
-        </label>
-        <input
-          id="projectName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
-          type="text"
-          placeholder="Phone"
-          {...register("phone", {
-            required: "Phone is Required",
-          })}
-        />
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+        </div>
+        <div className="mb-5 space-y-3 flex flex-col items-end">
+          <label htmlFor="projectName" className="text-sm uppercase font-bold">
+            Phone
+          </label>
+          <input
+            id="projectName"
+            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            type="text"
+            placeholder="Phone"
+            {...register("phone", {
+              required: "Phone is Required",
+            })}
+          />
 
-        {errors.phone && (
-          <ErrorMessage>{errors.phone.message}</ErrorMessage>
-        )}
-      </div>
+          {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+        </div>
 
-      <div className="mb-5 space-y-3 flex flex-col items-end">
-        <label htmlFor="projectName" className="text-sm uppercase font-bold">
-         Bank Hours
-        </label>
-        <input
-          id="projectName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
-          type="text"
-          placeholder="Bank Hours"
-          {...register("bankHours", {
-          })}
-        />
+        <div className="mb-5 space-y-3 flex flex-col items-end">
+          <label htmlFor="projectName" className="text-sm uppercase font-bold">
+            Bank Hours
+          </label>
+          <input
+            id="projectName"
+            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            type="text"
+            placeholder="Bank Hours"
+            {...register("bankHours", {})}
+          />
 
-        {errors.bankHours && (
-          <ErrorMessage>{errors.bankHours.message}</ErrorMessage>
-        )}
-      </div>
-      <div className="mb-5 space-y-3 flex flex-col items-end">
-        <label htmlFor="projectName" className="text-sm uppercase font-bold">
-         Description
-        </label>
-       <ReactQuill  className="w-full " theme="snow"  value={editorContent}
-        onChange={onEditorStateChange}/>
-      </div>
-      
+          {errors.bankHours && (
+            <ErrorMessage>{errors.bankHours.message}</ErrorMessage>
+          )}
+        </div>
+        <div className="mb-5 space-y-3 flex flex-col items-end">
+          <label htmlFor="projectName" className="text-sm uppercase font-bold">
+            Description
+          </label>
+          <ReactQuill
+            className="w-full "
+            theme="snow"
+            value={editorContent}
+            onChange={onEditorStateChange}
+            modules={modules}
+            formats={formats}
+          />
+        </div>
+
         <input
           type="submit"
           value="Register"
