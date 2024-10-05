@@ -53,7 +53,7 @@ const Hero = () => {
         </div>
 
         <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1727968551/creative-light-bulb-abstract-glowing-blue-background-generative-ai-removebg_as6062_2_1_1_fvsmkh.png"
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1728146674/creative-light-bulb_zxukub.png"
           alt="background hero"
           className="lg:h-full  object-cover  md:max-w-[600px] mx-auto  overflow-visible  h-[600px] md:h-[900px] "
           data-tilt
