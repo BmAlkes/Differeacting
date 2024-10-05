@@ -1,8 +1,8 @@
 import { isAxiosError } from "axios";
 import api from "../lib/axios";
-import { Client, ClientForm } from "../@types";
+import { Client, ClientForm, RegisterClient } from "../@types";
 
-export async function CreateClient(formData: Client) {
+export async function CreateClient(formData: RegisterClient) {
   try {
     const { data } = await api.post("/client", formData);
     return data;

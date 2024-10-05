@@ -145,11 +145,12 @@ export const clientShema = z.object({
   bankHours: z.string(),
   description: z.string(),
   active: z.string(),
+  _id:z.string(),
 });
 
 export type Client = z.infer<typeof clientShema>;
 export type RegisterClient = Pick<Client,"description"| 'email'| 'bankHours' |"clientName" |"phone">
 export type ClientForm = Pick<
   Client,
-  "active" | "bankHours" | "clientName" | "email" | "phone" 
+  "active" | "bankHours" | "clientName" | "email" | "phone" | '_id'|'description'
 >;

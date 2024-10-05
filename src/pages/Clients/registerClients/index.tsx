@@ -44,8 +44,7 @@ const RegisterClients = () => {
     description: "",
     email: "",
     bankHours: "",
-
-  
+    
   };
   const navigate = useNavigate();
   const {
@@ -80,7 +79,7 @@ const RegisterClients = () => {
     const newdata = {
       ...data,
       active: "false",
-    };
+    }
     console.log(newdata);
     mutate(newdata);
   };
