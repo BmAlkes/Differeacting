@@ -25,7 +25,7 @@ const Hero = () => {
           data-aos="fade-left"
           data-aos-duration="2000"
         >
-          <h1 className="text-white font-bold lg:text-[80px] text-[35px] max-w-56">
+          <h1 className="text-white font-bold lg:text-[100px] text-[35px] max-w-56 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
          Differeacting 
           </h1>
           <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
