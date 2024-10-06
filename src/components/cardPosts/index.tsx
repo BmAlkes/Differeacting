@@ -29,7 +29,7 @@ const CardPost = ({data, index}:CardData) => {
       <p className="absolute bottom-6 left-7 text-white text-2xl">{index + 1}</p>
     </div>
     <div className="w-full " >
-     <img src={data.image.filePath} alt={data.image.name}  />
+     <img src={data?.image?.filePath} alt={data.image?.name}  />
     </div>
     <div className="flex flex-col items-center">
 

@@ -44,7 +44,7 @@ console.log(data)
         </Link>
       </nav>
 
-      <div className="mt-6 grid  grid-cols-3 gap-4">
+      <div className="mt-6 grid  lg:grid-cols-5 grid-cols md:grid-cols-2 mx-auto gap-4">
         {data.map((data:any, index:number) =>(
           <CardPost data={data} index={index}/>
         ))}
