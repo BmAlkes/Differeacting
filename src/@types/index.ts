@@ -154,3 +154,24 @@ export type ClientForm = Pick<
   Client,
   "active" | "bankHours" | "clientName" | "email" | "phone" | '_id'|'description'
 >;
+
+
+export const postSchema = z.object({
+  title: z.string(),
+  content:z.string(),
+  summary:z.string(),
+  image: z
+  .any()
+  .refine(
+    (file) => file instanceof File || file === undefined || file === null,
+    {
+      message: "Você precisa enviar um arquivo válido",
+    }
+  )
+  .refine((file) => file?.size <= 5000000, {
+    // 5MB
+    message: "O arquivo deve ter no máximo 5MB",
+  }),
+});
+
+export type PostRegister = z.infer<typeof postSchema>
