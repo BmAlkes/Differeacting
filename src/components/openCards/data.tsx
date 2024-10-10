@@ -22,7 +22,7 @@ export const projectsData = [
   {
     id: 3,
     image:
-      "https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_23_deonbw.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1727969288/Screenshot_23_deonbw_1_jhf7jt.png",
     title: "Club Clothes",
     description:
       "Eccomerce made with react, and firebase conneting with Stripe api for payments",
@@ -61,7 +61,7 @@ export const projectsData = [
   {
     id: 7,
     image:
-      "https://res.cloudinary.com/landingpage2/image/upload/v1708932227/Screenshot_27_a6sppc.png",
+     "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
     title: "Project JavasScript, HTML , CSS",
     description: "Online store",
     link: "https://ecommerce-xhdu.vercel.app/",
@@ -79,7 +79,7 @@ export const projectsData = [
   {
     id: 9,
     image:
-      "https://res.cloudinary.com/landingpage2/image/upload/v1708937798/sky_zxhxdz.png",
+    "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
     title: "Skylum",
     description: "Web site for company",
     link: "https://skylum.co.il/",

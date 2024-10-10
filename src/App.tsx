@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
 
+
 import Home from "./pages/Home";
 import Layout from "./layout";
 import NotFound from "./pages/404";
@@ -45,8 +46,11 @@ function App() {
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const location = useLocation();
+
+
   return (
     <>
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout />}>
