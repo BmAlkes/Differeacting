@@ -9,7 +9,6 @@ import Cursor from "../../components/cursoFollower";
 import { Tilt } from "react-tilt";
 import { Helmet } from "react-helmet";
 
-import { IconCloudDemo } from "../../components/IconCloudDemo";
 
 
 const AboutPage = () => {
