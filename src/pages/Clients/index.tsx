@@ -1,10 +1,10 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getClients } from "../../api/ClientApi";
 import { ClientForm } from "../../@types";
 import TableContent from "../../components/Table";
 import { Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 export interface ClientResponse {
   data: ClientForm[];

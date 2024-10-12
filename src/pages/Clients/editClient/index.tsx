@@ -51,6 +51,8 @@ const EditClient = () => {
   const onEditorStateChange = (editorState: any) => {
     setValue("description", editorState);
   };
+
+
   const {
     register,
     handleSubmit,
@@ -77,8 +79,10 @@ const EditClient = () => {
     },
     onSuccess: () => {
         QueryClient.invalidateQueries({ queryKey: ["client"] });
+        reset()
       toast.success("data updated successfully");
       navigate("/dashboard/clients");
+    
     },
 });
 const handleForm = (data:any) => {
