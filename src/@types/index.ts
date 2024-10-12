@@ -144,7 +144,7 @@ export const clientShema = z.object({
   email: z.string().email(),
   bankHours: z.string(),
   description: z.string(),
-  active: z.string(),
+  active: z.boolean(),
   _id:z.string(),
 });
 

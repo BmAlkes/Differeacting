@@ -37,7 +37,10 @@ const TableContent = ({ data }: ClientResponse) => {
   const handleDeleteClient = (clientId: string) => {
     mutate(clientId);
   };
-  console.log(data);
+
+  
+  
+
 
   return (
     <div>
@@ -107,7 +110,7 @@ const TableContent = ({ data }: ClientResponse) => {
                   ></div>
                 </td>
                 <td data-label="active" className="flex justify-center">
-                  <ToggleSwitch name={item.clientName} active={item.active} />
+                  <ToggleSwitch name={item.clientName} active={item.active} clientId={item._id} />
                 </td>
                 <td data-label="bankhours">{item.bankHours}</td>
                 <td data-label="email" className="text-blue-400  break-words">

@@ -56,3 +56,17 @@ export async function updateClient({ formData, clientId }: ProjectApiType) {
     console.log(error);
   }
 }
+type ProjectApiTypeActive = {
+formData:any
+  clientId: Client["_id"];
+};
+export async function updateActive({ formData, clientId }: ProjectApiTypeActive) {
+  try {
+    const { data } = await api.put(`/client/${clientId}`, formData);
+    return data;
+  }  catch (error) {
+    if (isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.console.error);
+    }
+  }
+}
