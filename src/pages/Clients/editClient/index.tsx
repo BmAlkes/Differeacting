@@ -1,11 +1,10 @@
 import ReactQuill from "react-quill";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getClientById, updateClient } from "../../../api/ClientApi";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
+
 
 const EditClient = () => {
   const params = useParams();
