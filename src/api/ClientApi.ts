@@ -44,7 +44,7 @@ export async function deleteClient(id:Client['_id']) {
   
 }
 
-type ProjectApiType = {
+export type ProjectApiType = {
   formData: ClientForm;
   clientId: Client["_id"];
 };

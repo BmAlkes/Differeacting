@@ -3,6 +3,7 @@ import { IoMdMore } from "react-icons/io";
 import { ClientResponse } from "../../pages/Clients";
 import { Button } from "../ui/button";
 
+
 import {
   Tooltip,
   TooltipContent,
@@ -13,7 +14,7 @@ import ToggleSwitch from "../toogleForm";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteClient } from "../../api/ClientApi";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const TableContent = ({ data }: ClientResponse) => {
   function createMarkup(data: string) {
@@ -38,7 +39,11 @@ const TableContent = ({ data }: ClientResponse) => {
     mutate(clientId);
   };
 
+  const navigate =useNavigate()
   
+  const handleEdit =(clientId: string) => {
+    navigate(`/dashboard/clients/${clientId}/edit`)
+  }
   
 
 
@@ -64,7 +69,7 @@ const TableContent = ({ data }: ClientResponse) => {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
-                        <Button className="bg-green-400">
+                        <Button className="bg-green-400" onClick={()=>handleEdit(item._id)}>
                           <Edit2 size={18} />
                         </Button>
                       </TooltipTrigger>

@@ -39,6 +39,7 @@ import RegisterClients from "./pages/Clients/registerClients/index.tsx";
 import ClientDetails from "./pages/Clients/clientDetails/index.tsx";
 import Blog from "./pages/Blog/index.tsx";
 import CreatePost from "./pages/Blog/createBlog/index.tsx";
+import EditClient from "./pages/Clients/editClient/index.tsx";
 
 AOS.init();
 
@@ -104,6 +105,7 @@ function App() {
             />
             <Route path="/dashboard/clients" element={<Clients />} />
             <Route path="/dashboard/clients/:clientId" element={<ClientDetails/>} />
+            <Route path="/dashboard/clients/:clientId/edit" element={<EditClient/>} />
             <Route path="/dashboard/clients/register" element={<RegisterClients />} />
             <Route path="/dashboard/register" element={<Register />} />
             <Route element={<ProfileLayout />}>
