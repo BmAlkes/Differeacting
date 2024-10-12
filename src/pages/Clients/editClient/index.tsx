@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getClientById, updateClient } from "../../../api/ClientApi";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const EditClient = () => {
   const params = useParams();
@@ -30,6 +31,8 @@ const EditClient = () => {
       ["clean"],
     ],
   };
+
+ 
 
   const formats = [
     "header",
@@ -70,22 +73,21 @@ const EditClient = () => {
     mutationFn: updateClient,
     onError: (error) => {
       toast.error(error.message);
+      reset()
     },
     onSuccess: () => {
-      QueryClient.invalidateQueries({ queryKey: ["clients"] });
-      QueryClient.invalidateQueries({ queryKey: ["client"] });
-      reset();
+        QueryClient.invalidateQueries({ queryKey: ["client"] });
       toast.success("data updated successfully");
       navigate("/dashboard/clients");
     },
-  });
-  const handleForm = (data:any) => {
+});
+const handleForm = (data:any) => {
     const formData = {
-      ...data,
-      _id:clientId
+        ...data,
+        _id:clientId
     };
-
-
+    
+    
     mutate({formData,clientId});
   };
 
@@ -108,7 +110,7 @@ const EditClient = () => {
       </div>
     );
 
-  return (
+ if(data) return (
     <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto p-3">
       <h1 className="text-5xl font-black">Edit Client</h1>
       <p className="text-2xl text-gray-500 mt-5">
