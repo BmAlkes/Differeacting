@@ -130,8 +130,8 @@ const NewFooter = () => {
             <nav className="list-none mb-10 flex flex-col gap-3 ">
               <ul>
                 <li className=" rounded-lg py-2 px-2  hover:bg-white hover:text-black">
-                  <a href="mailto:eden@eden-digital.co.il">
-                    eden@eden-digital.co.il
+                  <a href="mailto:info@differeacting.co.il">
+                    info@differeacting.co.il
                   </a>
                 </li>
 

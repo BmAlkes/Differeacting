@@ -140,10 +140,10 @@ const Contact = () => {
                       />
                     </svg>
                     <a
-                      href="mailto:eden@eden-digital.co.il"
+                      href="mailto:info@differeacting.co.il"
                       className="text-white text-sm ml-3"
                     >
-                      <strong>eden@eden-digital.co.il</strong>
+                      <strong>info@differeacting.co.il</strong>
                     </a>
                   </li>
                   <li className="flex gap-2 items-center max-lg:justify-center">
@@ -206,7 +206,7 @@ const Contact = () => {
                     </a>
                   </li>
                   <li className="bg-white hover:bg-[#70cfed] h-10 w-10  rounded-full flex items-center justify-center shrink-0">
-                    <a href="">
+                    <a href="https://www.linkedin.com/company/differeacting/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="18px"

@@ -40,6 +40,7 @@ import ClientDetails from "./pages/Clients/clientDetails/index.tsx";
 import Blog from "./pages/Blog/index.tsx";
 import CreatePost from "./pages/Blog/createBlog/index.tsx";
 import EditClient from "./pages/Clients/editClient/index.tsx";
+import { Helmet } from "react-helmet";
 
 AOS.init();
 
@@ -51,7 +52,11 @@ function App() {
 
   return (
     <>
-
+  <Helmet>
+        <meta charSet="utf-8"/>
+        <title>Differeacting</title>
+        <link rel="canonical" href="https://www.differeacting.com/" />
+      </Helmet>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout />}>

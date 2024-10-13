@@ -22,18 +22,14 @@ const Hero = () => {
       <div className="flex flex-col lg:flex-row lg:gap-30  h-full container w-full mx-auto">
         <div
           className="w-full h-full  flex flex-col items-center lg:items-start justify-center max-w-[800px] z-50 mt-8 md:mt-5 "
-          data-aos="fade-left"
-          data-aos-duration="2000"
         >
           <h1 className="text-white font-bold lg:text-[100px] text-[50px] md:text-[80px] lg:max-w-56 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
-         Differeacting 
+            Differeacting
           </h1>
           <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
-             הופכים חלומות ליצירה באינטרנט
+            הופכים חלומות ליצירה באינטרנט
           </h2>
 
-
-        
           <div className="flex gap-7 mt-[30px]">
             <Link to="/projects" className="p-0 m-0">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">

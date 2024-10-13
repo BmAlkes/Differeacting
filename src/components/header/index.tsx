@@ -147,7 +147,7 @@ const Header = () => {
                       >
                         <li>מי אנחנו</li>
                       </Link>
-                      <Link
+                      {/* <Link
                         aria-label="about website"
                         onClick={handleClose}
                         to="/service"
@@ -156,7 +156,7 @@ const Header = () => {
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>שרותים שלנו</li>
-                      </Link>
+                      </Link> */}
 
                       <Link
                         aria-label="project website"

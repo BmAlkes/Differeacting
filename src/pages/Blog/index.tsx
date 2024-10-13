@@ -10,7 +10,7 @@ const Blog = () => {
     queryFn:()=>getAllPosts()
   })
 
-console.log(data)
+
   if (isLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
