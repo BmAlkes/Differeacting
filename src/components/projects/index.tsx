@@ -68,7 +68,7 @@ const Projects = () => {
                 data-aos-easing="linear"
               >
                 <div className="py-3 md:w-[600px] w-[340px]">
-                  <SafariDemo url={"https://maithaitravelandtour.com/"} img={"https://res.cloudinary.com/landingpage2/image/upload/v1727969212/Screenshot_5_wb0iyk_1_pzq3cw.png"}/>
+                  <SafariDemo url={"https://maithaitravelandtour.com/"} img={"https://res.cloudinary.com/landingpage2/image/upload/v1728813860/cd333395-f5f3-4f2e-8f06-72ac519fd687_ntviz9.jpg"}/>
                   
                   <h3 className="text-2xl font-normal mt-2">
                     Mai Thai travel agency
