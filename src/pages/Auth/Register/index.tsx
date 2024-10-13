@@ -39,7 +39,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col justify-end items-end">
+    <div className="flex flex-col justify-end  p-4">
       <h1 className="text-5xl font-black ">Create a new User</h1>
       <p className="text-2xl font-light mt-5">
         Fill the form
@@ -62,7 +62,7 @@ export default function Register() {
             id="email"
             type="email"
             placeholder="Email de Registro"
-            className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
+            className="w-full p-3  border-gray-300 border "
             {...register("email", {
               required: "Email required",
               pattern: {
@@ -78,8 +78,8 @@ export default function Register() {
           <label className="font-normal text-2xl text-left">Name</label>
           <input
             type="name"
-            placeholder="Nombre de Registro"
-            className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
+            placeholder="Register Name"
+            className="w-full p-3  border-gray-300 border "
             {...register("name", {
               required: "Name is required",
             })}
@@ -88,12 +88,12 @@ export default function Register() {
         </div>
 
         <div className="flex flex-col gap-5">
-          <label className="font-normal text-2xl text-left">Password</label>
+          <label className="font-normal text-2xl ">Password</label>
 
           <input
             type="password"
-            placeholder="Password de Registro"
-            className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
+            placeholder="Register Password"
+            className="w-full p-3  border-gray-300 border "
             {...register("password", {
               required: "Password required",
               minLength: {
@@ -108,7 +108,7 @@ export default function Register() {
         </div>
 
         <div className="flex flex-col gap-5">
-          <label className="font-normal text-2xl text-left">
+          <label className="font-normal text-2xl ">
             Repeat Password
           </label>
 
@@ -116,7 +116,7 @@ export default function Register() {
             id="password_confirmation"
             type="password"
             placeholder="Repeat password"
-            className="w-full p-3  border-gray-300 border text-left placeholder:text-left"
+            className="w-full p-3  border-gray-300 border "
             {...register("password_confirmation", {
               required: "Repeat Password Obligate",
               validate: (value) =>

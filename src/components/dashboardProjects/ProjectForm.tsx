@@ -10,13 +10,13 @@ type ProjectFormProps = {
 export default function ProjectForm({ register, errors }: ProjectFormProps) {
   return (
     <>
-      <div className="mb-5 space-y-3 flex flex-col items-end">
+      <div className="mb-5 space-y-3 flex flex-col">
         <label htmlFor="projectName" className="text-sm uppercase font-bold">
           Project Name
         </label>
         <input
           id="projectName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+          className="w-full p-3  border border-gray-200 "
           type="text"
           placeholder="Project Name"
           {...register("projectName", {
@@ -29,13 +29,13 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
         )}
       </div>
 
-      <div className="mb-5 space-y-3 flex flex-col items-end text-end">
+      <div className="mb-5 space-y-3 flex flex-col items-end ">
         <label htmlFor="clientName" className="text-sm uppercase font-bold">
           Client Name
         </label>
         <input
           id="clientName"
-          className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+          className="w-full p-3  border border-gray-200 "
           type="text"
           placeholder="ClientName"
           {...register("clientName", {
@@ -48,7 +48,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
         )}
       </div>
 
-      <div className="mb-5 space-y-3 flex flex-col items-end">
+      <div className="mb-5 space-y-3 flex flex-col ">
         <label
           htmlFor="description"
           className="text-sm uppercase font-bold "
@@ -57,7 +57,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
         </label>
         <textarea
           id="description"
-          className="w-full p-3 h-[300px]  border border-gray-200 resize-none placeholder:text-end text-end"
+          className="w-full p-3 h-[300px]  border border-gray-200 resize-none "
           placeholder="Project Description"
           {...register("description", {
             required: "A brief description is mandatory",
@@ -68,7 +68,7 @@ export default function ProjectForm({ register, errors }: ProjectFormProps) {
           <ErrorMessage>{errors.description.message}</ErrorMessage>
         )}
       </div>
-          <div className="mb-5 flex flex-row-reverse  items-center  w-full ">
+          <div className="mb-5 flex flex-row  items-center  w-full ">
             <label
               htmlFor="description"
               className="text-sm uppercase font-bold  "

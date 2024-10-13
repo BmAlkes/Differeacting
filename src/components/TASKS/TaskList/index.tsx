@@ -65,7 +65,7 @@ const TaskList = ({ tasks }: TaskListProps) => {
     <>
       <h2 className="text-5xl font-black my-10 text-left">Tasks</h2>
 
-      <div className="flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32 w-full flex-row-reverse">
+      <div className="flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32 w-full flex-row">
         <DndContext onDragEnd={handleDragEnd}>
           {Object.entries(groupedTasks).map(([status, tasks]) => (
             <div

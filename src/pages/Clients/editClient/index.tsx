@@ -114,7 +114,7 @@ const handleForm = (data:any) => {
     );
 
  if(data) return (
-    <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto p-3">
+    <div className="flex flex-col  mt-10 max-w-screen-2xl mx-auto p-3">
       <h1 className="text-5xl font-black">Edit Client</h1>
       <p className="text-2xl text-gray-500 mt-5">
         .Fill the next form to Update or change clients status
@@ -132,13 +132,13 @@ const handleForm = (data:any) => {
         onSubmit={handleSubmit(handleForm)}
         noValidate
       >
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Client Name
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Client"
             {...register("clientName", {
@@ -146,13 +146,13 @@ const handleForm = (data:any) => {
             })}
           />
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Email
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Client email"
             {...register("email", {
@@ -160,13 +160,13 @@ const handleForm = (data:any) => {
             })}
           />
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Phone
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Phone"
             {...register("phone", {
@@ -175,19 +175,19 @@ const handleForm = (data:any) => {
           />
         </div>
 
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Bank Hours
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Bank Hours"
             {...register("bankHours")}
           />
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Description
           </label>

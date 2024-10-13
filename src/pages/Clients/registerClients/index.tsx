@@ -85,7 +85,7 @@ const RegisterClients = () => {
   };
   const editorContent = watch("description");
   return (
-    <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto p-3">
+    <div className="flex flex-col items-start mt-10 max-w-screen-2xl mx-auto p-3">
       <h1 className="text-5xl font-black">Register Clients</h1>
       <p className="text-2xl text-gray-500 mt-5">
         .Fill the next form to register clients
@@ -103,13 +103,13 @@ const RegisterClients = () => {
         onSubmit={handleSubmit(handleForm)}
         noValidate
       >
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col items-start">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Client Name
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Client"
             {...register("clientName", {
@@ -121,13 +121,13 @@ const RegisterClients = () => {
             <ErrorMessage>{errors.clientName.message}</ErrorMessage>
           )}
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Email
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Client email"
             {...register("email", {
@@ -137,13 +137,13 @@ const RegisterClients = () => {
 
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Phone
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Phone"
             {...register("phone", {
@@ -154,13 +154,13 @@ const RegisterClients = () => {
           {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
         </div>
 
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Bank Hours
           </label>
           <input
             id="projectName"
-            className="w-full p-3  border border-gray-200 placeholder:text-end text-end"
+            className="w-full p-3  border border-gray-200 "
             type="text"
             placeholder="Bank Hours"
             {...register("bankHours", {})}
@@ -170,7 +170,7 @@ const RegisterClients = () => {
             <ErrorMessage>{errors.bankHours.message}</ErrorMessage>
           )}
         </div>
-        <div className="mb-5 space-y-3 flex flex-col items-end">
+        <div className="mb-5 space-y-3 flex flex-col ">
           <label htmlFor="projectName" className="text-sm uppercase font-bold">
             Description
           </label>

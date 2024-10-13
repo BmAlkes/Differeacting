@@ -53,7 +53,7 @@ const   QueryClient = useQueryClient()
   };
 
   return (
-    <div className="flex flex-col items-end mt-10 max-w-screen-2xl mx-auto">
+    <div className="flex flex-col p-3 mt-10 max-w-screen-2xl mx-auto">
       <h1 className="text-5xl font-black">Edit Project</h1>
       <p className="text-xl  text-gray-500 mt-5 mb-5">
         .Fill the next form to edit a project

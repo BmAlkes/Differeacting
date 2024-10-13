@@ -63,7 +63,7 @@ const ProjectView = () => {
     );
 
   return (
-    <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
+    <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-2">
       <h1 className="text-5xl font-black">Projects</h1>
       <p className="text-2xl text-gray-500 mt-5">
         Organize and Managment your Projects
@@ -85,7 +85,7 @@ const ProjectView = () => {
             {filteredData?.map((project) => (
               <li
                 key={project._id}
-                className={`flex flex-row-reverse justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"} `}
+                className={`flex flex-row justify-between  px-5 py-10 mb-2  bg-gray-100 shadow-2xl  ${project.active ?"":"opacity-50"} `}
               >
                 <div className="flex text-left min-w-0 gap-x-4">
                   <div className="min-w-0 flex-auto space-y-2 ">
