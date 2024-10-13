@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { getAllPosts } from "../../api/PostsApi";
+import {  getAllPosts } from "../../api/PostsApi";
 import CardPost from "../../components/cardPosts";
 
 const Blog = () => {
@@ -9,6 +9,8 @@ const Blog = () => {
     queryKey:['posts'],
     queryFn:()=>getAllPosts()
   })
+
+  
 
 
   if (isLoading)

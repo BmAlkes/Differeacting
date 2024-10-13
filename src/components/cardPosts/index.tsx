@@ -3,6 +3,9 @@ import {  Button } from "../ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 import { Link } from "react-router-dom";
 import { IoMdMore } from "react-icons/io";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deletePost } from "../../api/PostsApi";
+import { toast } from "react-toastify";
 
 
 interface CardData {
@@ -20,7 +23,25 @@ interface CardData {
 }
 
 
+
+
+
 const CardPost = ({data, index}:CardData) => {
+  const QueryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: deletePost,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: () => {
+        QueryClient.invalidateQueries({ queryKey: ["posts"] });
+   
+      toast.success("data updated successfully");
+    
+    
+    },
+  });
+  console.log(data);
   return (
     <div
     className="w-64 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden"
@@ -56,7 +77,7 @@ const CardPost = ({data, index}:CardData) => {
                       <TooltipTrigger>
                         <Button
                           className="bg-red-400"
-                      
+                      onClick={()=>{mutate(data._id)}}
                         >
                           <Trash2 size={18} />
                         </Button>
