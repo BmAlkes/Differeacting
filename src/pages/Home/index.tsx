@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Cursor from "../../components/cursoFollower";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -30,6 +31,11 @@ const Home = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
+       <Helmet>
+        <meta charSet="utf-8"/>
+        <title>Differeacting - סטודיו לבניית אתרים Differeacting: הופכים חלומות ליצירה באינטרנט </title>
+        <link rel="canonical" href="https://www.differeacting.com/" />
+      </Helmet>
      
       <Hero />
       <About />

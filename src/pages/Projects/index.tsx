@@ -25,10 +25,7 @@ const Projects = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
-         <Helmet>
-        <title>Differeacting - Projects </title>
-        <link rel="canonical" href="https://www.differeacting.com/projects" />
-      </Helmet>
+   
       <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-x-56  h-full container w-full items-center  ">
           <div className="w-full h-full  flex flex-col justify-center max-w-[600px] z-50 mt-8 md:mt-5 ">

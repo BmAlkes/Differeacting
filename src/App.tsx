@@ -40,7 +40,7 @@ import ClientDetails from "./pages/Clients/clientDetails/index.tsx";
 import Blog from "./pages/Blog/index.tsx";
 import CreatePost from "./pages/Blog/createBlog/index.tsx";
 import EditClient from "./pages/Clients/editClient/index.tsx";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import ShowDetailsPost from "./pages/Blog/showDetails/inde.tsx";
 
 AOS.init();
@@ -53,11 +53,9 @@ function App() {
 
   return (
     <>
-  <Helmet>
-        <meta charSet="utf-8"/>
-        <title>Differeacting</title>
-        <link rel="canonical" href="https://www.differeacting.com/" />
-      </Helmet>
+    <HelmetProvider>
+
+ 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout />}>
@@ -77,12 +75,12 @@ function App() {
           <Route
             path="/auth/confirm-account/"
             element={<ConfirmAccountView />}
-          />
+            />
           <Route path="/auth/request-code" element={<RequestNewCodeView />} />
           <Route
             path="/auth/forgot-password"
             element={<ForgotPasswordView />}
-          />
+            />
           <Route path="/auth/new-password" element={<NewPasswordView />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
@@ -97,19 +95,19 @@ function App() {
             <Route
               path="/dashboard/projects/create"
               element={<CreateProjectView />}
-            />
+              />
             <Route
               path="/dashboard/projects/:projectId"
               element={<ProjectDetails />}
-            />
+              />
             <Route
               path="/dashboard/projects/:projectId/team"
               element={<ProjectTeamView />}
-            />
+              />
             <Route
               path="/dashboard/projects/:projectId/edit"
               element={<EditProjectView />}
-            />
+              />
             <Route path="/dashboard/clients" element={<Clients />} />
             <Route path="/dashboard/clients/:clientId" element={<ClientDetails/>} />
             <Route path="/dashboard/clients/:clientId/edit" element={<EditClient/>} />
@@ -120,11 +118,12 @@ function App() {
               <Route
                 path="/dashboard/profile/password"
                 element={<ChangePassword />}
-              />
+                />
             </Route>
           </Route>
         </Routes>
       </AnimatePresence>
+                </HelmetProvider>
     </>
   );
 }
