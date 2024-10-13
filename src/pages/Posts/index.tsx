@@ -1,7 +1,7 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { Link } from "react-router-dom";
 import WhatsApp from "../../components/whatsappscroll";
-import { Helmet } from "react-helmet";
+
 
 
 const Posts = () => {

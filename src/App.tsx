@@ -40,7 +40,7 @@ import ClientDetails from "./pages/Clients/clientDetails/index.tsx";
 import Blog from "./pages/Blog/index.tsx";
 import CreatePost from "./pages/Blog/createBlog/index.tsx";
 import EditClient from "./pages/Clients/editClient/index.tsx";
-import { Helmet, HelmetProvider } from 'react-helmet-async'
+import {  HelmetProvider } from 'react-helmet-async'
 import ShowDetailsPost from "./pages/Blog/showDetails/inde.tsx";
 
 AOS.init();

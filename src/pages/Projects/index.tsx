@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
-import { Helmet } from "react-helmet";
 
 
 const Projects = () => {
