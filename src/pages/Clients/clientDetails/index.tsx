@@ -45,7 +45,7 @@ const ClientDetails = () => {
 
         <div className="w-full text-left">
             <span className="   font-bold text-xl">:Notes</span>
-            <p dangerouslySetInnerHTML={createMarkup(data.description)} className="w-full min-h-52 tracking-tight leading-10 text-left"></p>
+
         </div>
       
         <Link

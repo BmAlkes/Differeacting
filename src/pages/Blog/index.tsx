@@ -1,17 +1,14 @@
-import {  useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import {  getAllPosts } from "../../api/PostsApi";
+import { getAllPosts } from "../../api/PostsApi";
 import CardPost from "../../components/cardPosts";
 
 const Blog = () => {
 
-  const {data, isLoading} = useQuery({
-    queryKey:['posts'],
-    queryFn:()=>getAllPosts()
-  })
-
-  
-
+  const { data, isLoading } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => getAllPosts(),
+  });
 
   if (isLoading)
     return (
@@ -30,29 +27,30 @@ const Blog = () => {
       </div>
     );
 
-  
-  return (
-    <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
-      <h1 className="text-5xl font-black">Blog</h1>
-      <p className="text-2xl text-gray-500 mt-5">
-        Create and edit all the blog posts
-      </p>
-      <nav className="my-5">
-        <Link
-          className="bg-purple-400 hover:bg-purple-500 text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
-          to="/dashboard/blog/newPost"
-        >
-          New Post
-        </Link>
-      </nav>
+  if (data) return (
+      <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
+        <h1 className="text-5xl font-black">Blog</h1>
+        <p className="text-2xl text-gray-500 mt-5">
+          Create and edit all the blog posts
+        </p>
+        <nav className="my-5">
+          <Link
+            className="bg-purple-400 hover:bg-purple-500 text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
+            to="/dashboard/blog/newPost"
+          >
+            New Post
+          </Link>
+        </nav>
 
-      <div className="mt-6 grid  lg:grid-cols-5  grid-cols md:grid-cols-2 mx-auto gap-4">
-        {data.map((data:any, index:number) =>(
-          <CardPost data={data} index={index}/>
-        ))}
+        <div className="mt-6 grid  lg:grid-cols-5  grid-cols md:grid-cols-2 mx-auto gap-4">
+        
+           { data?.map((data: any, index: number) => (
+              <CardPost data={data} index={index} />
+          
+            ))}
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default Blog;

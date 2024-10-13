@@ -8,9 +8,10 @@ import { deletePost } from "../../api/PostsApi";
 import { toast } from "react-toastify";
 
 
-interface CardData {
+export interface CardDataProps {
   index: number;
   data:{
+    _id:string,
     content:string,
     image:{
       name:string,
@@ -26,17 +27,17 @@ interface CardData {
 
 
 
-const CardPost = ({data, index}:CardData) => {
+const CardPost = ({data, index}:CardDataProps) => {
   const QueryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: deletePost,
     onError: (error) => {
       toast.error(error.message);
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
         QueryClient.invalidateQueries({ queryKey: ["posts"] });
    
-      toast.success("data updated successfully");
+      toast.success(data);
     
     
     },
@@ -44,7 +45,7 @@ const CardPost = ({data, index}:CardData) => {
   console.log(data);
   return (
     <div
-    className="w-64 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden"
+    className="w-64 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden flex flex-col justify-center items-center"
   >
     <div className="w-24 h-24 bg-violet-500 rounded-full absolute -right-5 -top-7">
       <p className="absolute bottom-6 left-7 text-white text-2xl">{index + 1}</p>
@@ -55,7 +56,7 @@ const CardPost = ({data, index}:CardData) => {
     <div className="flex flex-col items-center">
 
     <h1 className="font-bold text-xl">{data.title}</h1>
-    <p className="text-sm text-zinc-500 leading-6">
+    <p className="text-sm text-zinc-500 leading-6  truncate w-36 overflow-hidden ">
     {data.summary}
     </p>
     </div>
@@ -90,7 +91,7 @@ const CardPost = ({data, index}:CardData) => {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
-                        <Link to={`/`}>
+                        <Link to={`/dashboard/blog/${data._id}/details`}>
                           <Button className="bg-blue-400">
                             <IoMdMore size={18} />
                           </Button>

@@ -1,6 +1,7 @@
 import { isAxiosError } from "axios";
 import api from "../lib/axios";
 import { PostRegister } from "../@types";
+import { CardDataProps } from "../components/cardPosts";
 
 export async function CreateBlog(formData: PostRegister) {
   try {
@@ -32,7 +33,7 @@ export async function getAllPosts(){
 }
 
 
-export async function deletePost(id:any) {
+export async function deletePost(id:CardDataProps['data']['_id']) {
   try {
     const { data } = await api.delete<string>(`/posts/${id}`);
     return data;
@@ -41,5 +42,13 @@ export async function deletePost(id:any) {
       throw new Error(error.response.data.console.error);
     }
   }
-  
+}
+
+export async function getPostById(id: CardDataProps['data']['_id']) {
+  try {
+    const { data } = await api(`/posts/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
