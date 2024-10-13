@@ -3,15 +3,13 @@ import HeaderApp from "../components/headerApp";
 import Sidebar from "../components/Sidebar";
 import { useAuth } from "../hooks/useAuth";
 import { useOpenStore } from "../store/store";
-import i18n from "../i18n";
+
 
 
 
 export const DashboardLayout = () => {
   const {data, isLoading} = useAuth()
   const {open} = useOpenStore()
-
-  console.log(data)
 
 document.body.dir = "ltr"
 
