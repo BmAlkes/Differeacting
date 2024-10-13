@@ -3,11 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getClientById } from "../../../api/ClientApi";
 
 const ClientDetails = () => {
-    function createMarkup(data: string) {
-        return {
-          __html: data,
-        };
-      }
+   
   const params = useParams();
   const clientId = params.clientId!;
 
