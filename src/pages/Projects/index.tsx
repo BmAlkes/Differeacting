@@ -25,10 +25,10 @@ const Projects = () => {
       }}
     >
    
-      <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
-        <div className="flex flex-col lg:flex-row lg:gap-x-56  h-full container w-full items-center  ">
-          <div className="w-full h-full  flex flex-col justify-center max-w-[600px] z-50 mt-8 md:mt-5 ">
-            <h1 className="text-[#6FCFED] lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10">
+      <section className=" bg-[#030B0F] lg:h-screen   mt-[96px]">
+        <div className="flex flex-col lg:flex-row lg:gap-x-10  h-full container w-full items-center justify-center ">
+          <div className="w-full  flex flex-col justify-center lg:max-w-[560px] z-50 mt-8 md:mt-5 ">
+            <h1 className="text-[#6FCFED] lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
          
             פרויקטים מומלצים
             </h1>
@@ -42,7 +42,7 @@ const Projects = () => {
               "https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405473183_wtmvo4.png"
             }
             alt="background hero"
-            className="lg:h-[100%]   object-cover  md:max-w-[400px]  overflow-visible  h-[400px]  rotateClass "
+            className="lg:h-[100%]   object-cover w-[250px]  md:w-[380px] lg:w-[250px] lg:ml-44  overflow-visible   rotateClass "
           />
         </div>
       </section>
