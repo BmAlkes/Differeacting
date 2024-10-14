@@ -1,6 +1,7 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { Link } from "react-router-dom";
 import WhatsApp from "../../components/whatsappscroll";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -9,6 +10,11 @@ const Posts = () => {
   console.log(document);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8"/>
+        <title>Differeacting - Posts - סטודיו לבניית אתרים Differeacting: הופכים חלומות ליצירה באינטרנט </title>
+        <link rel="canonical" href="https://www.differeacting.com/posts" />
+      </Helmet>
        
      <section className=" bg-[#030B0F] md:h-screen h:full  mt-[96px]">
         <div className="flex flex-col md:flex-row lg:gap-30  h-full md:h-[900px] container w-full mx-auto">

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
+import { Helmet } from "react-helmet-async";
 
 
 const Projects = () => {
@@ -24,6 +25,11 @@ const Projects = () => {
         default: { duration: 0.4, ease: "easeInOut" },
       }}
     >
+        <Helmet>
+        <meta charSet="utf-8"/>
+        <title>Differeacting - Projects -  סטודיו לבניית אתרים Differeacting: הופכים חלומות ליצירה באינטרנט </title>
+        <link rel="canonical" href="https://www.differeacting.com/projects" />
+      </Helmet>
    
       <section className=" bg-[#030B0F] lg:h-screen   mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-x-10  h-full container w-full items-center justify-center ">
