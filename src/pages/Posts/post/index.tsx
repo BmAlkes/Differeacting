@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { getPostById } from "../../../api/PostsApi";
+import { Helmet } from "react-helmet-async";
 
 const Post = () => {
   function createMarkup(data: string) {
@@ -17,7 +18,7 @@ const Post = () => {
     queryFn:()=>getPostById(postId)
   })
 // 
-  console.log(data)
+
   if (isLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
@@ -35,12 +36,20 @@ const Post = () => {
       </div>
     );
   return (
+    <>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          {`Differeacting - ${data.title}` }
+        </title>
+        <link rel="canonical" href={`https://www.differeacting.com/posts/${data._id}`} />
+      </Helmet>
     <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-0 mt-[96px] lg:mt-0 ">
       <img
         src={data.image?.filePath}
         alt="post image"
         className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
-      />
+        />
   
 
       <div className="container flex flex-col items-center justify-center ">
@@ -63,6 +72,7 @@ const Post = () => {
       </div>
      
     </section>
+          </>
   );
 };
 
