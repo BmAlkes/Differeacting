@@ -49,6 +49,8 @@ export async function getPostById(id: CardDataProps['data']['_id']) {
     const { data } = await api(`/posts/${id}`);
     return data;
   } catch (error) {
-    console.log(error);
+    if (isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.console.error);
+    }
   }
 }

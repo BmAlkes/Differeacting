@@ -41,7 +41,7 @@ import Blog from "./pages/Blog/index.tsx";
 import CreatePost from "./pages/Blog/createBlog/index.tsx";
 import EditClient from "./pages/Clients/editClient/index.tsx";
 import {  HelmetProvider } from 'react-helmet-async'
-import ShowDetailsPost from "./pages/Blog/showDetails/inde.tsx";
+import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
 
 AOS.init();
 
