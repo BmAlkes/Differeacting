@@ -70,7 +70,7 @@ export const projectsData = [
   {
     id: 8,
     image:
-      "https://res.cloudinary.com/landingpage2/image/upload/v1708937798/maithai_dsdwrp.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1728813860/cd333395-f5f3-4f2e-8f06-72ac519fd687_ntviz9.jpg",
     title: "MaiThai Travel",
     description: "Web Site for travel company",
     link: "https://maithaitravelandtour.com/",

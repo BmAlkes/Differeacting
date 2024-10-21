@@ -47,7 +47,7 @@ const OpenCards = () => {
         <div className="flex lg:gap-4 gap-[6px] flex-wrap justify-center items-center">
           {projectsNav.map((item, index) => {
             return (
-              <button
+              <button 
                 className="relative min-w-48 py-2 px-8 text-black text-base  font-bold  overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-indigo-600 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0"
                 onClick={(e) => {
                   handleClick(e, index);
@@ -61,7 +61,7 @@ const OpenCards = () => {
         </div>
         <div className=" project__container grid">
           {projects.map((item) => (
-            <Link to={item.link} target="_blank">
+            <Link to={item.link} target="_blank " key={item.id}>
               <div className="relative grid  lg:h-[35rem] w-full h-[30rem] lg:max-w-[28rem]  max-w-[18rem]  flex-col  items-end justify-center overflow-hidden rounded-xl bg-clip-border text-center text-gray-700 ">
                 <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 z-30"></span>
                 <span className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 z-30"></span>

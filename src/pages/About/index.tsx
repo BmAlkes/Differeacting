@@ -38,9 +38,7 @@ const AboutPage = () => {
             <h1 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
               עושים את זה מדהים
             </h1>
-            <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
-              אנחנו פה בשביל לעזור לעסק שלך לצמוח
-            </h2>
+          
 
             {/* <p className="text-white lg:text-2xl font-normal lg:mt-[10px] mt-5 text-xl">
           המותג שלך צריך פיתוח בהתאמה אישית ובטכנולוגיות מתקדמות

@@ -100,7 +100,7 @@ const Contact = () => {
               }
               alt="background hero"
               className="lg:h-full  object-cover  md:max-w-[600px]   mx-auto  overflow-visible  h-[400px] md:h-[900px] "
-              data-tilt
+            
             />
          
         </div>
@@ -121,9 +121,8 @@ const Contact = () => {
                 יש לכם רעיון או מותג גדול לפתח ואתם צריכים עזרה?
               </p>
             </div>
-            <div className="grid lg:grid-cols-3 items-center gap-4 shadow-2xl shadow-[#6fcfed] rounded-lg ">
+            <div className="flex flex-col-reverse md:flex-row items-center gap-4 shadow-2xl shadow-[#6fcfed] rounded-lg ">
               <div className="bg-[#030b0f] rounded-lg p-6 max-lg:text-center">
-                <h2 className="text-xl font-bold text-white">פרטי התקשרות</h2>
                 <p className="text-sm text-white mt-3">
                   יש לכם רעיון או מותג גדול לפתח ואתם צריכים עזרה?
                 </p>
@@ -238,7 +237,7 @@ const Contact = () => {
                   </li>
                 </ul>
               </div>
-              <div className="p-6 rounded-xl lg:col-span-2 bg-white h-full flex justify-center items-center">
+              <div className="p-6 rounded-xl lg:col-span-2 bg-white h-full flex justify-center items-center w-full ">
                 <form onSubmit={sendEmail}>
                   <div className="grid sm:grid-cols-2 gap-8 ">
                     <div className="relative flex items-center">
