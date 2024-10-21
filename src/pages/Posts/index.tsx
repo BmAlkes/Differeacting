@@ -22,8 +22,8 @@ function createMarkup(data: string) {
     };
   }
 
-  const { data } = useQuery({
-    queryKey: ["posts"],
+  const { data, isLoading } = useQuery({
+    queryKey: ["bloging"],
     queryFn: () => getAllPosts(),
   });
   console.log(data);

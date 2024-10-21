@@ -14,7 +14,7 @@ const Post = () => {
   const postId =id!
 
   const {data, isLoading} = useQuery({
-    queryKey:['post'],
+    queryKey:['blog'],
     queryFn:()=>getPostById(postId)
   })
 // 
