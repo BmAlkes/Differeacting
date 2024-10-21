@@ -34,7 +34,7 @@ const Projects = () => {
       <section className=" bg-[#030B0F] lg:h-screen   mt-[96px]">
         <div className="flex flex-col lg:flex-row lg:gap-x-10  h-full container w-full items-center justify-center ">
           <div className="w-full  flex flex-col justify-between  lg:max-w-[700px] z-50 mt-8 md:mt-5 ">
-            <h1 className="text-[#6FCFED] lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
+            <h1 className="text-white lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
          
             פרויקטים <br/>מומלצים
             </h1>
