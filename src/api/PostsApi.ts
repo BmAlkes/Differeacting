@@ -23,7 +23,6 @@ export async function CreateBlog(formData: PostRegister) {
 export async function getAllPosts(){
   try {
     const { data } = await api("/posts");
-    console.log(data);
     return data;
   } catch (error) {
     if (isAxiosError(error) && error.response) {
