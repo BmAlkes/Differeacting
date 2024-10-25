@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getClientById, updateClient } from "../../../api/ClientApi";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 
 const EditClient = () => {
@@ -12,7 +13,7 @@ const EditClient = () => {
   const navigate = useNavigate();
 
   const { data, isLoading } = useQuery({
-    queryKey: ["client"],
+    queryKey: ["client", clientId],
     queryFn: () => getClientById(clientId!),
   });
 
@@ -51,7 +52,6 @@ const EditClient = () => {
     setValue("description", editorState);
   };
 
-
   const {
     register,
     handleSubmit,
@@ -68,7 +68,19 @@ const EditClient = () => {
       active:data?.active
     },
   });
-
+  useEffect(() => {
+    if (data) {
+        reset({
+          clientName: data?.clientName,
+          phone: data?.phone,
+          description: data?.description,
+          email: data?.email,
+          bankHours: data?.bankHours,
+          active:data?.active
+        });
+    }
+}, [data, reset]);
+  
   const QueryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: updateClient,

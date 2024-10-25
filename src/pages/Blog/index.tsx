@@ -2,11 +2,12 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../../api/PostsApi";
 import CardPost from "../../components/cardPosts";
+import { useGlobalSearchStore } from "../../store/store";
 
 
 const Blog = () => {
 
-
+  const{value}= useGlobalSearchStore()
   const QueryClient = useQueryClient();
   const { data, isLoading } = useQuery({
     queryKey: ["posts"],
@@ -14,8 +15,8 @@ const Blog = () => {
   });
   
   QueryClient.invalidateQueries({ queryKey: ["PostEdit"] });
- 
-
+ console.log(data);
+const postFiltered = data.filter((item:any)=>value.toLocaleLowerCase()===""? item : item.title.toLowerCase().includes(value) || item.summary.toLowerCase().includes(value))
   if (isLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
@@ -50,7 +51,7 @@ const Blog = () => {
 
         <div className="mt-6 grid  xl:grid-cols-5 lg:grid-cols-3  grid-cols md:grid-cols-2 mx-auto gap-4">
         
-           { data?.map((data: any, index: number) => (
+           { postFiltered?.map((data: any, index: number) => (
               <CardPost data={data} index={index} />
           
             ))}
