@@ -16,7 +16,7 @@ const Blog = () => {
   
   QueryClient.invalidateQueries({ queryKey: ["PostEdit"] });
  console.log(data);
-const postFiltered = data.filter((item:any)=>value.toLocaleLowerCase()===""? item : item.title.toLowerCase().includes(value) || item.summary.toLowerCase().includes(value))
+const postFiltered = data?.filter((item:any)=>value.toLocaleLowerCase()===""? item : item.title.toLowerCase().includes(value) || item.summary.toLowerCase().includes(value))
   if (isLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
@@ -35,7 +35,7 @@ const postFiltered = data.filter((item:any)=>value.toLocaleLowerCase()===""? ite
     );
 
   if (data) return (
-      <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
+      <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-6">
         <h1 className="text-5xl font-black">Blog</h1>
         <p className="text-2xl text-gray-500 mt-5">
           Create and edit all the blog posts

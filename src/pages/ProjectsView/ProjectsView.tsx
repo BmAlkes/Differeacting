@@ -63,7 +63,7 @@ const ProjectView = () => {
     );
 
   return (
-    <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-2">
+    <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-6">
       <h1 className="text-5xl font-black">Projects</h1>
       <p className="text-2xl text-gray-500 mt-5">
         Organize and Managment your Projects
