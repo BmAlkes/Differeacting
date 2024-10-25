@@ -65,7 +65,7 @@ const TableContent = ({ data }: ClientResponse) => {
           {data?.map((item) => {
             return (
               <tr key={item.email}>
-                <td data-label="options" className="flex gap-1">
+                <td data-label="options" className="flex flex-wrap gap-1">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
