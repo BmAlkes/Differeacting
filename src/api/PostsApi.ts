@@ -53,3 +53,12 @@ export async function getPostById(id: CardDataProps['data']['_id']) {
     }
   }
 }
+
+export async function updatePost({ formData, blogId }:any) {
+  try {
+    const { data } = await api.put(`/posts/${blogId}`, formData);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}

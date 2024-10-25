@@ -105,7 +105,7 @@ const CreatePost = () => {
     mutate(formData);
   };
   return (
-    <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-2">
+    <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
       <h1 className="text-5xl font-black">Create Blog</h1>
       <p className="text-2xl text-gray-500 mt-5">Create a new blog</p>
       <nav className="my-5">
@@ -118,7 +118,7 @@ const CreatePost = () => {
       </nav>
 
       <div className="container max-w-full my-7 bg-white ">
-        <div className="flex flex-row-reverse items-center justify-start">
+        <div className="flex  items-center justify-start">
           <button className="border-2 w-48 rounded-lg flex items-center justify-center cursor-pointer mt-4 border-gray-600 h-32 relative">
             <div className="absolute cursor-pointer ">
               <FiUpload size={30} color="#000" />
@@ -139,7 +139,7 @@ const CreatePost = () => {
           className="flex flex-col p-3 mt-10 space-y-3 "
           onSubmit={handleSubmit(handleCreatePost)}
         >
-          <div className="flex flex-col items-end ">
+          <div className="flex flex-col  ">
             <label
               htmlFor="Title"
               className="block mb-2 text-lg font-medium text-purple-500 dark:text-white"
@@ -159,7 +159,7 @@ const CreatePost = () => {
               <ErrorMessage>{errors.title.message}</ErrorMessage>
             )}
           </div>
-          <div className="flex flex-col items-end ">
+          <div className="flex flex-col  ">
             <label
               htmlFor="Title"
               className="block mb-2 text-lg font-medium text-purple-500 dark:text-white"
@@ -179,7 +179,7 @@ const CreatePost = () => {
               <ErrorMessage>{errors.summary.message}</ErrorMessage>
             )}
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col ">
             <label
               htmlFor="Title"
               className="block mb-2 text-lg font-medium text-purple-500 dark:text-white"

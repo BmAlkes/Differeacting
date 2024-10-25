@@ -1,14 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../../api/PostsApi";
 import CardPost from "../../components/cardPosts";
 
+
 const Blog = () => {
 
+
+  const QueryClient = useQueryClient();
   const { data, isLoading } = useQuery({
     queryKey: ["posts"],
     queryFn: () => getAllPosts(),
   });
+  
+  QueryClient.invalidateQueries({ queryKey: ["PostEdit"] });
+ 
 
   if (isLoading)
     return (
@@ -42,7 +48,7 @@ const Blog = () => {
           </Link>
         </nav>
 
-        <div className="mt-6 grid  lg:grid-cols-5  grid-cols md:grid-cols-2 mx-auto gap-4">
+        <div className="mt-6 grid  xl:grid-cols-5 lg:grid-cols-3  grid-cols md:grid-cols-2 mx-auto gap-4">
         
            { data?.map((data: any, index: number) => (
               <CardPost data={data} index={index} />

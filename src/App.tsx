@@ -42,6 +42,7 @@ import CreatePost from "./pages/Blog/createBlog/index.tsx";
 import EditClient from "./pages/Clients/editClient/index.tsx";
 import {  HelmetProvider } from 'react-helmet-async'
 import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
+import EditBlog from "./pages/Blog/editBlog/index.tsx";
 
 AOS.init();
 
@@ -90,6 +91,7 @@ function App() {
             <Route path="/dashboard/blog" element={<Blog />} />
             <Route path="/dashboard/blog/newPost" element={<CreatePost />} />
             <Route path={`/dashboard/blog/:id/details`} element={<ShowDetailsPost />} />
+            <Route path={`/dashboard/blog/:id/edit`} element={<EditBlog />} />
             <Route path="/dashboard/notifications" element={<Dashboard />} />
             <Route path="/dashboard/projects" element={<ProjectView />} />
             <Route

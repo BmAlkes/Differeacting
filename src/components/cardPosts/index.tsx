@@ -64,9 +64,12 @@ const CardPost = ({data, index}:CardDataProps) => {
     <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
+                        <Link to={`/dashboard/blog/${data._id}/edit`}>
                         <Button className="bg-green-400">
                           <Edit2 size={18} />
+
                         </Button>
+                        </Link>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Edit</p>
