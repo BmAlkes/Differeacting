@@ -1,5 +1,4 @@
 import { FormEvent, useState } from "react";
-import emailjs from "@emailjs/browser";
 import vetor2 from "../../assets/Frame 1160445221.png";
 import logo from "../../assets/testimo.png";
 

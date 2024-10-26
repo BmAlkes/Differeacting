@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import TableContent from "../../components/Table";
 import { useState } from "react";
 
 import { getLeads } from "../../api/LeadApi";

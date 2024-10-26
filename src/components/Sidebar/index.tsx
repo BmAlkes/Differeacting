@@ -34,16 +34,16 @@ const Sidebar = () => {
       link: "dashboard/projects",
       icon: <Grid width="22px" height="22px" />,
     },
-    // {
-    //   title: "Analytics",
-    //   link: "dashboard/analytics",
-    //   icon: <PieChart  width="22px" height="22px" />,
-    // },
-    // {
-    //   title: "Workflows",
-    //   link: "dashboard/workflows",
-    //   icon: <IoPeople  width="22px" height="22px" />,
-    // },
+    {
+      title: "Analytics",
+      link: "dashboard/analytics",
+      icon: <PieChart  width="22px" height="22px" />,
+    },
+    {
+      title: "Workflows",
+      link: "dashboard/workflows",
+      icon: <IoPeople  width="22px" height="22px" />,
+    },
     {
       title: "Notifications",
       link: "dashboard/notifications",
