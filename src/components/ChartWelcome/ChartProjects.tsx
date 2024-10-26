@@ -74,7 +74,7 @@ export function ChartProjects() {
     return (
       <Card className="flex flex-col">
         <CardHeader className="items-center">
-          <CardTitle>Carregando...</CardTitle>
+          <CardTitle>Loading...</CardTitle>
         </CardHeader>
       </Card>
     );
@@ -83,8 +83,8 @@ export function ChartProjects() {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Projetos</CardTitle>
-        <CardDescription>Total de Projetos: {totalProjects}</CardDescription>
+        <CardTitle>Projects</CardTitle>
+        <CardDescription>Total of projects: {totalProjects}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <div className="mx-auto aspect-square max-h-[250px]">
