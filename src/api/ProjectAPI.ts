@@ -18,6 +18,15 @@ export async function getProjects(page: number) {
     console.log(error);
   }
 }
+export async function getAllProjects() {
+  try {
+    const { data } = await api(`/projects/all`);
+    return data;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
 export async function getProjectsById(id: Project["_id"]) {
   try {
     const { data } = await api(`/projects/${id}`);

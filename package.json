@@ -60,7 +60,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-tilt": "^1.0.2",
     "react-toastify": "^10.0.5",
-    "recharts": "^2.12.7",
+    "recharts": "^2.13.0",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",

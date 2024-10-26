@@ -33,7 +33,6 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
     queryFn: () =>getNotification() ,
 
   })
-  console.log(data)
 
   return (
     <div
