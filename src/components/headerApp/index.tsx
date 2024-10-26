@@ -11,8 +11,8 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Link, useNavigate } from "react-router-dom";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getNotification } from "../../api/notifications";
+import {  useQueryClient } from "@tanstack/react-query";
+
 import NotificationCenter from "./NotificationCenter";
 
 const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}) => {
@@ -28,11 +28,7 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
     navigate("/login");
   };
 
-  const {data} =useQuery({
-    queryKey: ["notifications"],
-    queryFn: () =>getNotification() ,
-
-  })
+ 
 
   return (
     <div
