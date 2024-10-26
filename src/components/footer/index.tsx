@@ -11,7 +11,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-
+import { useMutation } from "@tanstack/react-query";
+import { CreateLead } from "../../api/LeadApi";
+import { toast } from "react-toastify";
 
 const Reccomend = () => {
   const [name, setName] = useState("");
@@ -19,6 +21,16 @@ const Reccomend = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const { mutate } = useMutation({
+    mutationFn: CreateLead,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: () => {
+   
+     toast.success("Message sent successfully! We will be in touch soon.",);
+    },
+  });
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -27,28 +39,18 @@ const Reccomend = () => {
       alert("Fill all the fields");
       return;
     }
-    const templateParams = {
-      from_name: name,
-      phone: phone,
-      message: message,
-      email: email,
+    const formData = {
+      name,
+      email,
+      message,
+      phone,
     };
-    console.log(templateParams);
-    emailjs
-      .send(
-        "service_4linpx5",
-        "template_ilmbuah",
-        templateParams,
-        "cWFIwkGX6Ph0Mm988"
-      )
-      .then((response) => {
-        console.log("Email send", response.status, response.text);
-        
-        setName("");
-        setEmail("");
-        setMessage("");
-        setPhone("");
-      });
+
+    mutate(formData);
+    setName("");
+    setEmail("");
+    setMessage("");
+    setPhone("");
   };
   return (
     <section className=" h-full " id="contact">
@@ -193,7 +195,6 @@ const Reccomend = () => {
               <button
                 type="submit"
                 className=" lg:w-[40%] bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded-[10px] p-[1px] text-center z-0 "
-              
               >
                 <span className="flex w-full bg-transparent  text-white rounded-[10px] py-[10px] px-[14px] hover:bg-gradient-to-r from-[#41b1d3] to-[#a30f91] hover: items-center justify-center">
                   שליחת הפרטים

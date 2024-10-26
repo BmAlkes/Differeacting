@@ -7,6 +7,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useOpenStore } from "../../store/store";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
+import { BsEnvelopePaper } from "react-icons/bs";
+
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -32,20 +34,25 @@ const Sidebar = () => {
       link: "dashboard/projects",
       icon: <Grid width="22px" height="22px" />,
     },
-    {
-      title: "Analytics",
-      link: "dashboard/analytics",
-      icon: <PieChart  width="22px" height="22px" />,
-    },
-    {
-      title: "Workflows",
-      link: "dashboard/workflows",
-      icon: <IoPeople  width="22px" height="22px" />,
-    },
+    // {
+    //   title: "Analytics",
+    //   link: "dashboard/analytics",
+    //   icon: <PieChart  width="22px" height="22px" />,
+    // },
+    // {
+    //   title: "Workflows",
+    //   link: "dashboard/workflows",
+    //   icon: <IoPeople  width="22px" height="22px" />,
+    // },
     {
       title: "Notifications",
       link: "dashboard/notifications",
       icon: <IoNotifications  width="22px" height="22px" />,
+    },
+    {
+      title: "Leads",
+      link: "dashboard/leads",
+      icon: <BsEnvelopePaper width="26px" height="28px" />,
     },
     {
       title: "Blog",
