@@ -39,13 +39,13 @@ const handleChangeStatus = (id:any) => {
   }
   return (
     <>
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={setOpen} >
       <DialogTrigger asChild>
-        <Button className="bg-green-400">
+        <Button className="bg-green-400 z-0">
           <Edit2 size={18} />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] z-50">
         <DialogHeader>
           <DialogTitle>Edit Status</DialogTitle>
           <DialogDescription>Make changes to the status.</DialogDescription>

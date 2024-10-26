@@ -1,4 +1,4 @@
-import { IoNotifications, IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline } from "react-icons/io5";
 import { Menu, Settings2Icon } from "lucide-react";
 import { useGlobalSearchStore, useOpenStore } from "../../store/store";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -11,11 +11,14 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Link, useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { getNotification } from "../../api/notifications";
+import NotificationCenter from "./NotificationCenter";
 
 const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}) => {
   const { open, changeState } = useOpenStore();
   const { changeValue } = useGlobalSearchStore();
+
   const navigate = useNavigate();
 
   const queryClient = useQueryClient();
@@ -24,6 +27,13 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
     queryClient.invalidateQueries({ queryKey: ["user"] });
     navigate("/login");
   };
+
+  const {data} =useQuery({
+    queryKey: ["notifications"],
+    queryFn: () =>getNotification() ,
+
+  })
+  console.log(data)
 
   return (
     <div
@@ -94,7 +104,7 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
           <Settings2Icon color={"#444"} />
         </div>
         <div className="grid place-items-center bg-gray-100 rounded-full p-2 cursor-pointer">
-          <IoNotifications color={"#444"} />
+          <NotificationCenter/>
         </div>
       </div>
     </div>

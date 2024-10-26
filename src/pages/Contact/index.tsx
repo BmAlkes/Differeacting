@@ -1,21 +1,34 @@
 import { FormEvent, useEffect, useState } from "react";
 
-import emailjs from "@emailjs/browser";
+
 import { useLocation } from "react-router-dom";
 import ScrollUp from "../../components/scrollup";
 import { motion } from "framer-motion";
 import WhatsApp from "../../components/whatsappscroll";
 import Cursor from "../../components/cursoFollower";
 import { Helmet } from "react-helmet-async";
+import { useMutation } from "@tanstack/react-query";
+import { CreateLead } from "../../api/LeadApi";
+import { toast } from "react-toastify";
 
 
 
 const Contact = () => {
   const [name, setName] = useState("");
-  const [lastName, setLastname] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const { mutate } = useMutation({
+    mutationFn: CreateLead,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: () => {
+   
+     toast.success("Message sent successfully! We will be in touch soon.",);
+    },
+  });
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -24,28 +37,20 @@ const Contact = () => {
       alert("Fill all the fields");
       return;
     }
-    const templateParams = {
-      from_name: name + " " + lastName,
-      phone: phone,
-      message: message,
-      email: email,
+    const formData = {
+      name,
+      email,
+      message,
+      phone,
     };
-    console.log(templateParams);
-    emailjs
-      .send(
-        "service_4linpx5",
-        "template_ilmbuah",
-        templateParams,
-        "cWFIwkGX6Ph0Mm988"
-      )
-      .then((response) => {
-        console.log("Email send", response.status, response.text);
+  
+    mutate(formData);
         setName("");
         setEmail("");
         setMessage("");
         setPhone("");
-        setLastname("");
-      });
+   
+   
   };
 
   const { pathname } = useLocation();
@@ -238,12 +243,12 @@ const Contact = () => {
                 </ul>
               </div>
               <div className="p-6 rounded-xl lg:col-span-2 bg-white h-full flex justify-center items-center w-full ">
-                <form onSubmit={sendEmail}>
-                  <div className="grid sm:grid-cols-2 gap-8 ">
+                <form onSubmit={sendEmail} className="w-full">
+                  <div className=" flex flex-col gap-8 w-full ">
                     <div className="relative flex items-center">
                       <input
                         type="text"
-                        placeholder="First Name"
+                        placeholder="Full Name"
                         className="px-7 py-3 bg-white w-full text-sm border-b-2 focus:border-[#6FCFED] outline-none"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -267,33 +272,7 @@ const Contact = () => {
                         ></path>
                       </svg>
                     </div>
-                    <div className="relative flex items-center">
-                      <input
-                        type="text"
-                        placeholder="Last Name"
-                        className="px-7  py-3 bg-white w-full text-sm border-b-2 focus:border-[#6FCFED] outline-none"
-                        value={lastName}
-                        onChange={(e) => setLastname(e.target.value)}
-                      />
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="#bbb"
-                        stroke="#bbb"
-                        className="w-[18px] h-[18px] absolute right-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          cx="10"
-                          cy="7"
-                          r="6"
-                          data-original="#000000"
-                        ></circle>
-                        <path
-                          d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-                          data-original="#000000"
-                        ></path>
-                      </svg>
-                    </div>
+                  
                     <div className="relative flex items-center">
                       <input
                         type="number"

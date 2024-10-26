@@ -81,7 +81,7 @@ const TableforLead = ({data}:any) => {
                     <Tooltip>
                       <TooltipTrigger>
                         <Button
-                          className="bg-red-400"
+                          className="bg-red-400 z-0"
                           onClick={()=>handleDeleteClient(item._id)}
                         >
                           <Trash2 size={18} />
