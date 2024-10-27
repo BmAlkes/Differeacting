@@ -69,11 +69,11 @@ function createMarkup(data: string) {
           {data?.map((post: PostProps) => (
             <Link to={`/posts/${post._id}`}>
               <div className="card" key={post._id}>
-                <div className="card__content flex flex-col   items-center justify-around overflow-hidden text-ellipsis ">
+                <div className="card__content flex p-4 flex-col   items-center justify-between overflow-hidden text-ellipsis ">
                   <img
                     src={post.image?.filePath}
                     alt={post.image?.name}
-                    className="w-[400px] h-[200px] object-contain rounded-lg"
+                    className="w-[400px] h-[130px] object-contain rounded-lg"
                   />
                   <h2 className="text-black py-4 text-xl text-center">
                     {post.title}

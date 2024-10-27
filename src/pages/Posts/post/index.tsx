@@ -45,20 +45,20 @@ const Post = () => {
         </title>
         <link rel="canonical" href={`https://www.differeacting.com/posts/${data._id}`} />
       </Helmet>
-    <section className="lg:pt-5   h-fullrelative py-16 lg:py-0 mt-[96px] lg:mt-0 ">
+    <section className="lg:pt-5   h-fullrelative py-16 lg:py-4 mt-[96px]  ">
       <img
         src={data.image?.filePath}
         alt="post image"
-        className="h-[350px] object-contain md:h-auto lg:h-[700px] w-full"
+        className="h-[350px] p-7 object-contain  w-full"
         />
   
 
-      <div className="container flex flex-col items-center justify-center ">
+      <div className="container flex flex-col items-start justify-center ">
         <h2 className="text-black text-5xl py-9">
           {data.title}
         </h2>
         <div
-          className="text-lg leading-10  text-center text-black flex flex-col items-center justify-center"
+          className="text-lg leading-10  text-center text-black flex flex-col items-start justify-center"
           dangerouslySetInnerHTML={createMarkup(data?.content)} 
           ></div>
 
