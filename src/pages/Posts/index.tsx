@@ -26,7 +26,7 @@ function createMarkup(data: string) {
     queryKey: ["bloging"],
     queryFn: () => getAllPosts(),
   });
-  console.log(data);
+ 
 
   return (
     <>
@@ -59,7 +59,7 @@ function createMarkup(data: string) {
           />
         </div>
       </section>
-      <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-0  lg:mt-0 ">
+      <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-16 ">
         <div className="flex flex-wrap justify-center container gap-5 ">
           {data?.length === 0 && (
             <h3 className="text-white text-center py-11 text-xl">
@@ -75,10 +75,10 @@ function createMarkup(data: string) {
                     alt={post.image?.name}
                     className="w-[400px] h-[200px] object-cover rounded-lg"
                   />
-                  <h2 className="text-white py-4 text-xl text-center">
+                  <h2 className="text-black py-4 text-xl text-center">
                     {post.title}
                   </h2>
-                  <p className="text-white px-2 text-justify line-clamp-5" dangerouslySetInnerHTML={createMarkup(data?.content)}>
+                  <p className="text-black px-2 text-justify line-clamp-5" dangerouslySetInnerHTML={createMarkup(data?.content)}>
                 
                   </p>
                   <Link to={`/posts/${post._id}`}>

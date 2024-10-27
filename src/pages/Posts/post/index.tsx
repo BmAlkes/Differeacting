@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { getPostById } from "../../../api/PostsApi";
 import { Helmet } from "react-helmet-async";
+import { format, parseISO } from "date-fns";
 
 const Post = () => {
   function createMarkup(data: string) {
@@ -44,25 +45,25 @@ const Post = () => {
         </title>
         <link rel="canonical" href={`https://www.differeacting.com/posts/${data._id}`} />
       </Helmet>
-    <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-0 mt-[96px] lg:mt-0 ">
+    <section className="lg:pt-5   h-fullrelative py-16 lg:py-0 mt-[96px] lg:mt-0 ">
       <img
         src={data.image?.filePath}
         alt="post image"
-        className="h-[350px] object-cover md:h-auto lg:h-[700px] w-full"
+        className="h-[350px] object-contain md:h-auto lg:h-[700px] w-full"
         />
   
 
       <div className="container flex flex-col items-center justify-center ">
-        <h2 className="text-white text-5xl py-9">
+        <h2 className="text-black text-5xl py-9">
           {data.title}
         </h2>
         <div
-          className="text-white text-lg leading-10  text-center"
-          dangerouslySetInnerHTML={createMarkup(data?.content)}
+          className="text-lg leading-10  text-center text-black flex flex-col items-center justify-center"
+          dangerouslySetInnerHTML={createMarkup(data?.content)} 
           ></div>
 
-        <span>{data.createdAt}</span>
-        <Link to="/posts" className="p-0 m-0 mt-7">
+        <span className="text-xl py-4 text-[]">Created: {format(parseISO(data.createdAt),'yyyy-MM-dd HH:mm' )}</span>
+        <Link to="/posts" className="p-0 m-0 my-7">
           <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
             <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] md:px-[14px] px-[4px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
               חזרה לעמוד פוסטים
