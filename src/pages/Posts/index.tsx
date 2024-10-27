@@ -73,7 +73,7 @@ function createMarkup(data: string) {
                   <img
                     src={post.image?.filePath}
                     alt={post.image?.name}
-                    className="w-[400px] h-[200px] object-cover rounded-lg"
+                    className="w-[400px] h-[200px] object-contain rounded-lg"
                   />
                   <h2 className="text-black py-4 text-xl text-center">
                     {post.title}
