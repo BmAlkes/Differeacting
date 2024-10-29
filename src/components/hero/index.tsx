@@ -29,7 +29,7 @@ const Hero = () => {
           <h2 className="text-[#6FCFED] lg:text-2xl text-lg">
             הופכים חלומות ליצירה באינטרנט
           </h2>
-
+{/* 
           <div className="flex gap-7 mt-[30px]">
             <Link to="/projects" className="p-0 m-0">
               <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
@@ -45,7 +45,7 @@ const Hero = () => {
                 </span>
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <img
