@@ -89,7 +89,7 @@ console.log(projects)
           New Project
         </Link>
       </nav>
-      {projects?.projects.length ? (
+      {projects?.projects?.length ? (
         <>
           <ul
             role="list"
