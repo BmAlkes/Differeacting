@@ -61,7 +61,7 @@ export const projectsData = [
   {
     id: 7,
     image:
-     "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
     title: "Project JavasScript, HTML , CSS",
     description: "Online store",
     link: "https://ecommerce-xhdu.vercel.app/",
@@ -79,7 +79,7 @@ export const projectsData = [
   {
     id: 9,
     image:
-    "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
     title: "Skylum",
     description: "Web site for company",
     link: "https://skylum.co.il/",
@@ -115,14 +115,14 @@ export const projectsData = [
   {
     id: 13,
     image:
-       "https://res.cloudinary.com/landingpage2/image/upload/v1722105071/Screenshot_10_fhniyl.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1722105071/Screenshot_10_fhniyl.png",
     title: "accountant",
     description: "A landing page made for accountant  ",
     link: "https://tan-porcupine-120244.hostingersite.com/",
     category: "WordPress/Elementor",
   },
   {
-    id: 13,
+    id: 14,
     image:
       "https://res.cloudinary.com/landingpage2/image/upload/v1722105732/Screenshot_11_qjpjde.png",
     title: "Lawyer Company",
@@ -131,9 +131,9 @@ export const projectsData = [
     category: "WordPress/Elementor",
   },
   {
-    id: 14,
+    id: 15,
     image:
-     "https://res.cloudinary.com/landingpage2/image/upload/v1722105921/Screenshot_12_pvlhcp.png",
+      "https://res.cloudinary.com/landingpage2/image/upload/v1722105921/Screenshot_12_pvlhcp.png",
     title: "Glow Modas",
     description: "Store for clothes  ",
     link: "https://darkslategray-rail-827860.hostingersite.com",

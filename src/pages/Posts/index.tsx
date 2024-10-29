@@ -59,7 +59,7 @@ const Posts = () => {
               אין תוכן כרגע
             </h3>
           )}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  gap-4">
             {data?.map((post: PostProps) => (
               <Link to={`/posts/${post._id}`}>
                 <div className="w-80 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -83,6 +83,7 @@ const Posts = () => {
           </div>
         </div>
       </section>
+      
       <WhatsApp />
     </>
   );
