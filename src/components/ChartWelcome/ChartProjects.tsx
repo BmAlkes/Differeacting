@@ -33,7 +33,6 @@ export function ChartProjects() {
     const activeProjects = data?.filter((project:any) => project.active == true).length;
     const inactiveProjects = data?.filter((project:any) => project.active == false).length;
     
-    console.log(activeProjects)
     return [
       { name: 'Actives', value: activeProjects, color: '#12a1cd' },
       { name: 'Inactives', value: inactiveProjects, color: '#ef4444' },

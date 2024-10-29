@@ -35,7 +35,6 @@ export function ChartLeads() {
     const convert = data?.filter((project:any) => project.status == 'convert').length;
     const inLost = data?.filter((project:any) => project.status == 'lost').length;
     
-    console.log(data)
     return [
       { name: 'New', value: newLead, color: '#12cd85' },
       { name: 'In contact', value: inContactLead, color: '#1fa4c9' },

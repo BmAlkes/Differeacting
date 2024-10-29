@@ -53,9 +53,9 @@ const ProjectView = () => {
   const handlePageChange = (newPage:any) => {
     setCurrentPage(newPage);
   };
-console.log(projects)
-
-   const filteredData = projects?.projects?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
+  
+  const filteredData = projects?.projects?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
+  
 
   console.log(filteredData)
   if (isLoading && authLoading)

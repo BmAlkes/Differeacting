@@ -17,6 +17,7 @@ const Leads = () => {
   ? item
   : item.name.toLowerCase().includes(filter) ||
     item.status.toLowerCase().includes(filter))
+    
   return (
     <div className="flex flex-col items-end max-w-screen-2xl h-full mx-auto mt-4 p-6">
       <div className="flex md:flex-row flex-col w-full md:justify-between  items-center justify-center">
