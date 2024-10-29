@@ -1,6 +1,7 @@
 
 import { ChartWelcome } from "../../components/ChartWelcome";
 import { ChartProjects } from "../../components/ChartWelcome/ChartProjects";
+import { ChartLeads } from "../../components/ChartWelcome/Leads";
 import { useAuth } from "../../hooks/useAuth";
 
 
@@ -15,6 +16,7 @@ const Dashboard = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container gap-6">
       <ChartWelcome/>
       <ChartProjects/>
+      <ChartLeads/>
     </div>
 
   
