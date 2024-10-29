@@ -1,9 +1,12 @@
 
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { getPostById } from "../../../api/PostsApi";
 import { Helmet } from "react-helmet-async";
 import { format, parseISO } from "date-fns";
+import { FormEvent, useState } from "react";
+import { CreateLead } from "../../../api/LeadApi";
+import { toast } from "react-toastify";
 
 const Post = () => {
   function createMarkup(data: string) {
@@ -18,7 +21,43 @@ const Post = () => {
     queryKey:['blog'],
     queryFn:()=>getPostById(postId)
   })
-// 
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const { mutate } = useMutation({
+    mutationFn: CreateLead,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: () => {
+   
+     toast.success("Message sent successfully! We will be in touch soon.",);
+    },
+  });
+
+  const sendEmail = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (name === "" || email === "" || message === "" || phone === "") {
+      alert("Fill all the fields");
+      return;
+    }
+    const formData = {
+      name,
+      email,
+      message,
+      phone,
+    };
+
+    mutate(formData);
+    setName("");
+    setEmail("");
+    setMessage("");
+    setPhone("");
+  }
 
   if (isLoading)
     return (
@@ -43,20 +82,20 @@ const Post = () => {
         <title>
           {`Differeacting - ${data.title}` }
         </title>
-        <link rel="canonical" href={`https://www.differeacting.com/posts/${data._id}`} />
+        <link rel="canonical" href={`https://www.differeacting.com/posts/${data.title}`} />
       </Helmet>
     <section className="lg:pt-5   h-fullrelative py-16 lg:py-4 mt-[96px]  ">
       <img
         src={data.image?.filePath}
         alt="post image"
-        className="h-[350px] p-7 object-contain  w-full"
+        className="h-[450px] p-7 object-contain  w-full"
         />
   
 
       <div className="container flex flex-col items-start justify-center ">
-        <h2 className="text-black text-5xl py-9">
+        <h1 className="text-black text-5xl py-9">
           {data.title}
-        </h2>
+        </h1>
         <div
           className="text-lg leading-10  text-center text-black flex flex-col items-start justify-center"
           dangerouslySetInnerHTML={createMarkup(data?.content)} 
@@ -72,6 +111,58 @@ const Post = () => {
         </Link>
       </div>
      
+    </section>
+    <section>
+    <div className="bg-[#E7E7E7] lg:py-[100px] lg:px-[150px] py-7 px-3">
+    <div className="container ">
+      <h2 className="text-center pb-10 text-3xl">אם אהבתם את התוכן, צרו קשר איתנו</h2>
+
+    <form
+              onSubmit={sendEmail}
+              className="flex lg:flex-row flex-wrap flex-col  gap-4"
+            >
+              <input
+                type="text"
+                placeholder="שם מלא"
+                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="email@email.com"
+                id="footer-field"
+                name="footer-field"
+                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="טלפון"
+                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+
+              <textarea
+                className="resize-none lg:w-[50%] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1 "
+                placeholder="ספרו לנו משהו כל הפרויקט שלכם (אופציונלי)"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+
+              <button
+                type="submit"
+                className=" lg:w-[40%] bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded-[10px] p-[1px] text-center z-0 "
+              >
+                <span className="flex w-full bg-transparent  text-white rounded-[10px] py-[10px] px-[14px] hover:bg-gradient-to-r from-[#41b1d3] to-[#a30f91] hover: items-center justify-center">
+                  שליחת הפרטים
+                </span>
+              </button>
+            </form>
+            </div>
+            </div>
     </section>
           </>
   );

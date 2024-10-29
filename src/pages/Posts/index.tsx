@@ -16,7 +16,7 @@ type PostProps = {
 };
 
 const Posts = () => {
-function createMarkup(data: string) {
+  function createMarkup(data: string) {
     return {
       __html: data,
     };
@@ -26,7 +26,6 @@ function createMarkup(data: string) {
     queryKey: ["bloging"],
     queryFn: () => getAllPosts(),
   });
- 
 
   return (
     <>
@@ -66,28 +65,25 @@ function createMarkup(data: string) {
               אין תוכן כרגע
             </h3>
           )}
-          {data?.map((post: PostProps) => (
-            <Link to={`/posts/${post._id}`}>
-              <div className="card" key={post._id}>
-                <div className="card__content flex p-4 flex-col   items-center justify-between overflow-hidden text-ellipsis ">
-                  <img
-                    src={post.image?.filePath}
-                    alt={post.image?.name}
-                    className="w-[400px] h-[130px] object-contain rounded-lg"
-                  />
-                  <h2 className="text-black py-4 text-xl text-center">
-                    {post.title}
-                  </h2>
-                  <p className="text-black px-2 text-justify line-clamp-5" dangerouslySetInnerHTML={createMarkup(data?.content)}>
+          <div className="grid grid-cols-4 gap-4">
+            {data?.map((post: PostProps) => (
+              <Link to={`/posts/${post._id}`}>
+
+<div className="w-80 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <img className="w-full h-40 object-cover rounded-t-lg" alt="Card Image" src={post?.image?.filePath}/>
+        <div className="p-4">
+            <h2 className="text-xl  font-semibold">{post.title}</h2>
+           
+            <div className="flex justify-between items-center mt-4">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">See more</button>
+            </div>
+        </div>
+    </div>
+
                 
-                  </p>
-                  <Link to={`/posts/${post._id}`}>
-                    <button className="button px-6 py-3 mb-4 ">תרא עוד</button>
-                  </Link>
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
       <WhatsApp />
