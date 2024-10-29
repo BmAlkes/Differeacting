@@ -9,15 +9,15 @@ export async function createProject(formData: ProjectFormData) {
     console.log(error);
   }
 }
-export async function getProjects(page: number) {
+export const getProjects = async (page: number, limit: number) => {
   try {
-    const { data } = await api(`/projects?page=${page}`);
-    return data;
-
+    const response = await api.get(`/projects?page=${page}&limit=${limit}`);
+    return response.data;
   } catch (error) {
-    console.log(error);
+    console.error('Error fetching projects:', error);
+    throw error;
   }
-}
+};
 export async function getAllProjects() {
   try {
     const { data } = await api(`/projects/all`);

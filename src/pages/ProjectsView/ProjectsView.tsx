@@ -1,7 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { getProjects } from "../../api/ProjectAPI";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 import DeleteProjectModal from "../../components/TASKS/DeleteModalProject";
@@ -12,8 +12,8 @@ import { useGlobalSearchStore } from "../../store/store";
 
 
 export interface ProjectsResponse {
-  totalPage: number;
-  data: Project[];
+  totalPages: number;
+  projects: Project[];
 }
 
 export interface Project {
@@ -31,20 +31,33 @@ export interface Project {
 
 const ProjectView = () => {
   const{value}= useGlobalSearchStore()
-  const [page, setPage] = useState(0);
+ 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const itemsPerPage = 6;
+
   const { data: user, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
   const { data: projects, isLoading } = useQuery<ProjectsResponse>({
-    queryKey: ["projects", page],
-    queryFn: () => getProjects(page),
+    queryKey: ["projects", currentPage, itemsPerPage],
+    queryFn: () => getProjects(currentPage, itemsPerPage),
     placeholderData: keepPreviousData,
   });
 
-  console.log(projects);
+  useEffect(() => {
+    if (projects) {
+      setTotalPages(projects.totalPages);
+    }
+  }, [projects]);
 
+  const handlePageChange = (newPage:any) => {
+    setCurrentPage(newPage);
+  };
+console.log(projects)
 
-   const filteredData = projects?.data?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
+   const filteredData = projects?.projects?.filter((item:any)=> value.toLocaleLowerCase()===""? item : item.clientName.toLowerCase().includes(value) || item.projectName.toLowerCase().includes(value))
 
+  console.log(filteredData)
   if (isLoading && authLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
@@ -76,7 +89,7 @@ const ProjectView = () => {
           New Project
         </Link>
       </nav>
-      {projects?.data?.length ? (
+      {projects?.projects.length ? (
         <>
           <ul
             role="list"
@@ -185,28 +198,36 @@ const ProjectView = () => {
                 </div>
               </li>
             ))}
-          </ul>
-          {projects.data && (
-            <div className="flex justify-center items-center w-full py-6 gap-3">
-              <button
-                onClick={() => setPage(page + 1)}
-                className=" z-0 shadow shadow-black bg-[#72ccf4] py-2 px-8 text-white text-lg rounded-md hover:bg-[#9cbdd5] hover:text-black disabled:cursor-not-allowed"
-                disabled={page >=projects.totalPage}
-              >
-                Next Page
-              </button>
-              <ul>
+          <div className="flex justify-center my-10 gap-2">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="px-4 py-2 border  rounded bg-blue-300"
+            >
+              Before
+            </button>
             
-              </ul>
+            {[...Array(totalPages)].map((_, index) => (
               <button
-                onClick={() => setPage(page - 1)}
-                disabled={page === 0}
-                className={` z-0 shadow-sm shadow-black bg-[#72ccf4] py-2 px-4 text-white text-lg rounded-md hover:bg-[#9cbdd5] hover:text-black disabled:cursor-not-allowed `}
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 border rounded ${
+                  currentPage === index + 1 ? 'bg-blue-500 text-white' : ''
+                }`}
               >
-                Previous Page
+                {index + 1}
               </button>
-            </div>
-          )}
+            ))}
+            
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 border rounded bg-slate-500"
+            >
+              Next
+            </button>
+          </div>
+          </ul>
         </>
       ) : (
         <p className="text-center py-20">
