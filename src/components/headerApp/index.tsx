@@ -1,5 +1,5 @@
 import { IoSearchOutline } from "react-icons/io5";
-import { Menu, Settings2Icon } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useGlobalSearchStore, useOpenStore } from "../../store/store";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
@@ -11,11 +11,17 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Link, useNavigate } from "react-router-dom";
-import {  useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 
 import NotificationCenter from "./NotificationCenter";
 
-const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}) => {
+const HeaderApp = ({
+  name,
+  profileImage,
+}: {
+  name: string;
+  profileImage: string;
+}) => {
   const { open, changeState } = useOpenStore();
   const { changeValue } = useGlobalSearchStore();
 
@@ -27,8 +33,6 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
     queryClient.invalidateQueries({ queryKey: ["user"] });
     navigate("/login");
   };
-
- 
 
   return (
     <div
@@ -65,8 +69,12 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
-                {profileImage ? <AvatarImage src={profileImage} /> : <AvatarImage src="https://github.com/shadcn.png" /> }
-               
+                {profileImage ? (
+                  <AvatarImage src={profileImage} />
+                ) : (
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                )}
+
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
@@ -76,30 +84,22 @@ const HeaderApp = ({ name, profileImage }: { name: string ,profileImage: string}
               </Link>
               <DropdownMenuSeparator />
 
-              <DropdownMenuItem className="cursor-pointer ">
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer ">
-                Team
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                Subscription
-              </DropdownMenuItem>
+              <Link to="/dashboard/expanses">
+                <DropdownMenuItem className="cursor-pointer ">
+                  Expanses Tracker
+                </DropdownMenuItem>
+              </Link>
+             
               <DropdownMenuSeparator className="bg-slate-400 mx-2" />
-              <DropdownMenuItem
-                onClick={logout}
-                className="cursor-pointer "
-              >
+              <DropdownMenuItem onClick={logout} className="cursor-pointer ">
                 Logout
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+      
         <div className="grid place-items-center bg-gray-100 rounded-full p-2 cursor-pointer">
-          <Settings2Icon color={"#444"} />
-        </div>
-        <div className="grid place-items-center bg-gray-100 rounded-full p-2 cursor-pointer">
-          <NotificationCenter/>
+          <NotificationCenter />
         </div>
       </div>
     </div>

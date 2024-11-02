@@ -175,3 +175,31 @@ export const postSchema = z.object({
 });
 
 export type PostRegister = z.infer<typeof postSchema>
+
+export interface ITransaction {
+  _id: string;
+  description: string;
+  amount: number;
+  type: 'income' | 'expense';
+  category: string;
+  date: string;
+}
+
+export interface IFilters {
+  month: number;
+  year: number;
+}
+
+export interface IFormData {
+  description: string;
+  amount: string;
+  type: 'income' | 'expense';
+  category: string;
+  date: string;
+}
+
+export interface IFinancialTotals {
+  income: number;
+  expenses: number;
+  balance: number;
+}

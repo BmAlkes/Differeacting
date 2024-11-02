@@ -44,6 +44,7 @@ import {  HelmetProvider } from 'react-helmet-async'
 import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
 import EditBlog from "./pages/Blog/editBlog/index.tsx";
 import Leads from "./pages/Leads/index.tsx";
+import FinanceControl from "./pages/expanses/index.tsx";
 
 AOS.init();
 
@@ -87,6 +88,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/expanses" element={<FinanceControl />} />
             <Route path="/dashboard/leads" element={<Leads />} />
             <Route path="/dashboard/analytics" element={<Dashboard />} />
             <Route path="/dashboard/workflows" element={<Dashboard />} />
