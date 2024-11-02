@@ -78,7 +78,8 @@ const FinanceStats = ({ totals }:any) => {
                     paddingAngle={5}
                     dataKey="value"
                   >
-                    {pieData.map(( index:any) => (
+                    {pieData.map((_, index) => (
+                      
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}
