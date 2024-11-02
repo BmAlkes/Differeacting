@@ -145,16 +145,16 @@ const FinanceControl: React.FC = () => {
           <h1 className="text-3xl font-bold">Financial Control</h1>
           <p className="text-gray-500">Manage your income and expenses</p>
         </div>
-        <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
+        <Dialog open={isFormOpen} onOpenChange={setIsFormOpen} >
           <DialogTrigger asChild>
-            <Button>
+            <Button className="z-0 bg-purple-400 hover:bg-purple-500">
               <Plus className="mr-2 h-4 w-4" />
               Add Transaction
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Add New Transaction</DialogTitle>
+              <DialogTitle className="text-2xl ">Add New Transaction</DialogTitle>
             </DialogHeader>
             <TransactionForm
               onSubmit={handleSubmit}
