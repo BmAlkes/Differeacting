@@ -56,7 +56,11 @@ export async function getPostById(id: CardDataProps['data']['_id']) {
 
 export async function updatePost({ formData, blogId }:any) {
   try {
-    const { data } = await api.put(`/posts/${blogId}`, formData);
+    const { data } = await api.put(`/posts/${blogId}`,  formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
     return data;
   } catch (error) {
     console.log(error);

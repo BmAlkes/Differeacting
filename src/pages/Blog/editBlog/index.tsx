@@ -159,7 +159,7 @@ if(data)  return (
           </div>
         </button>
         {avatarUrl && (
-          <img src={avatarUrl?.filePath} className=" object-contain max-h-64" />
+          <img src={avatarUrl?.filePath || avatarUrl} className=" object-contain max-h-64" />
         )}
       </div>
       <form
