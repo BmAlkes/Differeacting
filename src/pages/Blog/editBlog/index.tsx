@@ -9,7 +9,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getPostById, updatePost } from "../../../api/PostsApi";
 import { toast } from "react-toastify";
 
-
 const EditBlog = () => {
     const params = useParams();
     const blogId = params.id!
@@ -19,85 +18,89 @@ const EditBlog = () => {
     const [avatarUrl, setAvatarUrl] = useState<any>();
 
     const QueryClient = useQueryClient();
-    const { data} = useQuery({
+    const { data } = useQuery({
         queryKey: ["PostEdit", blogId],
         queryFn: () => getPostById(blogId),
-      });
+    });
 
-
-      const { mutate } = useMutation({
+    const { mutate } = useMutation({
         mutationFn: updatePost,
         onError: (error) => {
-          toast.error(error.message);
-          reset()
+            toast.error(error.message);
+            reset();
         },
         onSuccess: (data) => {
-            QueryClient.invalidateQueries({queryKey:["PostEdit", blogId]});
-            QueryClient.invalidateQueries({queryKey:["posts"]}); // Assumindo que você tem uma query para listar os posts
-            reset()
-          toast.success(data);
+            QueryClient.invalidateQueries({queryKey: ["PostEdit", blogId]});
+            QueryClient.invalidateQueries({queryKey: ["posts"]});
+            reset();
+            toast.success(data);
+            navigate("/dashboard/blog");
         },
     });
 
-      const initialValue: PostRegister = {
-          title:data?.title,
-          content: data?.content,
-          summary:data?.summary ,
-          image: undefined,
-        };
-        
-        
-        const {
-            register,
-            handleSubmit,
-            reset,
-            watch,
-            setValue,
-            formState: { errors },
-        } = useForm({ defaultValues: initialValue });
-        
-        useEffect(() => {
-          if (data) {
-              reset({
-                  title: data.title,
-                  content: data.content,
-                  summary: data.summary,
-              });
-          }
-      }, [data, reset]);
-      function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    const initialValue: PostRegister = {
+        title: "",
+        content: "",
+        summary: "",
+        image: undefined,
+    };
+    
+    const {
+        register,
+        handleSubmit,
+        reset,
+        watch,
+        setValue,
+        formState: { errors },
+    } = useForm({ defaultValues: initialValue });
+    
+    useEffect(() => {
+        if (data) {
+            reset({
+                title: data.title,
+                content: data.content,
+                summary: data.summary,
+            });
+            // Adicionar setagem da imagem atual
+            if (data.image) {
+                setAvatarUrl(data.image);
+            }
+        }
+    }, [data, reset]);
+
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
         if (!e.target.files) {
-          return;
+            return;
         }
     
         const image = e.target.files[0];
     
         if (!image) {
-          return;
+            return;
         }
-        console.log(imageAvatar);
     
         if (image.type === "image/jpeg" || image.type === "image/png") {
-          setImageAvatar(image);
-          setAvatarUrl(URL.createObjectURL(e.target.files[0]));
+            setImageAvatar(image);
+            setAvatarUrl(URL.createObjectURL(image));
         }
-      }
+    }
+
     const modules = {
         toolbar: [
-          [{ header: [1, 2, 3, 4, 5, 6, false] }],
-          ["bold", "italic", "underline", "strike", "blockquote"],
-          [
-            { list: "ordered" },
-            { list: "bullet" },
-            { indent: "-1" },
-            { indent: "+1" },
-          ],
-          ["link", "image"],
-          ["clean"],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [
+                { list: "ordered" },
+                { list: "bullet" },
+                { indent: "-1" },
+                { indent: "+1" },
+            ],
+            ["link", "image"],
+            ["clean"],
         ],
-      };
+    };
     
-      const formats = [
+    const formats = [
         "header",
         "bold",
         "italic",
@@ -109,26 +112,24 @@ const EditBlog = () => {
         "indent",
         "link",
         "image",
-      ];
+    ];
 
-      const editorContent = watch("content");
-      const onEditorStateChange = (editorState: any) => {
+    const editorContent = watch("content");
+    
+    const onEditorStateChange = (editorState: any) => {
         setValue("content", editorState);
-      };
+    };
 
-      const handleCreatePost = (data: PostRegister) => {
+    const handleCreatePost = async (data: PostRegister) => {
         const formData = {
-          ...data,
-          image: imageAvatar,
+            ...data,
+            image: imageAvatar || avatarUrl, // Use a imagem atual se não houver nova imagem
         };
 
-        mutate({formData,blogId});    
-        navigate("/dashboard/blog");
+        await mutate({formData, blogId});
+    };
 
-     
-      };
-    
-
+    if(!data) return <div>Loading...</div>;
 if(data)  return (
     <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
     <h1 className="text-5xl font-black">Edit Blog</h1>
