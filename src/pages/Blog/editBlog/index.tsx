@@ -130,6 +130,7 @@ const EditBlog = () => {
     };
 
     if(!data) return <div>Loading...</div>;
+    console.log(data)
 if(data)  return (
     <div className="flex flex-col  max-w-screen-2xl h-full mx-auto mt-4 p-4">
     <h1 className="text-5xl font-black">Edit Blog</h1>
@@ -158,7 +159,7 @@ if(data)  return (
           </div>
         </button>
         {avatarUrl && (
-          <img src={avatarUrl} className=" object-contain max-h-64" />
+          <img src={avatarUrl?.filePath} className=" object-contain max-h-64" />
         )}
       </div>
       <form
