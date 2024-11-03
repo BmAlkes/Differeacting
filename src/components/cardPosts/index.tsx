@@ -8,18 +8,26 @@ import { deletePost } from "../../api/PostsApi";
 import { toast } from "react-toastify";
 
 
+export interface FileData {
+  name: string;
+  filePath: string;
+  type?: string;
+  size?: string;
+}
 export interface CardDataProps {
   index: number;
   data:{
-    _id:string,
-    content:string,
-    image:{
-      name:string,
-      filePath:string
-    },
-    summary:string,
-    title:string
-    createdAt:string
+    _id: string;
+  title: string;
+  content: string;
+  summary: string;
+  image: FileData | null;
+  terms: string[];
+  createdAt: string;
+  author?: {
+    _id: string;
+    name: string;
+  };
   }
 }
 
@@ -45,7 +53,7 @@ const CardPost = ({data, index}:CardDataProps) => {
   console.log(data);
   return (
     <div
-    className="w-64 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden flex flex-col justify-center items-center "
+    className="w-64 h-[430px] bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden flex flex-col justify-center items-center "
   >
     <div className="w-24 h-24 bg-violet-500 rounded-full absolute -right-5 -top-7">
       <p className="absolute bottom-6 left-7 text-white text-2xl">{index + 1}</p>

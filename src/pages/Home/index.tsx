@@ -7,7 +7,6 @@ import Reccomend from "../../components/footer";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import Cursor from "../../components/cursoFollower";
 import { Helmet } from "react-helmet-async";
 
 
@@ -43,7 +42,7 @@ const Home = () => {
       <Reccomend />
       <ScrollUp />
       <WhatsApp />
-      <Cursor/>
+   
     </motion.div>
   );
 };
