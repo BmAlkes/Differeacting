@@ -73,7 +73,7 @@ const Sidebar = () => {
   const{open} = useOpenStore()
   return (
     <div className={`fixed left-0 top-0 ${open ? 'w-[230px]':'w-[60px]'}  overflow-hidden h-full flex flex-col z-50 `}>
-      {open ?(<div className="w-full flex items-center md:justify-start justify-center md:pl-5 h-[70px] bg-[#fff]">
+      {open ?(<div className="w-full flex  items-center md:justify-start justify-center md:pl-5 h-[70px] bg-[#fff]">
 
         <Link to="/dashboard">
           <img
@@ -97,7 +97,7 @@ const Sidebar = () => {
 
 </div></>)}
       
-      <div className="w-full h-[calc(100vh-70px)] border-r flex flex-col gap-2 border-slate-300 bg-[#fff] py-5 md:px-3 px-3 relative">
+      <div className="w-full h-[calc(100vh-70px)] border-r flex flex-col gap-4 pt-8 border-slate-300 bg-[#fff] py-5 md:px-3 px-3 relative">
         {navLinks.map((link) => {
           return (
             
@@ -117,7 +117,7 @@ const Sidebar = () => {
             <Tooltip>
             <TooltipTrigger> 
                <div
-                className={`flex  flex-row-reverse     gap-2 w-full rounded-lg text-slate-600 hover:bg-[#6ecfef] hover:text-white px-2 py-3 cursor-pointer}`}
+                className={`flex  gap-2 items-center w-full rounded-lg text-slate-600 hover:bg-[#6ecfef] hover:text-white px-2 py-3 cursor-pointer}`}
                 >
                 {link.icon}
                 <span className={`font-medium text-[15px]  ${open? "":"hidden"}`}>

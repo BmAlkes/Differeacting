@@ -3,6 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { getClientById } from "../../../api/ClientApi";
 
 const ClientDetails = () => {
+
+  function createMarkup(data: string) {
+    return {
+      __html: data,
+    };
+  }
    
   const params = useParams();
   const clientId = params.clientId!;
@@ -41,6 +47,7 @@ const ClientDetails = () => {
 
         <div className="w-full text-left">
             <span className="   font-bold text-xl">:Notes</span>
+          <p  dangerouslySetInnerHTML={createMarkup(data.description)}></p>
 
         </div>
       
