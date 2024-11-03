@@ -7,6 +7,11 @@ import EditTaskData from "../../components/TASKS/EditTaskData";
 import TaskModalDetails from "../../components/TASKS/TaskModalDetails";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "../../components/ui/breadcrumb";
+import { Calendar, ChevronRight, Clock, Plus, Settings, Users } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/button";
 
 const ProjectDetails = () => {
   const { data: user} = useAuth();
@@ -20,6 +25,8 @@ const ProjectDetails = () => {
     retry: 2,
   });
 
+
+  const isProjectManager = isManager(user._id, data?.manager);
   if (isLoading)
     return (
       <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
@@ -38,29 +45,83 @@ const ProjectDetails = () => {
     );
   if (data && user)
     return (
-      <div className="flex flex-col mt-6 pl-4   mx-auto">
-        <h1 className="text-end text-3xl font-black">{data.projectName}</h1>
-        <p className="text-xl font-light text-end text-gray-500 mt-5">
-          {data.description}
-        </p>
-          <nav className="my-5 flex flex-row-reverse gap-3 justify-end">
+      <div className="max-w-7xl mx-auto p-6">
+      {/* Breadcrumbs */}
+      <Breadcrumb className="mb-6">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <ChevronRight className="h-4 w-4" />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/dashboard/projects">Projects</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <ChevronRight className="h-4 w-4" />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbLink >{data.projectName}</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-          <button
-            type="button"
-            onClick={() => navigate("?newTask=true")}
-            className="bg-purple-400 z-0 hover:bg-purple-500 px-10 py-3 text-white cursor-pointer transition-colors rounded"
-          >
-            Add task
-          </button>
-        {isManager(user._id, data.manager)&&(
-          <Link
-            to={"team"}
-            className="bg-fuchsia-700 z-0 hover:bg-fuchsia-800 px-10 py-3 text-white cursor-pointer transition-colors rounded"
-          >
-            Team
-          </Link>
-        )}
-        </nav>
+      <Card>
+        <CardHeader className="space-y-1">
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <CardTitle className="text-3xl font-bold">
+                {data.projectName}
+              </CardTitle>
+              <CardDescription className="text-base">
+                {data.description}
+              </CardDescription>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Badge 
+                variant="secondary" 
+                className="bg-green-100 text-green-800"
+              >
+                Active
+              </Badge>
+             
+            </div>
+          </div>
+        </CardHeader>
+        
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <div className="flex space-x-6 text-sm text-gray-500">
+              <div className="flex items-center">
+                <Clock className="h-4 w-4 mr-2" />
+                <span>Created {new Date(data.createdAt).toLocaleDateString()}</span>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              {isProjectManager && (
+                <Button 
+                  variant="secondary"
+                  className="bg-purple-100 text-purple-800 hover:bg-purple-200"
+                  onClick={() => navigate("team")}
+                >
+                  <Users className="h-4 w-4 mr-2" />
+                  Manage Team
+                </Button>
+              )}
+              <Button 
+                onClick={() => navigate("?newTask=true")}
+                className="bg-purple-500 hover:bg-purple-600"
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Task
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    
         <TaskList tasks={data.tasks} />
         <AddTaskModal />
         <EditTaskData />
