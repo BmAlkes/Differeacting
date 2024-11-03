@@ -1,39 +1,37 @@
-
+import  { useState, useEffect, FormEvent } from 'react';
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { getPostById } from "../../../api/PostsApi";
 import { Helmet } from "react-helmet-async";
 import { format, parseISO } from "date-fns";
-import { FormEvent, useEffect, useState } from "react";
-import { CreateLead } from "../../../api/LeadApi";
+import { Card, CardContent } from "../../../components/ui/card";
 import { toast } from "react-toastify";
+import { getPostById } from '../../../api/PostsApi';
+import { CreateLead } from '../../../api/LeadApi';
 
-const Post = () => {
-
+const EnhancedPost = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  
-  function createMarkup(data: string) {
-    return {
-      __html: data,
-    };
-  }
   const { id } = useParams();
-  const postId =id!
-
-  const {data, isLoading} = useQuery({
-    queryKey:['blog'],
-    queryFn:()=>getPostById(postId)
-  })
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const { mutate } = useMutation({
+  
+
+
+  // Scroll to top logic
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
+
+  const {data, isLoading} = useQuery({
+    queryKey: ['blog'],
+    queryFn: () => getPostById(id!)
+  });
+
+   const { mutate } = useMutation({
     mutationFn: CreateLead,
     onError: (error) => {
       toast.error(error.message);
@@ -63,67 +61,71 @@ const Post = () => {
     setEmail("");
     setMessage("");
     setPhone("");
-  }
+  };
 
-  if (isLoading)
+  if (isLoading) {
     return (
-      <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
-        <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            height="1em"
-            width="1em"
-            className="animate-ping"
-          >
-            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"></path>
-          </svg>
-        </div>
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500" />
       </div>
     );
+  }
+
   return (
     <>
-    <Helmet>
-        <meta charSet="utf-8" />
-        <title>
-          {`Differeacting - ${data.title}` }
-        </title>
-        <link rel="canonical" href={`https://www.differeacting.com/posts/${data.title}`} />
+      <Helmet>
+        <title>{`Blog - ${data.title}`}</title>
+        <link rel="canonical" href={`https://www.seublog.com/posts/${data.title}`} />
       </Helmet>
-    <section className="lg:pt-5   h-fullrelative py-16 lg:py-4 mt-[96px]  ">
-      <img
-        src={data.image?.filePath}
-        alt="post image"
-        className="h-[450px] p-7 object-contain  w-full"
-        />
-  
 
-      <div className="container flex flex-col items-start justify-center ">
-        <h1 className="text-black text-5xl py-9">
-          {data.title}
-        </h1>
-        <div
-          className="text-lg leading-10  text-center text-black flex flex-col items-start justify-center"
-          dangerouslySetInnerHTML={createMarkup(data?.content)} 
-          ></div>
+      <main className="max-w-4xl mx-auto px-4 py-8 mt-24">
+        {/* Hero Section */}
+        <div className="relative rounded-2xl overflow-hidden mb-8 group">
+          <img
+            src={data.image?.filePath}
+            alt={data.title}
+            className="w-full h-[500px] object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {data.title}
+            </h1>
+            <div className="flex items-center text-white/80 gap-4">
+              <span>
+                {format(parseISO(data.createdAt), 'dd MMM, yyyy')}
+              </span>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </div>
 
-        <span className="text-xl py-4 text-[]">Created: {format(parseISO(data.createdAt),'yyyy-MM-dd HH:mm' )}</span>
-        <Link to="/posts" className="p-0 m-0 my-7">
-          <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px] text-white font-semibold rounded-xl p-[1px] ">
-            <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] md:px-[14px] px-[4px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
-              חזרה לעמוד פוסטים
-            </span>
-          </button>
-        </Link>
-      </div>
-     
-    </section>
-    <section>
-    <div className="bg-[#E7E7E7] lg:py-[100px] lg:px-[150px] py-7 px-3">
-    <div className="container ">
-      <h2 className="text-center pb-10 text-3xl">אם אהבתם את התוכן, צרו קשר איתנו</h2>
+        {/* Content Section */}
+        <Card className="mb-8">
+          <CardContent className="p-6">
+            <div
+              className="prose prose-lg max-w-none"
+              dangerouslySetInnerHTML={{ __html: data?.content }}
+            />
+            
+            {/* Interaction Bar */}
+          
+          </CardContent>
+        </Card>
+            </main>
 
-    <form
+   
+        <div className="bg-[#E7E7E7] lg:py-[140px] lg:px-[150px] py-7 px-3">
+          <div className="container ">
+            <h3 className="text-3xl lg:text-6xl max-w-[641px] font-bold  mb-2 text-gray-900 pb-10">
+              מוכנים להתחיל פרויקט ביחד?
+            </h3>
+            <p className="text-lg max-w-[302px] mb-9 font-normal ">
+              יש לך פרויקט בראש? כולנו אוזניים כשזה זה מגיע לגלות על מטרות העסק
+              הדיגיטלי שלך. אנחנו נשמח לשמוע ממך.
+            </p>
+
+            <form
               onSubmit={sendEmail}
               className="flex lg:flex-row flex-wrap flex-col  gap-4"
             >
@@ -167,11 +169,22 @@ const Post = () => {
                 </span>
               </button>
             </form>
-            </div>
-            </div>
-    </section>
-          </>
+          </div>
+        <div className="flex justify-center mt-28">
+          <Link
+            to="/posts"
+          className="inline-flex items-center px-6 py-3 rounded-lg text-white bg-[#6FCFED] hover:bg-[#1cadd9] transition-colors"
+          >
+            Back to all posts
+          </Link>
+        </div>
+        </div>
+
+        {/* Back to Posts Button */}
+
+      
+    </>
   );
 };
 
-export default Post;
+export default EnhancedPost;
