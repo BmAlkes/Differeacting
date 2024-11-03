@@ -1,14 +1,20 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { getPostById } from "../../../api/PostsApi";
 import { Helmet } from "react-helmet-async";
 import { format, parseISO } from "date-fns";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { CreateLead } from "../../../api/LeadApi";
 import { toast } from "react-toastify";
 
 const Post = () => {
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
   function createMarkup(data: string) {
     return {
       __html: data,

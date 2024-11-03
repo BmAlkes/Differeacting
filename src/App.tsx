@@ -2,6 +2,7 @@ import AOS from "aos";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
+import ReactGA from 'react-ga4';
 
 
 import Home from "./pages/Home";
@@ -45,6 +46,9 @@ import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
 import EditBlog from "./pages/Blog/editBlog/index.tsx";
 import Leads from "./pages/Leads/index.tsx";
 import FinanceControl from "./pages/expanses/index.tsx";
+import  Analytics  from "./pages/Analytics/index.tsx"
+import { useEffect } from "react";
+import RouteTracker from "./components/RouterTracker/index.tsx";
 
 AOS.init();
 
@@ -53,6 +57,14 @@ function App() {
   document.body.dir = i18n.dir();
   const location = useLocation();
 
+  useEffect(() => {
+    // Inicialize o GA4
+    ReactGA.initialize('G-SEU_ID_AQUI');
+    
+    // Rastreie a primeira visualização de página
+    ReactGA.send('pageview');
+  }, []);
+
 
   return (
     <>
@@ -60,6 +72,7 @@ function App() {
 
  
       <AnimatePresence mode="wait">
+      <RouteTracker />
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -90,7 +103,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/expanses" element={<FinanceControl />} />
             <Route path="/dashboard/leads" element={<Leads />} />
-            <Route path="/dashboard/analytics" element={<Dashboard />} />
+            <Route path="/dashboard/analytics" element={<Analytics />} />
             <Route path="/dashboard/workflows" element={<Dashboard />} />
             <Route path="/dashboard/blog" element={<Blog />} />
             <Route path="/dashboard/blog/newPost" element={<CreatePost />} />

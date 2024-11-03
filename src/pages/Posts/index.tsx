@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import WhatsApp from "../../components/whatsappscroll";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPosts } from "../../api/PostsApi";
+import { useEffect } from "react";
 
 type PostProps = {
   _id: string;
@@ -20,6 +21,10 @@ const Posts = () => {
     queryKey: ["bloging"],
     queryFn: () => getAllPosts(),
   });
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -62,7 +67,7 @@ const Posts = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  gap-4">
             {data?.map((post: PostProps) => (
               <Link to={`/posts/${post._id}`}>
-                <div className="w-80 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                <div className="w-80 min-h-96 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
                   <img
                     className="w-full h-40 object-cover rounded-t-lg"
                     alt="Card Image"

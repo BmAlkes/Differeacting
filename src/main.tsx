@@ -16,10 +16,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          <Analytics />
           <App />
           <ReactQueryDevtools />
           <ToastContainer />
-          <Analytics />
         </BrowserRouter>
       </QueryClientProvider>
   </React.StrictMode>
