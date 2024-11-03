@@ -59,20 +59,7 @@ const GraphicPage = () => {
     }
   ];
 
-  const portfolio = [
-    {
-      category: "לוגו ומיתוג",
-      items: [
-        {
-          title: "עיצוב זהות מותגית",
-          description: "מיתוג מלא לחברת סטארט-אפ",
-          image: "path-to-image.jpg"
-        },
-        // Add more items
-      ]
-    },
-    // Add more categories
-  ];
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
