@@ -1,9 +1,11 @@
+import  { useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import WhatsApp from "../../components/whatsappscroll";
-import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
-import { getAllPosts } from "../../api/PostsApi";
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import { motion } from 'framer-motion';
+import { Search,  ArrowUpRight, Clock, Tag } from 'lucide-react';
+import { Card, CardContent, CardFooter } from "../../components/ui/card";
+import { getAllPosts } from '../../api/PostsApi';
 
 type PostProps = {
   _id: string;
@@ -14,84 +16,194 @@ type PostProps = {
   };
   content: string;
   createdAt: string;
+  category?: string;
+  readTime?: number;
 };
 
-const Posts = () => {
-  const { data } = useQuery({
+const BlogListing = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { data = [] } = useQuery({
     queryKey: ["bloging"],
     queryFn: () => getAllPosts(),
   });
+
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Filter posts based on search and category
+  const filteredPosts = data.filter((post: PostProps) => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  // Categories for filter (you can replace with your actual categories)
+  const categories = ['Development', 'Design', 'Marketing', 'Technology'];
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>
-          Differeacting - Posts - סטודיו לבניית אתרים Differeacting: הופכים
-          חלומות ליצירה באינטרנט{" "}
-        </title>
-        <link rel="canonical" href="https://www.differeacting.com/posts" />
+        <title>Blog - Explore Our Latest Articles</title>
+        <link rel="canonical" href="https://www.yourblog.com/posts" />
       </Helmet>
 
-      <section className=" bg-[#030B0F]  h:full  mt-[96px]">
-        <div className="flex flex-col md:flex-row lg:gap-30  h-full md:h-[800px] container w-full mx-auto">
-          <div className="w-full h-full  flex flex-col justify-center max-w-[800px] z-50 mt-8 md:mt-5 ">
-            <h1 className="text-[#f4f4f4] lg:text-[102px] md:text-5xl text-3xl  text-right font-bold z-10 [text-shadow:_0_10px_0_rgb(0_0_0_/_90%)]">
-              מגזין Differeacting
+      {/* Hero Section with Parallax Effect */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative h-[80vh] bg-gradient-to-r from-blue-900 to-purple-900 overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-[url('your-pattern-url.svg')] opacity-10" />
+        
+        <div className="container mx-auto h-full flex items-center justify-between px-4">
+          <motion.div 
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-2xl"
+          >
+            <h1 className="text-6xl font-bold text-white mb-6">
+              Explore Our Latest Insights
             </h1>
+            <p className="text-xl text-gray-300 mb-8">
+              Discover stories, thinking, and expertise from writers on any topic.
+            </p>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30"
+              />
+              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60" />
+            </div>
+          </motion.div>
 
-            <div className="flex gap-7 mt-[30px]"></div>
-          </div>
-
-          <img
-            src={
-              "https://res.cloudinary.com/landingpage2/image/upload/v1727721279/laptop-with-colorful-paint-explosion_d9yzbx.png"
-            }
-            alt="background hero"
-            className="w-[300px] md:h-[600px] h-96 object-cover   overflow-visible  "
-            data-tilt
+          <motion.img
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1727721279/laptop-with-colorful-paint-explosion_d9yzbx.png"
+            alt="Hero illustration"
+            className="hidden lg:block w-2/3 object-cover"
           />
         </div>
-      </section>
-      <section className="lg:pt-5   h-full bg-[#030B0F] relative py-16 lg:py-16 ">
-        <div className="flex flex-wrap justify-center container gap-5 ">
-          {data?.length === 0 && (
-            <h3 className="text-white text-center py-11 text-xl">
-              אין תוכן כרגע
-            </h3>
-          )}
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  gap-4">
-            {data?.map((post: PostProps) => (
-              <Link to={`/posts/${post._id}`}>
-                <div className="w-80 min-h-96 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
-                  <img
-                    className="w-full h-40 object-cover rounded-t-lg"
-                    alt="Card Image"
-                    src={post?.image?.filePath}
-                  />
-                  <div className="p-4">
-                    <h2 className="text-xl  font-semibold">{post.title}</h2>
+      </motion.section>
 
-                    <div className="flex justify-between items-center mt-4">
-                      <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
-                        See more
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+      {/* Category Filter */}
+      <div className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+        <div className="container mx-auto py-4 px-4">
+          <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-4 py-2 rounded-full whitespace-nowrap transition-all ${
+                selectedCategory === 'all'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-100 hover:bg-gray-200'
+              }`}
+            >
+              All Posts
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-all ${
+                  selectedCategory === category
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Posts Grid */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-20">
+              <h3 className="text-2xl text-gray-600">No posts found</h3>
+              <p className="text-gray-400 mt-2">Try adjusting your search or filters</p>
+            </div>
+          ) : (
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            >
+              {filteredPosts.map((post: PostProps, index: number) => (
+                <motion.div
+                  key={post._id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link to={`/posts/${post._id}`}>
+                    <Card className="group h-full overflow-hidden hover:shadow-xl transition-all duration-300">
+                      <div className="relative overflow-hidden aspect-video">
+                        <img
+                          src={post.image.filePath}
+                          alt={post.title}
+                          className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                        />
+                        {post.category && (
+                          <span className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
+                            {post.category}
+                          </span>
+                        )}
+                      </div>
+                      
+                      <CardContent className="p-6">
+                        <h2 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">
+                          {post.title}
+                        </h2>
+                        <p className="text-gray-600 line-clamp-3">
+                          {post.content.replace(/<[^>]+>/g, '').substring(0, 150)}...
+                        </p>
+                      </CardContent>
+
+                      <CardFooter className="px-6 py-4 border-t flex items-center justify-between">
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            <span>{post.readTime || '5'} min read</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Tag className="w-4 h-4" />
+                            <span>{post.category || 'General'}</span>
+                          </div>
+                        </div>
+                        <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </CardFooter>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </div>
       </section>
-      
-      <WhatsApp />
     </>
   );
 };
 
-export default Posts;
+export default BlogListing;
