@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { getProjectsById } from "../../api/ProjectAPI";
 import AddTaskModal from "../../components/TASKS/taskModal/addTaskModal";
 import TaskList from "../../components/TASKS/TaskList";
@@ -8,7 +8,7 @@ import TaskModalDetails from "../../components/TASKS/TaskModalDetails";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "../../components/ui/breadcrumb";
-import { Calendar, ChevronRight, Clock, Plus, Settings, Users } from "lucide-react";
+import { ChevronRight, Clock, Plus,  Users } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
