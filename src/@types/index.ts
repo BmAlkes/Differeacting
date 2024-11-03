@@ -142,7 +142,7 @@ export const clientShema = z.object({
   clientName: z.string(),
   phone: z.string(),
   email: z.string().email(),
-  bankHours: z.string(),
+  bankHours: z.number(),
   description: z.string(),
   active: z.boolean(),
   _id:z.string(),

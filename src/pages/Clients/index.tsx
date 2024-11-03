@@ -54,7 +54,7 @@ const Clients = () => {
         <div>
           <nav className="my-5">
             <Link
-              className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md"
+              className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md hover:text-[#fff]"
               to="/dashboard/clients/register"
             >
               Add Client

@@ -1,65 +1,137 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
+import { Loader2, Mail, Phone, ArrowLeft, Clock, Info } from "lucide-react";
 import { getClientById } from "../../../api/ClientApi";
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Button } from "../../../components/ui/button";
+
+import { Separator } from "../../../components/ui/separator";
+import { cn } from "../../../lib/utils";
+
+const StatusBadge = ({ active }: { active: boolean }) => (
+  <span
+    className={cn(
+      "inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium",
+      active
+        ? "bg-green-100 text-green-800"
+        : "bg-red-100 text-red-800"
+    )}
+  >
+    {active ? "Active" : "Inactive"}
+  </span>
+);
 
 const ClientDetails = () => {
+  const { clientId } = useParams();
 
-  function createMarkup(data: string) {
-    return {
-      __html: data,
-    };
-  }
-   
-  const params = useParams();
-  const clientId = params.clientId!;
-
-  const { data, isLoading } = useQuery({
+  const { data: client, isLoading } = useQuery({
     queryKey: ["client", clientId],
-    queryFn: () => getClientById(clientId),
+    queryFn: () => getClientById(clientId!),
     retry: 2,
   });
-  if (isLoading)
+
+  if (isLoading) {
     return (
-      <div className="flex-col gap-4 w-full h-screen flex items-center justify-center">
-        <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            height="1em"
-            width="1em"
-            className="animate-ping"
-          >
-            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"></path>
-          </svg>
+      <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
+          <p className="text-gray-500">Loading client details...</p>
         </div>
       </div>
     );
-  console.log(data);
+  }
 
-  if (data) return  <div className="flex flex-col  items-end mt-6 pl-4  mx-auto">
-    <h2 className="text-4xl  text-left py-8">Client Information</h2>
-    <div  className="container shadow-xl bg-white rounded-lg flex flex-col items-center gap-5">
-        <h2 className="text-4xl text-center my-3 p-6">{data.clientName}</h2>
-        <h2 className="text-[#707ce7]"><span className="font-semibold">Email:</span><a href={`mailto:${data.email}`}> {data.email}</a></h2>
-        <h2 className="text-green-500"><span className="font-semibold ">phone: </span><a href={`tel:${data.phone}`} >{data.phone}</a></h2>
-        <h2 className={`${data.active ? "text-green-500":"text-red-500"}`}><span className="text-black">Status: </span>{data.active ? "Active" :"Inactive"}</h2>
-        <h2><span>bankHours:</span>{data.bankHours}</h2>
+  if (!client) return null;
 
-        <div className="w-full text-left">
-            <span className="   font-bold text-xl">:Notes</span>
-          <p  dangerouslySetInnerHTML={createMarkup(data.description)}></p>
+  return (
+    <div className="max-w-4xl mx-auto p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-5xl font-black ">Client Details</h1>
+        <Button variant="outline" asChild>
+          <Link to="/dashboard/clients" className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md hover:text-[#fff]">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Clients
+          </Link>
+        </Button>
+      </div>
 
-        </div>
-      
-        <Link
-          className="bg-purple-400 hover:bg-purple-500 flex text-white px-10 py-3 font-bold cursor-pointer transition-colors rounded-md mb-5"
-          to="/dashboard/clients"
-          >
-   Back to Client Pages
- 
-        </Link>
-  </div>
-  </div>
+      <Card className="overflow-hidden">
+        <CardHeader className="border-b bg-gray-50/50">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-2xl">{client.clientName}</CardTitle>
+            <StatusBadge active={client.active}  />
+          </div>
+        </CardHeader>
+
+        <CardContent className="p-6 space-y-6">
+          {/* Contact Information */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-blue-500" />
+                <a 
+                  href={`mailto:${client.email}`}
+                  className="text-blue-500 hover:underline"
+                >
+                  {client.email}
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-green-500" />
+                <a 
+                  href={`tel:${client.phone}`}
+                  className="text-green-500 hover:underline"
+                >
+                  {client.phone}
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <Clock className="w-5 h-5 text-orange-500" />
+                <div>
+                  <span className="font-medium">Bank Hours: </span>
+                  <span className="text-gray-600">{client.bankHours} hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Separator className="my-6" />
+
+          {/* Notes Section */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Info className="w-5 h-5 text-gray-500" />
+              <h3 className="text-lg font-semibold">Notes</h3>
+            </div>
+            <div 
+              className="prose prose-sm max-w-none p-4 bg-gray-50 rounded-lg"
+              dangerouslySetInnerHTML={{ __html: client.description }}
+            />
+          </div>
+
+          {/* Additional Information Cards */}
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <Card>
+              <CardContent className="p-4">
+                <div className="text-sm text-gray-500">Created</div>
+                <div>{new Date().toLocaleDateString()}</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-4">
+                <div className="text-sm text-gray-500">Last Updated</div>
+                <div>{new Date().toLocaleDateString()}</div>
+              </CardContent>
+            </Card>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
 };
 
 export default ClientDetails;
