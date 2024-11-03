@@ -43,7 +43,7 @@ const RegisterClients = () => {
     phone: "",
     description: "",
     email: "",
-    bankHours: "",
+    bankHours: 0,
     
   };
   const navigate = useNavigate();
