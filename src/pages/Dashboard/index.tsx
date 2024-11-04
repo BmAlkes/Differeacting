@@ -10,9 +10,17 @@ import {
   CalendarDays,
   Bell
 } from "lucide-react";
+import {  useQuery } from "@tanstack/react-query";
+import { getAllProjects } from "../../api/ProjectAPI";
 
 const Dashboard = () => {
   const { data } = useAuth();
+
+const {data:projects} = useQuery({
+  queryKey:['Allprojects'],
+ queryFn:()=>getAllProjects
+})
+console.log(projects)
 
   return (
     <div className="min-h-screen p-6 bg-gray-50/30">

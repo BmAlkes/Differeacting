@@ -45,10 +45,10 @@ import {  HelmetProvider } from 'react-helmet-async'
 import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
 import EditBlog from "./pages/Blog/editBlog/index.tsx";
 import Leads from "./pages/Leads/index.tsx";
-import FinanceControl from "./pages/expanses/index.tsx";
 import  Analytics  from "./pages/Analytics/index.tsx"
 import { useEffect } from "react";
 import RouteTracker from "./components/RouterTracker/index.tsx";
+import FinanceControl from "./pages/expanses/FinanceControl.tsx";
 
 AOS.init();
 

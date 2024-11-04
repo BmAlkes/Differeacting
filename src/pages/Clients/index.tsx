@@ -48,7 +48,7 @@ const Clients = () => {
         <div className="flex flex-col ">
           <h1 className="text-5xl font-black">Clients</h1>
           <p className="text-2xl text-gray-500 mt-5 text-center">
-            Organize and Managment your Clients
+            Organize and Management your Clients
           </p>
         </div>
         <div>

@@ -203,3 +203,8 @@ export interface IFinancialTotals {
   expenses: number;
   balance: number;
 }
+
+export interface ICategory {
+  id: string;
+  name: string;
+}

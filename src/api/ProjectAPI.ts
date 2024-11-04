@@ -21,8 +21,8 @@ export const getProjects = async (page: number, limit: number) => {
 export async function getAllProjects() {
   try {
     const { data } = await api(`/projects/all`);
+    console.log(data)
     return data;
-
   } catch (error) {
     console.log(error);
   }
