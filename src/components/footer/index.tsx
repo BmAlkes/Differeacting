@@ -4,15 +4,8 @@ import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { CreateLead } from "../../api/LeadApi";
 import { toast } from "react-toastify";
-import { Play, Send, Quote } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+import {  Send, Quote } from "lucide-react";
+
 import vetor2 from "../../assets/Frame 1160445221.png";
 
 

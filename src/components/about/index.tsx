@@ -14,7 +14,7 @@ import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg"
 import Secimg from "../../assets/svg/pictureSec.svg";
-import vetor from "../../assets/svg/Vector 18.svg";
+
 
 const About = () => {
   const services = [
