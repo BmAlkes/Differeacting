@@ -27,7 +27,7 @@ const Projects = () => {
   const { pathname } = useLocation();
   const [activeFilter, setActiveFilter] = useState("all");
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [_, setIsMobile] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
