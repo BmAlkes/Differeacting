@@ -37,7 +37,7 @@ const NewFooter = () => {
         <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left ">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4 text-right">
             <h2 className="title-font font-bold  tracking-widest text-lg mb-3">
-              מפה אתר
+              מפת אתר
             </h2>
             <nav className="list-none mb-10 flex flex-col gap-3 cursor-pointer">
               <ul>
