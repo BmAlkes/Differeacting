@@ -1,202 +1,508 @@
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import OpenCards from "../../components/openCards";
-import ScrollUp from "../../components/scrollup";
-import { FormEvent, useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import WhatsApp from "../../components/whatsappscroll";
-import Cursor from "../../components/cursoFollower";
 import { Helmet } from "react-helmet-async";
 import { useMutation } from "@tanstack/react-query";
 import { CreateLead } from "../../api/LeadApi";
 import { toast } from "react-toastify";
+import { GlobeIcon, GithubIcon, SendIcon, ChevronDown,  } from "lucide-react";
+
+// Types
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  category: string;
+  links: {
+    live?: string;
+    github?: string;
+    demo?: string;
+  };
+};
 
 const Projects = () => {
   const { pathname } = useLocation();
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
     email: "",
-    message: ""
+    phone: "",
+    message: "",
   });
 
-  const controls = useAnimation();
-
+  // Detecta se é mobile
   useEffect(() => {
-    controls.start({
-      rotate: 360,
-      transition: {
-        duration: 20,
-        repeat: Infinity,
-        ease: "linear"
-      }
-    });
-  }, [controls]);
-
-  const { mutate } = useMutation({
-    mutationFn: CreateLead,
-    onError: (error) => {
-      toast.error(error.message);
-    },
-    onSuccess: () => {
-      toast.success("Message sent successfully! We will be in touch soon.");
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        message: ""
-      });
-    },
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const sendEmail = (e: FormEvent) => {
-    e.preventDefault();
-    const { name, email, message, phone } = formData;
-
-    if (!name || !email || !message || !phone) {
-      toast.error("Fill all the fields");
-      return;
-    }
-
-    mutate(formData);
-  };
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{
-        default: { duration: 0.4, ease: "easeInOut" },
-      }}
-    >
-      <Helmet>
-        <meta charSet="utf-8"/>
-        <title>Differeacting - Projects - סטודיו לבניית אתרים Differeacting: הופכים חלומות ליצירה באינטרנט </title>
-        <link rel="canonical" href="https://www.differeacting.com/projects" />
-      </Helmet>
-   
-      <section className="bg-[#030B0F] lg:h-screen mt-[96px]">
-        <div className="flex flex-col lg:flex-row lg:gap-x-10 h-full container w-full items-center justify-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full flex flex-col justify-between lg:max-w-[700px] z-50 mt-8 md:mt-5"
+  // Projects data
+  const projects: Project[] = [
+    {
+      id: "1",
+      title: "WebCar",
+      description: "Platform for selling and publishing cars, where you can add cars, delete cars, speak directly with the seller",
+      image: "https://raw.githubusercontent.com/BmAlkes/webcar/main/src/assets/Screenshot_16.png",
+      technologies: ["React", "Firebase", "Styled-Components"],
+      category: "React",
+      links: {
+        live: "https://webcar-umber.vercel.app/",
+      }
+    },
+    {
+      id: "2",
+      title: "MetaDaily",
+      description: "Platform for to help to create and manage habits",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1708932226/Screenshot_22_ylvdnf.png",
+      technologies: ["NextJS", "TypeScript", "TailwindCSS"],
+      category: "NextJS",
+      links: {
+        live: "https://metadaily.vercel.app/",
+      }
+    },
+    {
+      id: "3",
+      title: "Club Clothes",
+      description: "Eccomerce made with react, and firebase conneting with Stripe api for payments",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969288/Screenshot_23_deonbw_1_jhf7jt.png",
+      technologies: ["React", "Firebase", "Stripe", "Styled-Components"],
+      category: "React",
+      links: {
+        live: "https://new-club-clothes.vercel.app/",
+      }
+    },
+    {
+      id: "4",
+      title: "Binvent CRM",
+      description: "CRM for Stock Management, Inventory system to control and manage products, using React, express, mongoDB..",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1708932226/Screenshot_24_o3royj.png",
+      technologies: ["React", "Express", "MongoDB", "Node.js"],
+      category: "React",
+      links: {
+        live: "https://binvent.vercel.app/",
+      }
+    },
+    {
+      id: "5",
+      title: "Call Controller",
+      description: "Platform for controlling calls and checking the status of calls",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1708932226/Screenshot_25_hdpt1x.png",
+      technologies: ["React", "Firebase", "TailwindCSS"],
+      category: "React",
+      links: {
+        live: "https://call-project.vercel.app",
+      }
+    },
+    {
+      id: "6",
+      title: "Pizza Platform",
+      description: "Platform for Pizza",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1708932226/Screenshot_26_luipiv.png",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      category: "Javascript/HTML",
+      links: {
+        live: "https://pizza-lac-five.vercel.app/",
+      }
+    },
+    {
+      id: "7",
+      title: "Online Store",
+      description: "Online store built with vanilla JavaScript",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      category: "Javascript",
+      links: {
+        live: "https://ecommerce-xhdu.vercel.app/",
+      }
+    },
+    {
+      id: "8",
+      title: "MaiThai Travel",
+      description: "Web Site for travel company",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1728813860/cd333395-f5f3-4f2e-8f06-72ac519fd687_ntviz9.jpg",
+      technologies: ["WordPress", "Elementor", "PHP"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://maithaitravelandtour.com/",
+      }
+    },
+    {
+      id: "9",
+      title: "Skylum",
+      description: "Web site for company",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
+      technologies: ["WordPress", "Elementor", "PHP"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://skylum.co.il/",
+      }
+    },
+    {
+      id: "10",
+      title: "Deliver Coffee",
+      description: "Web site for company",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1709303998/deliver_urazsz.png",
+      technologies: ["React", "TailwindCSS", "TypeScript"],
+      category: "React",
+      links: {
+        live: "https://deliver-coffe.vercel.app/",
+      }
+    },
+    {
+      id: "11",
+      title: "Safe Garden",
+      description: "App for private kindegarden managment",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png",
+      technologies: ["React", "Firebase", "TailwindCSS"],
+      category: "React",
+      links: {
+        live: "https://safe-garden.vercel.app/",
+      }
+    },
+    {
+      id: "12",
+      title: "Wesense",
+      description: "A landing page made for the WESENSE Startup project",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1719987411/Screenshot_47_kaioqi.png",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      category: "Javascript",
+      links: {
+        live: "https://wesense.vercel.app/",
+      }
+    },
+    {
+      id: "13",
+      title: "Accountant",
+      description: "A landing page made for accountant",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105071/Screenshot_10_fhniyl.png",
+      technologies: ["WordPress", "Elementor", "PHP"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://tan-porcupine-120244.hostingersite.com/",
+      }
+    },
+    {
+      id: "14",
+      title: "Lawyer Company",
+      description: "A landing page made for Lawyer",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105732/Screenshot_11_qjpjde.png",
+      technologies: ["WordPress", "Elementor", "PHP"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://mediumturquoise-wolverine-520367.hostingersite.com/",
+      }
+    },
+    {
+      id: "15",
+      title: "Glow Modas",
+      description: "Store for clothes",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105921/Screenshot_12_pvlhcp.png",
+      technologies: ["WordPress", "Elementor", "WooCommerce"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://darkslategray-rail-827860.hostingersite.com",
+      }
+    }
+  ];
+  // Categories
+  const categories = [
+    { id: "all", label: "All Projects" },
+    { id: "React", label: "React" },
+    { id: "NextJS", label: "Next.js" },
+    { id: "Javascript/HTML", label: "JavaScript" },
+    { id: "WordPress/Elementor", label: "WordPress" }
+  ];
+
+  // Filtered projects
+  const filteredProjects = projects.filter(
+    (project) => activeFilter === "all" || project.category === activeFilter
+  );
+
+  // Form mutation
+  const { mutate } = useMutation({
+    mutationFn: CreateLead,
+    onSuccess: () => {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    },
+    onError: () => toast.error("Error sending message. Please try again."),
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please fill all required fields");
+      return;
+    }
+    mutate(formData);
+  };
+
+  // Mobile Filter Menu Component
+  const MobileFilterMenu = () => (
+    <div className="relative md:hidden">
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}
+        className="w-full px-4 py-3 bg-white/10 rounded-xl flex items-center justify-between text-white"
+      >
+        <span>Filter by: {categories.find(c => c.id === activeFilter)?.label}</span>
+        <ChevronDown className={`transform transition-transform ${isFilterMenuOpen ? 'rotate-180' : ''}`} />
+      </motion.button>
+
+      <AnimatePresence>
+        {isFilterMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 mt-2 bg-[#0A1A24] border border-white/10 rounded-xl overflow-hidden z-50"
           >
-            <h1 className="text-white lg:text-[102px] md:text-5xl text-3xl text-center lg:text-right font-bold z-10 [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
-              פרויקטים <br/>מומלצים
+            {categories.map((category) => (
+              <motion.button
+                key={category.id}
+                whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                onClick={() => {
+                  setActiveFilter(category.id);
+                  setIsFilterMenuOpen(false);
+                }}
+                className={`w-full px-4 py-3 text-left transition-colors ${
+                  activeFilter === category.id
+                    ? "text-[#6FCFED]"
+                    : "text-white"
+                }`}
+              >
+                {category.label}
+              </motion.button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+
+  // Desktop Filter Buttons Component
+  const DesktopFilterButtons = () => (
+    <div className="hidden md:flex justify-center gap-4 flex-wrap">
+      {categories.map((category) => (
+        <motion.button
+          key={category.id}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setActiveFilter(category.id)}
+          className={`px-6 py-3 rounded-full font-medium transition-all ${
+            activeFilter === category.id
+              ? "bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white"
+              : "bg-white/10 text-white hover:bg-white/20"
+          }`}
+        >
+          {category.label}
+        </motion.button>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#030B0F] to-[#0A1A24]">
+      <Helmet>
+        <title>Projects | Interactive Portfolio</title>
+      </Helmet>
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">Projects</span>
             </h1>
           </motion.div>
-
-          <motion.img
-            animate={controls}
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405473183_wtmvo4.png"
-            alt="background hero"
-            className="lg:h-[100%] object-cover w-[250px] md:w-[380px] lg:w-[250px] overflow-visible"
-            style={{ transformOrigin: 'center center' }}
-          />
         </div>
       </section>
 
-      <section className="bg-[#030B0F]">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <OpenCards />
-        </motion.div>
+      {/* Filter Section */}
+      <section className="px-4 mb-8">
+        <div className="container mx-auto">
+          <div className="relative">
+            <MobileFilterMenu />
+            <DesktopFilterButtons />
+          </div>
+        </div>
       </section>
 
-      <section className="bg-[#030B0F] content">
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-[#E7E7E7] lg:py-[140px] lg:px-[150px] py-7 px-3"
-        >
-          <div className="container">
-            <h3 className="text-3xl lg:text-6xl max-w-[641px] font-bold mb-2 text-gray-900 pb-10">
+      {/* Projects Grid */}
+      <section className="px-4 pb-24">
+        <div className="container mx-auto">
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+          >
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  whileHover={{ y: -10 }}
+                  className="group"
+                >
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all">
+                    <div className="relative aspect-video overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute bottom-4 left-4 right-4 flex justify-end gap-3">
+                          {project.links.live && (
+                            <a
+                              href={project.links.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 bg-white/20 backdrop-blur rounded-full hover:bg-white/30 transition-colors"
+                            >
+                              <GlobeIcon className="w-5 h-5 text-white" />
+                            </a>
+                          )}
+                          {project.links.github && (
+                            <a
+                              href={project.links.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 bg-white/20 backdrop-blur rounded-full hover:bg-white/30 transition-colors"
+                            >
+                              <GithubIcon className="w-5 h-5 text-white" />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/60 mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/80"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="bg-gradient-to-b from-[#E7E7E7] to-white py-24 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-right">
               מוכנים להתחיל פרויקט ביחד?
-            </h3>
-            <p className="text-lg max-w-[302px] mb-9 font-normal">
-              יש לך פרויקט בראש? כולנו אוזניים כשזה זה מגיע לגלות על מטרות העסק
-              הדיגיטלי שלך. אנחנו נשמח לשמוע ממך.
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 text-right">
+              יש לך פרויקט בראש? נשמח לשמוע עליו ולעזור להפוך אותו למציאות.
             </p>
 
-            <form
-              onSubmit={sendEmail}
-              className="flex lg:flex-row flex-wrap flex-col gap-4"
-            >
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="text"
-                name="name"
-                placeholder="שם מלא"
-                className="lg:w-[280px] bg-transparent border-b border-[#B0B0B0] text-base h-12 p-1 focus:border-[#6FCFED] transition-colors"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="email"
-                name="email"
-                placeholder="email@email.com"
-                className="lg:w-[280px] bg-transparent border-b border-[#B0B0B0] text-base h-12 p-1 focus:border-[#6FCFED] transition-colors"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="text"
-                name="phone"
-                placeholder="טלפון"
-                className="lg:w-[280px] bg-transparent border-b border-[#B0B0B0] text-base h-12 p-1 focus:border-[#6FCFED] transition-colors"
-                value={formData.phone}
-                onChange={handleInputChange}
-              />
-
-              <motion.textarea
-                whileFocus={{ scale: 1.02 }}
-                name="message"
-                className="resize-none lg:w-[50%] bg-transparent border-b border-[#B0B0B0] text-base h-12 p-1 focus:border-[#6FCFED] transition-colors"
-                placeholder="ספרו לנו משהו כל הפרויקט שלכם (אופציונלי)"
-                value={formData.message}
-                onChange={handleInputChange}
-              />
+            <form onSubmit={handleFormSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  { name: "name", placeholder: "שם מלא", type: "text" },
+                  { name: "email", placeholder: "אימייל", type: "email" },
+                  { name: "phone", placeholder: "טלפון", type: "tel" },
+                ].map((field) => (
+                  <motion.div
+                    key={field.name}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          [field.name]: e.target.value,
+                        }))
+                      }
+                      className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl 
+                               focus:ring-2 focus:ring-[#6FCFED] focus:border-transparent transition-all 
+                               outline-none text-right"
+                    />
+                  </motion.div>
+                ))}
+                <div className="md:col-span-2">
+                  <motion.textarea
+                    whileHover={{ scale: 1.02 }}
+                    name="message"
+                    placeholder="ספר/י לנו על הפרויקט שלך"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        message: e.target.value,
+                      }))
+                    }
+                    className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl 
+                             focus:ring-2 focus:ring-[#6FCFED] focus:border-transparent transition-all 
+                             outline-none min-h-[120px] text-right"
+                  />
+                </div>
+              </div>
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="lg:w-[40%] bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded-[10px] p-[1px] text-center z-0"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+                         text-white rounded-xl font-medium flex items-center justify-center gap-2
+                         hover:shadow-lg transition-all duration-300"
               >
-                <span className="flex w-full bg-transparent text-white rounded-[10px] py-[10px] px-[14px] hover:bg-gradient-to-r from-[#41b1d3] to-[#a30f91] hover: items-center justify-center">
-                  שליחת הפרטים
-                </span>
+                <SendIcon className="w-5 h-5" />
+                <span>שליחת הפרטים</span>
               </motion.button>
             </form>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
-     
-      <ScrollUp />
-      <WhatsApp />
-      <Cursor />
-    </motion.div>
+    </div>
   );
 };
 
