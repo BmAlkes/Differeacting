@@ -77,8 +77,8 @@ const HeaderApp: React.FC<HeaderAppProps> = ({
 
       {/* Right Section */}
       <div className="md:flex hidden items-center gap-4">
-        <div className="grid place-items-center bg-gray-100 rounded-full p-2">
-          <DropdownMenu>
+        <div className="grid place-items-center bg-gray-100 rounded-full p-2 ">
+          <DropdownMenu >
             <DropdownMenuTrigger asChild>
               <Avatar className="cursor-pointer">
                 <AvatarImage 
@@ -88,7 +88,7 @@ const HeaderApp: React.FC<HeaderAppProps> = ({
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className='z-50'>
               <Link to="/dashboard/profile">
                 <DropdownMenuLabel className="cursor-pointer">
                   My Account

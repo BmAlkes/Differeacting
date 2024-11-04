@@ -5,7 +5,6 @@ import {
   IFilters,
   IFormData,
   IFinancialTotals,
-  ICategory,
 } from "../../@types";
 
 
@@ -15,7 +14,7 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../../components/ui/sheet";
+
 import { Badge } from "../../components/ui/badge";
 import {
   AlertDialog,
@@ -33,7 +32,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 
 
 // Ícones
-import { Plus, Trash2, Download, Filter } from "lucide-react";
+import { Plus, Trash2, Download } from "lucide-react";
 import api from "../../lib/axios";
 import FinanceStats from "./FinanceStats";
 import TransactionTimelineChart from "./TransactionsTimeLineChart";
@@ -214,7 +213,7 @@ const FinanceControl: React.FC = () => {
           <h1 className="text-3xl font-bold">Financial Control</h1>
           <p className="text-gray-500">Manage your income and expenses</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 z-0">
           <Button onClick={exportToCSV} variant="outline">
             <Download className="mr-2 h-4 w-4" />
             Export
