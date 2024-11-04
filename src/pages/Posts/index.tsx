@@ -33,9 +33,10 @@ const BlogListing = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { data = [] } = useQuery<PostProps[]>({
-    queryKey: ["bloging"],
+    queryKey: ["BlogSistem"],
     queryFn: () => getAllPosts(),
   });
+
 
   const { pathname } = useLocation();
 
@@ -97,7 +98,7 @@ const BlogListing = () => {
       : '';
   };
 
-  return (
+ if(data) return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
