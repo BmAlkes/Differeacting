@@ -52,7 +52,7 @@ const Reccomend = () => {
     setPhone("");
   };
   return (
-    <section className=" h-full " id="contact">
+    <section className=" h-full bg-white " id="contact">
       <img src={vetor2} alt="background vetor" className="w-full h-full" />
       <h2 className="md:text-6xl text-3xl  font-bold mt-12 text-center">
         המלצות עלינו
