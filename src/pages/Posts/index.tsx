@@ -36,7 +36,7 @@ const BlogListing = () => {
     queryKey: ["BlogSistem"],
     queryFn: () => getAllPosts(),
   });
-
+console.log(data)
 
   const { pathname } = useLocation();
 
