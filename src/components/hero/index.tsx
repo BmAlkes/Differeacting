@@ -70,7 +70,7 @@ const Hero = () => {
         />
       ))}
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 flex justify-center items-center mt-48">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
           {/* Text Content */}
           <motion.div
