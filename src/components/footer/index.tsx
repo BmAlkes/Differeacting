@@ -1,7 +1,10 @@
-import { FormEvent, useState } from "react";
-import vetor2 from "../../assets/Frame 1160445221.png";
-import logo from "../../assets/testimo.png";
 
+import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import { CreateLead } from "../../api/LeadApi";
+import { toast } from "react-toastify";
+import { Play, Send, Quote } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -10,201 +13,229 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-import { useMutation } from "@tanstack/react-query";
-import { CreateLead } from "../../api/LeadApi";
-import { toast } from "react-toastify";
+import vetor2 from "../../assets/Frame 1160445221.png";
+
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Ofir Zeitoun",
+    role: "Software Mentor & Freelance",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1710178264/ofir_ev3nqk.jpg",
+    text: "הכרתי את ברונו בתור סטודנט שלי, כבר מההתחלה עפתי עליו, הוא הביא עיצובים מרשימים במהירות שיא והתפתח מאוד מאז. ראיתי את כל העבודות שלו ואהבתי כל אחת, הוא יושב עם הלקוח להבין מה הלקוח צריך ומשם הוא לוקח את זה למקומות מרשימים. ברונו - חרוץ, מקשיב, מגלה הבנה ואמפתיה - מומלץ בחום",
+  },
+  {
+    id: 2,
+    name: "אורן טל",
+    role: "קונווייזור דיגיטל",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1730732359/testimo_jbdebw.png",
+    text: "עדן עבד אצלנו בתחילת הדרך וכבר אז זיהינו בחור שאפתן עם המון כוח רצון ללמוד ולהתקדם, קונוויזור תמיד תהיה הבית הראשון שלך בצעדייך הראשונים בעולם השיווק הדיגיטלי ואנו גאים על כך, בהצלחה במיזם החדש!"
+  },
+  {
+    id: 3,
+    name: "Anastacia Tsarfati",
+    role: "Owner of Safegarden",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1710178263/logo_tswkge.png",
+    text: "ממליצה בחום על ברונו! באתר של SafeGarden חיפשתי מתכנת פרונט שיבין את החזון של האתר ואת הצרכים של המערכת. ברונו עבד בצורה מדויקת ומהירה, שאל את השאלות הנכונות וידע בדיוק מה הצרכים של המערכת. השיתוף פעולה איתו היה קליל ומקצועי והכי חשוב אנושי!"
+  }
+];
 
 const Reccomend = () => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
 
   const { mutate } = useMutation({
     mutationFn: CreateLead,
+    onSuccess: () => {
+      toast.success("ההודעה נשלחה בהצלחה! נחזור אליך בקרוב");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    },
     onError: (error) => {
       toast.error(error.message);
-    },
-    onSuccess: () => {
-   
-     toast.success("Message sent successfully! We will be in touch soon.",);
-    },
+    }
   });
 
-  const sendEmail = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const { name, email, message, phone } = formData;
 
-    if (name === "" || email === "" || message === "" || phone === "") {
-      alert("Fill all the fields");
+    if (!name || !email || !message || !phone) {
+      toast.error("נא למלא את כל השדות");
       return;
     }
-    const formData = {
-      name,
-      email,
-      message,
-      phone,
-    };
 
     mutate(formData);
-    setName("");
-    setEmail("");
-    setMessage("");
-    setPhone("");
   };
+
   return (
-    <section className=" h-full bg-white " id="contact">
-      <img src={vetor2} alt="background vetor" className="w-full h-full" />
-      <h2 className="md:text-6xl text-3xl  font-bold mt-12 text-center">
-        המלצות עלינו
-      </h2>
-      <div>
-        <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -m-4">
-              <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
-                <div className="h-full text-center">
-                  <Dialog>
-                    <DialogTrigger>
-                      <img
-                        alt="testimonial"
-                        className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 hover:scale-125"
-                        src="https://res.cloudinary.com/landingpage2/image/upload/v1710178264/ofir_ev3nqk.jpg"
-                      />
-                    </DialogTrigger>
-                    <DialogContent className=" bg-[#030B0F] text-white">
-                      <DialogHeader>
-                        <DialogTitle className="py-4">
-                          Testimonial video
-                        </DialogTitle>
-                        <DialogDescription>
-                          <iframe
-                            src="https://res.cloudinary.com/landingpage2/video/upload/v1709146699/WhatsApp_Video_2024-02-28_at_10.48.22_ehpjc7.mp4"
-                            className="w-full h-[300px]"
-                          ></iframe>
-                        </DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  </Dialog>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="relative bg-white overflow-hidden"
+      id="contact"
+    >
+      {/* Background Pattern */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none opacity-50"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+        style={{
+          backgroundImage: `url(${vetor2})`,
+          backgroundSize: "cover"
+        }}
+      />
 
-                  <p className="leading-relaxed">
-                    הכרתי את ברונו בתור סטודנט שלי, כבר מההתחלה עפתי עליו, הוא
-                    הביא עיצובים מרשימים במהירות שיא והתפתח מאוד מאז. ראיתי את
-                    כל העבודות שלו ואהבתי כל אחת, הוא יושב עם הלקוח להבין מה
-                    הלקוח צריך ומשם הוא לוקח את זה למקומות מרשימים. ברונו -
-                    חרוץ, מקשיב, מגלה הבנה ואמפתיה - מומלץ בחום
-                  </p>
-                  <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
-                    Ofir Zeitoun
-                  </h2>
-                  <p className="text-gray-500">Software Mentor & Freelance</p>
-                </div>
-              </div>
+      {/* Testimonials Section */}
+      <div className="relative container mx-auto px-4 py-24">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-bold text-center mb-16"
+        >
+          המלצות עלינו
+        </motion.h2>
 
-              <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
-                <div className="h-full text-center">
-                  <img
-                    alt="testimonial"
-                    className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 hover:scale-125"
-                    src={logo}
-                  />
-                  <p className="leading-relaxed">
-                    עדן עבד אצלנו בתחילת הדרך וכבר אז זיהינו בחור שאפתן עם המון
-                    כוח רצון ללמוד ולהתקדם, קונוויזור תמיד תהיה הבית הראשון שלך
-                    בצעדייך הראשונים בעולם השיווק הדיגיטלי ואנו גאים על כך,
-                    בהצלחה במיזם החדש!
-                  </p>
-                  <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
-                    אורן טל
-                  </h2>
-                  <p className="text-gray-500">קונווייזור דיגיטל</p>
-                </div>
-              </div>
-
-              <div className="lg:w-1/3 lg:mb-0 p-4">
-                <div className="h-full text-center">
-                  <img
-                    alt="testimonial of a client"
-                    className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 hover:scale-125"
-                    src="https://res.cloudinary.com/landingpage2/image/upload/v1710178263/logo_tswkge.png"
-                  />
-                  <p className="leading-relaxed">
-                    ממליצה בחום על ברונו! באתר של SafeGarden חיפשתי מתכנת פרונט
-                    שיבין את החזון של האתר ואת הצרכים של המערכת. ברונו עבד בצורה
-                    מדויקת ומהירה, שאל את השאלות הנכונות וידע בדיוק מה הצרכים של
-                    המערכת. השיתוף פעולה איתו היה קליל ומקצועי והכי חשוב אנושי!
-                  </p>
-                  <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                  <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
-                    Anastacia Tsarfati
-                  </h2>
-                  <p className="text-gray-500"> Owner of Safegarden </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className="bg-[#E7E7E7] lg:py-[140px] lg:px-[150px] py-7 px-3">
-          <div className="container ">
-            <h3 className="text-3xl lg:text-6xl max-w-[641px] font-bold  mb-2 text-gray-900 pb-10">
-              מוכנים להתחיל פרויקט ביחד?
-            </h3>
-            <p className="text-lg max-w-[302px] mb-9 font-normal ">
-              יש לך פרויקט בראש? כולנו אוזניים כשזה זה מגיע לגלות על מטרות העסק
-              הדיגיטלי שלך. אנחנו נשמח לשמוע ממך.
-            </p>
-
-            <form
-              onSubmit={sendEmail}
-              className="flex lg:flex-row flex-wrap flex-col  gap-4"
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative"
             >
-              <input
-                type="text"
-                placeholder="שם מלא"
-                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="email@email.com"
-                id="footer-field"
-                name="footer-field"
-                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="טלפון"
-                className=" lg:w-[280px] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
+              <div className="bg-white rounded-xl shadow-lg p-8 relative z-10">
+                <Quote className="w-10 h-10 text-[#6FCFED] absolute -top-5 right-5" />
+                
+             
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-28 h-30 rounded-full mx-auto mb-6 object-cover"
+                  />
+                
 
-              <textarea
-                className="resize-none lg:w-[50%] bg-transparent  border-b border-[#B0B0B0] text-base h-12 p-1 "
-                placeholder="ספרו לנו משהו כל הפרויקט שלכם (אופציונלי)"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
+                <p className="text-gray-600 mb-6 line-clamp-6 text-right">
+                  {testimonial.text}
+                </p>
 
-              <button
-                type="submit"
-                className=" lg:w-[40%] bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded-[10px] p-[1px] text-center z-0 "
+                <div className="text-center">
+                  <div className="h-1 w-10 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] mx-auto mb-4" />
+                  <h3 className="font-bold text-gray-900">{testimonial.name}</h3>
+                  <p className="text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Contact Form Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="bg-[#E7E7E7] py-20"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl lg:text-6xl font-bold text-gray-900 mb-6 text-right">
+                מוכנים להתחיל פרויקט ביחד?
+              </h3>
+              <p className="text-lg text-gray-600 mb-12 text-right">
+                יש לך פרויקט בראש? כולנו אוזניים כשזה מגיע לגלות על מטרות העסק הדיגיטלי שלך.
+              </p>
+            </motion.div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="relative"
+                >
+                  <input
+                    type="text"
+                    placeholder="שם מלא"
+                    value={formData.name}
+                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                    className="w-full px-4 py-3 bg-transparent border-b border-gray-400 focus:border-[#6FCFED] 
+                             transition-colors outline-none text-right"
+                  />
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="relative"
+                >
+                  <input
+                    type="email"
+                    placeholder="email@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                    className="w-full px-4 py-3 bg-transparent border-b border-gray-400 focus:border-[#6FCFED] 
+                             transition-colors outline-none text-right"
+                  />
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="relative"
+                >
+                  <input
+                    type="tel"
+                    placeholder="טלפון"
+                    value={formData.phone}
+                    onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                    className="w-full px-4 py-3 bg-transparent border-b border-gray-400 focus:border-[#6FCFED] 
+                             transition-colors outline-none text-right"
+                  />
+                </motion.div>
+              </div>
+
+              <motion.div
+                whileHover={{ y: -2 }}
+                className="relative"
               >
-                <span className="flex w-full bg-transparent  text-white rounded-[10px] py-[10px] px-[14px] hover:bg-gradient-to-r from-[#41b1d3] to-[#a30f91] hover: items-center justify-center">
-                  שליחת הפרטים
-                </span>
-              </button>
+                <textarea
+                  placeholder="ספרו לנו משהו על הפרויקט שלכם"
+                  value={formData.message}
+                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                  className="w-full px-4 py-3 bg-transparent border-b border-gray-400 focus:border-[#6FCFED] 
+                           transition-colors outline-none text-right resize-none min-h-[100px]"
+                />
+              </motion.div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+                         text-white rounded-xl font-medium flex items-center justify-center gap-2
+                         hover:shadow-lg transition-all duration-300"
+              >
+                <Send className="w-5 h-5" />
+                <span>שליחת הפרטים</span>
+              </motion.button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default Reccomend;
+export default Reccomend

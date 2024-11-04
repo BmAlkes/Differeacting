@@ -1,164 +1,175 @@
+
 import { Link } from "react-router-dom";
-import Secimg from "../../assets/svg/pictureSec.svg";
+import { motion } from "framer-motion";
+import { 
+  Palette, 
+  Code, 
+  Search, 
+  Server,
+  ArrowRight,
+
+} from "lucide-react";
 import web from "../../assets/svg/web.svg";
 import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
-import server from "../../assets/svg/server.svg";
+import server from "../../assets/svg/server.svg"
+import Secimg from "../../assets/svg/pictureSec.svg";
 import vetor from "../../assets/svg/Vector 18.svg";
 
-// npm run dev
-
 const About = () => {
-  return (
-    <>
-      <section className=" lg:pt-5  h-full bg-[#030B0F] relative py-24 lg:py-0  ">
-        <div className="container h-full mx-auto py-20 flex lg:flex-row-reverse flex-col-reverse items-center lg:justify-between justify-center z-10">
-          <img
-            src={Secimg}
-            alt="image with pc and clouds for tecnologie"
-            className="w-full max-w-[554px] h-full md:w-[330px] lg:w-[554px]"
-          />
+  const services = [
+    {
+      icon: <Palette className="w-8 h-8" />,
+      image: graphic,
+      title: "עיצוב גרפי",
+      description: `מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות המותאמות לזהות המותג שלך ולקהל היעד. אנו משלבים עקרונות עיצוב מודרניים עם מחקר משתמשים מעמיק כדי ליצור ממשקים אינטואיטיביים ומושכים.`,
+      link: "/design",
+      gradient: "from-[#6FCFED] to-purple-500"
+    },
+    {
+      icon: <Code className="w-8 h-8" />,
+      image: web,
+      title: "פיתוח ותכנות",
+      description: `מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים אישית לצרכי העסק שלך, תוך שימוש בטכנולוגיות החדישות ביותר.`,
+      link: "/development",
+      gradient: "from-blue-500 to-[#C96CBE]"
+    },
+    {
+      icon: <Search className="w-8 h-8" />,
+      image: digital,
+      title: "SEO",
+      description: `מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית.`,
+      link: "/digital",
+      gradient: "from-[#6FCFED] to-green-500"
+    },
+    {
+      icon: <Server className="w-8 h-8" />,
+      image: server,
+      title: "אחסון והקצאת שרתים",
+      description: `מחלקת האחסון והתחזוקה שלנו מספקת פתרונות מקיפים להבטחת הביצועים, האבטחה והיציבות של האתר שלך.`,
+      link: "/server",
+      gradient: "from-orange-500 to-[#C96CBE]"
+    }
+  ];
 
-          <div
-            className="text-[#F4F4F4] max-w-[500px] flex flex-col lg:justify-end justify-center items-center lg:items-start"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
-            <h2 className="lg:text-6xl md:text-3xl text-xl font-semibold text-center lg:text-right">
-              הבית של האיכות והחדשנות בעיצוב ופיתוח
-            </h2>
-            <p className="text-base  my-5  text-justify ">
-              צריכים פתרון React מקצועי שיניע את העסק שלכם קדימה?{" "}
-              <span className="text-[#6fcfed]">Differeacting</span> מביאה איתה
-              חדשנות, מומחיות וניסיון עשיר בפיתוח אפליקציות React מתקדמות.
-              המערכות שלנו לא רק נראות מעולה - הן גם מודולריות ומותאמות בדיוק
-              לצרכים שלכם. בואו נהפוך את החזון הדיגיטלי שלכם למציאות מרשימה. צרו
-              איתנו קשר עוד היום ותגלו איך הפתרונות המותאמים אישית שלנו יכולים
-              להעצים את הנוכחות הדיגיטלית של העסק שלכם.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="w-full py- h-full bg-[#030B0F] text-[#D1D1D1] flex flex-col justify-center items-center relative">
-        <img
-          src={vetor}
-          alt="backgroun"
-          className="absolute right-0  rotate-180  overflow-visible z-10 "
+  return (
+    <div className="bg-[#030B0F] overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-24">
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          animate={{
+            background: [
+              "radial-gradient(circle at 0% 0%, #6FCFED 0%, transparent 50%)",
+              "radial-gradient(circle at 100% 100%, #C96CBE 0%, transparent 50%)",
+              "radial-gradient(circle at 0% 100%, #6FCFED 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
         />
 
-        <div className="container flex flex-col justify-center items-center lg:mt-">
-          <h2 className="text-6xl font-semibold">השירותים שלנו</h2>
-          <p className="max-w-[869px] text-center py-7">
-            ברוכים הבאים למחלקות העיצוב, הפיתוח, השיווק והשרתים שלנו. המקום שבו
-            כל הפתרונות הדיגיטליים נמצאים תחת קורת גג אחת! בחרו עיצוב גרפי
-            מרהיב, התקדמו לפיתוח אתרי אינטרנט מתקדמים ושווקו את האתר לקבלת לידים
-            איכותיים ואל תשכחו לאחסן את האתר במקום בטוח! הכל כאן, במקום אחד -
-            התחילו את המסע שלכם אל ההצלחה הדיגיטלית עכשיו!
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 container gap-8 mt-20 mb-14 lg:mb-0  z-50">
-          <div className="flex flex-col min-w-[315px]   justify-between py-6  px-4 rounded-lg show ">
-            <img src={graphic} alt="web icon" className="w-[60px]" />
-            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-              עיצוב גרפי
-            </h3>
-            <p className="text-lg font-normel text-[#888888] my-5 text-justify">
-              מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות
-              המותאמות לזהות המותג שלך ולקהל היעד. אנו משלבים עקרונות עיצוב
-              מודרניים עם מחקר משתמשים מעמיק כדי ליצור ממשקים אינטואיטיביים
-              ומושכים. שימוש בכלים מתקדמים כמו Adobe Creative Suite ו-Figma
-              מאפשר לנו לפתח עיצובים רספונסיביים המבטיחים חוויה עקבית בכל
-              המכשירים. העיצוב המדויק והמקצועי שלנו לא רק משפר את האסתטיקה של
-              האתר, אלא גם מגדיל את זמן השהייה של המשתמשים, מעלה את שיעורי ההמרה
-              ומחזק את הנוכחות הדיגיטלית של העסק שלך.
-            </p>
-            <div className="hiddenShow">
-              <Link to="/design">
-                <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px]  text-white font-semibold rounded p-[1px] md:block  mr-auto">
-                  <span className=" w-full bg-[#030B0F] text-white rounded-xl py-[8px] px-[8px]  flex ">
-                    עמוד שירות
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex flex-col min-w-[315px]  justify-between py-6 px-4 rounded-lg show">
-            <img src={web} alt="web icon" className="w-[60px]" />
-            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-              פיתוח ותכנות
-            </h3>
-            <p className="text-lg font-normel text-[#888888] my-5 text-justify">
-              מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים
-              אישית לצרכי העסק שלך, תוך שימוש בטכנולוגיות החדישות ביותר. אנו
-              מיישמים פתרונות מבוססי React, Next.js ו-JavaScript, המאפשרים יצירת
-              ממשקי משתמש דינמיים וביצועים מהירים. התמחותנו בפיתוח Full-stack
-              מבטיחה אינטגרציה חלקה בין צד הלקוח לשרת, מה שמוביל לחווית משתמש
-              אופטימלית ולהגדלת שיעורי ההמרה. עם הפתרונות שלנו, תוכל להאיץ את
-              צמיחת העסק שלך ולהגדיל את המכירות באמצעות פלטפורמה דיגיטלית חזקה
-              ויעילה.
-            </p>
-            <div className="hiddenShow">
-              <Link to="/development">
-                <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px]  text-white font-semibold rounded p-[1px] md:block  mr-auto">
-                  <span className=" w-full bg-[#030B0F] text-white rounded-xl py-[8px] px-[8px]  flex ">
-                    עמוד שירות
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className=" flex flex-col min-w-[315px]   justify-between py-6 px-4 rounded-lg show ">
-            <img src={digital} alt="web icon" className="w-[60px]" />
-            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">SEO</h3>
-            <p className="text-lg font-normel text-[#888888] my-5  text-justify">
-              מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות
-              את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית. אנו
-              משתמשים בכלי ניתוח מתקדמים כמו Google Analytics ו-SEMrush לביצוע
-              מחקרי מילות מפתח מעמיקים ולמעקב אחר ביצועי האתר. התמחותנו כוללת
-              אופטימיזציה טכנית, בניית קישורים איכותיים ויצירת תוכן ממוקד-ערך.
-              אנו מתמקדים בשיפור מדדים חיוניים כמו דירוג בעמוד התוצאות, זמן
-              טעינה וחווית משתמש, מה שמוביל להגדלת התנועה האורגנית, שיפור באחוזי
-              .ההמרה והעלאת הסמכות של האתר בתחומו
-            </p>
-            <div className="hiddenShow">
-              <Link to="/digital">
-                <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px]  text-white font-semibold rounded p-[1px] md:block  mr-auto">
-                  <span className=" w-full bg-[#030B0F] text-white rounded-xl py-[8px] px-[8px]  flex ">
-                    עמוד שירות
-                  </span>
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex flex-col min-w-[315px]   justify-between py-6 px-4 rounded-lg show">
-            <img src={server} alt="web icon" className="w-[60px]" />
-            <h3 className="font-light text-[#F4F4F4] text-2xl my-4">
-              אחסון והקצאת שרתים
-            </h3>
-            <p className="text-lg font-normel text-[#888888] my-5 text-justify">
-              מחלקת האחסון והתחזוקה שלנו מספקת פתרונות מקיפים להבטחת הביצועים,
-              האבטחה והיציבות של האתר שלך. אנו משתמשים בשרתים מתקדמים
-              ובטכנולוגיות ענן כמו AWS או Google Cloud, המבטיחים זמני טעינה
-              מהירים וזמינות גבוהה. מערכות האבטחה שלנו כוללות SSL מתקדם, הגנה
-              מפני DDoS ומעקב אבטחה 24/7. אנו מבצעים גיבויים אוטומטיים ועדכוני
-              תוכנה שוטפים, ומספקים ניטור ביצועים מתמיד. שירותי התחזוקה שלנו
-              מבטיחים שהאתר שלך תמיד יהיה מעודכן, מאובטח ומוכן לספק את החוויה
-              הטובה ביותר ללקוחותיך, מה שמוביל לשיפור בשיעורי ההמרה ולהגדלת
-              האמון של הלקוחות במותג שלך.
-            </p>
-            <div className="hiddenShow">
-              <Link to="server">
-                <button className=" button bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] py-[2px] px-[2px]  text-white font-semibold rounded p-[1px] md:block  mr-auto">
-                  <span className=" w-full bg-[#030B0F] text-white rounded-xl py-[8px] px-[8px]  flex ">
-                    עמוד שירות
-                  </span>
-                </button>
-              </Link>
-            </div>
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-right order-2 lg:order-1"
+            >
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+                הבית של האיכות והחדשנות בעיצוב ופיתוח
+              </h2>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                צריכים פתרון React מקצועי שיניע את העסק שלכם קדימה?{" "}
+                <span className="text-[#6fcfed]">Differeacting</span> מביאה איתה
+                חדשנות, מומחיות וניסיון עשיר בפיתוח אפליקציות React מתקדמות.
+              </p>
+            
+            </motion.div>
+
+            <motion.div
+              className="relative order-1 lg:order-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-tr from-[#6FCFED]/20 to-[#C96CBE]/20 rounded-3xl blur-3xl"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <img
+                src={Secimg}
+                alt="Technology Illustration"
+                className="relative w-full max-w-[554px] mx-auto"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
-    </>
+
+      {/* Services Section */}
+      <section className="py-24 relative">
+
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              השירותים שלנו
+            </h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              המקום שבו כל הפתרונות הדיגיטליים נמצאים תחת קורת גג אחת!
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative group"
+              >
+                <div className="bg-white/5 min-h-72 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
+                            hover:border-white/20 transition-all">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${service.gradient}`}>
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-gray-400 mb-8">
+                    {service.description}
+                  </p>
+
+                  <Link to={service.link}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-[#6FCFED] hover:text-white transition-colors"
+                    >
+                      <span>עמוד שירות</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
