@@ -304,7 +304,7 @@ const Contact = () => {
               </div>
               
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social, _) => (
                   <motion.a
                     key={social.name}
                     href={social.href}
