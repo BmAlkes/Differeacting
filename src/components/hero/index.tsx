@@ -124,14 +124,19 @@ const Hero = () => {
             />
             
             <motion.img
-              src="https://res.cloudinary.com/landingpage2/image/upload/v1728146674/creative-light-bulb_zxukub.png"
-              alt="Creative Light Bulb"
-              className="relative w-full h-auto max-w-[600px] mx-auto"
+             src="https://res.cloudinary.com/landingpage2/image/upload/v1728219880/creative-light-bulb_golihk.png"
+             
+             sizes="(max-width: 600px) 100vw, 600px"
+             alt="Lâmpada Criativa"
+             className="relative w-full h-auto max-w-[600px] mx-auto loaded-image"
+             loading="eager"
+             decoding="async"
               animate={{
                 y: [0, -20, 0],
                 rotate: [-2, 2, -2]
               }}
               transition={{
+          
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut"
