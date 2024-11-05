@@ -44,15 +44,17 @@
       media="print"
       onload="this.media='all'"
     />
-    <link 
-  rel="preload" 
-  as="image" 
-  href="https://res.cloudinary.com/landingpage2/image/upload/f_auto,q_auto,w_600/v1728219880/creative-light-bulb_golihk.png"
-  crossorigin
->
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/landingpage2/image/upload/f_auto,q_auto,w_600/v1728219880/creative-light-bulb_golihk.png"
+      crossorigin
+    />
 
-<!-- Preconnect para o Cloudinary -->
-<link rel="preconnect" href="https://res.cloudinary.com">
+    <!-- Preconnect para o Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
     <div id="root"></div>
@@ -107,6 +109,13 @@
         coreCall.setAttribute("data-cfasync", true);
         body ? body.appendChild(coreCall) : head.appendChild(coreCall);
       })(document, document.head, document.body);
+    </script>
+    <script>
+      document.documentElement.classList.add('js-loading');
+      window.addEventListener('load', () => {
+        document.documentElement.classList.remove('js-loading');
+        document.documentElement.classList.add('js-loaded');
+      });
     </script>
   </body>
 </html>
