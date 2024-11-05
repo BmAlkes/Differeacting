@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Noto Sans Hebrew';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('/fonts/NotoSansHebrew-Variable.woff2') format('woff2');
-  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
