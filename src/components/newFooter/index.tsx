@@ -109,7 +109,7 @@ const NewFooter = () => {
             >
               <Link to="/" className="block">
               <img 
-  src="https://res.cloudinary.com/landingpage2/image/upload/f_auto,q_auto,h_48,c_limit/v1715794760/Logo_Hori.png"
+  src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
   alt="Differeacting Logo"
   className="h-12 w-auto"
   width="auto"
