@@ -108,11 +108,14 @@ const NewFooter = () => {
               className="space-y-4"
             >
               <Link to="/" className="block">
-                <img
-                  src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
-                  alt="Differeacting Logo"
-                  className="h-12 w-auto"
-                />
+              <img 
+  src="https://res.cloudinary.com/landingpage2/image/upload/f_auto,q_auto,h_48,c_limit/v1715794760/Logo_Hori.png"
+  alt="Differeacting Logo"
+  className="h-12 w-auto"
+  width="auto"
+  height="48"
+  loading="eager"
+/>
               </Link>
               
               <div className="flex gap-3">

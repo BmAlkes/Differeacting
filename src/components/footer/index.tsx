@@ -114,6 +114,9 @@ const Reccomend = () => {
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-28 h-30 rounded-full mx-auto mb-6 object-cover"
+                    width="112"
+                    height="120"
+                    loading="lazy"
                   />
                 
 
