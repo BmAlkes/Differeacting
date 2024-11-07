@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import {  Sparkles } from "lucide-react";
+
 
 const Hero = () => {
   const [_direction, setDirection] = useState(document.body.dir);
@@ -33,7 +33,7 @@ const Hero = () => {
     <section className="relative min-h-screen bg-[#030B0F] flex justify-end items-center overflow-hidden">
       {/* Background Gradient */}
       <motion.div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-20 "
         animate={{
           background: [
             "radial-gradient(circle at 0% 0%, #6FCFED 0%, transparent 50%)",
@@ -105,7 +105,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             style={{ y }}
-            className="relative"
+            className="relative z-50"
           >
           
             
