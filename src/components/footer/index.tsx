@@ -96,17 +96,10 @@ const Reccomend = () => {
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
-            >
-              <div className="bg-white rounded-xl shadow-lg p-8 relative z-10">
-                <Quote className="w-10 h-10 text-[#6FCFED] absolute -top-5 right-5" />
+          {testimonials.map((testimonial, _index) => (
+        
+              <div className="bg-white rounded-xl shadow-2xl p-8 relative z-10">
+                <Quote className="w-6 h-6 text-[#587fba] absolute -top-5 right-5" />
                 
              
                   <motion.img
@@ -130,7 +123,6 @@ const Reccomend = () => {
                   <p className="text-gray-500">{testimonial.role}</p>
                 </div>
               </div>
-            </motion.div>
           ))}
         </div>
       </div>

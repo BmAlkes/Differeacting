@@ -121,7 +121,7 @@ const AboutPage = () => {
                 transition={{ type: "spring", stiffness: 300 }}
                 src="https://res.cloudinary.com/landingpage2/image/upload/v1721405572/Remove-bg.ai_1721405515178_ggbi3j.png"
                 alt="About Us"
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-auto rounded-2xl "
               />
             </motion.div>
           </div>

@@ -83,14 +83,7 @@ const Hero = () => {
               style={{ opacity }}
               className="relative inline-block"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-8 -right-8 text-[#6FCFED]"
-              >
-                <Sparkles className="w-12 h-12" />
-              </motion.div>
-              <h1 className="text-white font-bold text-5xl md:text-7xl lg:text-[100px] [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
+             <h1 className="text-white font-bold text-5xl md:text-7xl lg:text-[100px] [text-shadow:_0_15px_0px_rgb(0_0_0_/_90%)]">
                 Differeacting
               </h1>
             </motion.div>
@@ -114,14 +107,7 @@ const Hero = () => {
             style={{ y }}
             className="relative"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-tr from-[#6FCFED]/20 to-[#C96CBE]/20 rounded-3xl blur-3xl"
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.8, 0.5]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
+          
             
             <motion.img
              src="https://res.cloudinary.com/landingpage2/image/upload/v1728219880/creative-light-bulb_golihk.png"
