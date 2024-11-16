@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { keepPreviousData, useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { 
   Plus, 
   MoreVertical, 
@@ -12,10 +12,11 @@ import {
   Users,
   Calendar 
 } from "lucide-react";
-import { getProjects } from "../../api/ProjectAPI";
+import { getProjects, deleteProject } from "../../api/ProjectAPI";
 import { useAuth } from "../../hooks/useAuth";
 import { isManager } from "../../utils/policies";
 import { useGlobalSearchStore } from "../../store/store";
+import { toast } from "react-toastify";
 
 import {
   Card,
@@ -33,14 +34,16 @@ import {
 } from "../../components/ui/dropdown-menu";
 import { Badge } from "../../components/ui/badge";
 import {
-  Pagination,
-  PaginationContent,
- 
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "../../components/ui/pagination";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "../../components/ui/alert-dialog";
+import { Input } from "../../components/ui/input";
 
 interface Project {
   _id: string;
@@ -50,7 +53,6 @@ interface Project {
   tasks: string[];
   createdAt: string;
   updatedAt: string;
-  __v: number;
   manager?: string;
   active: boolean;
 }
@@ -58,14 +60,19 @@ interface Project {
 interface ProjectsResponse {
   totalPages: number;
   projects: Project[];
+  currentPage: number;
+  totalItems: number;
 }
 
-const ProjectCard = ({ project, user, onDelete }: { 
+const ProjectCard = ({ 
+  project, 
+  user, 
+  onDelete 
+}: { 
   project: Project; 
   user: any;
   onDelete: (id: string) => void;
 }) => {
-  const navigate = useNavigate();
   const isProjectManager = isManager(project.manager!, user._id);
 
   return (
@@ -83,9 +90,7 @@ const ProjectCard = ({ project, user, onDelete }: {
               </Badge>
             )}
             {!project.active && (
-              <Badge variant="destructive">
-                Inactive
-              </Badge>
+              <Badge variant="destructive">Inactive</Badge>
             )}
           </div>
           <CardTitle className="text-xl font-bold hover:text-purple-600 transition-colors">
@@ -104,19 +109,25 @@ const ProjectCard = ({ project, user, onDelete }: {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => navigate(`/dashboard/projects/${project._id}`)}>
-              <Eye className="mr-2 h-4 w-4" /> View Details
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => navigate(`/dashboard/projects/${project._id}/edit`)}>
-              <Edit2 className="mr-2 h-4 w-4" /> Edit Project
+            <DropdownMenuItem asChild>
+              <Link to={`/dashboard/projects/${project._id}`}>
+                <Eye className="mr-2 h-4 w-4" /> View Details
+              </Link>
             </DropdownMenuItem>
             {isProjectManager && (
-              <DropdownMenuItem 
-                className="text-red-600"
-                onClick={() => onDelete(project._id)}
-              >
-                <Trash2 className="mr-2 h-4 w-4" /> Delete Project
-              </DropdownMenuItem>
+              <>
+                <DropdownMenuItem asChild>
+                  <Link to={`/dashboard/projects/${project._id}/edit`}>
+                    <Edit2 className="mr-2 h-4 w-4" /> Edit Project
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => onDelete(project._id)}
+                  className="text-red-600 cursor-pointer"
+                >
+                  <Trash2 className="mr-2 h-4 w-4" /> Delete Project
+                </DropdownMenuItem>
+              </>
             )}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -142,32 +153,56 @@ const ProjectCard = ({ project, user, onDelete }: {
 
 const ProjectView = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const [projectToDelete, setProjectToDelete] = useState<string | null>(null);
+  const [password, setPassword] = useState("");
+  
   const itemsPerPage = 6;
+  const queryClient = useQueryClient();
   const { value } = useGlobalSearchStore();
   const { data: user, isLoading: authLoading } = useAuth();
-  const navigate = useNavigate();
 
-  const { data: projectsData, isLoading } = useQuery<ProjectsResponse>({
-    queryKey: ["projects", currentPage, itemsPerPage],
+  const { data: projectsData, isLoading: projectsLoading } = useQuery<ProjectsResponse>({
+    queryKey: ["projects", currentPage],
     queryFn: () => getProjects(currentPage, itemsPerPage),
     placeholderData: keepPreviousData,
   });
 
-  useEffect(() => {
-    if (projectsData) {
-      setTotalPages(projectsData.totalPages);
+  const deleteMutation = useMutation({
+    mutationFn: (data: { projectId: string; password: string }) => 
+      deleteProject(data.projectId, data.password),
+    onSuccess: async () => {
+      toast.success("Project deleted successfully");
+      setProjectToDelete(null);
+      setPassword("");
+      await queryClient.invalidateQueries({ queryKey: ["projects"] });
+      
+      if (projectsData?.projects.length === 1 && currentPage > 1) {
+        setCurrentPage(prev => prev - 1);
+      }
+    },
+    onError: (error: any) => {
+      toast.error(error.message || "Failed to delete project");
+      setPassword("");
+    },
+  });
+
+  const handleDelete = (id: string) => setProjectToDelete(id);
+
+  const handleConfirmDelete = () => {
+    if (projectToDelete && password) {
+      deleteMutation.mutate({ projectId: projectToDelete, password });
     }
-  }, [projectsData]);
+  };
 
-  const filteredProjects = projectsData?.projects?.filter(
-    (project) => 
-      value.toLowerCase() === "" || 
-      project.clientName.toLowerCase().includes(value.toLowerCase()) ||
-      project.projectName.toLowerCase().includes(value.toLowerCase())
-  );
+  const filteredProjects = projectsData?.projects.filter(project => 
+    value === "" ||
+    project.projectName.toLowerCase().includes(value.toLowerCase()) ||
+    project.clientName.toLowerCase().includes(value.toLowerCase())
+  ) || [];
 
-  if (isLoading || authLoading) {
+  const totalPages = projectsData?.totalPages || 1;
+
+  if (projectsLoading || authLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="flex flex-col items-center gap-4">
@@ -195,7 +230,7 @@ const ProjectView = () => {
         </Button>
       </div>
 
-      {filteredProjects?.length ? (
+      {filteredProjects.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {filteredProjects.map((project) => (
@@ -203,42 +238,43 @@ const ProjectView = () => {
                 key={project._id}
                 project={project}
                 user={user}
-                onDelete={(id) => navigate(`${location.pathname}?deleteProject=${id}`)}
+                onDelete={handleDelete}
               />
             ))}
           </div>
 
-          <Pagination className="mt-8">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious 
-                  href="#" 
-                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                  isActive={currentPage !== 1}
-                />
-              </PaginationItem>
-              
-              {[...Array(totalPages)].map((_, index) => (
-                <PaginationItem key={index}>
-                  <PaginationLink
-                    href="#"
-                    onClick={() => setCurrentPage(index + 1)}
-                    isActive={currentPage === index + 1}
-                  >
-                    {index + 1}
-                  </PaginationLink>
-                </PaginationItem>
+          {totalPages > 1 && (
+            <div className="flex justify-center gap-2 mt-8">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </Button>
+
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <Button
+                  key={index}
+                  variant={currentPage === index + 1 ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setCurrentPage(index + 1)}
+                >
+                  {index + 1}
+                </Button>
               ))}
 
-              <PaginationItem>
-                <PaginationNext 
-                  href="#" 
-                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                  isActive={currentPage !== totalPages}
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </Button>
+            </div>
+          )}
         </>
       ) : (
         <Card className="text-center p-12">
@@ -246,7 +282,7 @@ const ProjectView = () => {
             <FolderOpen className="h-12 w-12 text-gray-400" />
             <h3 className="text-lg font-semibold">No Projects Found</h3>
             <p className="text-gray-500">
-              Get started by creating your first project
+              {value ? "No projects match your search" : "Get started by creating your first project"}
             </p>
             <Button className="mt-4 bg-purple-500 hover:bg-purple-600" asChild>
               <Link to="/dashboard/projects/create">
@@ -257,6 +293,58 @@ const ProjectView = () => {
           </div>
         </Card>
       )}
+
+      <AlertDialog
+        open={!!projectToDelete}
+        onOpenChange={(open) => {
+          if (!open && !deleteMutation.isPending) {
+            setProjectToDelete(null);
+            setPassword("");
+          }
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Project</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. Please enter your password to confirm deletion.
+            </AlertDialogDescription>
+            <div className="mt-4">
+              <Input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && password && !deleteMutation.isPending) {
+                    handleConfirmDelete();
+                  }
+                }}
+                disabled={deleteMutation.isPending}
+              />
+            </div>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={deleteMutation.isPending}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleConfirmDelete}
+              className="bg-red-500 hover:bg-red-600"
+              disabled={!password || deleteMutation.isPending}
+            >
+              {deleteMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Deleting...
+                </>
+              ) : (
+                "Delete Project"
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

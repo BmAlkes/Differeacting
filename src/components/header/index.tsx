@@ -14,11 +14,9 @@ import {
 } from "../ui/sheet";
 import { useState } from "react";
 import { PhoneCallIcon } from "lucide-react";
-import { MdOutlineEmail } from "react-icons/md";
+
 import { FaWhatsapp } from "react-icons/fa";
 
-// import i18n from "../../i18n";
-// import { t } from "i18next";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -26,28 +24,14 @@ const Header = () => {
     setOpen(!open);
   };
   const [direction] = useState(document.body.dir);
-  // useEffect(() => {
-  //   const observer = new MutationObserver((mutationsList) => {
-  //     if (mutationsList.some((mutation) => mutation.attributeName === "dir")) {
-  //       setDirection(document.body.dir);
-  //     }
-  //   });
-  //   observer.observe(document.body, {
-  //     attributes: true,
-  //   });
-  //   return () => observer.disconnect();
-  // }, []);
-
-  // const languageOptions = [
-  //   { name: "English", value: "en", flag: 'https://res.cloudinary.com/landingpage2/image/upload/v1725380826/download_2_anzyjl.png' },
-  //   { name: "Hebrew", value: "he", flag: 'https://res.cloudinary.com/landingpage2/image/upload/v1725380826/download_1_sxeclb.png' },
-  // ];
+ 
   return (
     <header className="bg-[#030B0F]  fixed top-0 w-full z-[100]">
       <nav className=" nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
         <div className="">
           <Link to="/" aria-label="logo website">
             <img src={logo} alt="web site logo" className="w-[191px]" />
+
           </Link>
         </div>
         <div className=" bg-[#030B0F] left-0 lg:w-auto hidden w-full lg:flex items-center ">
@@ -62,11 +46,7 @@ const Header = () => {
                 מי אנחנו
               </Link>
             </li>
-            {/* <li className="nav relative">
-              <Link to="/service" aria-label="about page">
-                שירותים שלנו
-              </Link>
-            </li> */}
+            
 
             <li className="nav relative">
               <Link to="/projects" aria-label="projects page">
@@ -100,7 +80,7 @@ const Header = () => {
           ))} */}
         </div>
         <a
-          href="tel:0545899899"
+          href="tel:0549547355"
           className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded p-[1px] hidden md:block "
         >
           <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
@@ -114,7 +94,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent
               side={"right"}
-              className="bg-[#030B0F] text-white border-l border-[#030b0f] p-6 z-[60]"
+              className="bg-[#030B0F] text-white border-l border-[#030b0f] p-6 z-[1000]"
             >
               <SheetHeader>
                 <SheetTitle className="absolute left-5">
@@ -201,20 +181,13 @@ const Header = () => {
                   </li>
                   <li>
                     <a
-                      href="https://api.whatsapp.com/send?phone=9720545899899&text=I%20want%20to%20talk%20about%20a%20project"
+                      href="https://api.whatsapp.com/send?phone=9720549547355&text=I%20want%20to%20talk%20about%20a%20project"
                       aria-label="whats app"
                     >
                       <FaWhatsapp size={28} color="#fff" />
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="mailto:eden@eden-digital.co.il"
-                      aria-label="email to contact"
-                    >
-                      <MdOutlineEmail size={28} color="#fff" />
-                    </a>
-                  </li>
+                  
                 </ul>
               </SheetFooter>
             </SheetContent>

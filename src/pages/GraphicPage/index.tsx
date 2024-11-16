@@ -2,7 +2,7 @@ import  { useState, useEffect } from "react";
 import bg from "../../assets/svg/vetor1.svg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import emailjs from "@emailjs/browser";
+
 import { toast } from "react-toastify";
 import {
   Palette,
@@ -13,24 +13,46 @@ import {
 
   Sparkles,
   Search,
-  Check
+  Check,
+  SendIcon
 } from "lucide-react";
 import FAQ from "../../components/FAQ";
 import ScrollUp from "../../components/scrollup";
 import WhatsApp from "../../components/whatsappscroll";
+import { useMutation } from "@tanstack/react-query";
+import { CreateLead } from "../../api/LeadApi";
 
 const GraphicPage = () => {
   const { pathname } = useLocation();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
+
   const [formData, setFormData] = useState({
     name: "",
-    lastName: "",
-    phone: "",
     email: "",
-    message: ""
+    phone: "",
+    message: "",
   });
+
+  const { mutate } = useMutation({
+    mutationFn: CreateLead,
+    onSuccess: () => {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    },
+    onError: () => toast.error("Error sending message. Please try again."),
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please fill all required fields");
+      return;
+    }
+    mutate(formData);
+  };
+
 
   const services = [
     {
@@ -65,40 +87,9 @@ const GraphicPage = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const sendEmail = async (e:any) => {
-    e.preventDefault();
-    const { name, lastName, email, phone, message } = formData;
+ 
 
-    if (!name || !email || !message || !phone) {
-      toast.error("נא למלא את כל השדות");
-      return;
-    }
-
-    try {
-      await emailjs.send(
-        "service_4linpx5",
-        "template_ilmbuah",
-        {
-          from_name: `${name} ${lastName}`,
-          phone,
-          message,
-          email,
-        },
-        "cWFIwkGX6Ph0Mm988"
-      );
-
-      toast.success("ההודעה נשלחה בהצלחה!");
-      setFormData({
-        name: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        message: ""
-      });
-    } catch (error) {
-      toast.error("שגיאה בשליחת ההודעה");
-    }
-  };
+  
 
   return (
     <motion.div
@@ -268,35 +259,88 @@ const GraphicPage = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.5 }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url('https://res.cloudinary.com/landingpage2/image/upload/v1726125355/Differeacting/gy-rRih3DFPcFHQ0p-7BP-transformed_n4ekcz.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+     
 
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20">
-            <h2 className="text-3xl font-bold text-center text-white mb-4">
-              בואו נדבר על הפרויקט שלך
-            </h2>
-            <p className="text-center text-gray-300 mb-8">
-              מלאו את הטופס ונחזור אליכם בהקדם
-            </p>
-
-            <form onSubmit={sendEmail} className="space-y-6">
-              {/* Form fields as per your original form */}
-            </form>
-          </div>
-        </div>
-      </section>
 
       <FAQ />
+      <section className="bg-gradient-to-b from-[#E7E7E7] to-white py-24 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-right">
+              מוכנים להתחיל פרויקט ביחד?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 text-right">
+              יש לך פרויקט בראש? נשמח לשמוע עליו ולעזור להפוך אותו למציאות.
+            </p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  { name: "name", placeholder: "שם מלא", type: "text" },
+                  { name: "email", placeholder: "אימייל", type: "email" },
+                  { name: "phone", placeholder: "טלפון", type: "tel" },
+                ].map((field) => (
+                  <motion.div
+                    key={field.name}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          [field.name]: e.target.value,
+                        }))
+                      }
+                      className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl 
+                               focus:ring-2 focus:ring-[#6FCFED] focus:border-transparent transition-all 
+                               outline-none text-right"
+                    />
+                  </motion.div>
+                ))}
+                <div className="md:col-span-2">
+                  <motion.textarea
+                    whileHover={{ scale: 1.02 }}
+                    name="message"
+                    placeholder="ספר/י לנו על הפרויקט שלך"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        message: e.target.value,
+                      }))
+                    }
+                    className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl 
+                             focus:ring-2 focus:ring-[#6FCFED] focus:border-transparent transition-all 
+                             outline-none min-h-[120px] text-right"
+                  />
+                </div>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+                         text-white rounded-xl font-medium flex items-center justify-center gap-2
+                         hover:shadow-lg transition-all duration-300"
+              >
+                <SendIcon className="w-5 h-5" />
+                <span>שליחת הפרטים</span>
+              </motion.button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
       <ScrollUp />
       <WhatsApp />
     </motion.div>

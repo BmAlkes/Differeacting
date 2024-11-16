@@ -1,13 +1,13 @@
 {
   "translation": {
     "home": "עמוד בית",
-    "Services": "שירותים",
     "Projects": "פרויקטים",
-    "Team": "הצוות שלנו",
+    "magazine":"מגזין",
     "Contact": "קשר",
-    "titleHero": "הופכים חלומות ליצירה באינטרנט",
-    "buttonAbout": "עלינו",
+    "about": "מי אנחנו",
     "buttonProject": "פרויקטים",
-    "whyus": "מדוע לבחור בנו"
+      "buttonHeader":"דברו איתנו",
+      "titleHero":"הופכים חלומות ליצירה בדיגיטל",
+       "aboutTitle":" הבית של האיכות והחדשנות בעיצוב ופיתוח"
   }
 }

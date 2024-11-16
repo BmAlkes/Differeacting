@@ -70,3 +70,17 @@ export async function updateActive({ formData, clientId }: ProjectApiTypeActive)
     }
   }
 }
+export interface IClients {
+  _id: string;
+  clientName: string;
+  phone: string;
+  email: string;
+  bankHours: string;
+  description: string;
+  active: boolean;
+}
+
+export const getAllClients = async (): Promise<IClients[]> => {
+  const response = await api.get(`/clients`);
+  return response.data;
+};

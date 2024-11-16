@@ -176,35 +176,91 @@ export const postSchema = z.object({
 
 export type PostRegister = z.infer<typeof postSchema>
 
+// types/Transaction.ts
+
+// @types/index.ts
+export enum TransactionType {
+  INCOME = "income",
+  EXPENSE = "expense",
+  FUTURE_INCOME = "future_income",
+  FUTURE_EXPENSE = "future_expense",
+  INVESTMENT = "investment",
+  SAVINGS = "savings",
+  DEBT = "debt"
+}
+
+export enum TransactionStatus {
+  COMPLETED = "completed",
+  PENDING = "pending",
+  SCHEDULED = "scheduled",
+  RECURRING = "recurring",
+  CANCELLED = "cancelled"
+}
+
 export interface ITransaction {
   _id: string;
   description: string;
   amount: number;
-  type: 'income' | 'expense';
+  type: TransactionType;
   category: string;
-  date: string;
+  date: Date;
+  status: TransactionStatus;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface IFilters {
-  month: number;
-  year: number;
+export interface TransactionFilters {
+  startDate?: string;
+  endDate?: string;
+  type?: TransactionType;
+  status?: TransactionStatus;
+  category?: string;
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
 }
 
-export interface IFormData {
+export interface CreateTransactionDTO {
   description: string;
-  amount: string;
-  type: 'income' | 'expense';
+  amount: number;
+  type: TransactionType;
   category: string;
-  date: string;
+  date: Date;
+  status?: TransactionStatus;
 }
 
-export interface IFinancialTotals {
-  income: number;
-  expenses: number;
-  balance: number;
-}
-
-export interface ICategory {
+export interface UpdateTransactionDTO extends Partial<CreateTransactionDTO> {
   id: string;
-  name: string;
 }
+
+export interface TransactionResponse {
+  transactions: ITransaction[];
+  pagination: {
+    total: number;
+    page: number;
+    pages: number;
+    limit: number;
+  };
+}
+
+export interface CategoryStats {
+  category: string;
+  total: number;
+  count: number;
+  avgAmount: number;
+  minAmount: number;
+  maxAmount: number;
+}
+
+export interface TransactionStatsItem {
+  categories: CategoryStats[];
+  totalAmount: number;
+  _id: {
+    type: string;
+    month: number;
+    year: number;
+  };
+}
+
+export type TransactionStats = TransactionStatsItem[];

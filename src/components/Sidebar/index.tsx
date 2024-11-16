@@ -1,13 +1,13 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { Grid, Home, LogOut, Newspaper, PieChart } from "lucide-react";
 import { AiOutlineProfile } from "react-icons/ai";
-import { FaAppStore, FaUserCog } from "react-icons/fa";
+import { FaAppStore, FaRegCalendar, FaUserCog } from "react-icons/fa";
 import { IoNotifications, IoPeople } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useOpenStore } from "../../store/store";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
-import { BsEnvelopePaper } from "react-icons/bs";
+import { BsCalendar2Date, BsEnvelopePaper, BsGraphUpArrow } from "react-icons/bs";
 
 
 const Sidebar = () => {
@@ -39,16 +39,18 @@ const Sidebar = () => {
       link: "dashboard/analytics",
       icon: <PieChart  width="22px" height="22px" />,
     },
+    
     {
-      title: "Workflows",
-      link: "dashboard/workflows",
-      icon: <IoPeople  width="22px" height="22px" />,
+      title: "Calendar",
+      link: "dashboard/calendar",
+      icon: <FaRegCalendar width="22px" height="22px" />,
     },
     {
-      title: "Notifications",
-      link: "dashboard/notifications",
-      icon: <IoNotifications  width="22px" height="22px" />,
+      title: "Finance",
+      link: "dashboard/expanses",
+      icon: <BsGraphUpArrow width="22px" height="22px" />,
     },
+    
     {
       title: "Leads",
       link: "dashboard/leads",

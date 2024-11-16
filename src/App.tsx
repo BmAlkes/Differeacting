@@ -18,7 +18,7 @@ import DevelopmentPage from "./pages/DevelopmentPage";
 import ServerPage from "./pages/ServerPage";
 import Posts from "./pages/Posts";
 import Post from "./pages/Posts/post";
-import Service from "./pages/Service";
+
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/Dashboard";
 import { DashboardLayout } from "./layout/dashboardLayout";
@@ -48,7 +48,10 @@ import Leads from "./pages/Leads/index.tsx";
 import  Analytics  from "./pages/Analytics/index.tsx"
 import { useEffect } from "react";
 import RouteTracker from "./components/RouterTracker/index.tsx";
-import FinanceControl from "./pages/expanses/FinanceControl.tsx";
+
+import CalendarComponent from "./pages/Calendar/index.tsx";
+import TransactionManagement from "./pages/expanses/TransactionManagement.tsx";
+
 
 AOS.init();
 
@@ -78,7 +81,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/service" element={<Service />} />
+       
             <Route path="/about" element={<AboutPage />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<Post />} />
@@ -101,9 +104,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/expanses" element={<FinanceControl />} />
+            <Route path="/dashboard/expanses" element={<TransactionManagement />} />
             <Route path="/dashboard/leads" element={<Leads />} />
             <Route path="/dashboard/analytics" element={<Analytics />} />
+            <Route path="/dashboard/calendar" element={<CalendarComponent />} />
             <Route path="/dashboard/workflows" element={<Dashboard />} />
             <Route path="/dashboard/blog" element={<Blog />} />
             <Route path="/dashboard/blog/newPost" element={<CreatePost />} />

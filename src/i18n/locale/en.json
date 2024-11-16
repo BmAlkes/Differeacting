@@ -1,13 +1,14 @@
 {
   "translation": {
     "home": "Home",
-    "Services": "Services",
     "Projects": "Projects",
-    "Team": "Team",
+   "magazine":"Magazine",
     "Contact": "Contact",
-    "titleHero": "Turning dreams into creations on the Internet",
-    "buttonAbout": "About US",
+    "about": "About US",
     "buttonProject": " Projects",
-    "whyus": " Why Choose Us"
+    "buttonHeader":"Talk with us",
+     "titleHero":"Turning dreams into digital art",
+     "aboutTitle":"The home of quality and innovation in design and development"
+
   }
 }

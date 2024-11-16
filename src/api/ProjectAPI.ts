@@ -49,12 +49,9 @@ export async function updateProjects({ formData, projectId }: ProjectApiType) {
   }
 }
 
-export async function deleteProjects(id: Project["_id"]) {
-  try {
-    console.log(id)
-    const { data } = await api.delete<string>(`/projects/${id}`);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
+export const deleteProject = async (projectId: string, password: string) => {
+  const response = await api.delete(`/projects/${projectId}`, {
+    data: { password }  // Enviando a senha no corpo da requisição
+  });
+  return response.data;
+};

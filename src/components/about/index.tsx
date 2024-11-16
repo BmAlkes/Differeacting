@@ -78,7 +78,7 @@ const About = () => {
               className="text-right order-2 lg:order-1"
             >
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                הבית של האיכות והחדשנות בעיצוב ופיתוח
+             הבית של האיכות והחדשנות בעיצוב ופיתוח   
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed">
                 צריכים פתרון React מקצועי שיניע את העסק שלכם קדימה?{" "}
