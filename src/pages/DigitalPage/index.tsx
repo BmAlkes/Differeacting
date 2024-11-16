@@ -2,7 +2,7 @@ import  { useState, useEffect } from "react";
 import bg from "../../assets/svg/vetor1.svg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import emailjs from "@emailjs/browser";
+
 import { toast } from "react-toastify";
 import {
   Megaphone,

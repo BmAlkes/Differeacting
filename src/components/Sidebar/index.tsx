@@ -2,12 +2,12 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Grid, Home, LogOut, Newspaper, PieChart } from "lucide-react";
 import { AiOutlineProfile } from "react-icons/ai";
 import { FaAppStore, FaRegCalendar, FaUserCog } from "react-icons/fa";
-import { IoNotifications, IoPeople } from "react-icons/io5";
+
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useOpenStore } from "../../store/store";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
-import { BsCalendar2Date, BsEnvelopePaper, BsGraphUpArrow } from "react-icons/bs";
+import { BsEnvelopePaper, BsGraphUpArrow } from "react-icons/bs";
 
 
 const Sidebar = () => {
