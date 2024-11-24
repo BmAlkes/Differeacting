@@ -182,18 +182,18 @@ const Projects = () => {
       technologies: ["WordPress", "Elementor", "PHP"],
       category: "WordPress/Elementor",
       links: {
-        live: "https://mediumturquoise-wolverine-520367.hostingersite.com/",
+        live: "https://lavenderblush-grasshopper-239774.hostingersite.com/",
       }
     },
     {
       id: "15",
       title: "Glow Modas",
       description: "Store for clothes",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105921/Screenshot_12_pvlhcp.png",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
       technologies: ["WordPress", "Elementor", "WooCommerce"],
       category: "WordPress/Elementor",
       links: {
-        live: "https://darkslategray-rail-827860.hostingersite.com",
+        live: "https://firebrick-rat-359890.hostingersite.com/",
       }
     }
   ];
@@ -284,7 +284,7 @@ const Projects = () => {
           onClick={() => setActiveFilter(category.id)}
           className={`px-6 py-3 rounded-full font-medium transition-all ${
             activeFilter === category.id
-              ? "bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white"
+              ? "bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white"
               : "bg-white/10 text-white hover:bg-white/20"
           }`}
         >
@@ -310,7 +310,7 @@ const Projects = () => {
             className="text-center"
           >
             <h1 className="text-6xl md:text-8xl font-bold text-white mb-8">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">Projects</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">Projects</span>
             </h1>
           </motion.div>
         </div>
@@ -471,7 +471,7 @@ const Projects = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#87ceeb] to-[#ff860d] 
                          text-white rounded-xl font-medium flex items-center justify-center gap-2
                          hover:shadow-lg transition-all duration-300"
               >
