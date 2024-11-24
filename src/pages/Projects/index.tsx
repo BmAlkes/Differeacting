@@ -171,7 +171,7 @@ const Projects = () => {
       technologies: ["WordPress", "Elementor", "PHP"],
       category: "WordPress/Elementor",
       links: {
-        live: "https://tan-porcupine-120244.hostingersite.com/",
+        live: "https://lime-heron-339975.hostingersite.com",
       }
     },
     {
