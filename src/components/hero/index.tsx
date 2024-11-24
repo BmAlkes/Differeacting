@@ -69,19 +69,13 @@ const Hero = () => {
       <div className="container mx-auto px-4 flex justify-center items-center mt-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Enhanced Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-right relative z-10 space-y-8"
-          >
+         
             {/* Main Title */}
             <motion.div style={{ opacity }} className="relative">
               <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d] font-bold text-7xl md:text-8xl lg:text-9xl leading-tight tracking-tight">
-                DotVizion
+                Dotvision
               </h1>
-              <div className="absolute -inset-x-8 inset-y-0 bg-gradient-to-r from-[#87ceeb]/20 to-[#ff860d]/20 blur-3xl -z-10" />
-            </motion.div>
+        
 
             {/* Enhanced Slogan */}
             <div className="space-y-6">
