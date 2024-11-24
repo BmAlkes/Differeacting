@@ -204,7 +204,7 @@ const Reccomend = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#87ceeb] to-[#ff860d] 
                          text-white rounded-xl font-medium flex items-center justify-center gap-2
                          hover:shadow-lg transition-all duration-300"
               >

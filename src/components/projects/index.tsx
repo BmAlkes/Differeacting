@@ -80,7 +80,7 @@ const Projects = () => {
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
               כמה מהעבודות
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
                 הטובות ביותר שלנו
               </span>
             </h2>
@@ -145,7 +145,7 @@ const Projects = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] px-8 py-4 rounded-xl text-white flex items-center gap-2"
+              className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] px-8 py-4 rounded-xl text-white flex items-center gap-2"
             >
               <span>צפה בעוד פרויקטים</span>
               <ArrowLeft className="w-5 h-5" />
