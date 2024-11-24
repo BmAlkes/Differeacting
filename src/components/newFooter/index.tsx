@@ -31,17 +31,17 @@ const NewFooter = () => {
     {
       name: "Facebook",
       icon: <Facebook className="w-5 h-5" />,
-      href: "https://www.facebook.com/profile.php?id=61558644790775"
+      href: ""
     },
     {
       name: "Instagram",
       icon: <Instagram className="w-5 h-5" />,
-      href: "https://www.instagram.com/differeacting/"
+      href: "https://www.instagram.com/dotvizionn/"
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      href: "https://www.linkedin.com/company/differeacting/"
+      href: "https://www.linkedin.com/company/dotvizion/"
     }
   ];
 
