@@ -78,7 +78,7 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8">
         <div className="flex justify-center">
           <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1732303324/5000x5000-3_sey5m4.png"
             alt="Logo"
             className=" w-auto mb-11"
           />

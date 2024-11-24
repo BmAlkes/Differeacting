@@ -18,13 +18,6 @@ const testimonials = [
     text: "הכרתי את ברונו בתור סטודנט שלי, כבר מההתחלה עפתי עליו, הוא הביא עיצובים מרשימים במהירות שיא והתפתח מאוד מאז. ראיתי את כל העבודות שלו ואהבתי כל אחת, הוא יושב עם הלקוח להבין מה הלקוח צריך ומשם הוא לוקח את זה למקומות מרשימים. ברונו - חרוץ, מקשיב, מגלה הבנה ואמפתיה - מומלץ בחום",
   },
   {
-    id: 2,
-    name: "אורן טל",
-    role: "קונווייזור דיגיטל",
-    image: "https://res.cloudinary.com/landingpage2/image/upload/v1730732359/testimo_jbdebw.png",
-    text: "עדן עבד אצלנו בתחילת הדרך וכבר אז זיהינו בחור שאפתן עם המון כוח רצון ללמוד ולהתקדם, קונוויזור תמיד תהיה הבית הראשון שלך בצעדייך הראשונים בעולם השיווק הדיגיטלי ואנו גאים על כך, בהצלחה במיזם החדש!"
-  },
-  {
     id: 3,
     name: "Anastacia Tsarfati",
     role: "Owner of Safegarden",
@@ -95,7 +88,7 @@ const Reccomend = () => {
           המלצות עלינו
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, _index) => (
         
               <div className="bg-white rounded-xl shadow-2xl p-8 relative z-10">

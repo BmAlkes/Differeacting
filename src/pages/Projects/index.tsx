@@ -129,30 +129,9 @@ const Projects = () => {
         live: "https://ecommerce-xhdu.vercel.app/",
       }
     },
+    
     {
       id: "8",
-      title: "MaiThai Travel",
-      description: "Web Site for travel company",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1728813860/cd333395-f5f3-4f2e-8f06-72ac519fd687_ntviz9.jpg",
-      technologies: ["WordPress", "Elementor", "PHP"],
-      category: "WordPress/Elementor",
-      links: {
-        live: "https://maithaitravelandtour.com/",
-      }
-    },
-    {
-      id: "9",
-      title: "Skylum",
-      description: "Web site for company",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
-      technologies: ["WordPress", "Elementor", "PHP"],
-      category: "WordPress/Elementor",
-      links: {
-        live: "https://skylum.co.il/",
-      }
-    },
-    {
-      id: "10",
       title: "Deliver Coffee",
       description: "Web site for company",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1709303998/deliver_urazsz.png",
@@ -163,7 +142,7 @@ const Projects = () => {
       }
     },
     {
-      id: "11",
+      id: "9",
       title: "Safe Garden",
       description: "App for private kindegarden managment",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png",
@@ -318,7 +297,8 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#030B0F] to-[#0A1A24]">
       <Helmet>
-        <title>Projects | Interactive Portfolio</title>
+        <title>Projects | Dotvizion  Interactive Portfolio</title>
+        <link rel="canonical" href="https://www.dotvizion/projects" />
       </Helmet>
 
       {/* Hero Section */}

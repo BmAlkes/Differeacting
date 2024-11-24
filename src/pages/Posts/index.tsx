@@ -102,8 +102,8 @@ console.log(data)
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Blog - Explore Our Latest Articles</title>
-        <link rel="canonical" href="https://www.yourblog.com/posts" />
+        <title>Blog - Dotvizion Explore Our Latest Articles</title>
+        <link rel="canonical" href="https://www.dotvizion/posts" />
       </Helmet>
 
       {/* Hero Section with Parallax Effect */}

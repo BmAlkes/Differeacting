@@ -36,14 +36,14 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "אימייל",
-      value: "info@differeacting.co.il",
-      href: "mailto:info@differeacting.co.il"
+      value: "info@dotvizion.com",
+      href: "mailto:info@dotvizion.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "טלפון",
-      value: "054-589-9899",
-      href: "tel:+9720545899899"
+      value: "0544385119",
+      href: "tel:+9720544385119"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -183,8 +183,8 @@ const Contact = () => {
     >
       <Helmet>
         <meta charSet="utf-8" />
-        <title>צור קשר - Differeacting</title>
-        <link rel="canonical" href="https://www.differeacting.com/contact" />
+        <title>צור קשר - Dotvizion</title>
+        <link rel="canonical" href="https://www.dotvizion.com/contact" />
       </Helmet>
 
       {/* Hero Section */}
@@ -209,14 +209,14 @@ const Contact = () => {
                 className="text-4xl lg:text-7xl font-bold text-white mb-6"
                 style={{ opacity }}
               >
-                Differeacting
+                Dotvizion
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
                   תמיד כאן בשבילך
                 </span>
               </motion.h1>
               <p className="text-gray-300 text-lg mb-8">
-                אנו ב-Differeacting מאמינים בתקשורת פתוחה וישירה עם לקוחותינו.
+                אנו ב-Dotvizion מאמינים בתקשורת פתוחה וישירה עם לקוחותינו.
                 נשמח לענות על כל שאלה ולעזור בכל דרך אפשרית.
               </p>
             </motion.div>

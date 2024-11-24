@@ -82,7 +82,7 @@ const About = () => {
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed">
                 צריכים פתרון React מקצועי שיניע את העסק שלכם קדימה?{" "}
-                <span className="text-[#6fcfed]">Differeacting</span> מביאה איתה
+                <span className="text-[#6fcfed]">DotVizion</span> מביאה איתה
                 חדשנות, מומחיות וניסיון עשיר בפיתוח אפליקציות React מתקדמות.
               </p>
             

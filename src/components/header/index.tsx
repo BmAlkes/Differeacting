@@ -1,4 +1,4 @@
-import logo from "../../assets/svg/Logo2.svg";
+
 // import israel from "../../assets/israel.png";
 // import eua from "../../assets/united-states.png";
 import { Link } from "react-router-dom";
@@ -28,9 +28,9 @@ const Header = () => {
   return (
     <header className="bg-[#030B0F]  fixed top-0 w-full z-[100]">
       <nav className=" nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
-        <div className="">
+        <div className="flex justify-center items-center">
           <Link to="/" aria-label="logo website">
-            <img src={logo} alt="web site logo" className="w-[191px]" />
+            <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732303324/5000x5000-3_sey5m4.png"alt="web site logo" className= "max-w-80 " />
 
           </Link>
         </div>
@@ -80,10 +80,12 @@ const Header = () => {
           ))} */}
         </div>
         <a
-          href="tel:0549547355"
-          className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white font-semibold rounded p-[1px] hidden md:block "
+   href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
+          className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white font-semibold rounded p-[1px] hidden md:block "
+           target="_blank"
+        aria-label="Whats app for contact"
         >
-          <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+          <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
             דברו איתנו
           </span>
         </a>{" "}
@@ -99,7 +101,7 @@ const Header = () => {
               <SheetHeader>
                 <SheetTitle className="absolute left-5">
                   <Link to="/" aria-label="logo website">
-                    <img src={logo} alt="" className="w-[150px]" />
+                    <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732301265/2000x2000-1_gl8wli.png" alt="" className="w-[150px]" />
                   </Link>
                 </SheetTitle>
                 <SheetDescription>
@@ -175,13 +177,13 @@ const Header = () => {
               <SheetFooter className="absolute bottom-12">
                 <ul className="flex gap-5">
                   <li>
-                    <a href="tel:0545899899" aria-label="phone to call">
+                    <a href="tel:0544425884" aria-label="phone to call">
                       <PhoneCallIcon size={28} color="#fff" />
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://api.whatsapp.com/send?phone=9720549547355&text=I%20want%20to%20talk%20about%20a%20project"
+                      href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
                       aria-label="whats app"
                     >
                       <FaWhatsapp size={28} color="#fff" />

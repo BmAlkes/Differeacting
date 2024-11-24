@@ -21,6 +21,7 @@ import ScrollUp from "../../components/scrollup";
 import WhatsApp from "../../components/whatsappscroll";
 import { useMutation } from "@tanstack/react-query";
 import { CreateLead } from "../../api/LeadApi";
+import { Helmet } from "react-helmet-async";
 
 const GraphicPage = () => {
   const { pathname } = useLocation();
@@ -87,9 +88,11 @@ const GraphicPage = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
- 
-
-  
+  <Helmet>
+        <meta charSet="utf-8" />
+        <title>Design - Dotvizion</title>
+        <link rel="canonical" href="https://www.dotvizion/design" />
+      </Helmet>
 
   return (
     <motion.div

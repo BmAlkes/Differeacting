@@ -32,7 +32,7 @@ const Home = () => {
     >
        <Helmet>
         <meta charSet="utf-8"/>
-        <title>Differeacting - סטודיו לבניית אתרים Differeacting: הופכים חלומות ליצירה באינטרנט </title>
+        <title>Dotvizion - סטודיו לעיצוב אתרים ואפליקציות: Designing with Precision, Innovation with Vision</title>
         <link rel="canonical" href="https://www.differeacting.com/" />
       </Helmet>
      

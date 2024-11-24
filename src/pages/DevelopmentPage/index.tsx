@@ -25,6 +25,7 @@ import WhatsApp from "../../components/whatsappscroll";
 import { useMutation } from "@tanstack/react-query";
 import { CreateLead } from "../../api/LeadApi";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const DevelopmentPage = () => {
   const { pathname } = useLocation();
@@ -111,6 +112,12 @@ const DevelopmentPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  <Helmet>
+  <meta charSet="utf-8" />
+  <title>Development - Dotvizion</title>
+  <link rel="canonical" href="https://www.dotvizion/development" />
+</Helmet>
 
   return (
     <motion.div

@@ -47,7 +47,8 @@ const AboutPage = () => {
     >
       <Helmet>
         <meta charSet="utf-8" />
-        <title>About Us - Differeacting</title>
+        <title>About Us - Dotvizion</title>
+        <link rel="canonical" href="https://www.dotvizion/about" />
       </Helmet>
 
       {/* Hero Section */}
@@ -199,7 +200,7 @@ const AboutPage = () => {
           מתחילים את המסע
         </h3>
         <p className="text-gray-300 text-lg mb-8">
-          ב-Differeacting, אנחנו קולקטיב של יוצרים, מתכנתים ומשווקים המאמינים בחדשנות וביצירתיות. 
+          ב-Dotvizion, אנחנו קולקטיב של יוצרים, מתכנתים ומשווקים המאמינים בחדשנות וביצירתיות. 
           הסיפור שלנו מתחיל מתשוקה עמוקה לטכנולוגיה ועיצוב, ומהרצון ליצור פתרונות דיגיטליים שלא רק נראים מעולה, אלא גם עובדים בצורה מושלמת.
         </p>
         <div className="space-y-4">

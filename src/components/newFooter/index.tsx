@@ -41,7 +41,7 @@ const NewFooter = () => {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      href: "#"
+      href: "https://www.linkedin.com/company/differeacting/"
     }
   ];
 
@@ -70,13 +70,13 @@ const NewFooter = () => {
         { name: "Deliver Coffee", href: "https://deliver-coffe.vercel.app/", external: true },
         { name: "SafeGarden", href: "https://safe-garden.vercel.app/", external: true },
         { name: "Webcar", href: "https://webcar-umber.vercel.app/", external: true },
-        { name: "SkyLum", href: "https://skylum.co.il/", external: true }
+        
       ]
     },
     {
       title: "דברו איתנו",
       links: [
-        { name: "info@differeacting.co.il", href: "mailto:info@differeacting.co.il", external: true },
+        { name: "info@dotvizion.com", href: "mailto:info@dotvizion.com", external: true },
         { name: "תל אביב", href: "#" }
       ]
     }
@@ -109,9 +109,9 @@ const NewFooter = () => {
             >
               <Link to="/" className="block">
               <img 
-  src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
-  alt="Differeacting Logo"
-  className="h-12 w-auto"
+  src="https://res.cloudinary.com/landingpage2/image/upload/v1732303053/5000x5000-4_q0s4rj.png"
+  alt="Dotvizion Logo"
+  className=" w-auto h-36"
   width="auto"
   height="48"
   loading="eager"
@@ -192,10 +192,10 @@ const NewFooter = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              All rights reserved Differeacting © {new Date().getFullYear()}
+              All rights reserved DotVizion © 2023
             </p>
             <p className="text-gray-400 text-sm">
-              Differeating Solutions for web applications
+              DotVizion Solutions for web applications
             </p>
           </div>
         </motion.div>

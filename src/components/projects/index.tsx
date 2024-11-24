@@ -14,27 +14,7 @@ interface Project {
 
 const Projects = () => {
   const projects: Project[] = [
-    {
-      title: "HairPort",
-      description: "אתר חנות לחברה קוסמטיק",
-      url: "https://gold-opossum-534584.hostingersite.com/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969708/Screenshot_6_nsjxxb_1_wg8bdh.png",
-      category: "E-commerce"
-    },
-    {
-      title: "SkyLum",
-      description: "אתר חברה",
-      url: "https://skylum.co.il/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969147/skylum_te3duo_1_ezzs5i.png",
-      category: "Business"
-    },
-    {
-      title: "Mai Thai travel agency",
-      description: "אתר לסוכנות נסיעות לטיולים בתאילנד",
-      url: "https://maithaitravelandtour.com/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1728813860/cd333395-f5f3-4f2e-8f06-72ac519fd687_ntviz9.jpg",
-      category:"Travel Agency"
-    },
+  
     {
       title: "Web Car",
       description: "פלטפורמה למכירת מכוניות ופרסום",

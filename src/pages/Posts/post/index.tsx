@@ -74,8 +74,8 @@ const EnhancedPost = () => {
   return (
     <>
       <Helmet>
-        <title>{`Blog - ${data.title}`}</title>
-        <link rel="canonical" href={`https://www.seublog.com/posts/${data.title}`} />
+        <title>{`Blog - Dotvizion ${data.title}`}</title>
+        <link rel="canonical" href={`https://www.dotvizion.com/posts/${data.title}`} />
       </Helmet>
 
       <main className="max-w-4xl mx-auto px-4 py-8 mt-24">
