@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -12,7 +12,7 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  MessageSquare
+  MessageSquare,
 } from "lucide-react";
 import ScrollUp from "../../components/scrollup";
 import WhatsApp from "../../components/whatsappscroll";
@@ -27,7 +27,7 @@ const Contact = () => {
     name: "",
     phone: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -37,26 +37,38 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6" />,
       title: "אימייל",
       value: "info@dotvizion.com",
-      href: "mailto:info@dotvizion.com"
+      href: "mailto:info@dotvizion.com",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "טלפון",
-      value: "0544385119",
-      href: "tel:+9720544385119"
+      value: "054425884",
+      href: "tel:+9720544425884",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "מיקום",
       value: "Tel Aviv",
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   const socialLinks = [
-    { icon: <Facebook />, href: "https://www.facebook.com/profile.php?id=61558644790775", name: "Facebook" },
-    { icon: <Linkedin />, href: "https://www.linkedin.com/company/differeacting/", name: "LinkedIn" },
-    { icon: <Instagram />, href: "https://www.instagram.com/differeacting/", name: "Instagram" }
+    {
+      icon: <Facebook />,
+      href: "https://www.facebook.com/profile.php?id=61558644790775",
+      name: "Facebook",
+    },
+    {
+      icon: <Linkedin />,
+      href: "https://www.linkedin.com/company/differeacting/",
+      name: "LinkedIn",
+    },
+    {
+      icon: <Instagram />,
+      href: "https://www.instagram.com/differeacting/",
+      name: "Instagram",
+    },
   ];
 
   const { mutate } = useMutation({
@@ -67,15 +79,15 @@ const Contact = () => {
         name: "",
         phone: "",
         email: "",
-        message: ""
+        message: "",
       });
     },
     onError: (error) => {
       toast.error(error.message);
-    }
+    },
   });
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const { name, email, message, phone } = formData;
 
@@ -91,19 +103,17 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
   const renderForm = () => (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6">
-        <motion.div
-          whileHover={{ y: -2 }}
-          className="relative"
-        >
+        <motion.div whileHover={{ y: -2 }} className="relative">
           <input
             type="text"
             name="name"
             value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, name: e.target.value }))
+            }
             placeholder="שם מלא"
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg 
                      text-white placeholder-white/50 focus:border-[#6FCFED] 
@@ -111,15 +121,14 @@ const Contact = () => {
           />
         </motion.div>
 
-        <motion.div
-          whileHover={{ y: -2 }}
-          className="relative"
-        >
+        <motion.div whileHover={{ y: -2 }} className="relative">
           <input
             type="email"
             name="email"
             value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, email: e.target.value }))
+            }
             placeholder="אימייל"
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg 
                      text-white placeholder-white/50 focus:border-[#6FCFED] 
@@ -127,15 +136,14 @@ const Contact = () => {
           />
         </motion.div>
 
-        <motion.div
-          whileHover={{ y: -2 }}
-          className="relative"
-        >
+        <motion.div whileHover={{ y: -2 }} className="relative">
           <input
             type="tel"
             name="phone"
             value={formData.phone}
-            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, phone: e.target.value }))
+            }
             placeholder="טלפון"
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg 
                      text-white placeholder-white/50 focus:border-[#6FCFED] 
@@ -143,14 +151,13 @@ const Contact = () => {
           />
         </motion.div>
 
-        <motion.div
-          whileHover={{ y: -2 }}
-          className="relative"
-        >
+        <motion.div whileHover={{ y: -2 }} className="relative">
           <textarea
             name="message"
             value={formData.message}
-            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, message: e.target.value }))
+            }
             placeholder="הודעה"
             rows={4}
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg 
@@ -189,11 +196,12 @@ const Contact = () => {
 
       {/* Hero Section */}
       <section className=" mt-8 pt-24 relative overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 opacity-20"
           style={{
-            background: "radial-gradient(circle at 50% 50%, #6FCFED 0%, transparent 50%)",
-            y
+            background:
+              "radial-gradient(circle at 50% 50%, #6FCFED 0%, transparent 50%)",
+            y,
           }}
         />
 
@@ -205,7 +213,7 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="text-right"
             >
-              <motion.h1 
+              <motion.h1
                 className="text-4xl lg:text-7xl font-bold text-white mb-6"
                 style={{ opacity }}
               >
@@ -216,8 +224,8 @@ const Contact = () => {
                 </span>
               </motion.h1>
               <p className="text-gray-300 text-lg mb-8">
-                אנו ב-Dotvizion מאמינים בתקשורת פתוחה וישירה עם לקוחותינו.
-                נשמח לענות על כל שאלה ולעזור בכל דרך אפשרית.
+                אנו ב-Dotvizion מאמינים בתקשורת פתוחה וישירה עם לקוחותינו. נשמח
+                לענות על כל שאלה ולעזור בכל דרך אפשרית.
               </p>
             </motion.div>
 
@@ -260,13 +268,15 @@ const Contact = () => {
                 <motion.div
                   animate={{
                     scale: hoveredCard === index ? 1.1 : 1,
-                    rotate: hoveredCard === index ? 360 : 0
+                    rotate: hoveredCard === index ? 360 : 0,
                   }}
                   className="w-16 h-16 rounded-full bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] flex items-center justify-center mb-4"
                 >
                   {info.icon}
                 </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-2">{info.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {info.title}
+                </h3>
                 <p className="text-gray-400">{info.value}</p>
               </motion.a>
             ))}
@@ -285,7 +295,9 @@ const Contact = () => {
               viewport={{ once: true }}
               className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
             >
-              <h2 className="text-3xl font-bold text-white mb-8">שלח לנו הודעה</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">
+                שלח לנו הודעה
+              </h2>
               {renderForm()}
             </motion.div>
 
@@ -297,12 +309,14 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold text-white mb-4">בוא נתחבר</h2>
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  בוא נתחבר
+                </h2>
                 <p className="text-gray-400">
                   עקבו אחרינו ברשתות החברתיות לעדכונים ותוכן מעניין
                 </p>
               </div>
-              
+
               <div className="flex gap-4">
                 {socialLinks.map((social, _) => (
                   <motion.a
