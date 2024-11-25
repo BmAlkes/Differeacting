@@ -79,7 +79,7 @@ const Sidebar = () => {
 
         <Link to="/dashboard">
           <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1732301235/favicon_64x64_dzkh3x.png"
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1732554815/5000x5000-3-removebg-preview_jxhv2o.png"
             alt=""
           />
         </Link>
