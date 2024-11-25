@@ -83,10 +83,6 @@ const Sidebar = () => {
             alt=""
           />
         </Link>
-
-        <span className="text-[#6ecfef] font-semibold text-2xl md:hidden block">
-          L.
-        </span>
       </div>):(<><div className="w-full flex items-center justify-center p-3 h-[70px] bg-[#fff]">
 
 <Link to="/dashboard">
@@ -95,8 +91,6 @@ const Sidebar = () => {
     alt=""
   />
 </Link>
-
-
 </div></>)}
       
       <div className="w-full h-[calc(100vh-70px)] border-r flex flex-col gap-4 pt-8 border-slate-300 bg-[#fff] py-5 md:px-3 px-3 relative">
