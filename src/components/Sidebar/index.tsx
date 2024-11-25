@@ -79,7 +79,7 @@ const Sidebar = () => {
 
         <Link to="/dashboard">
           <img
-            src="https://res.cloudinary.com/landingpage2/image/upload/v1732303053/5000x5000-4_q0s4rj.png"
+            src="https://res.cloudinary.com/landingpage2/image/upload/v1732301235/favicon_64x64_dzkh3x.png"
             alt=""
           />
         </Link>
@@ -87,7 +87,7 @@ const Sidebar = () => {
 
 <Link to="/dashboard">
   <img
-    src="https://res.cloudinary.com/landingpage2/image/upload/v1732303053/5000x5000-4_q0s4rj.png"
+    src="https://res.cloudinary.com/landingpage2/image/upload/v1732301235/favicon_64x64_dzkh3x.png"
     alt=""
   />
 </Link>
