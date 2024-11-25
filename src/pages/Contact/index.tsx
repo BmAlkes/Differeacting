@@ -171,7 +171,7 @@ const Contact = () => {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         type="submit"
-        className="w-full bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] 
+        className="w-full bg-gradient-to-r from-[#87ceeb] to-[#ff860d] 
                  text-white py-4 rounded-xl font-medium flex items-center 
                  justify-center gap-2 hover:shadow-lg transition-all"
       >
@@ -219,7 +219,7 @@ const Contact = () => {
               >
                 Dotvizion
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
                   תמיד כאן בשבילך
                 </span>
               </motion.h1>
@@ -270,7 +270,7 @@ const Contact = () => {
                     scale: hoveredCard === index ? 1.1 : 1,
                     rotate: hoveredCard === index ? 360 : 0,
                   }}
-                  className="w-16 h-16 rounded-full bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] flex items-center justify-center mb-4"
+                  className="w-16 h-16 rounded-full bg-gradient-to-r from-[#87ceeb] to-[#ff860d] flex items-center justify-center mb-4"
                 >
                   {info.icon}
                 </motion.div>

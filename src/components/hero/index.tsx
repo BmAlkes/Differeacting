@@ -73,7 +73,7 @@ const Hero = () => {
             {/* Main Title */}
             <motion.div style={{ opacity }} className="relative">
               <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d] font-bold text-7xl md:text-8xl lg:text-9xl leading-tight tracking-tight">
-                Dotvision
+                Dotvizion
               </h1>
         
 

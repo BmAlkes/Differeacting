@@ -75,7 +75,7 @@ const AboutPage = () => {
               >
                 עושים את זה
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FCFED] to-[#C96CBE]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
                   מדהים
                 </span>
               </motion.h1>
@@ -93,7 +93,7 @@ const AboutPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] text-white px-8 py-4 rounded-xl font-medium"
+                  className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white px-8 py-4 rounded-xl font-medium"
                   >
                   צור קשר
                 </motion.button>
@@ -158,7 +158,7 @@ const AboutPage = () => {
                 whileHover={{ y: -10 }}
                 className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
               >
-                <div className="bg-gradient-to-r from-[#6FCFED] to-[#C96CBE] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <div className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4">

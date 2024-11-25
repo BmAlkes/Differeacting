@@ -36,6 +36,15 @@ const Projects = () => {
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png",
       category:"Web Application"
     },
+    {
+
+      title: "Glow Modas",
+      description: "Store for clothes",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
+      category: "Online store",
+        url: "https://firebrick-rat-359890.hostingersite.com/",
+  
+    }
   
   ];
 

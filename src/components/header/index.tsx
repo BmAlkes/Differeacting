@@ -30,7 +30,7 @@ const Header = () => {
       <nav className=" nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
         <div className="flex justify-center items-center">
           <Link to="/" aria-label="logo website">
-            <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732303324/5000x5000-3_sey5m4.png"alt="web site logo" className= "max-w-80 " />
+            <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732554815/5000x5000-3-removebg-preview_jxhv2o.png"alt="web site logo" className= "max-w-80 " />
 
           </Link>
         </div>
