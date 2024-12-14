@@ -6,7 +6,7 @@ import html from "../../assets/html.png";
 import css from "../../assets/css (2).png";
 import elementor from "../../assets/elementor.png";
 import wordPress from "../../assets/wordpress.png";
-import shopp from "../../assets/shoppy.png";
+import shopp from "../../assets/react-icon.png";
 import js from "../../assets/javascript.png"
 import {
 
@@ -87,7 +87,7 @@ const DevelopmentPage = () => {
     { name: "JavaScript", icon: js, color: "#F7DF1E" },
     { name: "WordPress", icon: wordPress, color: "#21759B" },
     { name: "Elementor", icon: elementor, color: "#92003B" },
-    { name: "Shopify", icon: shopp, color: "#7AB55C" }
+    { name: "React", icon: shopp, color: "#0c42d7" }
   ];
 
   const features = [
