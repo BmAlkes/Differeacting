@@ -30,11 +30,11 @@ const Projects = () => {
       category:'E-commerce'
     },
     {
-      title: "Safe Garden",
-      description: "פלטפורמה לניהול גן ילדים פרטי",
-      url: "https://safe-garden.vercel.app/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1710148822/safe_qmcsgn.png",
-      category:"Web Application"
+      title: "Nexus Architecture",
+      description: "אתר תדמית ",
+      url: "https://nexusmyhomes.com/",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
+      category:"Web Site"
     },
     {
 

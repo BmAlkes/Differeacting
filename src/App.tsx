@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 import AboutPage from "./pages/About";
 import Projects from "./pages/Projects";
 import { AnimatePresence } from "framer-motion";
-import DigitalPage from "./pages/DigitalPage";
+// import DigitalPage from "./pages/DigitalPage";
 import GraphicPage from "./pages/GraphicPage";
 import DevelopmentPage from "./pages/DevelopmentPage";
 import ServerPage from "./pages/ServerPage";
@@ -86,7 +86,7 @@ function App() {
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<Post />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/digital" element={<DigitalPage />} />
+         {/* <Route path="/digital" element={<DigitalPage />} /> */}
             <Route path="/development" element={<DevelopmentPage />} />
             <Route path="/design" element={<GraphicPage />} />
             <Route path="/server" element={<ServerPage />} />

@@ -56,17 +56,17 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <Facebook />,
-      href: "https://www.facebook.com/profile.php?id=61558644790775",
+      href: "",
       name: "Facebook",
     },
     {
       icon: <Linkedin />,
-      href: "https://www.linkedin.com/company/differeacting/",
+      href: "https://www.linkedin.com/company/dotvizion",
       name: "LinkedIn",
     },
     {
       icon: <Instagram />,
-      href: "https://www.instagram.com/differeacting/",
+      href: "https://www.instagram.com/dotvizionn",
       name: "Instagram",
     },
   ];

@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { 
   Palette, 
   Code, 
-  Search, 
+  // Search, 
   Server,
   ArrowRight,
 
 } from "lucide-react";
 import web from "../../assets/svg/web.svg";
-import digital from "../../assets/svg/digital.svg";
+// import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg"
 import Secimg from "../../assets/svg/pictureSec.svg";
@@ -34,14 +34,14 @@ const About = () => {
       link: "/development",
       gradient: "from-blue-500 to-[#C96CBE]"
     },
-    {
-      icon: <Search className="w-8 h-8" />,
-      image: digital,
-      title: "SEO",
-      description: `מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית.`,
-      link: "/digital",
-      gradient: "from-[#6FCFED] to-green-500"
-    },
+    // {
+    //   icon: <Search className="w-8 h-8" />,
+    //   image: digital,
+    //   title: "SEO",
+    //   description: `מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית.`,
+    //   link: "/digital",
+    //   gradient: "from-[#6FCFED] to-green-500"
+    // },
     {
       icon: <Server className="w-8 h-8" />,
       image: server,
@@ -124,7 +124,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-7">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -134,7 +134,7 @@ const About = () => {
                 transition={{ delay: index * 0.1 }}
                 className="relative group"
               >
-                <div className="bg-white/5 min-h-72 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
+                <div className="bg-white/5 min-h-80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
                             hover:border-white/20 transition-all">
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`p-3 rounded-xl bg-gradient-to-r ${service.gradient}`}>

@@ -195,6 +195,17 @@ const Projects = () => {
       links: {
         live: "https://firebrick-rat-359890.hostingersite.com/",
       }
+    },
+    {
+      id: "16",
+      title: "Nexus Architecture",
+      description: "Web site for company",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
+      technologies: ["WordPress", "Elementor", "WooCommerce"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://nexusmyhomes.com",
+      }
     }
   ];
   // Categories
