@@ -33,13 +33,7 @@ const NewFooter = () => {
   const isRTL = i18n.dir() === 'rtl';
 
   // Função auxiliar para verificar se o texto deve permanecer em LTR
-  const shouldBeLTR = (text: string) => {
-    return text.includes('@') || 
-           text === 'Deliver Coffee' || 
-           text === 'SafeGarden' || 
-           text === 'Webcar' ||
-           text.includes('.com');
-  };
+
 
   const socialLinks: SocialLink[] = [
     {

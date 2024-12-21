@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
