@@ -1,51 +1,52 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SafariDemo } from "../safariDemo";
 import vetor from "../../assets/svg/Vector 18.svg";
+import { useTranslation } from "react-i18next";
 
 interface Project {
-  title: string;
-  description: string;
+  key: string;
   url: string;
   image: string;
   category: string;
+  description: string;
 }
 
 const Projects = () => {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
+  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+
   const projects: Project[] = [
-  
     {
-      title: "Web Car",
-      description: "פלטפורמה למכירת מכוניות ופרסום",
+      key: "webCar",
       url: "https://webcar-umber.vercel.app/",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1710178141/Image_1_lnemkd.png",
-      category:"Web Application"
+      category: "webApplication",
+      description:"A platform for car sales and advertising"
     },
     {
-      title: "Eccomerce",
-      description: "אתר סחר",
+      key: "ecommerce",
       url: "https://ecommerce-xhdu.vercel.app/",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
-      category:'E-commerce'
+      category: "ecommerce",
+      description:"Trade site"
     },
     {
-      title: "Nexus Architecture",
-      description: "אתר תדמית ",
+      key: "nexus",
       url: "https://nexusmyhomes.com/",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
-      category:"Web Site"
+      category: "webSite",
+      description:"Website"
     },
     {
-
-      title: "Glow Modas",
-      description: "Store for clothes",
+      key: "glowModas",
+      url: "https://firebrick-rat-359890.hostingersite.com/",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
-      category: "Online store",
-        url: "https://firebrick-rat-359890.hostingersite.com/",
-  
+      category: "onlineStore",
+      description: "Store clother"
     }
-  
   ];
 
   return (
@@ -53,6 +54,7 @@ const Projects = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="relative bg-[#030B0F] text-[#D1D1D1] min-h-screen pt-24 pb-16 overflow-hidden"
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Background Elements */}
       <motion.div
@@ -82,20 +84,19 @@ const Projects = () => {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className={isRTL ? 'text-right' : 'text-left'}
           >
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
-              כמה מהעבודות
+              {t('sectionprojectsmainTitle')}
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
-                הטובות ביותר שלנו
+                {t('sectionprojectsmainTitleGradient')}
               </span>
             </h2>
           </motion.div>
-
-          
         </div>
 
         {/* Projects Grid */}
@@ -107,7 +108,7 @@ const Projects = () => {
         >
           {projects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -127,15 +128,17 @@ const Projects = () => {
                   </div>
 
                   <div className="p-6">
-                    <div className="flex items-center justify-between mb-2">
+                    <div className={`flex items-center justify-between mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                       <h3 className="text-2xl font-bold text-white">
-                        {project.title}
+                        {project.key}
                       </h3>
                       <span className="text-sm text-[#6FCFED] bg-[#6FCFED]/10 px-3 py-1 rounded-full">
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-gray-400">{project.description}</p>
+                    <p className="text-gray-400">
+                     {project.description}
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -154,10 +157,12 @@ const Projects = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] px-8 py-4 rounded-xl text-white flex items-center gap-2"
+              className={`bg-gradient-to-r from-[#87ceeb] to-[#ff860d] px-8 py-4 rounded-xl text-white flex items-center gap-2 ${
+                isRTL ? 'flex-row-reverse' : ''
+              }`}
             >
-              <span>צפה בעוד פרויקטים</span>
-              <ArrowLeft className="w-5 h-5" />
+              <span>{t('sectionprojectsviewMore')}</span>
+              <ArrowIcon className="w-5 h-5" />
             </motion.button>
           </Link>
         </motion.div>

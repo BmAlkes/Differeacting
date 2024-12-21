@@ -2,13 +2,50 @@
   "translation": {
     "home": "Home",
     "Projects": "Projects",
-   "magazine":"Magazine",
+    "magazine": "Magazine",
     "Contact": "Contact",
     "about": "About US",
     "buttonProject": " Projects",
-    "buttonHeader":"Talk with us",
-     "titleHero":"Turning dreams into digital art",
-     "aboutTitle":"The home of quality and innovation in design and development"
+    "buttonHeader": "Talk with us",
+    "titleHero": "Designing digital experiences",
+    "subTitleHero": "that change reality",
+    "phraseHero": "We specialize in designing and developing digital solutions that combine innovation, creativity and advanced technology",
+    "aboutTitle": "The home of quality and innovation in design and development",
+    "titleAboutHome": "Digital Excellence",
+    "phaseAbout": "is your trusted partner in the digital world. We create innovative and effective digital solutions that help businesses grow and succeed in the modern digital landscape.",
+    "phaseAbout2": "Welcome to",
 
-  }
+    "servicesTitle": "Our Services",
+    "servicesubtitle": "Where all digital solutions are under one roof!",
+
+    "graphicDesigntitle": "Graphic Design",
+    "graphicDesigndescription": "Our graphic design department specializes in creating impressive visual experiences tailored to your brand identity and target audience. We combine modern design principles with in-depth user research to create intuitive and attractive interfaces.",
+
+    "developmenttitle": "Development & Programming",
+    "developmentdescription": "Our development and programming department specializes in building advanced websites customized to your business needs, using the latest technologies.",
+    "hostintitle": "Hosting & Server Allocation",
+    "hostindescription": "Our hosting and maintenance department provides comprehensive solutions to ensure your site's performance, security, and stability.",
+    "serviceButton": "Service Page",
+   
+    "sectionprojectsmainTitle": "Some of our",
+    "sectionprojectsmainTitleGradient": "best work",
+    "sectionprojectsviewMore": "View More Projects",
+    "Testimonials":"Our recommendations",
+   "TestimonialsOfir": "I knew Bruno as a student of mine, I admired him from the very beginning, he brought impressive designs at record speed and has developed a lot since then. I have seen all his works and I loved each one, he sits with the client to understand what the client needs and from there he takes it to impressive places. Bruno - diligent, listens, shows understanding and empathy - highly recommended",
+  "TestimonialsAnastacia": "Highly recommend Bruno! On SafeGarden's website, I was looking for a front-end programmer who would understand the vision of the website and the needs of the system. Bruno worked accurately and quickly, asked the right questions and knew exactly what the system's needs were. Cooperation with him was easy and professional and most importantly humane!",
+  "titleFormFooter": "Ready to start a project together?",
+  "textFormFooter": "Do you have a project in mind? We're all ears when it comes to discovering your digital business goals.",
+  "buttonForm":"Submit",
+  "titleFooterOne":"Map Site",
+"linkOne":"About us",
+"linkTwo":"Our Projects",
+"linkThree":"Company services",
+"linkFour":"Our customers recommendations",
+"titleFooterTwo":"Company Services",
+"linkFive":"Website Development",
+"linkSix":"Graphic design",
+"linkSeven":"Storage and Server Allocation",
+"titleFooterThree":"Our Projects",
+"titleFooterFour":"Talk to us"
+}  
 }

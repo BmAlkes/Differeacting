@@ -1,6 +1,5 @@
-
-// import israel from "../../assets/israel.png";
-// import eua from "../../assets/united-states.png";
+import israel from "../../assets/israel.png";
+import eua from "../../assets/united-states.png";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import {
@@ -14,161 +13,162 @@ import {
 } from "../ui/sheet";
 import { useState } from "react";
 import { PhoneCallIcon } from "lucide-react";
-
 import { FaWhatsapp } from "react-icons/fa";
-
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  
   const handleClose = () => {
     setOpen(!open);
   };
-  const [direction] = useState(document.body.dir);
- 
+
+  const changeLanguage = (lng:string) => {
+    i18n.changeLanguage(lng);
+    document.body.dir = lng === 'he' ? 'rtl' : 'ltr';
+  };
+
   return (
-    <header className="bg-[#030B0F]  fixed top-0 w-full z-[100]">
-      <nav className=" nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
+    <header className="bg-[#030B0F] fixed top-0 w-full z-[100]">
+      <nav className="nav flex lg:flex-row flex-row-reverse items-center justify-between w-[92%] mx-auto h-24">
         <div className="flex justify-center items-center">
           <Link to="/" aria-label="logo website">
-            <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732554815/5000x5000-3-removebg-preview_jxhv2o.png"alt="web site logo" className= "max-w-80 " />
-
+            <img
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1732554815/5000x5000-3-removebg-preview_jxhv2o.png"
+              alt="web site logo"
+              className="max-w-80"
+            />
           </Link>
         </div>
-        <div className=" bg-[#030B0F] left-0 lg:w-auto hidden w-full lg:flex items-center ">
+        <div className="bg-[#030B0F] left-0 lg:w-auto hidden w-full lg:flex items-center">
           <ul className="lg:flex md:flex-row hidden lg:items-center lg:gap-[4vw] gap-6 text-lg text-white">
             <li className="nav relative">
               <Link to="/" aria-label="home Page">
-                ראשי
+                {t('home')}
               </Link>
             </li>
             <li className="nav relative">
               <Link to="/about" aria-label="about page">
-                מי אנחנו
+                {t('about')}
               </Link>
             </li>
-            
-
             <li className="nav relative">
               <Link to="/projects" aria-label="projects page">
-                פרויקטים
+                {t('projects')}
               </Link>
             </li>
             <li className="nav relative">
               <Link to="/posts" aria-label="posts page">
-                מגזין
+                {t('magazine')}
               </Link>
             </li>
-
             <li className="nav relative">
               <Link to="/contact" aria-label="contact page">
-                צרו קשר
+                {t('contact')}
               </Link>
             </li>
           </ul>
         </div>
-        <div className="flex gap-5 cursor-pointer">
-          {/* {languageOptions.map((language) => (
-            <button
-              key={language.value}
-              className=""
-              onClick={() => {
-                i18n.changeLanguage(language.value);
-              }}
-            >
-              <img src={language.flag} alt={language.name} className="w-10" />
-            </button>
-          ))} */}
+        <div className="flex items-center gap-5">
+          <button
+            onClick={() => changeLanguage('en')}
+            className="w-8 h-8 rounded-full overflow-hidden"
+            aria-label="Switch to English"
+          >
+            <img src={eua} alt="English" className="w-full h-full object-cover" />
+          </button>
+          <button
+            onClick={() => changeLanguage('he')}
+            className="w-8 h-8 rounded-full overflow-hidden"
+            aria-label="Switch to Hebrew"
+          >
+            <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
+          </button>
         </div>
         <a
-   href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
-          className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white font-semibold rounded p-[1px] hidden md:block "
-           target="_blank"
-        aria-label="Whats app for contact"
+          href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
+          className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white font-semibold rounded p-[1px] hidden md:block"
+          target="_blank"
+          aria-label="Whats app for contact"
         >
           <span className="flex w-full bg-[#030B0F] text-white rounded py-[10px] px-[14px] hover:bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
-            דברו איתנו
+            {t('buttonHeader')}
           </span>
-        </a>{" "}
+        </a>
+        
+        {/* Menu móvel */}
         <div className="lg:hidden cursor-pointer">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger>
               <AiOutlineMenu size={35} color="#fff" arial-label="mobile menu" />
             </SheetTrigger>
             <SheetContent
-              side={"right"}
+              side={i18n.dir() === 'rtl' ? "right" : "left"}
               className="bg-[#030B0F] text-white border-l border-[#030b0f] p-6 z-[1000]"
             >
               <SheetHeader>
                 <SheetTitle className="absolute left-5">
                   <Link to="/" aria-label="logo website">
-                    <img src="https://res.cloudinary.com/landingpage2/image/upload/v1732301265/2000x2000-1_gl8wli.png" alt="" className="w-[150px]" />
+                    <img
+                      src="https://res.cloudinary.com/landingpage2/image/upload/v1732301265/2000x2000-1_gl8wli.png"
+                      alt=""
+                      className="w-[150px]"
+                    />
                   </Link>
                 </SheetTitle>
                 <SheetDescription>
-                  <nav className="mt-24 ">
-                    <ul
-                      className={`text-xl text-gray-900 flex flex-col gap-5   "items-end`}
-                    >
+                  <nav className="mt-24">
+                    <ul className="text-xl text-gray-900 flex flex-col gap-5">
                       <Link
                         aria-label="home page"
                         onClick={handleClose}
                         to="/"
                         className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
+                          i18n.dir() === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>ראשי</li>
+                        <li>{t('home')}</li>
                       </Link>
                       <Link
                         aria-label="about website"
                         onClick={handleClose}
                         to="/about"
                         className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
+                          i18n.dir() === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>מי אנחנו</li>
+                        <li>{t('about')}</li>
                       </Link>
-                      {/* <Link
-                        aria-label="about website"
-                        onClick={handleClose}
-                        to="/service"
-                        className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
-                      >
-                        <li>שרותים שלנו</li>
-                      </Link> */}
-
                       <Link
                         aria-label="project website"
                         onClick={handleClose}
                         to="/projects"
                         className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
+                          i18n.dir() === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>פרויקטים</li>
+                        <li>{t('projects')}</li>
                       </Link>
                       <Link
                         to="/posts"
                         aria-label="posts page"
                         onClick={handleClose}
                         className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
+                          i18n.dir() === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>מגזין</li>
+                        <li>{t('magazine')}</li>
                       </Link>
                       <Link
                         aria-label="contact website"
                         onClick={handleClose}
                         to="/contact"
                         className={`text-white ${
-                          direction === "rtl" ? "text-right" : "text-left"
+                          i18n.dir() === "rtl" ? "text-right" : "text-left"
                         } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
-                        <li>צרו קשר</li>
+                        <li>{t('contact')}</li>
                       </Link>
                     </ul>
                   </nav>
@@ -189,7 +189,6 @@ const Header = () => {
                       <FaWhatsapp size={28} color="#fff" />
                     </a>
                   </li>
-                  
                 </ul>
               </SheetFooter>
             </SheetContent>

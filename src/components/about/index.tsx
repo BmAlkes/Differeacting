@@ -1,56 +1,50 @@
-
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Palette, 
   Code, 
-  // Search, 
   Server,
   ArrowRight,
-
+  ArrowLeft
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import web from "../../assets/svg/web.svg";
-// import digital from "../../assets/svg/digital.svg";
 import graphic from "../../assets/svg/graphic.svg";
-import server from "../../assets/svg/server.svg"
+import server from "../../assets/svg/server.svg";
 import Secimg from "../../assets/svg/pictureSec.svg";
 
-
 const About = () => {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
+
   const services = [
     {
       icon: <Palette className="w-8 h-8" />,
       image: graphic,
-      title: "עיצוב גרפי",
-      description: `מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות המותאמות לזהות המותג שלך ולקהל היעד. אנו משלבים עקרונות עיצוב מודרניים עם מחקר משתמשים מעמיק כדי ליצור ממשקים אינטואיטיביים ומושכים.`,
+      title: t('graphicDesigntitle'),
+      description: t('graphicDesigndescription'),
       link: "/design",
       gradient: "from-[#6FCFED] to-purple-500"
     },
     {
       icon: <Code className="w-8 h-8" />,
       image: web,
-      title: "פיתוח ותכנות",
-      description: `מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים אישית לצרכי העסק שלך, תוך שימוש בטכנולוגיות החדישות ביותר.`,
+      title: t('developmenttitle'),
+      description: t('developmentdescription'),
       link: "/development",
       gradient: "from-blue-500 to-[#C96CBE]"
     },
-    // {
-    //   icon: <Search className="w-8 h-8" />,
-    //   image: digital,
-    //   title: "SEO",
-    //   description: `מחלקת ה-SEO שלנו מיישמת אסטרטגיות מתקדמות לקידום אורגני, המגדילות את הנראות של האתר שלך במנועי החיפוש ומושכות תנועה איכותית.`,
-    //   link: "/digital",
-    //   gradient: "from-[#6FCFED] to-green-500"
-    // },
     {
       icon: <Server className="w-8 h-8" />,
       image: server,
-      title: "אחסון והקצאת שרתים",
-      description: `מחלקת האחסון והתחזוקה שלנו מספקת פתרונות מקיפים להבטחת הביצועים, האבטחה והיציבות של האתר שלך.`,
+      title: t('hostintitle'),
+      description: t('hostindescription'),
       link: "/server",
       gradient: "from-orange-500 to-[#C96CBE]"
     }
   ];
+
+  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   return (
     <div className="bg-[#030B0F] overflow-hidden">
@@ -69,23 +63,21 @@ const About = () => {
         />
 
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className={`grid lg:grid-cols-2 gap-16 items-center ${isRTL ? 'lg:dir-rtl' : ''}`}>
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-right order-2 lg:order-1"
+              className={`${isRTL ? 'text-right' : 'text-left'} order-2 lg:order-1`}
             >
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-             הבית של האיכות והחדשנות בעיצוב ופיתוח   
+                {t('titleAboutHome')}
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed">
-                צריכים פתרון React מקצועי שיניע את העסק שלכם קדימה?{" "}
-                <span className="text-[#6fcfed]">DotVizion</span> מביאה איתה
-                חדשנות, מומחיות וניסיון עשיר בפיתוח אפליקציות React מתקדמות.
+                {t('phaseAbout2')}{" "}
+                <span className="text-[#6fcfed]">DotVizion</span> {t('phaseAbout')}
               </p>
-            
             </motion.div>
 
             <motion.div
@@ -95,7 +87,6 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-           
               <img
                 src={Secimg}
                 alt="Technology Illustration"
@@ -108,7 +99,6 @@ const About = () => {
 
       {/* Services Section */}
       <section className="py-24 relative">
-
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,10 +107,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              השירותים שלנו
+              {t('servicesTitle')}
             </h2>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              המקום שבו כל הפתרונות הדיגיטליים נמצאים תחת קורת גג אחת!
+              {t('servicesubtitle')}
             </p>
           </motion.div>
 
@@ -134,9 +124,9 @@ const About = () => {
                 transition={{ delay: index * 0.1 }}
                 className="relative group"
               >
-                <div className="bg-white/5 min-h-80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
-                            hover:border-white/20 transition-all">
-                  <div className="flex items-center gap-4 mb-6">
+                <div className={`bg-white/5 min-h-80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
+                            hover:border-white/20 transition-all ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className={`flex items-center gap-4 mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
                     <div className={`p-3 rounded-xl bg-gradient-to-r ${service.gradient}`}>
                       {service.icon}
                     </div>
@@ -153,10 +143,12 @@ const About = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-[#6FCFED] hover:text-white transition-colors"
+                      className={`flex items-center gap-2 text-[#6FCFED] hover:text-white transition-colors ${
+                        isRTL ? 'flex-row-reverse' : 'flex-row'
+                      }`}
                     >
-                      <span>עמוד שירות</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>{t('serviceButton')}</span>
+                      <ArrowIcon className="w-4 h-4" />
                     </motion.button>
                   </Link>
                 </div>

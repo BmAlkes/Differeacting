@@ -88,7 +88,24 @@
 .calendar-container {
   height: 400px;
 }
+.direction-ltr-container {
+  display: inline-block;
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
 
+[dir="rtl"] .direction-ltr-container {
+  text-align: right;
+}
+
+[dir="ltr"] .nav-section {
+  text-align: left;
+}
+
+[dir="rtl"] .nav-section {
+  text-align: right;
+}
 .calendar-container .react-calendar {
   border: none;
   width: 100%;

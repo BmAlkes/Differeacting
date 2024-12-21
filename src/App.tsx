@@ -1,9 +1,6 @@
 import AOS from "aos";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
-import ReactGA from 'react-ga4';
-
 
 import Home from "./pages/Home";
 import Layout from "./layout";
@@ -46,7 +43,6 @@ import ShowDetailsPost from "./pages/Blog/showDetails/index.tsx";
 import EditBlog from "./pages/Blog/editBlog/index.tsx";
 import Leads from "./pages/Leads/index.tsx";
 import  Analytics  from "./pages/Analytics/index.tsx"
-import { useEffect } from "react";
 import RouteTracker from "./components/RouterTracker/index.tsx";
 
 import CalendarComponent from "./pages/Calendar/index.tsx";
@@ -56,19 +52,6 @@ import TransactionManagement from "./pages/expanses/TransactionManagement.tsx";
 AOS.init();
 
 function App() {
-  const { i18n } = useTranslation();
-  document.body.dir = i18n.dir();
-  const location = useLocation();
-
-  useEffect(() => {
-    // Inicialize o GA4
-    ReactGA.initialize('G-SEU_ID_AQUI');
-    
-    // Rastreie a primeira visualização de página
-    ReactGA.send('pageview');
-  }, []);
-
-
   return (
     <>
     <HelmetProvider>

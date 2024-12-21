@@ -7,8 +7,9 @@ import {
   Linkedin,
   ExternalLink 
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-// Define tipos
+// Tipos melhorados
 type SocialLink = {
   name: string;
   icon: JSX.Element;
@@ -19,6 +20,7 @@ type FooterLink = {
   name: string;
   href: string;
   external?: boolean;
+  keepLTR?: boolean;
 };
 
 type FooterSection = {
@@ -27,6 +29,18 @@ type FooterSection = {
 };
 
 const NewFooter = () => {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === 'rtl';
+
+  // Função auxiliar para verificar se o texto deve permanecer em LTR
+  const shouldBeLTR = (text: string) => {
+    return text.includes('@') || 
+           text === 'Deliver Coffee' || 
+           text === 'SafeGarden' || 
+           text === 'Webcar' ||
+           text.includes('.com');
+  };
+
   const socialLinks: SocialLink[] = [
     {
       name: "Facebook",
@@ -47,43 +61,44 @@ const NewFooter = () => {
 
   const footerSections: FooterSection[] = [
     {
-      title: "מפת אתר",
+      title: t("titleFooterOne"),
       links: [
-        { name: "אודותינו", href: "/about" },
-        { name: "הפרוייקטים שלנו", href: "/projects" },
-        { name: "שירותים החברה", href: "/services" },
-        { name: "המלצות לקוחותינו", href: "/about" }
+        { name: t('linkOne'), href: "/about" },
+        { name: t('linkTwo'), href: "/projects" },
+        { name: t('linkThree'), href: "/services" },
+        { name: t('linkFour'), href: "/about" }
       ]
     },
     {
-      title: "שירותי החברה",
+      title: t("titleFooterTwo"),
       links: [
-        { name: "פיתוח אתרי אינטרנט", href: "/development" },
-        { name: "עיצוב גרפי", href: "/design" },
-        { name: "שיווק דיגיטלי", href: "/digital" },
-        { name: "אחסון והקצאת שרתים", href: "/server" }
+        { name: t('linkFive'), href: "/development" },
+        { name: t('linkSix'), href: "/design" },
+        { name: t('linkSeven'), href: "/server" }
       ]
     },
     {
-      title: "הפרויקטים שלנו",
+      title: t('titleFooterThree'),
       links: [
-        { name: "Deliver Coffee", href: "https://deliver-coffe.vercel.app/", external: true },
-        { name: "SafeGarden", href: "https://safe-garden.vercel.app/", external: true },
-        { name: "Webcar", href: "https://webcar-umber.vercel.app/", external: true },
-        
+        { name: "Deliver Coffee", href: "https://deliver-coffe.vercel.app/", external: true, keepLTR: true },
+        { name: "SafeGarden", href: "https://safe-garden.vercel.app/", external: true, keepLTR: true },
+        { name: "Webcar", href: "https://webcar-umber.vercel.app/", external: true, keepLTR: true }
       ]
     },
     {
-      title: "דברו איתנו",
+      title: t('titleFooterFour'),
       links: [
-        { name: "info@dotvizion.com", href: "mailto:info@dotvizion.com", external: true },
+        { name: "info@dotvizion.com", href: "mailto:info@dotvizion.com", external: true, keepLTR: true },
         { name: "תל אביב", href: "#" }
       ]
     }
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#030B0F] to-[#0A1A24] overflow-hidden">
+    <footer 
+      className="relative bg-gradient-to-b from-[#030B0F] to-[#0A1A24] overflow-hidden"
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
       {/* Background Gradient */}
       <motion.div
         className="absolute inset-0 opacity-10"
@@ -98,9 +113,9 @@ const NewFooter = () => {
       />
 
       <div className="relative container mx-auto px-6 py-12">
-        {/* Logo and Social Links */}
         <div className="grid md:grid-cols-5 gap-8 mb-8">
-          <div className="md:col-span-1">
+          {/* Logo and Social Links */}
+          <div className={`md:col-span-1 ${isRTL ? 'order-last' : 'order-first'}`}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -108,14 +123,14 @@ const NewFooter = () => {
               className="space-y-4"
             >
               <Link to="/" className="block">
-              <img 
-  src="https://res.cloudinary.com/landingpage2/image/upload/v1732303053/5000x5000-4_q0s4rj.png"
-  alt="Dotvizion Logo"
-  className=" w-auto h-36"
-  width="auto"
-  height="48"
-  loading="eager"
-/>
+                <img 
+                  src="https://res.cloudinary.com/landingpage2/image/upload/v1732303053/5000x5000-4_q0s4rj.png"
+                  alt="Dotvizion Logo"
+                  className="w-auto h-36"
+                  width="auto"
+                  height="48"
+                  loading="eager"
+                />
               </Link>
               
               <div className="flex gap-3">
@@ -143,42 +158,51 @@ const NewFooter = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-right"
+                className={isRTL ? 'text-right' : 'text-left'}
               >
                 <h3 className="text-white font-bold text-lg mb-4">
                   {section.title}
                 </h3>
-                <ul className="space-y-2">
-                  {section.links.map((link) => (
-                    <li key={link.name}>
-                      {link.external ? (
-                        <motion.a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-start text-gray-400 hover:text-white transition-colors group"
-                          whileHover={{ x: -5 }}
-                        >
-                          <span>{link.name}</span>
-                          {link.href.startsWith('mailto:') ? (
-                            <Mail className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 " />
-                          ) : link.href !== '#' ? (
-                            <ExternalLink className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 " />
-                          ) : null}
-                        </motion.a>
-                      ) : (
-                        <motion.div whileHover={{ x: -5 }}>
-                          <Link
-                            to={link.href}
-                            className="text-gray-400 hover:text-white transition-colors"
-                          >
-                            {link.name}
-                          </Link>
-                        </motion.div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                <ul className={`space-y-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+  {section.links.map((link) => (
+    <li key={link.name}>
+      {link.external ? (
+        <motion.a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center transition-colors group
+            ${isRTL ? 'flex-row-reverse' : 'flex-row'}
+            text-gray-400 hover:text-white`}
+          whileHover={{ x: isRTL ? 5 : -5 }}
+        >
+          <span className={link.keepLTR ? 'direction-ltr-container' : ''}>
+            {link.name}
+          </span>
+          {link.href.startsWith('mailto:') ? (
+            <Mail className={`w-4 h-4 opacity-0 group-hover:opacity-100 
+              ${isRTL ? 'ml-2' : 'mr-2'}`} />
+          ) : link.href !== '#' ? (
+            <ExternalLink className={`w-4 h-4 opacity-0 group-hover:opacity-100 
+              ${isRTL ? 'ml-2' : 'mr-2'}`} />
+          ) : null}
+        </motion.a>
+      ) : (
+        <motion.div 
+          whileHover={{ x: isRTL ? 5 : -5 }}
+          className={isRTL ? 'text-right' : 'text-left'}
+        >
+          <Link
+            to={link.href}
+            className="text-gray-400 hover:text-white transition-colors block"
+          >
+            {link.name}
+          </Link>
+        </motion.div>
+      )}
+    </li>
+  ))}
+</ul>
               </motion.div>
             ))}
           </div>
@@ -190,12 +214,12 @@ const NewFooter = () => {
           whileInView={{ opacity: 1 }}
           className="pt-8 border-t border-white/10"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              All rights reserved DotVizion © 2023
-            </p>
-            <p className="text-gray-400 text-sm">
+          <div className={`flex justify-between ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+            <p className="text-gray-400 text-sm direction-ltr">
               DotVizion Solutions for web applications
+            </p>
+            <p className="text-gray-400 text-sm direction-ltr">
+              All rights reserved DotVizion © 2023
             </p>
           </div>
         </motion.div>
@@ -204,4 +228,4 @@ const NewFooter = () => {
   );
 };
 
-export default NewFooter
+export default NewFooter;
