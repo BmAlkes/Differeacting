@@ -16,6 +16,7 @@ import { PhoneCallIcon } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
+
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -41,51 +42,27 @@ const Header = () => {
             />
           </Link>
         </div>
+
         <div className="bg-[#030B0F] left-0 lg:w-auto hidden w-full lg:flex items-center">
           <ul className="lg:flex md:flex-row hidden lg:items-center lg:gap-[4vw] gap-6 text-lg text-white">
             <li className="nav relative">
-              <Link to="/" aria-label="home Page">
-                {t('home')}
-              </Link>
+              <Link to="/">{t('home')}</Link>
             </li>
             <li className="nav relative">
-              <Link to="/about" aria-label="about page">
-                {t('about')}
-              </Link>
+              <Link to="/about">{t('about')}</Link>
             </li>
             <li className="nav relative">
-              <Link to="/projects" aria-label="projects page">
-                {t('projects')}
-              </Link>
+              <Link to="/projects">{t('projects')}</Link>
             </li>
             <li className="nav relative">
-              <Link to="/posts" aria-label="posts page">
-                {t('magazine')}
-              </Link>
+              <Link to="/posts">{t('magazine')}</Link>
             </li>
             <li className="nav relative">
-              <Link to="/contact" aria-label="contact page">
-                {t('contact')}
-              </Link>
+              <Link to="/contact">{t('contact')}</Link>
             </li>
           </ul>
         </div>
-        <div className="flex items-center gap-5">
-          <button
-            onClick={() => changeLanguage('en')}
-            className="w-8 h-8 rounded-full overflow-hidden"
-            aria-label="Switch to English"
-          >
-            <img src={eua} alt="English" className="w-full h-full object-cover" />
-          </button>
-          <button
-            onClick={() => changeLanguage('he')}
-            className="w-8 h-8 rounded-full overflow-hidden"
-            aria-label="Switch to Hebrew"
-          >
-            <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
-          </button>
-        </div>
+
         <a
           href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
           className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] text-white font-semibold rounded p-[1px] hidden md:block"
@@ -97,11 +74,10 @@ const Header = () => {
           </span>
         </a>
         
-        {/* Menu móvel */}
         <div className="lg:hidden cursor-pointer">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger>
-              <AiOutlineMenu size={35} color="#fff" arial-label="mobile menu" />
+              <AiOutlineMenu size={35} color="#fff" />
             </SheetTrigger>
             <SheetContent
               side={i18n.dir() === 'rtl' ? "right" : "left"}
@@ -109,10 +85,10 @@ const Header = () => {
             >
               <SheetHeader>
                 <SheetTitle className="absolute left-5">
-                  <Link to="/" aria-label="logo website">
+                  <Link to="/" onClick={handleClose}>
                     <img
                       src="https://res.cloudinary.com/landingpage2/image/upload/v1732301265/2000x2000-1_gl8wli.png"
-                      alt=""
+                      alt="logo"
                       className="w-[150px]"
                     />
                   </Link>
@@ -121,71 +97,73 @@ const Header = () => {
                   <nav className="mt-24">
                     <ul className="text-xl text-gray-900 flex flex-col gap-5">
                       <Link
-                        aria-label="home page"
                         onClick={handleClose}
                         to="/"
-                        className={`text-white ${
-                          i18n.dir() === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                        className={`text-white ${i18n.dir() === "rtl" ? "text-right" : "text-left"} w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>{t('home')}</li>
                       </Link>
                       <Link
-                        aria-label="about website"
                         onClick={handleClose}
                         to="/about"
-                        className={`text-white ${
-                          i18n.dir() === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                        className={`text-white ${i18n.dir() === "rtl" ? "text-right" : "text-left"} w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>{t('about')}</li>
                       </Link>
                       <Link
-                        aria-label="project website"
                         onClick={handleClose}
                         to="/projects"
-                        className={`text-white ${
-                          i18n.dir() === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                        className={`text-white ${i18n.dir() === "rtl" ? "text-right" : "text-left"} w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>{t('projects')}</li>
                       </Link>
                       <Link
-                        to="/posts"
-                        aria-label="posts page"
                         onClick={handleClose}
-                        className={`text-white ${
-                          i18n.dir() === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                        to="/posts"
+                        className={`text-white ${i18n.dir() === "rtl" ? "text-right" : "text-left"} w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>{t('magazine')}</li>
                       </Link>
                       <Link
-                        aria-label="contact website"
                         onClick={handleClose}
                         to="/contact"
-                        className={`text-white ${
-                          i18n.dir() === "rtl" ? "text-right" : "text-left"
-                        } w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
+                        className={`text-white ${i18n.dir() === "rtl" ? "text-right" : "text-left"} w-full p-2 rounded-md hover:bg-slate-50 hover:text-black`}
                       >
                         <li>{t('contact')}</li>
                       </Link>
                     </ul>
                   </nav>
                 </SheetDescription>
+                <div className="flex items-center gap-3 absolute top-6 right-4">
+                  <button
+                    onClick={() => {
+                      changeLanguage('en');
+                      handleClose();
+                    }}
+                    className="w-8 h-8 rounded-full overflow-hidden"
+                  >
+                    <img src={eua} alt="English" className="w-full h-full object-cover" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('he');
+                      handleClose();
+                    }}
+                    className="w-8 h-8 rounded-full overflow-hidden"
+                  >
+                    <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
+                  </button>
+                </div>
               </SheetHeader>
               <SheetFooter className="absolute bottom-12">
                 <ul className="flex gap-5">
                   <li>
-                    <a href="tel:0544425884" aria-label="phone to call">
+                    <a href="tel:0544425884">
                       <PhoneCallIcon size={28} color="#fff" />
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project"
-                      aria-label="whats app"
-                    >
+                    <a href="https://api.whatsapp.com/send?phone=9720544425884&text=I%20want%20to%20talk%20about%20a%20project">
                       <FaWhatsapp size={28} color="#fff" />
                     </a>
                   </li>

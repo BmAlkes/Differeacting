@@ -9,10 +9,6 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-
-
-
-
 const Home = () => {
   const { pathname } = useLocation();
 

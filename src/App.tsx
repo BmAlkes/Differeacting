@@ -1,7 +1,6 @@
 import AOS from "aos";
 import { Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
-
 import Home from "./pages/Home";
 import Layout from "./layout";
 import NotFound from "./pages/404";
