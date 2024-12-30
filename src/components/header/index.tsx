@@ -16,7 +16,6 @@ import { PhoneCallIcon } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
-
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -61,6 +60,24 @@ const Header = () => {
               <Link to="/contact">{t('contact')}</Link>
             </li>
           </ul>
+        </div>
+
+        {/* Flags - visible on desktop, hidden on mobile */}
+        <div className="hidden lg:flex items-center gap-3">
+          <button
+            onClick={() => changeLanguage('en')}
+            className="w-8 h-8 rounded-full overflow-hidden"
+            aria-label="Switch to English"
+          >
+            <img src={eua} alt="English" className="w-full h-full object-cover" />
+          </button>
+          <button
+            onClick={() => changeLanguage('he')}
+            className="w-8 h-8 rounded-full overflow-hidden"
+            aria-label="Switch to Hebrew"
+          >
+            <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
+          </button>
         </div>
 
         <a
@@ -132,28 +149,30 @@ const Header = () => {
                         <li>{t('contact')}</li>
                       </Link>
                     </ul>
+
+                    {/* Flags in mobile menu */}
+                    <div className="flex items-center gap-3 mt-8">
+                      <button
+                        onClick={() => {
+                          changeLanguage('en');
+                          handleClose();
+                        }}
+                        className="w-8 h-8 rounded-full overflow-hidden"
+                      >
+                        <img src={eua} alt="English" className="w-full h-full object-cover" />
+                      </button>
+                      <button
+                        onClick={() => {
+                          changeLanguage('he');
+                          handleClose();
+                        }}
+                        className="w-8 h-8 rounded-full overflow-hidden"
+                      >
+                        <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
+                      </button>
+                    </div>
                   </nav>
                 </SheetDescription>
-                <div className="flex items-center gap-3 absolute top-6 right-4">
-                  <button
-                    onClick={() => {
-                      changeLanguage('en');
-                      handleClose();
-                    }}
-                    className="w-8 h-8 rounded-full overflow-hidden"
-                  >
-                    <img src={eua} alt="English" className="w-full h-full object-cover" />
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('he');
-                      handleClose();
-                    }}
-                    className="w-8 h-8 rounded-full overflow-hidden"
-                  >
-                    <img src={israel} alt="Hebrew" className="w-full h-full object-cover" />
-                  </button>
-                </div>
               </SheetHeader>
               <SheetFooter className="absolute bottom-12">
                 <ul className="flex gap-5">
