@@ -29,7 +29,7 @@ const Home = () => {
        <Helmet>
         <meta charSet="utf-8"/>
         <title>Dotvizion - סטודיו לעיצוב אתרים ואפליקציות: Designing with Precision, Innovation with Vision</title>
-        <link rel="canonical" href="https://www.differeacting.com/" />
+        <link rel="canonical" href="https://www.dotvizion.com/" />
       </Helmet>
      
       <Hero />

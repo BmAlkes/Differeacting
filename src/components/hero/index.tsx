@@ -113,7 +113,8 @@ const Hero = () => {
             className="relative z-10"
           >
             <motion.img
-              src="https://res.cloudinary.com/landingpage2/image/upload/v1728219880/creative-light-bulb_golihk.png"
+              src="https://res.cloudinary.com/landingpage2/image/upload/v1738649982/creative-light-bulb_golihk_njl32f.webp"
+            
               alt="Creative Lightbulb"
               className="w-full h-auto max-w-[600px] mx-auto"
               animate={{
