@@ -47,13 +47,7 @@ const Projects = () => {
       category: "webSite",
       description:"Website"
     },
-    // {
-    //   key: "glowModas",
-    //   url: "https://firebrick-rat-359890.hostingersite.com/",
-    //   image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
-    //   category: "onlineStore",
-    //   description: "Store clother"
-    // }
+ 
   ];
 
   return (

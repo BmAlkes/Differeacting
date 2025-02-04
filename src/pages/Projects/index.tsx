@@ -185,19 +185,9 @@ const Projects = () => {
         live: "https://lavenderblush-grasshopper-239774.hostingersite.com/",
       }
     },
+   
     {
       id: "15",
-      title: "Glow Modas",
-      description: "Store for clothes",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
-      technologies: ["WordPress", "Elementor", "WooCommerce"],
-      category: "WordPress/Elementor",
-      links: {
-        live: "https://firebrick-rat-359890.hostingersite.com/",
-      }
-    },
-    {
-      id: "16",
       title: "Nexus Architecture",
       description: "Web site for company",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
@@ -355,6 +345,10 @@ const Projects = () => {
                   whileHover={{ y: -10 }}
                   className="group"
                 >
+                  <a
+                              href={project.links.live}>
+                                
+                              
                   <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all">
                     <div className="relative aspect-video overflow-hidden">
                       <img
@@ -406,7 +400,7 @@ const Projects = () => {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </div></a>
                 </motion.div>
               ))}
             </AnimatePresence>
