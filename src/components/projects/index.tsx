@@ -41,12 +41,19 @@ const Projects = () => {
       description:"Website"
     },
     {
-      key: "glowModas",
-      url: "https://firebrick-rat-359890.hostingersite.com/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
-      category: "onlineStore",
-      description: "Store clother"
-    }
+      key: "Zeus",
+      url: "https://lavenderblush-grasshopper-239774.hostingersite.com/",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105732/Screenshot_11_qjpjde.png",
+      category: "webSite",
+      description:"Website"
+    },
+    // {
+    //   key: "glowModas",
+    //   url: "https://firebrick-rat-359890.hostingersite.com/",
+    //   image: "https://res.cloudinary.com/landingpage2/image/upload/v1732464836/Screenshot_6_uvu30n.png",
+    //   category: "onlineStore",
+    //   description: "Store clother"
+    // }
   ];
 
   return (
