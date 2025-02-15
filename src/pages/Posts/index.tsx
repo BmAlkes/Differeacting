@@ -33,10 +33,18 @@ const BlogListing = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { data = [] } = useQuery<PostProps[]>({
-    queryKey: ["BlogSistem"],
-    queryFn: () => getAllPosts(),
+    queryKey: ["postsSysteam"],
+    queryFn: async () => {
+      try {
+        const posts = await getAllPosts();
+        return posts || []; // Garante que retorne um array vazio caso posts seja undefined
+      } catch (error) {
+        console.error("Erro ao buscar posts:", error);
+        return []; // Em caso de erro, retorna um array vazio
+      }
+    },
   });
-console.log(data)
+
 
   const { pathname } = useLocation();
 

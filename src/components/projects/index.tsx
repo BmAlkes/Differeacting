@@ -1,112 +1,67 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import {  ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SafariDemo } from "../safariDemo";
 import vetor from "../../assets/svg/Vector 18.svg";
-import { useTranslation } from "react-i18next";
 
-interface Project {
-  key: string;
-  url: string;
-  image: string;
-  category: string;
-  description: string;
-}
+const projects = [
+  {
+    key: "webCar",
+    url: "https://webcar-umber.vercel.app/",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1710178141/Image_1_lnemkd.png",
+    category: "Web Application ",
+    description: " פלטפורמה למכירת מכוניות ופרסום"
+  },
+  {
+    key: "ecommerce",
+    url: "https://ecommerce-xhdu.vercel.app/",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
+    category: "E-commerce ",
+    description: "אתר מסחר"
+  },
+  {
+    key: "nexus",
+    url: "https://nexusmyhomes.com/",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
+    category: "Website ",
+    description: "אתר אינטרנט"
+  },
+  {
+    key: "Zeus",
+    url: "https://lavenderblush-grasshopper-239774.hostingersite.com/",
+    image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105732/Screenshot_11_qjpjde.png",
+    category: "Website ",
+    description: "אתר אינטרנט"
+  }
+];
 
 const Projects = () => {
-  const { t, i18n } = useTranslation();
-  const isRTL = i18n.dir() === 'rtl';
-  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
-
-  const projects: Project[] = [
-    {
-      key: "webCar",
-      url: "https://webcar-umber.vercel.app/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1710178141/Image_1_lnemkd.png",
-      category: "webApplication",
-      description:"A platform for car sales and advertising"
-    },
-    {
-      key: "ecommerce",
-      url: "https://ecommerce-xhdu.vercel.app/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1727969822/Screenshot_27_a6sppc_1_gshqfs.png",
-      category: "ecommerce",
-      description:"Trade site"
-    },
-    {
-      key: "nexus",
-      url: "https://nexusmyhomes.com/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1734201091/Screenshot_18_zrfoqh.png",
-      category: "webSite",
-      description:"Website"
-    },
-    {
-      key: "Zeus",
-      url: "https://lavenderblush-grasshopper-239774.hostingersite.com/",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1722105732/Screenshot_11_qjpjde.png",
-      category: "webSite",
-      description:"Website"
-    },
- 
-  ];
-
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="relative bg-[#030B0F] text-[#D1D1D1] min-h-screen pt-24 pb-16 overflow-hidden"
-      dir={isRTL ? 'rtl' : 'ltr'}
     >
-      {/* Background Elements */}
-      <motion.div
-        className="absolute inset-0 opacity-10"
-        animate={{
-          background: [
-            "radial-gradient(circle at 0% 0%, #6FCFED 0%, transparent 50%)",
-            "radial-gradient(circle at 100% 100%, #C96CBE 0%, transparent 50%)",
-            "radial-gradient(circle at 0% 100%, #6FCFED 0%, transparent 50%)"
-          ]
-        }}
-        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-      />
-
       <motion.img
         src={vetor}
         alt="Background Pattern"
         className="absolute left-0 top-0 opacity-20"
-        animate={{
-          rotate: [0, 5, 0],
-          scale: [1, 1.1, 1]
-        }}
+        animate={{ rotate: [0, 5, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 10, repeat: Infinity }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className={isRTL ? 'text-right' : 'text-left'}
-          >
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
-              {t('sectionprojectsmainTitle')}
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
-                {t('sectionprojectsmainTitleGradient')}
-              </span>
-            </h2>
-          </motion.div>
+        <div className="text-left mb-16">
+          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
+          הפרויקטים האחרונים שלנו
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d]">
+           ראו מה בנינו
+            </span>
+          </h2>
         </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
-        >
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.key}
@@ -129,7 +84,7 @@ const Projects = () => {
                   </div>
 
                   <div className="p-6">
-                    <div className={`flex items-center justify-between mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <div className="flex items-center justify-between mb-2">
                       <h3 className="text-2xl font-bold text-white">
                         {project.key}
                       </h3>
@@ -138,7 +93,7 @@ const Projects = () => {
                       </span>
                     </div>
                     <p className="text-gray-400">
-                     {project.description}
+                      {project.description}
                     </p>
                   </div>
                 </div>
@@ -147,23 +102,15 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Load More Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="flex justify-center mt-16"
-        >
+        <motion.div className="flex justify-center mt-16">
           <Link to="/projects">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`bg-gradient-to-r from-[#87ceeb] to-[#ff860d] px-8 py-4 rounded-xl text-white flex items-center gap-2 ${
-                isRTL ? 'flex-row-reverse' : ''
-              }`}
+              className="bg-gradient-to-r from-[#87ceeb] to-[#ff860d] px-8 py-4 rounded-xl text-white flex items-center gap-2"
             >
-              <span>{t('sectionprojectsviewMore')}</span>
-              <ArrowIcon className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5" />
+              <span> צפו בעוד פרויקטים</span>
             </motion.button>
           </Link>
         </motion.div>

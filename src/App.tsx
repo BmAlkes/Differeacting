@@ -54,8 +54,6 @@ function App() {
   return (
     <>
     <HelmetProvider>
-
- 
       <AnimatePresence mode="wait">
       <RouteTracker />
         <Routes location={location} key={location.pathname}>

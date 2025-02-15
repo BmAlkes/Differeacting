@@ -1,53 +1,42 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  Palette, 
-  Code, 
-  Server,
-  ArrowRight,
-  ArrowLeft
-} from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { Palette, Code, Server } from "lucide-react";
+
 import web from "../../assets/svg/web.svg";
 import graphic from "../../assets/svg/graphic.svg";
 import server from "../../assets/svg/server.svg";
 import Secimg from "../../assets/svg/pictureSec.svg";
 
 const About = () => {
-  const { t, i18n } = useTranslation();
-  const isRTL = i18n.dir() === 'rtl';
-
   const services = [
     {
-      icon: <Palette className="w-8 h-8" />,
-      image: graphic,
-      title: t('graphicDesigntitle'),
-      description: t('graphicDesigndescription'),
-      link: "/design",
+      icon: <Palette className="w-8 h-8" />, 
+      image: graphic, 
+      title: "עיצוב גרפי", 
+      description: "מחלקת העיצוב הגרפי שלנו מתמחה ביצירת חוויות ויזואליות מרשימות המותאמות לזהות המותג שלך ולקהל היעד.", 
+      link: "/design", 
       gradient: "from-[#6FCFED] to-purple-500"
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      image: web,
-      title: t('developmenttitle'),
-      description: t('developmentdescription'),
-      link: "/development",
+      icon: <Code className="w-8 h-8" />, 
+      image: web, 
+      title: "פיתוח ותכנות", 
+      description: "מחלקת הפיתוח והתכנות שלנו מתמחה בבניית אתרים מתקדמים המותאמים אישית לצרכי העסק שלך.", 
+      link: "/development", 
       gradient: "from-blue-500 to-[#C96CBE]"
     },
     {
-      icon: <Server className="w-8 h-8" />,
-      image: server,
-      title: t('hostintitle'),
-      description: t('hostindescription'),
-      link: "/server",
+      icon: <Server className="w-8 h-8" />, 
+      image: server, 
+      title: "אחסון והקצאת שרתים", 
+      description: "מחלקת האחסון והתחזוקה שלנו מספקת פתרונות מקיפים להבטחת הביצועים והאבטחה של האתר שלך.", 
+      link: "/server", 
       gradient: "from-orange-500 to-[#C96CBE]"
     }
   ];
 
-  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
-
   return (
-    <div className="bg-[#030B0F] overflow-hidden">
+    <div className="bg-[#030B0F] overflow-hidden rtl text-right">
       {/* Hero Section */}
       <section className="relative py-24">
         <motion.div 
@@ -55,29 +44,25 @@ const About = () => {
           animate={{
             background: [
               "radial-gradient(circle at 0% 0%, #6FCFED 0%, transparent 50%)",
-              "radial-gradient(circle at 100% 100%, #C96CBE 0%, transparent 50%)",
-              "radial-gradient(circle at 0% 100%, #6FCFED 0%, transparent 50%)"
+              "radial-gradient(circle at 100% 100%, #C96CBE 0%, transparent 50%)"
             ]
           }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
         />
 
         <div className="container mx-auto px-4">
-          <div className={`grid lg:grid-cols-2 gap-16 items-center ${isRTL ? 'lg:dir-rtl' : ''}`}>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={`${isRTL ? 'text-right' : 'text-left'} order-2 lg:order-1`}
+              className="order-2 lg:order-1"
             >
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                {t('titleAboutHome')}
+                מצוינות דיגיטלית
               </h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                {t('phaseAbout2')}{" "}
-                <span className="text-[#6fcfed]">DotVizion</span> {t('phaseAbout')}
-              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">ברוכים הבאים ל <span className="text-[#6fcfed]">DotVizion</span> היא השותף המהימן שלך בעולם הדיגיטלי. אנו יוצרים פתרונות דיגיטליים חדשניים ויעילים המסייעים לעסקים לצמוח ולהצליח בנוף הדיגיטלי המודרני.</p>
             </motion.div>
 
             <motion.div
@@ -87,11 +72,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <img
-                src={Secimg}
-                alt="Technology Illustration"
-                className="relative w-full max-w-[554px] mx-auto"
-              />
+              <img src={Secimg} alt="Technology Illustration" className="relative w-full max-w-[554px] mx-auto" />
             </motion.div>
           </div>
         </div>
@@ -107,10 +88,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              {t('servicesTitle')}
+              השירותים שלנו
             </h2>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              {t('servicesubtitle')}
+              המקום שבו כל הפתרונות הדיגיטליים נמצאים תחת קורת גג אחת!
             </p>
           </motion.div>
 
@@ -124,9 +105,8 @@ const About = () => {
                 transition={{ delay: index * 0.1 }}
                 className="relative group"
               >
-                <div className={`bg-white/5 min-h-80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 
-                            hover:border-white/20 transition-all ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className={`flex items-center gap-4 mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div className="bg-white/5 min-h-80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all">
+                  <div className="flex items-center gap-4 mb-6 flex-row-reverse">
                     <div className={`p-3 rounded-xl bg-gradient-to-r ${service.gradient}`}>
                       {service.icon}
                     </div>
@@ -143,12 +123,9 @@ const About = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-2 text-[#6FCFED] hover:text-white transition-colors ${
-                        isRTL ? 'flex-row-reverse' : 'flex-row'
-                      }`}
+                      className="flex items-center gap-2 text-[#6FCFED] hover:text-white transition-colors flex-row-reverse"
                     >
-                      <span>{t('serviceButton')}</span>
-                      <ArrowIcon className="w-4 h-4" />
+                      <span>עמוד שירות</span>
                     </motion.button>
                   </Link>
                 </div>

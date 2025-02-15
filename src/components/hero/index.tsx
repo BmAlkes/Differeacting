@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const [_direction, setDirection] = useState(document.body.dir);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-    const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new MutationObserver((mutationsList) => {
@@ -23,7 +21,7 @@ const Hero = () => {
     id: i,
     size: Math.random() * 3 + 1,
     duration: Math.random() * 3 + 2,
-    delay: Math.random() * 2
+    delay: Math.random() * 2,
   }));
 
   return (
@@ -36,8 +34,8 @@ const Hero = () => {
             "radial-gradient(circle at 30% 30%, #87ceeb 0%, transparent 40%)",
             "radial-gradient(circle at 70% 70%, #ff860d 0%, transparent 40%)",
             "radial-gradient(circle at 30% 70%, #87ceeb 0%, transparent 40%)",
-            "radial-gradient(circle at 70% 30%, #ff860d 0%, transparent 40%)"
-          ]
+            "radial-gradient(circle at 70% 30%, #ff860d 0%, transparent 40%)",
+          ],
         }}
         transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
       />
@@ -51,19 +49,19 @@ const Hero = () => {
             width: particle.size,
             height: particle.size,
             left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
             y: [0, -40, 0],
             x: [0, Math.random() * 20 - 10, 0],
             opacity: [0, 0.8, 0],
-            scale: [0, 1.2, 0]
+            scale: [0, 1.2, 0],
           }}
           transition={{
             duration: particle.duration,
             delay: particle.delay,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       ))}
@@ -71,13 +69,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 flex justify-center items-center mt-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Enhanced Text Content */}
-         
-            {/* Main Title */}
-            <motion.div style={{ opacity }} className="relative">
-              <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d] font-bold text-7xl md:text-8xl lg:text-9xl leading-tight tracking-tight ">
-                Dotvizion
-              </h1>
-        
+
+          {/* Main Title */}
+          <motion.div style={{ opacity }} className="relative">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#87ceeb] to-[#ff860d] font-bold text-7xl md:text-8xl lg:text-9xl leading-tight tracking-tight ">
+              Dotvizion
+            </h1>
 
             {/* Enhanced Slogan */}
             <div className="space-y-6">
@@ -87,9 +84,9 @@ const Hero = () => {
                 transition={{ delay: 0.3 }}
                 className="text-white/90 text-2xl lg:text-4xl font-light leading-relaxed"
               >
-                <span className="block mb-3 text-white/80 px-5">{t("titleHero")}</span>
+                <span className="block mb-3 text-white/80 px-5">Dotvizion</span>
                 <span className="block text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-[#87ceeb] to-[#ff860d] bg-clip-text text-transparent px-5 pb-5">
-            {t('subTitleHero')}
+                  מעצבים חוויות דיגיטליות
                 </span>
               </motion.h2>
 
@@ -100,7 +97,9 @@ const Hero = () => {
                 transition={{ delay: 0.5 }}
                 className="text-white/60 text-lg lg:text-xl leading-relaxed max-w-2xl px-5"
               >
-               {t('phraseHero')}              </motion.p>
+                אנו מתמחים בעיצוב ופיתוח פתרונות דיגיטליים המשלבים חדשנות,
+                יצירתיות וטכנולוגיה מתקדמת
+              </motion.p>
             </div>
           </motion.div>
 
@@ -114,20 +113,19 @@ const Hero = () => {
           >
             <motion.img
               src="https://res.cloudinary.com/landingpage2/image/upload/v1738649982/creative-light-bulb_golihk_njl32f.webp"
-            
               alt="Creative Lightbulb"
               className="w-full h-auto max-w-[600px] mx-auto"
               animate={{
                 y: [0, -15, 0],
-                rotate: [-1, 1, -1]
+                rotate: [-1, 1, -1],
               }}
               transition={{
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               style={{
-                filter: "drop-shadow(0 0 30px rgba(135, 206, 235, 0.4))"
+                filter: "drop-shadow(0 0 30px rgba(135, 206, 235, 0.4))",
               }}
             />
             {/* Enhanced Glow Effect */}
