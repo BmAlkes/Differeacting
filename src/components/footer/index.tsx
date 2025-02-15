@@ -103,7 +103,7 @@ const Reccomend = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl lg:text-6xl font-bold text-gray-900 mb-6">
-              קור קשר איתנו
+              צור קשר איתנו
             </motion.h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
