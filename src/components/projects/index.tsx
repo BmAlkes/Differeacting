@@ -51,7 +51,7 @@ const Projects = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-left mb-16">
+        <div className=" mb-16">
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4">
           הפרויקטים האחרונים שלנו
             <br />
