@@ -196,6 +196,17 @@ const Projects = () => {
       links: {
         live: "https://nexusmyhomes.com",
       }
+    },
+    {
+      id: "16",
+      title: "Studio Capture",
+      description: "Web site for company",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1739702646/Screenshot_8_pfbsbb.png",
+      technologies: ["WordPress", "Elementor", "WooCommerce"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://lightgoldenrodyellow-monkey-277145.hostingersite.com/",
+      }
     }
   ];
   // Categories
