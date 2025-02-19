@@ -227,7 +227,7 @@ technologies: ["React", "MERN", "TailwindCSS"],
 technologies: ["Wordpress", "Elementor"],
       category: "WordPress/Elementor",
       links: {
-        live: "https://tomato-ten-snowy.vercel.app/",
+        live: "https://oz-wiz.com/",
       }
     }
   ];
