@@ -199,6 +199,28 @@ const Projects = () => {
     },
     {
       id: "16",
+      title: "Tomato App",
+      description: "Web application",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1739906913/Screenshot_10_obqtkw.png",
+      technologies: ["React", "MERN", "TailwindCSS"],
+      category: "React",
+      links: {
+        live: "https://tomato-ten-snowy.vercel.app/",
+      }
+    },
+    {
+      id: "17",
+      title: "Oz Wiz",
+      description: "Landing Page",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1739906822/Screenshot_11_vfp5xx.png",
+      technologies: ["Wordpress", "Elementor"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://oz-wiz.com/",
+      }
+    },
+    {
+      id: "18",
       title: "Studio Capture",
       description: "Web site for company",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1739702646/Screenshot_8_pfbsbb.png",
@@ -208,28 +230,6 @@ const Projects = () => {
         live: "https://lightgoldenrodyellow-monkey-277145.hostingersite.com/",
       }
     },
-    {
-      id: "17",
-      title: "Tomato App",
-      description: "Web application",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1739906913/Screenshot_10_obqtkw.png",
-technologies: ["React", "MERN", "TailwindCSS"],
-      category: "React",
-      links: {
-        live: "https://tomato-ten-snowy.vercel.app/",
-      }
-    },
-    {
-      id: "18",
-      title: "Oz Wiz",
-      description: "Landing Page",
-      image: "https://res.cloudinary.com/landingpage2/image/upload/v1739906822/Screenshot_11_vfp5xx.png",
-technologies: ["Wordpress", "Elementor"],
-      category: "WordPress/Elementor",
-      links: {
-        live: "https://oz-wiz.com/",
-      }
-    }
   ];
   // Categories
   const categories = [
