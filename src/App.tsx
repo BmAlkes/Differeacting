@@ -46,6 +46,8 @@ import RouteTracker from "./components/RouterTracker/index.tsx";
 
 import CalendarComponent from "./pages/Calendar/index.tsx";
 import TransactionManagement from "./pages/expanses/TransactionManagement.tsx";
+import AccessibilityDeclaration from "./pages/AccessibilityPage/index.tsx";
+import Terms from "./pages/Conditions/index.tsx";
 
 
 AOS.init();
@@ -61,6 +63,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/accesibility" element={<AccessibilityDeclaration />} />
+            <Route path="/conditions" element={<Terms />} />
        
             <Route path="/about" element={<AboutPage />} />
             <Route path="/posts" element={<Posts />} />

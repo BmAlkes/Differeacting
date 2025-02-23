@@ -17,10 +17,11 @@ const footerSections = [
   {
     title: "About Us",
     links: [
-      { name: "Who We Are", href: "/about" },
-      { name: "Our Projects", href: "/projects" },
-      { name: "Services", href: "/services" },
-      { name: "Contact", href: "/about" }
+      { name: "מי אנחנו", href: "/about" },
+      { name: "פרויקטים", href: "/projects" },
+      { name: "קשר", href: "/contact" },
+      {name:"הצהרת נגישות", href:"/accesibility"},
+      {name:"תקנון אתר",href:"/conditions"}
     ]
   },
   {
