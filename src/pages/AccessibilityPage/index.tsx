@@ -168,7 +168,7 @@ const AccessibilityDeclaration = () => {
                 אם נתקלתם בבעיה כלשהי בזמן הגלישה באתר, נשמח לעמוד לרשותכם ולעשות את כל הנדרש כדי למצוא פתרון.
               </p>
               <div className="space-y-4">
-                {contactInfo.map((info, index) => (
+                {contactInfo.map((info, _index) => (
                   <motion.a
                     key={info.title}
                     href={info.href}
