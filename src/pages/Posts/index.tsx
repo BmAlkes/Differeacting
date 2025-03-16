@@ -37,12 +37,15 @@ const BlogListing = () => {
     queryFn: async () => {
       try {
         const posts = await getAllPosts();
-        return posts || []; // Garante que retorne um array vazio caso posts seja undefined
+        return posts || [];
       } catch (error) {
         console.error("Erro ao buscar posts:", error);
-        return []; // Em caso de erro, retorna um array vazio
+        return [];
       }
     },
+    staleTime: 300000, // 5 minutos antes de considerar os dados desatualizados // Cache por 1 hora
+    retry: 2, // Limitar tentativas de retry
+    refetchOnWindowFocus: false // Evitar refetch desnecessário
   });
 
 
