@@ -230,6 +230,17 @@ const Projects = () => {
         live: "https://lightgoldenrodyellow-monkey-277145.hostingersite.com/",
       }
     },
+    {
+      id: "19",
+      title: "Casa Central",
+      description: "Real State Web Application",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1742229795/Screenshot_32_r2p6rd.png",
+      technologies: ["MERN stack" ,"MongoDB", "Express.js", "React", "Node.js"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://casa-central.vercel.app/",
+      }
+    },
   ];
   // Categories
   const categories = [
