@@ -36,7 +36,7 @@ const RequestNewCodeView = () => {
     <div className=" w-full h-svh  ">
       <div className="bg-[#030b0e] container w-full h-full flex flex-col gap-10 items-center justify-center">
         <img
-          src="https://res.cloudinary.com/landingpage2/image/upload/v1715794760/Logo_Horizontal_C_2_ducktr.png"
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1739727604/5000x5000-3-removebg-preview_qvlhb9.webp"
           alt=""
           className="w-[600px] mb-11"
         />
