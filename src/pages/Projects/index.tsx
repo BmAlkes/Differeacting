@@ -236,9 +236,20 @@ const Projects = () => {
       description: "Real State Web Application",
       image: "https://res.cloudinary.com/landingpage2/image/upload/v1742229795/Screenshot_32_r2p6rd.png",
       technologies: ["MERN stack" ,"MongoDB", "Express.js", "React", "Node.js"],
-      category: "WordPress/Elementor",
+      category: "React",
       links: {
         live: "https://casa-central.vercel.app/",
+      }
+    },
+    {
+      id: "20",
+      title: "Hair-Port",
+      description: "Eccomerce for Cosmetics",
+      image: "https://res.cloudinary.com/landingpage2/image/upload/v1743591000/Screenshot_33_d8ycyc.webp",
+      technologies: ["WordPress", "Elementor", "WooCommerce"],
+      category: "WordPress/Elementor",
+      links: {
+        live: "https://www.hairport.co.il",
       }
     },
   ];
